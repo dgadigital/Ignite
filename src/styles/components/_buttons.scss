@@ -3,3 +3,61 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+
+
+.btn {
+    padding: 10px 32px 10px 32px;
+    font-size: 16px;
+    font-family:  $font-raleway-bold;
+    border-radius: 7.4px;
+
+    &.btn-solid {
+        background-color: $link-color;
+        color: #fff;
+
+        &:hover {
+            background-color: $brand-color;
+        }
+
+        &.btn-arrow {
+            &:after {
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+
+    &.btn-arrow {
+        position: relative;
+        // padding-right: 12px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+            height: 11.28px;
+            width: 6.45px;
+            background-image: url('../assets/images/btn-arrow.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            // filter: brightness(0) invert(1);
+            transition: all 0.3s;
+        }
+
+        &:hover:after {
+            right: 8px;
+            transition: all 0.3s;
+        }
+    }
+
+    &.btn-border {
+        border: 2px solid $link-color;
+
+        &:hover {
+            border: 2px solid $brand-color;
+        }
+    }
+}

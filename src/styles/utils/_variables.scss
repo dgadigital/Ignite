@@ -5,10 +5,14 @@
 // -----------------------------------------------------------------------------
 
 /// Regular font family
-$font-opensans: 'Open Sans';
+$font-raleway-light: 'Raleway Light';
+$font-raleway-medium: 'Raleway Medium';
+$font-raleway-regular: 'Raleway Regular';
+$font-raleway-bold: 'Raleway Bold';
+$font-raleway-extrabold: 'Raleway Extra Bold';
 
 /// @type List
-$text-font-stack: $font-opensans, 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$text-font-stack: $font-raleway-regular, 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
 
 /// Code (monospace) font family
 /// @type List
@@ -16,11 +20,19 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 
 /// Copy text color
 /// @type Color
-$text-color: #222 !default;
+$text-color: #353535 !default;
 
 /// Main brand color
 /// @type Color
-$brand-color: #E50050 !default;
+$brand-color: #E15803 !default;
+$light-orange: #F5882B !default;
+
+$link-color: #F6892B !default;
+$link-hover: #DD5500 !default;
+/// Blue Color
+/// @type Color
+$dark-blue: #002890 !default;
+$light-blue: #0050CA !default;
 
 /// Light grey
 /// @type Color
@@ -28,11 +40,11 @@ $light-grey: #EDEDED !default;
 
 /// Medium grey
 /// @type Color
-$mid-grey: #999 !default;
+$mid-grey: #EAEAEA !default;
 
 /// Dark grey
 /// @type Color
-$dark-grey: #444 !default;
+$dark-grey: #353535 !default;
 
 /// Relative or absolute URL where all assets are served from
 /// @type String

@@ -8,12 +8,36 @@
  * Basic styles for links
  */
 a {
-  color: $brand-color;
+  color: $link-color;
   text-decoration: none;
 
   @include on-event {
-    color: $text-color;
+    color: $link-hover;
     text-decoration: underline;
+  }
+
+  &.underlined {
+    text-decoration: underline;
+  }
+
+  &.link-arrow {
+    position: relative;
+    padding-right: 12px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+      height: 8px;
+      width: 4.57px;
+      background-image: url('../assets/images/link-arrow.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
   }
 }
 
