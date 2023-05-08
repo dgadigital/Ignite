@@ -7,46 +7,40 @@
     }
     
 
-
     .container{
+
+        .bottom-padding{
+            padding-bottom: 94px;
+        }
+
+
         svg{
             position: absolute;
             right: 20px;
             top: 62px;
+
             max-height: 511.2px;
             max-width: 694.56px;
-        }
-
-        @media (max-width: 1440px) {
-            svg{
+            @media (max-width: 1440px) {
                 position: absolute;
                 right: 20px;
                 top: 32%;
                 max-height: 288.37px;
                 max-width: 30vw;
             }
-        }
-
-        @media (max-width: 1020px) {
-            svg{
+    
+            @media (max-width: 1020px) {
                 top: 45%;
                 height: 18vw;
             }
-        }
-        @media (max-width: 768px) {
-            svg{
+            @media (max-width: 768px) {
                 top: 52%;
                 height: 18vw;
             }
-        }
-
-        @media (max-width: 768px) {
-            svg{
+            @media (max-width: 550px) {
                 display: none;
             }
         }
-
-
                 
         .hero-sub-title {
             h2{

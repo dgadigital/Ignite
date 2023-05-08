@@ -1,0 +1,162 @@
+.lastest-jobs-section{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .jobs-container.container{
+        max-width:949px;
+        margin: auto;
+        .section-title-container{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .section-title{
+                margin-bottom: 0px;
+
+                h2{
+                    margin-bottom: 0px;
+                }
+            }
+        }
+        .jobs-row{
+            display: flex;
+            justify-content: center;
+            margin-top: 43px;
+
+        
+            .slick-list {
+                margin: 0 -27px;
+        
+                .slick-slide {
+                    margin: 0 27px;
+                }
+            }
+        
+            .job-card{
+                background-color: #ffffff;
+                padding: 43px 23px;
+        
+        
+                @media (max-width:768px) {
+                 
+                        margin-top: 20px;
+                 
+                }
+        
+                .job-category{
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #353535;
+                }
+                .job-title{
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 21px;
+                    line-height: 28px;
+                    color: #353535;
+                    margin-bottom: 45px;
+                }
+                
+                .job-details{
+                    margin-bottom: 36px;
+            
+                    .label{
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 12px;
+                        line-height: 19px;
+                        color: #0050CA;
+                        text-transform: uppercase;
+                        
+                    }
+                    .value{
+                        
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 19px;
+                        color: #353535;
+                    }
+            
+                }
+            
+                
+            }
+        
+            @media (max-width:991px) {
+                & > *:last-child {
+                    margin-top: 20px;
+                  }        
+            }
+        
+            @media (max-width:768px) {
+                & > *:last-child {
+                    margin-top: 0px;
+                  }        
+            }
+        
+        }
+        .pagination-wrapper{
+            display: flex;
+            justify-content: end;
+            gap:24px;
+            max-width:949px;
+            margin: auto;
+            margin-top: 21px;
+            
+            .page-location{
+                display: flex;
+                gap: 5px;
+                align-items: center;
+    
+                .pagetext{
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 14px;
+                    line-height: 24px;
+                    display: flex;
+                    font-feature-settings: 'pnum' on, 'lnum' on;
+                    color: #F5882B;
+                }
+            }
+    
+            .pagination-container{
+                display: flex;
+                gap:26px;
+                align-items: center;
+                
+
+                .custom-btn {
+                    background: none!important;
+                    border: none!important;
+                    
+                }
+                .slick-dots{
+                    list-style: none;
+                    display: none;
+                }
+                .slick-arrow {
+                    display: none;                
+                  }
+                .slick-prev{
+                    .slick-arrow{
+                        display: none;
+                }
+                .slick-next{
+                    .slick-arrow{
+                        display: none;
+                    }
+                }
+                .slick-dots{
+                    display: none;
+                }
+                
+
+                 
+            }
+            
+            }
+    }
+}
+}
