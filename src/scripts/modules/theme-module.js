@@ -103,14 +103,16 @@ AppName.Modules.ThemeModule = (function () {
                   breakpoint: 768,
                   settings: {
                       slidesToShow: 2,
-                      slidesToScroll: 2
+                      slidesToScroll: 2,
+                      dots: false
                   }
               },
               {
                   breakpoint: 550,
                   settings: {
                       slidesToShow: 1,
-                      slidesToScroll: 1
+                      slidesToScroll: 1,
+                      dots: false
                   }
               }
           ]

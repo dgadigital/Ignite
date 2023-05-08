@@ -11,6 +11,11 @@
 .icons-container.container{
     max-width:949px;
 
+    @media (max-width: 550px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
 
     .section-title{
 
@@ -121,12 +126,14 @@
                 margin: auto;
                 @media (max-width:768px){
                     min-width: 0;
+                    
                 }
             }
 
             @media (max-width:768px){
                 max-width:167.87px;
-                margin-bottom: 10px;
+                min-width: 139px;
+                width: 50%;
                 padding: 10px;
             }
             
@@ -138,8 +145,10 @@
         margin: auto;
 
         .item{
-            max-width: 25%;
+
             padding: 10px;
+            max-width: 25%;
+            
     
             .icon-box-wrapper{
                 margin: auto;
@@ -150,7 +159,8 @@
     
             @media (max-width:768px){
                 max-width:167.87px;
-                margin-bottom: 10px;
+                min-width: 139px;
+                width: 50%;
                 padding: 10px;
             }
             
@@ -177,7 +187,8 @@
 
         @media (max-width:768px){
             max-width:167.87px;
-            margin-bottom: 10px;
+            min-width: 139px;
+            width: 50%;
             padding: 10px;
         }
         
