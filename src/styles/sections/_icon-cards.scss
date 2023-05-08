@@ -1,0 +1,228 @@
+ .icons-section {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5vw;
+    @media (max-width: 550px) {
+        background-image: none!important;
+    }
+}
+ 
+.icons-container.container{
+    max-width:949px;
+
+    @media (max-width: 550px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    .section-title{
+
+        display: flex;
+        justify-content: center;
+
+        margin-bottom:7px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 57px;
+        text-align: center;
+        letter-spacing: 0.817857px;
+        color: #353535;
+        
+
+
+    }
+
+
+    .section-description{
+        margin-bottom:28px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: center;
+        color: #000000;
+        
+    }
+
+    
+    .icons-row{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .item {
+            position: relative;
+
+            .icon-box-wrapper {
+                &:hover{
+                    text-decoration: none;
+                }
+                img{
+                    max-height:47px;
+                    width: fit-content;
+                  }
+            
+                  .icon-title{
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 19px;
+                    text-align: center;
+                    color: #353535;
+                    max-width:82%;
+                    text-decoration: none;
+                }
+              }
+        
+            &:hover::before {
+            
+            content: "";
+            position: absolute;
+            margin: -20px -26px;
+            width: 143px;
+            height: 106px;
+            z-index: 5;
+            background-image: url('../assets/images/blue_spark.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            }
+
+
+            &:hover {
+            > .icon-box-wrapper {
+                background-color: #f6892b;
+                
+                img {
+                -webkit-filter: brightness(0) invert(1);
+                filter: brightness(0) invert(1);
+                }
+                
+                .icon-title {
+                color: #fff;
+                
+                }
+            }
+            }
+        }
+
+    }
+
+    .column-5{
+        max-width: 948.75px;
+        display: flex;
+        flex-wrap: wrap;
+        .item{
+            
+            padding: 10px;
+            max-width: 20%;
+
+            .icon-box-wrapper{
+                
+                margin: auto;
+                @media (max-width:768px){
+                    min-width: 0;
+                    
+                }
+            }
+
+            @media (max-width:768px){
+                max-width:167.87px;
+                min-width: 139px;
+                width: 50%;
+                padding: 10px;
+            }
+            
+        }
+    }
+
+    .column-4{
+        max-width: 749.05px;
+        margin: auto;
+
+        .item{
+
+            padding: 10px;
+            max-width: 25%;
+            
+    
+            .icon-box-wrapper{
+                margin: auto;
+                @media (max-width:768px){
+                    min-width: 0;
+                }
+            }
+    
+            @media (max-width:768px){
+                max-width:167.87px;
+                min-width: 139px;
+                width: 50%;
+                padding: 10px;
+            }
+            
+        }
+
+
+  } 
+
+    .threeb {
+    gap: 30px;
+    margin: auto;
+
+    .item{
+        max-width: 25%;
+        padding: 10px;
+
+        .icon-box-wrapper{
+            margin: auto;
+            max-width:167.87px;
+            @media (max-width:768px){
+                min-width: 0;
+            }
+        }
+
+        @media (max-width:768px){
+            max-width:167.87px;
+            min-width: 139px;
+            width: 50%;
+            padding: 10px;
+        }
+        
+    }
+
+
+    }
+}
+
+
+.icon-box-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;    
+    gap:21px;
+    
+    min-width:167.87px;
+    min-height:164.67px;
+    
+    background:#ffffff;
+    border: 1px solid #F0F0F0;    
+}
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  

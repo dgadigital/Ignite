@@ -36,3 +36,12 @@
 // 7. Themes
 @import
   'themes/default';
+
+// 8. Sections
+@import
+  'sections/hero-banner',
+  'sections/find-job',
+  'sections/icon-cards',
+  'sections/job-cards',
+  'sections/logo-carousel',
+  'sections/two-column-round-image';
