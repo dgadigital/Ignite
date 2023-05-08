@@ -7,3 +7,58 @@ body {
   color: $text-color;
   font: normal 14px / 1.4 $text-font-stack;
 }
+
+
+h1 {
+  font-size: 65px;
+  font-family: $font-raleway-regular;
+  color: #fff;
+
+  @media (max-width: 1199px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 991px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 30px;
+  }
+
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 35px;
+  font-family: $font-raleway-regular;
+
+  span {
+    position: relative;
+
+    &:after {
+      content: url('../../assets/images/title-underline.png');
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
+  &.underline-left span:after {
+    left: 0;
+    transform: initial;
+  }
+
+  &.no-underline span:after {
+    content: '';
+  }
+
+  @media (max-width: 991px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+  }
+}

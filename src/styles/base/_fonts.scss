@@ -7,5 +7,6 @@
 @include font-face($font-raleway-light, $base-url + 'fonts/', 'Raleway-Light', 'Raleway-Light');
 @include font-face($font-raleway-medium, $base-url + 'fonts/', 'Raleway-Medium', 'Raleway-Medium');
 @include font-face($font-raleway-regular, $base-url + 'fonts/', 'Raleway-Regular', 'Raleway-Regular');
+@include font-face($font-raleway-semibold, $base-url + 'fonts/', 'Raleway-SemiBold', 'Raleway-SemiBold');
 @include font-face($font-raleway-bold, $base-url + 'fonts/', 'Raleway-Bold', 'Raleway-Bold');
 @include font-face($font-raleway-extrabold, $base-url + 'fonts/', 'Raleway-ExtraBold', 'Raleway-ExtraBold');

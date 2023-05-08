@@ -1,0 +1,315 @@
+//////////////////////
+// Globals
+//////////////////////
+
+input.form-control,
+select.form-control,
+textarea.form-control {
+    padding: 10px 10px;
+    color: #999999;
+    font-size: 13px;
+    background-color: #fff;
+    // border-color: #fff;
+    border-radius: 0;
+    appearance: none;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.no-border {
+    border-color: #fff;
+}
+
+.grey-field {
+    background-color: #F9F9F9 !important;
+}
+
+select.form-control {
+    padding-right: 38px;
+    background-image: url('./../../assets/images/select-drop.png');
+    background-repeat: no-repeat;
+    background-position: right 13px bottom 15px;
+    background-size: 12px 7.5px;
+}
+
+//////////////////////
+//Search by keyword
+//////////////////////
+
+input.search-by-keyword {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 13px;
+    font-family: $font-raleway-medium;
+    background: #fff;
+    border: 1px solid #979797;
+    border-radius: 10px;
+}
+
+//////////////////////
+//Search and find-jobs
+//////////////////////
+
+input.find-job,
+select.find-job-location,
+input.search-jobs {
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 13px;
+    font-family: $font-raleway-medium;
+    background: #fff;
+    border: 1px solid #979797;
+    border-radius: 10px;
+}
+
+input.find-job::-webkit-input-placeholder,
+input.search-by-keyword::-webkit-input-placeholder {
+    color: #DADADA;
+    font-family: $font-raleway-medium;
+}
+
+input.find-job::-moz-placeholder,
+input.search-by-keyword::-moz-placeholder  {
+    color: #DADADA;
+    font-family: $font-raleway-medium;
+}
+
+input.find-job::-ms-placeholder,
+input.search-by-keyword::-ms-placeholder {
+    color: #DADADA;
+    font-family: $font-raleway-medium;
+}
+
+input.find-job::placeholder,
+input.search-by-keyword::placeholder {
+    color: #DADADA;
+    font-family: $font-raleway-medium;
+}
+
+select {
+    width: 100%;
+
+    &.find-job-location {
+        height: 47.5px !important;
+        color: #DADADA;
+        font-family: $font-raleway-medium;
+        appearance: none;
+    
+        &:focus {
+            box-shadow: none;
+        }
+
+        option:not(:first-of-type) {
+            color: $text-color;
+        }
+    }
+}
+
+.find-job-field,
+.find-job-location,
+.search-job-field {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+        z-index: 1;
+    }
+}
+
+.find-job-field {
+    &:before {
+        content: url('./../../assets/images/find-job.png');
+        width: 18.58px;
+        height: 18.58px;
+    }
+}
+
+.find-job-location {
+    &:before {
+        content: url('./../../assets/images/job-location.png');
+        width: 18.58px;
+        height: 21.58px;
+    }
+}
+
+.search-job-field {    
+    &:before {
+        content: url('./../../assets/images/search-footer.png');
+        width: 20px;
+        height: 20px;
+    }
+
+    .search-jobs {
+        font-size: 14px;
+    }
+}
+
+input.search-jobs::-webkit-input-placeholder {
+    color: $text-color;
+    font-family: $font-raleway-semibold;
+}
+
+input.search-jobs::-moz-placeholder {
+    color: $text-color;
+    font-family: $font-raleway-semibold;
+}
+
+input.search-jobs::-ms-placeholder {
+    color: $text-color;
+    font-family: $font-raleway-semibold;
+}
+
+input.search-jobs::placeholder {
+    color: $text-color;
+    font-family: $font-raleway-semibold;
+}
+
+
+////////////////////////////
+// Contact Form 7 - Checkbox
+////////////////////////////
+
+.wpcf7-checkbox {
+    &.v1 {
+        .wpcf7-list-item input[type=checkbox] + span:before {
+            top: 0px;
+            height: 20px;
+            width: 20px;
+            border: 2px solid #D9D9D9;
+            border-radius: 3px;
+        }
+
+        .wpcf7-list-item input[type=checkbox] + span:after {
+            top: 5px;
+            left: 5px;
+            height: 10px;
+            width: 10px;
+        }
+
+        .wpcf7-list-item-label {
+            padding-left: 15px;
+        }
+    }
+
+    &.v2 {
+        .wpcf7-list-item input[type=checkbox] + span:before {
+            top: 2px;
+            height: 14px;
+            width: 14px;
+            border: 1px solid #D9D9D9;
+        }
+
+        .wpcf7-list-item input[type=checkbox] + span:after {
+            top: 4px;
+            height: 10px;
+            width: 10px;
+        }
+
+        .wpcf7-list-item-label {
+            padding-left: 10px;
+        }
+    }
+
+    .wpcf7-list-item label {
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .wpcf7-list-item input[type=checkbox] {
+        position: relative;
+        visibility: hidden;
+    }
+    
+    .wpcf7-list-item input[type=checkbox] + span:before {
+        position: absolute;
+        display: block;
+        content: '';
+        border-radius: 0;
+        background-color: #fff;
+    }
+    
+    .wpcf7-list-item input[type=checkbox] + span:after {
+        position: absolute;
+        left: 2px;
+        display: block;
+        visibility: hidden;
+        content: '';
+        font-size: 14px;
+        background-color: #0046B5;
+        border-radius: 2px;
+    }
+    
+    .wpcf7-list-item input[type=checkbox]:checked + span:before {
+        background: transparent;
+    }
+    
+    .wpcf7-list-item input[type=checkbox]:checked + span:after {
+        visibility: visible;
+    }
+}
+
+/////////////////////////////////
+// Contact Form 7 - Radio Button
+/////////////////////////////////
+
+.wpcf7-radio {
+
+    .wpcf7-list-item-label {
+        padding-left: 15px;
+    }
+
+    label {
+        position: relative;
+        cursor: pointer;
+    }
+
+    input[type=radio] {
+        position: relative;
+        visibility: hidden;
+    }
+
+    input[type=radio] + span:before {
+        display: block;
+        position: absolute;
+        content: '';
+        border-radius: 100%;
+
+        top: 0px;
+        height: 20px;
+        width: 20px;
+        border: 2px solid #D9D9D9;
+        border-radius: 3px;
+    }
+
+    input[type=radio] + span:after {
+        display: block;
+        position: absolute;
+        content: '';
+        visibility: hidden;
+
+        top: 5px;
+        left: 5px;
+        height: 10px;
+        width: 10px;
+        border-radius: 2px;
+    }
+
+    input[type=radio]:checked + span:before {
+        background: transparent;
+    }
+
+    input[type=radio]:checked + span:after {
+        background-color: #0046B5;
+        visibility: visible;
+    }
+}
