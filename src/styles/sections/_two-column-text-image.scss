@@ -1,0 +1,44 @@
+.two-column-text-image{
+    .container{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        &>div{
+            flex-grow: 1;
+            &:first-child{
+                flex-basis: 30.33%;
+                text-align: center;
+            }
+            &:last-child{
+                flex-basis: 62.67%;
+            }
+            img{
+                object-fit: cover;
+                width: 100%;
+            }
+            @media (max-width: 991px){
+                flex-basis: 100% !important;
+                padding: 0 25px;
+            }
+        }
+    }
+    &.without-title{
+        h2{
+            display: none;
+        }
+    }
+    &.without-button{
+        .button-wrapper{
+            padding-top: 20px;
+            a.btn{
+                display: none;
+            }
+        }
+    }
+    &.reverse{
+        .container{
+            flex-direction: row-reverse;
+        }
+    }
+}

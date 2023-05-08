@@ -119,6 +119,20 @@ AppName.Modules.ThemeModule = (function () {
         });
     }
 
+  var _faq_accordion = function(){
+    $('.faq-accordion-section .content-wrapper').each(function(e){
+      ++e;
+      $(this).click(function(){
+        if($(this).hasClass('active')){
+          $(this).removeClass('active');
+        }
+        else{
+          $(this).addClass('active');
+        }
+      });
+    });
+  }
+
   /////////////////////
   // Public Methods //
   ///////////////////
@@ -126,6 +140,7 @@ AppName.Modules.ThemeModule = (function () {
     _privateMethod();
     _latestJobs();
     _logocarousel();
+    _faq_accordion();
   };
 
   return {
