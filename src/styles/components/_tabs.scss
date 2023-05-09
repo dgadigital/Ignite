@@ -1,0 +1,96 @@
+.tab-menu{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    &:not(.side-tabs) li{
+        flex-basis: 15.66%;
+        flex-grow: 1;
+        margin: .5%;
+        padding: 10px;
+        border-radius: 6px;
+        list-style: none;
+        background-color: #DADADA;
+        font-weight: 800;
+        transition: .3s all;
+        cursor: pointer;
+        a{
+            color: #000;
+            transition: .1s all;
+            text-decoration: none;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+        &:hover{
+            a{
+                color: #fff;
+            }
+        }
+        &.active{
+            a{
+                color: #fff;
+            }
+        }
+    }
+    &.side-tabs{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        li{
+            position: relative;
+            padding: 14px;
+            text-align: left;
+            list-style: none;
+            transition: .3s all;
+            cursor: pointer;
+            a{
+                color: #000;
+                transition: .1s all;
+                text-decoration: none;
+                font-weight: 800;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+            &:after{
+                content: url(../assets/images/side-tabs-arrow-orange.png);
+                position: absolute;
+                right: 10px;
+            }
+            &:hover{
+                a{
+                    color: #fff;
+                }
+                &:after{
+                    content: url(../assets/images/side-tabs-arrow-white.png);
+                }
+            }
+            &.active{
+                a{
+                    color: #fff;
+                }
+                &:after{
+                    content: url(../assets/images/side-tabs-arrow-white.png);
+                }
+            }
+        }
+    }
+    &.orange{
+        li{
+            &:hover{
+                background-color: $light-orange;
+            }
+            &.active{
+                background-color: $light-orange;
+            }
+        }
+    }
+}
+.tab-content{
+    &>div{
+        display: none;
+        &.active-tab{
+            display: block;
+        }
+    }
+}

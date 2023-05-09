@@ -1,10 +1,10 @@
 .faq-accordion-section{
     padding-top: 100px;
     padding-bottom: 100px;
-        .content-wrapper{
-            border-bottom: 1px solid #DADADA;
+        .accordion{
+            border-bottom: 2px solid #DADADA;
             position: relative;
-            padding: 20px;
+            padding: 24px 64px 20px 24px;
             cursor: pointer;
             .accordion-title{
                 margin-bottom: 0;
@@ -23,13 +23,18 @@
                 }
             }
             &:after {
-                content: '\002B';
+                content: url(../assets/images/faq-plus.png);
                 font-size: 65px;
                 font-weight: 100;
                 color: #f5882b;
                 position: absolute;
                 right: 20px;
                 top: -14px;
+                transition: .3s all;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             &.active{
                 .panel{
@@ -38,10 +43,10 @@
                     opacity: 1;
                 }
                 &:after {
-                    content: "\2212";
+                    content: url(../assets/images/faq-minus.png);
                 }
             }
         }
-  }
+}
   
   

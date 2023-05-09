@@ -32,3 +32,15 @@
   position: absolute;
   width: 1px;
 }
+
+.box-shadow{
+  box-shadow: 0px 25px 31px 0px rgba(0,0,0,.1);
+}
+
+.blue-bg-vector{
+  background-color: #ECF4FF;
+  background-image: url('../assets/images/blue-bg-vector.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

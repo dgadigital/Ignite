@@ -31,6 +31,7 @@
     &.without-button{
         .button-wrapper{
             padding-top: 20px;
+            display: none;
             a.btn{
                 display: none;
             }
