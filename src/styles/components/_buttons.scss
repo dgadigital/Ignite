@@ -8,7 +8,7 @@
 .btn {
     padding: 10px 32px 10px 32px;
     font-size: 16px;
-    font-family:  $font-raleway-bold;
+    font-family:  $font-raleway-semibold;
     border-radius: 7.4px;
 
     &.btn-solid {
@@ -58,6 +58,22 @@
 
         &:hover {
             border: 2px solid $brand-color;
+        }
+    }
+
+    &.btn-linkedin {
+        position: relative;
+        padding-right: 120px;
+        padding-left: 18px;
+
+        &:after {
+            content: url('./../../assets/images/btn-linkedin.png');
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            display: block;
+            height: 23.57px;
+            transform: translateY(-50%);
         }
     }
 }
