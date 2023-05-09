@@ -1,0 +1,42 @@
+.two-column-side-tabs{
+    .side-tabs-container{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
+        &>div{
+            flex-grow: 1;
+            background-color: #fff;
+            &:first-child{
+                flex-basis: 29%;
+            }
+            &:last-child{
+                flex-basis: 69%;
+            }
+            @media(max-width: 991px){
+                flex-basis: 100%;
+            }
+        }
+        .content-wrapper{
+            padding: 30px;
+            .reports-wrapper{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2%;
+                .reports{
+                    flex-basis: 23.5%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    @media(max-width: 680px){
+                        flex-basis: 49%;
+                    }
+                    img{
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

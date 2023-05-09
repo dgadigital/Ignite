@@ -120,7 +120,7 @@ AppName.Modules.ThemeModule = (function () {
     }
 
   var _faq_accordion = function(){
-    $('.faq-accordion-section .content-wrapper').each(function(e){
+    $('.faq-accordion-section .accordion').each(function(e){
       ++e;
       $(this).click(function(){
         if($(this).hasClass('active')){
@@ -133,6 +133,24 @@ AppName.Modules.ThemeModule = (function () {
     });
   }
 
+  var _tabs = function () {
+    // add click event to tabs
+    $('.tab-menu li').on('click', function() {
+      if ($(this).data('title')) { // check if the tab is a title
+        return; // do nothing if it's a title
+      }
+      // remove active class from all tabs
+      $('.tab-menu li').removeClass('active');
+      // add active class to clicked tab
+      $(this).addClass('active');
+      // hide all tab contents
+      $('.tab-content div').removeClass('active-tab');
+      // show corresponding tab content
+      $($(this).find('a').attr('href')).addClass('active-tab');
+      return false; // prevent default link behavior
+    });
+  };
+
   /////////////////////
   // Public Methods //
   ///////////////////
@@ -141,6 +159,7 @@ AppName.Modules.ThemeModule = (function () {
     _latestJobs();
     _logocarousel();
     _faq_accordion();
+    _tabs();
   };
 
   return {
