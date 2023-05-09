@@ -1,5 +1,86 @@
-//main: ../main.scss
+footer {
+    background-color: #fbfbfb;
 
-// -----------------------------------------------------------------------------
-// This file contains all styles related to the footer of the site/application.
-// -----------------------------------------------------------------------------
+    .footer-upper {
+        padding-top: 30px;
+        padding-bottom: 20px;
+
+        &-wrapper {
+            display: flex;
+            align-items: center;
+    
+            .footer-logo {
+                width: 40%;
+            }
+    
+            .footer-search {
+                width: 50%;
+            }
+        }
+    }
+
+
+    .footer-misc {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: #0046B5;
+
+        &-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+
+            .item {
+                &:first-child {
+                    padding-right: 40px;
+                }
+
+                a {
+                    color: #fff;
+                    font-family: $font-raleway-semibold;
+                    
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                span {
+                    padding-left: 5px;
+                }
+            }
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+
+            .btn {
+
+                &:first-child {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+
+    .footer-copyright {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        p {
+            margin: 0;
+            font-family: $font-raleway-semibold;
+        }
+
+        a {
+            padding-left: 5px;
+            padding-right: 5px;
+            color: $text-color;
+            text-decoration: underline;
+        }
+    }
+}
