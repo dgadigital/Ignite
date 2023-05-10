@@ -1,0 +1,77 @@
+.sticky-side-widgets{
+    display: flex;
+    position: absolute;
+    top: 35%;
+    a.widget{
+        position: fixed;
+        right: -80px;
+        z-index: 9999;
+        transform: rotate(-90deg) scaleX(1);
+        display: block;
+        width: 160px;
+        padding: 20px;
+        text-align: center;
+        background: linear-gradient(#f6892b 10%,#DD5500 90%);
+        color: #fff;
+        border-radius: 20px 20px 0 0;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0 10px;
+        height: 100px;
+        &:first-child{
+            top: 490px;
+            &:hover{
+                right: -70px;
+            }
+        }
+        &:last-child{
+            top: 310px;
+            &:hover{
+                right: -70px;
+            }
+        }
+        @media(max-width: 991px){
+            transform: unset;
+            bottom: -50px;
+            right: 0;
+            &:first-child{
+                right: 180px;
+                top: unset;
+                &:hover{
+                    bottom: -30px;
+                    right: 180px;
+                }
+            }
+            &:last-child{
+                right: 0px;
+                top: unset;
+                &:hover{
+                    bottom: -30px;
+                    right: 0px;
+                }
+            }
+        }
+        @media(max-width: 680px){
+            font-size: 12px;
+            padding: 15px 10px;
+            width: 120px;
+            bottom: -60px;
+            &:first-child{
+                right: 135px;
+                top: unset;
+                &:hover{
+                    bottom: -40px;
+                    right: 135px;
+                }
+            }
+            &:last-child{
+                right: 0px;
+                top: unset;
+                &:hover{
+                    bottom: -40px;
+                    right: 0px;
+                }
+            }
+        }
+    }
+}

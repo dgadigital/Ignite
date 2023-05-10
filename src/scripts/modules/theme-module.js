@@ -178,6 +178,26 @@ AppName.Modules.ThemeModule = (function () {
     });
   };
 
+  var _search_filter = function(){
+        
+		$("#filter-dropdown-category").select2({
+			closeOnSelect : false,
+			placeholder : "  Filter By Category",
+			allowHtml: true,
+			allowClear: true,
+			tags: true 
+		});
+
+        $('#filter-dropdown-category').on('select2:select', function (e) {
+            var selectedCategory  = $('#filter-dropdown-category').val();
+            console.log(selectedCategory)
+        });
+        $('#filter-dropdown-category').on('select2:unselect', function (e) {
+            var selectedCategory  = $('#filter-dropdown-category').val();
+            console.log(selectedCategory)
+        });
+  }
+
   /////////////////////
   // Public Methods //
   ///////////////////
@@ -188,6 +208,7 @@ AppName.Modules.ThemeModule = (function () {
     _faq_accordion();
     _tabs();
     __peoplecarousel();
+    _search_filter();
   };
 
   return {
