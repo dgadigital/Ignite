@@ -1,0 +1,31 @@
+.find-out-more{
+    
+    .container{
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+
+            .content-container{
+                flex: 1;
+                padding: 10px 20px;
+                text-align: center;
+
+                .text-wrapper{
+                    display: flex;
+                    align-items: center;
+                    min-height: 100px;
+                    
+                    .description{
+                        line-height: 25px;
+                        max-width: 230px;
+                        margin: 10px auto;
+                        color: #000;
+                    }
+                    @media (max-width: 767px){
+                        min-height: 120px;
+                    }
+                }
+            }
+        }
+    }
+}

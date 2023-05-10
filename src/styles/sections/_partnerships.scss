@@ -1,0 +1,63 @@
+.partnerships{
+
+    .content-container{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 60px 0px;
+        gap: 50px;
+
+        &:first-of-type {
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        h4{
+            font-weight: 600;
+            padding: 10px 0px;
+        }
+
+        div{
+            flex-grow: 1;
+            padding: 0 10px;
+        }
+
+        .text-container{
+            flex-basis: 50%;    
+
+            p{
+                color: #000;
+            }
+        }  
+
+        .image-container{
+            flex-basis: 20%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .image-container{
+                flex: 1;
+                justify-content: center;
+                min-width: 100px;
+
+                img{
+                    object-fit: contain;
+                    padding-bottom: 10px;
+                }
+            }
+            
+            @media (max-width: 991px){
+                flex-basis: 100%;
+            } 
+        }
+
+        &.border-bottom{
+            border-bottom: 3px solid #DADADA !important;
+        }
+        
+        @media (max-width: 991px){
+            padding: 30px 0px;
+            gap: 0;
+        }
+    }
+
+}
