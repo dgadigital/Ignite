@@ -1,0 +1,28 @@
+.two-column-title-card{
+    .container{
+        .content{
+            display: flex;
+            gap: 80px;
+            >div{
+                flex-grow: 1;
+                &.text-wrapper{
+                    flex-basis: 46%;
+                    
+                }
+                &.card-wrapper{
+                    flex-basis: 46%;
+                    background-color: #fff;
+                    .card-title-wrapper {
+                        padding: 40px 40px 10px 40px;
+                    }
+                    img{
+                        width: 100%;
+                    }
+                    .content-wrapper{
+                        padding: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

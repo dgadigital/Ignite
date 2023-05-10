@@ -46,5 +46,28 @@
   background-image: url('../assets/images/blue-bg-vector.png');
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
+}
+
+.load-more{
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.link-arrow-down{
+  position: relative;
+  padding-right: 12px;
+  &:after{
+    content: '';
+    position: absolute;
+    right: -9px;
+    top: 34%;
+    display: block;
+    height: 8px;
+    width: 12px;
+    background-image: url(../assets/images/link-arrow-down.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
 }

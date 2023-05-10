@@ -121,3 +121,9 @@ img {
 section {
   padding: 70px 0;
 }
+
+@media (min-width: 1200px){
+  .container {
+    max-width: 949px;
+  }
+}
