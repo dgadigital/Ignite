@@ -1,0 +1,86 @@
+.home-about{
+    .home-about-container{
+        max-width: 949px;
+        .section-title{
+            display: flex;
+            justify-content: center;
+            
+        }
+        .home-about-row{
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                
+            
+            .column-container{
+                // min-width: calc(100%/6);
+                display: flex;
+                justify-content: center;
+                padding: 0 14px;
+                
+                .column-image-container{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                }
+
+                .column-number-container{
+
+                    
+                    .column-number{
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 88px;
+                        text-align: center;
+                        color: #0046B5;
+                        
+                    }
+                    .column-text{
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 17px;
+                        text-align: center;
+                        color: #353535;
+
+                    }
+
+                    .percent{
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-end;
+
+                        height: fit-content;
+                        width: fit-content;
+                        margin: auto;
+
+
+                        &:after{
+                            content: '';
+                            
+
+                            transform: translateY(-50%);
+                            display: block;
+                            height: 22px;
+                            width: 22px;
+                            background-image: url('../assets/images/percent.png');
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: cover;
+                            // content: url('../assets/images/percent.png');
+                        }
+
+                    }
+                    
+
+                }
+                
+            }
+        }
+        .section-image{
+            margin-top: -60px;
+        }
+
+    }
+}   

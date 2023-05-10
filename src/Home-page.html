@@ -73,7 +73,7 @@
 
   
 
-    <section class="hero-banner d-flex justify-content-center align-items-center" style="background: linear-gradient(0deg, rgba(0, 40, 144, 0.54), rgba(0, 40, 144, 0.54)), linear-gradient(90.09deg, #FFFFFF -5.41%, rgba(255, 255, 255, 0) 2.91%, rgba(255, 255, 255, 0) 11.41%, #FFFFFF 50vw), url('./assets/images/Contract_Recruitment.png');">  
+    <section class="hero-banner d-flex justify-content-center align-items-center" style=" background-image: url('./assets/images/homebanner.png');">  
         <div class="container">
             <div class="text-center bottom-padding"><!-- if values for hero-desc and link for the button doesnt have value  add class "bottom-padding"-->
                 <div class="hero-sub-title">
@@ -89,9 +89,10 @@
                     <a href="/" class="btn btn-solid">Request Staff</a>
                 </div> -->
             </div>
-            <svg viewBox="0 0 696 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M456.739 511.642C454.772 507.805 452.711 504.006 450.838 500.132C418.412 432.783 386.023 365.435 353.616 298.087C342.19 274.352 324.862 267.957 300.585 278.452C203.888 320.335 107.172 362.219 10.4752 404.084C7.51544 405.363 4.44331 406.416 0.640625 405.57C4.96782 403.369 9.25756 401.056 13.641 398.968C107.565 354.621 201.49 310.274 295.415 265.945C319.317 254.661 325.948 237.716 315.908 213.022C288.839 146.426 261.715 79.8294 234.628 13.2332C233.017 9.30251 231.518 5.31539 231.818 0.444336C234.028 4.60072 236.389 8.70068 238.43 12.9511C269.414 77.5161 300.36 142.081 331.325 206.665C342.639 230.287 359.348 236.644 383.363 226.3C484.182 182.893 584.962 139.448 685.762 96.0224C688.515 94.8375 691.344 93.7843 695.203 94.6118C692.224 96.1916 689.302 97.8843 686.249 99.3136C587.697 145.579 489.164 191.845 390.594 238.035C364.8 250.109 358.543 266.227 369.427 292.689C397.506 360.921 425.512 429.191 453.498 497.442C455.277 501.768 456.776 506.188 458.424 510.551C457.862 510.908 457.282 511.266 456.72 511.623L456.739 511.642Z" fill="white"/>
-            </svg>
+            
         </div>
+        <svg viewBox="0 0 696 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M456.739 511.642C454.772 507.805 452.711 504.006 450.838 500.132C418.412 432.783 386.023 365.435 353.616 298.087C342.19 274.352 324.862 267.957 300.585 278.452C203.888 320.335 107.172 362.219 10.4752 404.084C7.51544 405.363 4.44331 406.416 0.640625 405.57C4.96782 403.369 9.25756 401.056 13.641 398.968C107.565 354.621 201.49 310.274 295.415 265.945C319.317 254.661 325.948 237.716 315.908 213.022C288.839 146.426 261.715 79.8294 234.628 13.2332C233.017 9.30251 231.518 5.31539 231.818 0.444336C234.028 4.60072 236.389 8.70068 238.43 12.9511C269.414 77.5161 300.36 142.081 331.325 206.665C342.639 230.287 359.348 236.644 383.363 226.3C484.182 182.893 584.962 139.448 685.762 96.0224C688.515 94.8375 691.344 93.7843 695.203 94.6118C692.224 96.1916 689.302 97.8843 686.249 99.3136C587.697 145.579 489.164 191.845 390.594 238.035C364.8 250.109 358.543 266.227 369.427 292.689C397.506 360.921 425.512 429.191 453.498 497.442C455.277 501.768 456.776 506.188 458.424 510.551C457.862 510.908 457.282 511.266 456.72 511.623L456.739 511.642Z" fill="white"/>
+        </svg>
 
     </section>
     <section class="find-job offset"> <!-- if on acd if true add class offset -->
@@ -100,8 +101,26 @@
                     <div class="col-lg-7 col-md-6 col-sm-12 col-12">
                         <div class="d-flex flex-column justify-content-center align-items-center p-4 content-wrapper">
                             <h2>Find your next job</h2>                            
-                            <div class="line-container" >
-                                <a href="/" class="btn btn-solid">Request Staff</a>
+                            <div class="line-container">
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-6 col-sm-6 col-12 p-1">
+                                      <div class="find-job-field">
+                                        <input type="text" class="form-control find-job" placeholder="Job Title, skills or keywords">
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-12 p-1">
+                                      <div class="find-job-location">
+                                        <select class="form-control find-job-location">
+                                          <option value="" disabled="" selected="" hidden="">Select a location</option>
+                                          <option>Philippines</option>
+                                          <option>Japan</option>
+                                          <option>Iceland</option>
+                                          <option>Antartica</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-2 col-sm-2 col-12 p-1"><button class="btn btn-search btn-solid"><span class="fa fa-search"></span></button></div>
+                                  </div>
                             </div>
                             <a href="/" class="link-arrow">See how we can help you get hired</a>
                         </div>
@@ -123,7 +142,7 @@
     <section class="two-column-round-image">
         <div class="column-container container">
             <div class="section-title">
-                <h2>Key Services</h2>
+                <h2><span>Key Services</span></h2>
             </div>
             <div class="section-description">
                 To put it simply, Ignite are in the business of supporting people and igniting their potential, We love what we do and genuinely want to make a difference in the lives we touch, be it our candidates or our clients.
@@ -155,18 +174,18 @@
             </div>
         </div>
     </section>
-    <section class="logo-carousel p-5">
+    <section class="logo-carousel">
         <div class="carousel-container container">
             <div class="section-title">
-                <h2>Australia's Businesses We Keep</h2>
+                <h2>Empowering Australia's Leading Organisations</h2>
             </div>
 
-            <div class="logo-row">
-                <div class="logo-container"><img src="./assets/images/ANZ.png"/></div>
-                <div class="logo-container"><img src="./assets/images/CALTEX.png"/></div>
-                <div class="logo-container"><img src="./assets/images/NBN.png"/></div>
+            <div class="logo-row ">
+                <div class="logo-container"><img src="./assets/images/afp.png"/></div>
                 <div class="logo-container"><img src="./assets/images/IBM.png"/></div>
-                <div class="logo-container"><img src="./assets/images/TELSTRA.png"/></div>
+                <div class="logo-container"><img src="./assets/images/WESTERNPOWER.png"/></div>
+                <div class="logo-container"><img src="./assets/images/transport-sydney-trains.png"/></div>
+                <div class="logo-container"><img src="./assets/images/telstra-whole.png"/></div>
                 <div class="logo-container"><img src="./assets/images/WESTERNPOWER.png"/></div>
                 <div class="logo-container"><img src="./assets/images/ANZ.png"/></div>
                 <div class="logo-container"><img src="./assets/images/CALTEX.png"/></div>
@@ -213,14 +232,13 @@
             </div>
         </div>
     </section>
-
-    <section class="icons-section p-5" style=" background-image: url('./assets/images/specialisation-bg.png');">
+    <section class="icons-section" style=" background-image: url('./assets/images/specialisation-bg.png');">
         <div class="icons-container container">
             <div class="section-title">
-                <h2>Our Specialisation</h2>
+                <h2><span>Our Specialisation</span></h2>
             </div>
-            <div class="section-description">We’re experts in recruitment, technology, human resources and, above all else, people. Our diversified services gives us a unique point-of-difference to enhance the business strategy of businesses through their people assets.</div>
-            <div class="icons-row column-5">
+            <div class="section-description">We’re experts in recruitment, technology, human resources and, above all else, people.<br>Our diversified services gives us a unique point-of-difference to enhance the business strategy of businesses through their people assets.</div>
+            <div class="icons-row column-5"><!--add condition to select howmany columns column-5,column-4,threeb(less than 4) -->
                 <div class="item">
                 
                 <a href="/" class="icon-box-wrapper">
@@ -290,107 +308,11 @@
         </div>
         
     </section>
-    <section class="icons-section p-5" style="background-image: url('./assets/images/specialisation-bg.png');">
-        <div class="icons-container container">
-            <div class="section-title">
-                <h2>Our Specialisation</h2>
-            </div>
-            <div class="section-description">We’re experts in recruitment, technology, human resources and, above all else, people. Our diversified services gives us a unique point-of-difference to enhance the business strategy of businesses through their people assets.</div>
-            <div class="icons-row threeb">
-                <div class="item">
-                
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Cybersecurity_Recruitment.png"/>
-                    <div class="icon-title">Cybersecurity Recruitment</div>
-                </a>
-                </div>
-                <div class="item">
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Cybersecurity_Recruitment.png"/>
-                    <div class="icon-title">Cybersecurity Recruitment</div>
-                </a>
-                </div>
-                <div class="item">
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Business Support recruitment.png"/>
-                    <div class="icon-title">Business Support recruitment</div>
-                </a>
-                </div>
-
-
-            </div>
-            <div class="d-flex justify-content-center mt-5">
-                <a href="/" class="btn btn-solid">Request Staff</a>
-            </div>
-            
-        </div>
-        
-    </section>
-    <section class="icons-section p-5" style="background-image: url('./assets/images/specialisation-bg.png');">
-        <div class="icons-container container">
-            <div class="section-title">
-                <h2>Our Specialisation</h2>
-            </div>
-            <div class="section-description">We’re experts in recruitment, technology, human resources and, above all else, people. Our diversified services gives us a unique point-of-difference to enhance the business strategy of businesses through their people assets.</div>
-            <div class="icons-row column-4">
-                <div class="item">
-                
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Cybersecurity_Recruitment.png"/>
-                    <div class="icon-title">Cybersecurity Recruitment</div>
-                </a>
-                </div>
-                <div class="item">
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Cybersecurity_Recruitment.png"/>
-                    <div class="icon-title">Cybersecurity Recruitment</div>
-                </a>
-                </div>
-                <div class="item">
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Business Support recruitment.png"/>
-                    <div class="icon-title">Business Support recruitment</div>
-                </a>
-                </div>
-                <div class="item">
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Engineering_Recruitment.png"/>
-                    <div class="icon-title">Engineering Recruitment</div>
-                </a>
-                </div>
-                <div class="item">
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Construction_Recruitment.png"/>
-                    <div class="icon-title">Construction Recruitment</div>
-                </a>
-                </div>
-                <div class="item">
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Information Management Recruitment.png"/>
-                    <div class="icon-title">Information Management Recruitment</div>
-                </a>
-                </div>
-                <div class="item">
-                <a href="/" class="icon-box-wrapper">
-                    <img src="./assets/images/Professional Service Recruitment.png"/>
-                    <div class="icon-title">Professional Service Recruitment</div>
-                </a>
-                </div>
-                
-                
-            </div>
-            <div class="d-flex justify-content-center mt-5">
-                <a href="/" class="btn btn-solid">Request Staff</a>
-            </div>
-            
-        </div>
-        
-    </section>
-    <section class="lastest-jobs-section p-5" style="background-image: url('./assets/images/bg.png');">
+    <section class="lastest-jobs-section" style="background-image: url('./assets/images/bg.png');">
     <div class="jobs-container container">
         <div class="section-title-container">
             <div class="section-title">
-                <h2>Latest Jobs</h2>
+                <h2 class="underline-left"><span>Latest Jobs</span></h2>
             </div>
             <div><a href="/" class="btn btn-border">Book a Call</a></div>
         </div>
@@ -586,8 +508,122 @@
 
     
     </section>
+    <section class="home-about">
+        <div class="home-about-container container">
+            <div class="section-title">
+                <h2><span>About Us</span></h2>
+            </div>
+            <div class="home-about-row row">
+                <div class="column-container">
+                    <div class="column-image-container"><img src="./assets/images/gptw.png"/></div>
+                </div>
+                <div class="column-container">
+                    <div class="column-number-container">
+                        <div class="column-number">40</div>                    
+                        <div class="column-text">Years of<br>History</div>
+                    </div>
+                    
+                </div>
+                <div class="column-container">
+                    <div class="column-number-container">
+                        <div class="column-number">7</div>                    
+                        <div class="column-text">Cities across<br>2 countries</div>
+                    </div>
+                    
+                </div>
+                <div class="column-container">
+                    <div class="column-number-container">
+                        <div class="column-number percent">77</div>
+                        <div class="column-text">Employment<br>Engagement Score<br>56% Female and 44%<br>male employees</div>
+                    </div>
+                    
+                </div>
+                <div class="column-container">
+                    <div class="column-number-container">
+                        <div class="column-number percent">93</div>                    
+                        <div class="column-text">When you join the<br>company, you are<br>made to feel<br>welcome.</div>
+                    </div>
+                    
+                </div>
+                <div class="column-container">
+                    <div class="column-number-container">
+                        <div class="column-number percent">90</div>
+                        <div class="column-text">When people<br>change jobs or work<br>units, they are made<br>to feel right at<br>home.</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="section-image">
+                <img src="./assets/images//home-about.png"/>
+            </div>
+            
+           
+        </div>
 
+    </section>
+    <section class="profile-carousel">
+        <div class="profile-container container">
+            
+            <div class="section-title-container">
+                <div class="section-title">
+                    <h2 class="underline-left"><span>Ignite Board & Executive Team</span></h2>
+                    <div><a href="/" class="btn btn-solid">Meet the Ignite team</a></div>
+                    
+                </div>
+                
+            </div>
 
+            <div class="profile-row">
+
+                <div class="profile-container column hover-overlay-orange">
+                    <div class="profile-wrapper">
+                        <img src="./assets/images/tim-moran.png" alt=""/>
+                        <div class="content">
+                            <h2>Tim Moran</h2>
+                            <span>Chief Executive Officer</span>
+                            <a href="/" class="link-arrow">Read more</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="profile-container column hover-overlay-orange">
+                    <div class="profile-wrapper">
+                        <img src="./assets/images/tim-moran.png" alt=""/>
+                        <div class="content">
+                            <h2>Tim Moran</h2>
+                            <span>Chief Executive Officer</span>
+                            <a href="/" class="link-arrow">Read more</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="profile-container column hover-overlay-orange">
+                    <div class="profile-wrapper">
+                        <img src="./assets/images/tim-moran.png" alt=""/>
+                        <div class="content">
+                            <h2>Tim Moran</h2>
+                            <span>Chief Executive Officer</span>
+                            <a href="/" class="link-arrow">Read more</a>
+                        </div>
+                    </div>
+                </div>                           
+            </div> 
+            </div>
+        </div>
+    </section>
+    <section class="blue-banner">
+        <div class="content-container container">
+            
+            <div class="section-title">
+                <h2>Need help looking for recruitment services?</h2>
+            </div>
+            <div class="btn-wrapper">
+                <a href="/" class="btn btn-solid">Contact Us</a>
+                <a href="/" class="btn btn-border">Request Staff</a>
+            </div>
+            
+        </div>
+    </section>
   </main>
 
   <!-- build:js scripts/about.min.js -->

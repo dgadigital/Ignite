@@ -1,5 +1,9 @@
 .hero-banner {
-    height:498.56px;
+    max-height:536.1px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
     
     @media (max-width: 550px) {
         background: #758BC3!important;
@@ -14,33 +18,7 @@
         }
 
 
-        svg{
-            position: absolute;
-            right: 20px;
-            top: 62px;
 
-            max-height: 511.2px;
-            max-width: 694.56px;
-            @media (max-width: 1440px) {
-                position: absolute;
-                right: 20px;
-                top: 32%;
-                max-height: 288.37px;
-                max-width: 30vw;
-            }
-    
-            @media (max-width: 1020px) {
-                top: 45%;
-                height: 18vw;
-            }
-            @media (max-width: 768px) {
-                top: 52%;
-                height: 18vw;
-            }
-            @media (max-width: 550px) {
-                display: none;
-            }
-        }
                 
         .hero-sub-title {
             h2{
@@ -76,6 +54,33 @@
             }
             
 
+        }
+    }
+    svg{
+        position: absolute;
+        right: 10px;
+        top: 62px;
+        max-height: 415px;
+        max-width: 600px;
+
+        @media (max-width: 1440px) {
+            position: absolute;
+            right: 20px;
+            top: 32%;
+            max-height: 288.37px;
+            max-width: 30vw;
+        }
+
+        @media (max-width: 1020px) {
+            top: 45%;
+            height: 18vw;
+        }
+        @media (max-width: 768px) {
+            top: 52%;
+            height: 18vw;
+        }
+        @media (max-width: 550px) {
+            display: none;
         }
     }
 }
