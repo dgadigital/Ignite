@@ -68,6 +68,9 @@ $border-color_3: #5897fb;
 			&::-webkit-search-cancel-button {
 				-webkit-appearance: none;
 			}
+			@media(max-width: 991px){
+				width: unset !important;
+			}
 		}
 	}
 }
@@ -616,7 +619,7 @@ $border-color_3: #5897fb;
 
 
 .select2-container {
-    min-width: 400px;
+    /* min-width: 400px; */
     }
 
     .select2-results__option {

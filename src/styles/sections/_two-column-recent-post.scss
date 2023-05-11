@@ -1,0 +1,51 @@
+.two-column-recent-post{
+    .container{
+        .content{
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            align-content: flex-start;
+            >div{
+                flex-grow: 1;
+                &.card-wrapper{
+                    flex-basis: 47.5%;
+                    flex-grow: 1;
+                    background-color: #fff;
+                    position: relative;
+                    @media(max-width: 991px){
+                        flex-basis: 100%
+                    }
+                    .card-title-wrapper {
+                        padding: 40px 40px 10px 40px;
+                    }
+                    img{
+                        width: 100%;
+                        position: absolute;
+                        top: -44%;
+                    }
+                    .content-wrapper{
+                        padding: 30px;
+                        padding-top: 150px;
+                    }
+                }
+                &.recent-post-list{
+                    flex-basis: 47.5%;
+                    .color-orange{
+                        color: $light-orange;
+                        font-weight: 700;
+                    }
+                    .post {
+                        padding: 20px 0;
+                        &:not(:last-child){
+                            border-bottom: 1px solid #DADADA;
+                        }
+                        h5{
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
