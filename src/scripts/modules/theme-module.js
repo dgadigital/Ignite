@@ -198,11 +198,21 @@ AppName.Modules.ThemeModule = (function () {
         });
   }
 
+  var _collapsing_text = function(){
+        
+		$(".readmore-btn").on('click', function(){
+      $(this).parent().toggleClass("showContent");
+      var replaceText = $(this).parent().hasClass("showContent") ? "Read Less -" : "Read More +";
+      $(this).text(replaceText);
+    });
+  }
+
   /////////////////////
   // Public Methods //
   ///////////////////
   const init = function () {
     _privateMethod();
+    _collapsing_text();
     _latestJobs();
     _logocarousel();
     _faq_accordion();
