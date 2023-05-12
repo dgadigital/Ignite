@@ -1,0 +1,134 @@
+
+.two-column-banner{
+    padding: 0;
+    margin-bottom: 45px;
+    
+    .two-column-banner-container{
+        max-width: 949px;    
+        .banner-row{
+            
+            display: flex;
+            min-height: fit;
+            // min-height: 353px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            @media (max-width: 990px) {
+                min-height: fit-content;
+            }
+            
+
+            &.bg-left{
+                background-position: left;
+                justify-content: flex-end;
+            }
+            &.bg-right{
+                background-position: right;
+                justify-content: flex-start;
+            }
+            .section-image{
+                width: 100%;
+                @media (min-width: 991px) {
+                    display: none;
+                    
+                }
+                img{
+                    width: 100%;
+                    height: auto;
+                }                
+            }
+            .banner-gradient-column {
+                padding: 32px 40px;
+                min-height: fit-content;
+                max-width: 70%;
+                .text-wrapper{
+                    max-width: 80%;
+                    @media (max-width: 990px) {
+                        max-width: 100%;
+                    }
+                    
+                    
+                }
+                @media (max-width: 990px) {
+                    max-width: 100%;
+                }
+                @media (max-width: 990px) {
+                    padding: 20px 20px;
+                }                
+                @media (max-width: 768px) {
+                    padding: 20px 20px 20px 20px;
+                }
+
+                
+                &.gray{
+                    display: flex;
+                    &.g-left{
+                        justify-content: flex-start;
+                        background: linear-gradient(90deg, #F9F9F6 77%, rgba(249, 249, 249, 0) 100%);
+                        @media (max-width: 990px) {
+                            background: #F9F9F6;
+                        }
+                    }
+                    &.g-right{
+                        justify-content: flex-end;
+                        background: linear-gradient(2700deg, #F9F9F6 77%, rgba(249, 249, 249, 0) 100%);
+                        @media (max-width: 990px) {
+                            background: #F9F9F6;
+                        }
+                    }
+
+                    
+
+                    
+                }
+                &.d-blue{
+                    display: flex;
+                    &.db-left{
+                        justify-content: flex-start;
+                        background: linear-gradient(90deg, #9FBDEA 77%, rgba(249, 249, 249, 0) 100%);
+                        @media (max-width: 990px) {
+                            background: #9FBDEA;
+                        }
+                    }
+                    &.db-right{
+                        justify-content: flex-end;
+                        background: linear-gradient(270deg, #9FBDEA 77%, rgba(249, 249, 249, 0) 100%);
+                        @media (max-width: 990px) {
+                            background: #9FBDEA;
+                        }
+                    }
+                }
+                &.l-blue{
+                    display: flex;
+                    &.lb-left{
+                        justify-content: flex-start;
+                        background: linear-gradient(90deg, #ECF4FF 77%, rgba(249, 249, 249, 0) 100%);
+                        @media (max-width: 990px) {
+                            background: #ECF4FF;
+                        }
+                    }
+                    &.lb-right{
+                        justify-content: flex-end;
+                        background: linear-gradient(270deg, #ECF4FF 77%, rgba(249, 249, 249, 0) 100%);
+                        @media (max-width: 990) {
+                            background: #ECF4FF;
+                        }
+                    }
+                }
+             }
+
+            @media (max-width: 990px) {
+                    flex-direction: column;
+              }
+
+                  
+               
+
+
+        }
+    }
+ 
+}
+
+
+
+
