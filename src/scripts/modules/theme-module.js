@@ -207,6 +207,20 @@ AppName.Modules.ThemeModule = (function () {
     });
   }
 
+  var _side_bar_filter = function(){
+    $('.side-bar-accordion .accordion').each(function(e){
+      ++e;
+      $(this).click(function(){
+        if($(this).hasClass('active')){
+          $(this).removeClass('active');
+        }
+        else{
+          $(this).addClass('active');
+        }
+      });
+    });
+  }
+
   /////////////////////
   // Public Methods //
   ///////////////////
@@ -219,6 +233,7 @@ AppName.Modules.ThemeModule = (function () {
     _tabs();
     __peoplecarousel();
     _search_filter();
+    _side_bar_filter();
   };
 
   return {

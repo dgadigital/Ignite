@@ -28,11 +28,13 @@
 @import
   'components/buttons',
   'components/forms',
-  'components/tabs';
+  'components/tabs',
+  'components/side-bar-filter';
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/home',
+  'pages/single-post';
 
 // 7. Themes
 @import
@@ -64,4 +66,5 @@
   'sections/collapsing-text',
   'sections/_search-filter',
   'sections/_select2',
-  'sections/_two-column-recent-post';
+  'sections/_two-column-recent-post',
+  'sections/_post-filter-side-bar.scss';
