@@ -6,6 +6,8 @@
             text-align: center;
             padding: 10px 0px;
 
+            h2{margin: 0;}
+
             @media ( min-width : 576px ){
                 text-align: left;
                 margin: 0 20px 0 0;
@@ -16,13 +18,15 @@
             @media ( min-width : 1200px ){
                 margin: 0 150px 0 0;
                 max-width: 650px;
+                &.short-gap{
+                    margin: 0 50px 0 0;;
+                }
             }
         }
         .button-container{
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: -20px;
 
             .btn{
                 font-size: 22px;
