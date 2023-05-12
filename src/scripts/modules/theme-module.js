@@ -110,6 +110,31 @@ AppName.Modules.ThemeModule = (function () {
           ]
         });
     }
+  const _testimonialslider = function(){
+    $('.testimonial-row').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          dots: true,
+          arrows: false,
+          responsive: [
+              {
+                  breakpoint: 990,
+                  settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2
+                  }
+              },
+              {
+                  breakpoint: 550,
+                  settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                  }
+              }
+          ]
+        });
+    }
   const _logocarousel = function(){
     $('.logo-row').slick({
           infinite: true,
@@ -218,6 +243,7 @@ AppName.Modules.ThemeModule = (function () {
     _faq_accordion();
     _tabs();
     __peoplecarousel();
+    _testimonialslider();
     _search_filter();
   };
 

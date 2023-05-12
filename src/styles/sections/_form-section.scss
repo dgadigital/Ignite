@@ -1,0 +1,39 @@
+.form-section{
+    background: #ECF4FF;
+
+    .form-section-container{
+        max-width: 949px;
+
+
+        
+        .section-title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section-description{
+            text-align: center;
+            margin: 23px 0px;
+            
+        }
+        
+        .cf7-form{
+            max-width: 747px;
+            margin: auto;
+
+            .portion{
+                padding: 13px 46px;
+                background: #0050CA;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 45px;
+                color: #FFFFFF;
+            }
+
+            .form-container{
+                padding: 23px 39px;
+            }
+        }
+    }
+}
