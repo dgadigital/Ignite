@@ -1,0 +1,107 @@
+.side-bar-accordion{
+    .recent-post{
+        margin-bottom: 30px;
+        .title{
+            font-weight: 700;
+            padding: 20px;
+            position: relative;
+            transition: .3s all;
+            margin-bottom: 0;
+            background-color: $light-orange;
+            color: #fff;
+        }
+        .post-wrapper{
+            padding: 20px 20px 10px 20px;
+            p{
+                padding-bottom: 20px;
+                border-bottom: 1px solid #DADADA;
+                font-weight: 800;
+            }
+        }
+    }
+    .accordion{
+        border-bottom: 1px solid #DADADA;
+        .accordion-title{
+            font-weight: 700;
+            padding: 20px;
+            position: relative;
+            transition: .3s all;
+            margin-bottom: 0;
+            &:after{
+                content: url(../assets/images/greater-than-orange.png);
+                font-size: 65px;
+                font-weight: 100;
+                color: #f5882b;
+                position: absolute;
+                right: 20px;
+                top: -15px;
+                transition: .3s all;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: .3s all;
+            }
+        }
+        .panel{
+            height: 0;
+            opacity: 0;
+            height: 100%;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            background-color: white;
+            overflow: hidden;
+            transition: visibility .3s linear,opacity .3s linear,max-height .3s ease-in,padding .3s linear;
+        }
+        &.active{
+            .accordion-title{
+                background-color: $light-orange;
+                color: #fff;
+                &:after{
+                    content: url(../assets/images/up-arrow-white.png);
+                    top: -18px;
+                }
+            }
+            .panel{
+                visibility: visible;
+                max-height: 500px;
+                opacity: 1;
+                padding: 20px 0;
+            }
+        }
+        &:first-child{
+            border-top: 1px solid #DADADA;
+        }
+    }
+    .form-group{
+        .wpcf7-list-item {
+            display: flex;
+            flex-direction: column;
+            label{
+                padding: 10px 0;
+                padding-right: 30px;
+                margin: 0;
+                .wpcf7-list-item-label{
+                    &:before{
+                        top: 10px !important;
+                    }
+                    &:after{
+                        top: 15px !important;
+                    }
+                }
+                .count {
+                    background-color: #DADADA;
+                    padding: 3px;
+                    font-size: 11px;
+                    width: 20px;
+                    position: absolute;
+                    right: 0;
+                    margin-top: -2px;
+                    text-align: center;
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+}
