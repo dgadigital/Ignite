@@ -1,0 +1,46 @@
+.Fullwidth-card{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    .Fullwidth-card-container{
+       .Fullwidth-card-column{
+            height: fit-content;
+            .Fullwidth-card-body{
+                height: fit-content;
+                padding: 22px 40px;
+                background: #FFFDFD;
+                box-shadow: 0px 18px 27px rgba(0, 0, 0, 0.122132);
+
+                .card-title{
+                    padding-bottom: 35px;
+                    max-width: 50%;
+                }
+
+                .card-text{
+                    ul{
+                        list-style: none;
+                        padding: 0px;
+                        li{
+                            display: flex;
+                            justify-content: flex-start;
+                            padding-bottom: 30px;
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 24px;
+                            color: #353535;
+                            &:before{
+                                content: url('../../assets/images/list-check.png');
+                                // margin-left: -20px;
+                                margin-right: 11px;
+                                padding-top: 2px;
+                                
+                            }
+                        }
+                    }
+
+                }
+            }
+       }
+    }
+}
