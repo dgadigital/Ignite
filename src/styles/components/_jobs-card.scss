@@ -1,0 +1,134 @@
+.job-card {
+    margin-bottom: 25px;
+    background-color: #F9F9F9;
+
+    .upper {
+        position: relative;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 25px;
+        padding-bottom: 20px;
+
+        p {
+            margin: 0;
+            text-align: right;
+        }
+
+        .status {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            padding: 10px 13px;
+            color: #fff;
+            font-family: $font-raleway-semibold;
+            font-size: 14px;
+            text-transform: uppercase;
+            background: $light-orange;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+    }
+
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        h3 {
+            font-family: $font-raleway-semibold;
+            font-size: 21px;
+
+            a {
+                color: $text-color;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .details {
+
+            span {
+                position: relative;
+                padding: 0 15px;
+                
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 16px;
+                    width: 1px;
+                    background-color: $text-color;
+                }
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                    
+                    &:after {
+                        content: '';
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+
+        .body {
+            padding-top: 15px;
+            padding-bottom: 20px;
+
+            p {
+                display: -webkit-box;
+                margin: 0;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 25px;
+
+        .btn {
+            padding: 13px 20px 13px 20px;
+            margin-left: 5px;
+        }
+
+        .save-job {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            span {
+                margin-left: 5px;
+            }
+
+            svg {
+                stroke: #353535;
+                // transition: all 0.3s;
+            }
+
+            &:hover {
+                color: $link-color;
+                // transition: all 0.3s;
+
+                svg {
+                    stroke: $link-color;
+                    fill: $link-color;
+                    // transition: all 0.3s;
+                }
+            }
+        }
+    }
+}

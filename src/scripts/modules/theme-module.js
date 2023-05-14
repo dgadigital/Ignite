@@ -6,12 +6,19 @@ AppName.Modules.ThemeModule = (function () {
   // Private Methods //
   ////////////////////
   const _privateMethod = () => {
-    // private stuff
+    // Global here
+  };
 
-    const swiper = new Swiper('.swiper-container', {
-      pagination: {
-        el: '.swiper-pagination',
-      },
+  const _footerCollapse = () => {
+    $('ul.menu > li.menu-item > a').each(function(){
+      if ($(this).siblings('.sub-menu').length){
+        $(this).after('<span></span>');
+      }
+    });
+    $('li.menu-item span').each(function(){
+      $(this).on('click', (e) => {
+        $(this).siblings('.sub-menu').toggleClass('active');
+      })
     });
   };
 
@@ -206,6 +213,7 @@ AppName.Modules.ThemeModule = (function () {
     _latestJobs();
     _logocarousel();
     _faq_accordion();
+    _footerCollapse();
     _tabs();
     __peoplecarousel();
     _search_filter();

@@ -22,17 +22,21 @@
 // 4. Layout-related sections
 @import
   'layout/header',
-  'layout/footer';
+  'layout/footer',
+  'layout/multi-level-form';
 
 // 5. Components
 @import
   'components/buttons',
   'components/forms',
-  'components/tabs';
+  'components/tabs',
+  'components/jobs-card',
+  'components/side-card';
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/home',
+  'pages/search-job';
 
 // 7. Themes
 @import

@@ -8,13 +8,135 @@ footer {
         &-wrapper {
             display: flex;
             align-items: center;
+
+            @media(max-width: 767px) {
+                flex-wrap: wrap;
+            }
     
             .footer-logo {
                 width: 40%;
+
+                @media(max-width: 767px) {
+                    padding-bottom: 30px;
+                    width: 100%;
+                    text-align: center;
+                }
             }
     
             .footer-search {
                 width: 50%;
+
+                @media(max-width: 767px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .footer-menu {
+        padding-top: 30px;
+        padding-bottom: 50px;
+
+        @media(max-width: 767px) {
+            padding-top: 10px;
+            padding-bottom: 30px;
+        }
+
+        .menu-row {
+            display: flex;
+            justify-content: space-between;
+
+            @media(max-width: 991px) {
+                justify-content: left;
+                flex-wrap: wrap;
+                grid-gap: 50px;
+            } 
+
+            @media(max-width: 767px) {
+                grid-gap: 0;
+            }
+
+            .item {
+                padding-right: 10px;
+
+                @media(max-width: 991px) {
+                    padding-right: 0;
+                }
+
+                @media(max-width: 767px) {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            &.menu {
+                a {
+                    color: $link-color;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                .menu-item {
+                    span {
+                        display: none;
+
+                        @media (max-width: 767px) {
+                            display: inline-block;
+                            margin-left: 5px;
+                            height: 13px;
+                            width: 13px;
+                            cursor: pointer;
+                            background-image: url('../../assets/images/select-drop.png');
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            background-position: center;
+                        }
+                    }
+                }
+            }
+
+            &.sub-menu {
+                @media(max-width: 767px) {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: all 1s;
+                }
+
+                &.active {
+                    max-height: 500px;
+                    overflow: auto;
+                    transition: all 1s;
+                }
+
+                a {
+                    color: $text-color;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .menu-item a {
+                display: inline-block;
+                padding-bottom: 7px;
+                font-size: 11px;
+
+                @media(max-width: 767px) {
+                    font-size: 16px;
+                }
             }
         }
     }
@@ -28,11 +150,22 @@ footer {
         &-wrapper {
             display: flex;
             justify-content: space-between;
+
+            @media(max-width: 767px) {
+                flex-wrap: wrap;
+                width: 100%;
+            }
         }
 
         .links {
             display: flex;
             align-items: center;
+
+            @media(max-width: 767px) {
+                justify-content: center;
+                padding-bottom: 20px;
+                width: 100%;
+            }
 
             .item {
                 &:first-child {
@@ -57,11 +190,21 @@ footer {
         .buttons {
             display: flex;
             align-items: center;
+            grid-gap: 30px;
+
+            @media(max-width: 767px) {
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            @media (max-width: 444px) {
+                grid-gap: 20px;
+            }
 
             .btn {
-
                 &:first-child {
-                    margin-right: 30px;
+                    
                 }
             }
         }
@@ -74,6 +217,10 @@ footer {
         p {
             margin: 0;
             font-family: $font-raleway-semibold;
+
+            @media(max-width: 767px) {
+                text-align: center;
+            }
         }
 
         a {
