@@ -117,6 +117,31 @@ AppName.Modules.ThemeModule = (function () {
           ]
         });
     }
+  const _testimonialslider = function(){
+    $('.testimonial-row').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          dots: true,
+          arrows: false,
+          responsive: [
+              {
+                  breakpoint: 990,
+                  settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2
+                  }
+              },
+              {
+                  breakpoint: 550,
+                  settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                  }
+              }
+          ]
+        });
+    }
   const _logocarousel = function(){
     $('.logo-row').slick({
           infinite: true,
@@ -205,18 +230,44 @@ AppName.Modules.ThemeModule = (function () {
         });
   }
 
+  var _collapsing_text = function(){
+        
+		$(".readmore-btn").on('click', function(){
+      $(this).parent().toggleClass("showContent");
+      var replaceText = $(this).parent().hasClass("showContent") ? "Read Less -" : "Read More +";
+      $(this).text(replaceText);
+    });
+  }
+
+  var _side_bar_filter = function(){
+    $('.side-bar-accordion .accordion').each(function(e){
+      ++e;
+      $(this).click(function(){
+        if($(this).hasClass('active')){
+          $(this).removeClass('active');
+        }
+        else{
+          $(this).addClass('active');
+        }
+      });
+    });
+  }
+
   /////////////////////
   // Public Methods //
   ///////////////////
   const init = function () {
     _privateMethod();
+    _collapsing_text();
     _latestJobs();
     _logocarousel();
     _faq_accordion();
     _footerCollapse();
     _tabs();
     __peoplecarousel();
+    _testimonialslider();
     _search_filter();
+    _side_bar_filter();
   };
 
   return {

@@ -84,6 +84,9 @@
                 }
             }  
         }
+        &.border-bottom{
+            border-bottom: 2px solid #DADADA !important;
+        }
 
         @media (max-width: 991px){
             text-align: center;

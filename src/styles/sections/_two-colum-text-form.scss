@@ -60,7 +60,7 @@
 
                 hr{
                     position: relative;
-                    height: 3px;
+                    height: 2px;
                     border: none;
                     background: #DADADA;
                 }
@@ -138,7 +138,7 @@
                         }
 
                         &.border-bottom{
-                            border-bottom: 3px solid #DADADA !important;
+                            border-bottom: 2px solid #DADADA !important;
                             @media(max-width: 767px){
                                 border-bottom: none !important;
                             }
@@ -152,7 +152,7 @@
                         }
 
                         &.border-bottom{
-                            border-bottom: 3px solid #DADADA !important;
+                            border-bottom: 2px solid #DADADA !important;
                             @media(max-width: 991px){
                                 margin-bottom: 20px;
                             }

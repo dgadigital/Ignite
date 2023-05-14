@@ -30,13 +30,15 @@
   'components/buttons',
   'components/forms',
   'components/tabs',
+  'components/side-bar-filter',
   'components/jobs-card',
   'components/side-card';
 
 // 6. Page-specific styles
 @import
   'pages/home',
-  'pages/search-job';
+  'pages/search-job',
+  'pages/single-post';
 
 // 7. Themes
 @import
@@ -49,15 +51,20 @@
   'sections/icon-cards',
   'sections/job-cards',
   'sections/logo-carousel',
+  'sections/testimonial-slider',
   'sections/two-column-round-image',
   'sections/_two-column-text-image',
   'sections/full-width-text.scss',
   'sections/board-members.scss',
   'sections/two-colum-text-form',
+  'sections/two-column-banner',
   'sections/_faq-accordion',
   'sections/_home-about',
   'sections/_profile-carousel',
   'sections/_blue-banner',
+  'sections/_form-section',
+  'sections/_Fullwidth-card',
+  'sections/_two-column-side-tabs',
   'sections/text-and-button',
   'sections/partnerships',
   'sections/find-out-more',
@@ -65,6 +72,8 @@
   'sections/_sticky-side-widgets',
   'sections/_two-column-title-card',
   'sections/_three-column-card',
+  'sections/collapsing-text',
   'sections/_search-filter',
   'sections/_select2',
-  'sections/_two-column-recent-post';
+  'sections/_two-column-recent-post',
+  'sections/_post-filter-side-bar.scss';
