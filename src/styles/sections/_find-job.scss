@@ -11,7 +11,15 @@
         padding-right: 0px;
         
 
-        .row{           
+        .row{    
+            .columns{
+                    margin-bottom: 33px;
+                .column-content{
+                    max-width: 90%;
+                    margin: auto;
+                }
+
+            }
             .content-wrapper{
                 padding: 31px 37px;
                 height: 253px;
@@ -24,6 +32,11 @@
 
                 .line-container{
                     margin: 34px auto;
+
+                    @media (max-width: 768px) {
+                        margin: 0px auto;
+                        margin-bottom: 20px;
+                    }
                 }
             }
         }

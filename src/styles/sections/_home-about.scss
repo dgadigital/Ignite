@@ -4,6 +4,10 @@
         .section-title{
             display: flex;
             justify-content: center;
+
+            @media (max-width:768px) {
+                margin-bottom:20px;                  
+            }
             
         }
         .home-about-row{

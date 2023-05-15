@@ -1,18 +1,37 @@
 .blue-banner{
+
+
     
     .content-container{
         max-width: 948px;
         padding: 45px 52px;
         background: linear-gradient(180deg, #0050CA 0%, #002890 89.02%);
+
+
         
         .section-title{
             color: #ffffff;
+            h2{
+                font-size: 35px;
+                @media (max-width: 768px) {
+                text-align: center;
+                }
+            }
         }
+
+
         .btn-wrapper{
-         display: flex;
-         flex-wrap: wrap;
-         gap: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            @media (max-width: 768px) {
+                justify-content: center;
+            }
         }
     }
 
+}
+
+.no-padding{
+    padding: 0px 0px;
 }
