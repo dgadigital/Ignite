@@ -5,11 +5,16 @@
     
     .carousel-container{
         max-width: 948px;
-        padding: 0px;
+        
         .section-title{
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
+            h2{
+              @media (max-width: 768px) {
+                text-align: center;
+               }
+            }
         }
         .logo-row{
 
