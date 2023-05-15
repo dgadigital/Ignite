@@ -2,7 +2,7 @@
     .recent-post{
         margin-bottom: 30px;
         .title{
-            font-weight: 700;
+            font-family: $font-raleway-semibold;
             padding: 20px;
             position: relative;
             transition: .3s all;
@@ -22,7 +22,7 @@
     .accordion{
         border-bottom: 1px solid #DADADA;
         .accordion-title{
-            font-weight: 700;
+            font-family: $font-raleway-semibold;
             padding: 20px;
             position: relative;
             transition: .3s all;
