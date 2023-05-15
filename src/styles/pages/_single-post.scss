@@ -17,10 +17,14 @@
         .sub-title{
             h2{
                 font-style: normal;
-                font-weight: 700;
+                font-family: $font-raleway-semibold;
                 font-size: 25px;
                 line-height: 70px;
                 letter-spacing: .8px;
+                @media (max-width: 767px) {
+                    font-size: 20px;
+                    line-height: 50px;
+                }
             }
         }
         .title{
@@ -30,6 +34,15 @@
                 font-size: 65px;
                 line-height: 70px;
                 color: $text-color !important;
+                @media(max-width: 991px){
+                    font-size: 50px;
+                    font-family: $font-raleway-medium;
+                }
+                @media (max-width: 767px) {
+                    font-size: 30px;
+                    font-family: $font-raleway-semibold;
+                    line-height: 50px;
+                }
             }
         }
     }
@@ -87,3 +100,4 @@
         }
     }
 }
+html{scroll-behavior: smooth;}

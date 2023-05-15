@@ -12,7 +12,8 @@
         }
 
         h4{
-            font-weight: 600;
+            font-size: 22px;
+            font-family: $font-raleway-semibold;
             padding: 10px 0px;
         }
 
@@ -49,6 +50,9 @@
                 flex-basis: 100%;
             } 
         }
+        @media (max-width: 991px){
+            text-align: center;
+        } 
 
         &.border-bottom{
             border-bottom: 2px solid #DADADA !important;
