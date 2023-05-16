@@ -1,0 +1,94 @@
+.two-column-side-tabs-accordion{
+  .container{
+
+    .accordion-container {
+      position: relative;
+      width: 100%;
+    
+      .accordion-header {
+        font-size: 14px;
+        font-weight: bold;
+        width: 30%;
+        padding: 15px 10px 15px 20px;
+        cursor: pointer;
+        background-color: #fff;
+        @media(max-width: 991px){
+          width: 100%;
+        }
+    
+        &:hover {
+          color: #fff;
+          background-color: $light-orange;
+          transition: all 0.3s ease-in-out;
+          &::before {
+            color: #fff;
+          }
+        }
+    
+        &::before {
+          content: '\f054';
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 600;
+          padding: 0;
+          float: right;
+          color: $light-orange;
+        }
+      }
+    
+      .active-header {
+        color: #fff;
+        background-color: $light-orange;
+    
+        &::before {
+          content: '\f078';
+          color: #fff;
+          @media(min-width: 992px){
+            content: '\f054';
+          }
+        }
+        
+      }
+    
+      .accordion-content {
+        display: none;
+        @media(min-width: 992px){
+          &.option-absolute {
+            position: absolute;
+            min-height: 300px;
+            width: 67%; 
+            top: 0;
+            left: 300px;
+          }
+        }
+
+        .content-wrapper{
+          padding: 30px;
+          background-color: #fff;
+          .reports-wrapper{
+              display: flex;
+              flex-wrap: wrap;
+              gap: 4%;
+              .reports{
+                  flex-basis: 22%;
+                  display: flex;
+                  flex-direction: column;
+                  margin-bottom: 20px;
+                  @media(max-width: 680px){
+                      flex-basis: 48%;
+                  }
+                  img{
+                      margin-bottom: 10px;
+                  }
+              }
+          }
+          ul.orange-list{
+              padding-left: 20px;
+              li{
+                  color: $light-orange;
+              }
+          }
+        }
+      }
+    }
+  }
+}

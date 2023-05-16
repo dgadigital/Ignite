@@ -233,11 +233,51 @@ AppName.Modules.ThemeModule = (function () {
     });
   }
 
+  var _two_column_side_tabs_accordion = function() {
+    var $accordionHeaders = $('.accordion-header');
+  
+    $accordionHeaders.first().addClass('active-header').next('.accordion-content').show();
+    $accordionHeaders.on('click', function() {
+      var $this = $(this);
+      var $content = $this.next('.accordion-content');
+      if ($content.is(':visible')) return;
+  
+      $content.toggle();
+      $('.accordion-content').not($content).hide();
+      $this.addClass('active-header');
+      $accordionHeaders.not($this).removeClass('active-header');
+  
+      if ($content.hasClass('active-option-absolute')) {
+        $('.accordion-container').css('height', $content.outerHeight());
+      }
+    });
+  
+    $accordionHeaders.first().click();
+  
+    $(window).on('resize', function() {
+      if ($(this).width() >= 982) {
+        $('.accordion-content').addClass('active-option-absolute');
+        $('.accordion-container').css('height', $('.active-header').next('.accordion-content').outerHeight());
+      } else {
+        $('.accordion-content').removeClass('active-option-absolute');
+        $('.accordion-container').css('height', 'auto');
+      }
+    }).resize();
+  
+    if ($(window).width() >= 982) {
+      $('.accordion-content').addClass('active-option-absolute');
+      $('.accordion-container').css('height', $('.active-header').next('.accordion-content').outerHeight());
+    } else {
+      $('.accordion-content').removeClass('active-option-absolute');
+    }
+  };
+  
   /////////////////////
   // Public Methods //
   ///////////////////
   const init = function () {
     _privateMethod();
+    _two_column_side_tabs_accordion();
     _collapsing_text();
     _latestJobs();
     _logocarousel();
