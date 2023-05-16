@@ -198,7 +198,23 @@ AppName.Modules.ThemeModule = (function () {
   };
 
   var _search_filter = function(){
-        
+       
+    $("#filter-dropdown-category").select2({
+			closeOnSelect : false,
+			placeholder : "  Filter By Category",
+			allowHtml: true,
+			allowClear: true,
+			tags: true 
+		});
+
+    $("#filter-dropdown-tags").select2({
+			closeOnSelect : false,
+			placeholder : "  Filter By Tags",
+			allowHtml: true,
+			allowClear: true,
+			tags: true 
+		});
+
 		$("#filter-dropdown-category").select2({
 			closeOnSelect : false,
 			placeholder : "  Filter By Category",
@@ -229,22 +245,62 @@ AppName.Modules.ThemeModule = (function () {
   var _side_bar_filter = function(){
     $('.side-bar-accordion .accordion').each(function(e){
       ++e;
-      $(this).click(function(){
-        if($(this).hasClass('active')){
-          $(this).removeClass('active');
+      $(this).find('.accordion-title').click(function(){
+        if($(this).closest('.accordion').hasClass('active')){
+          $(this).closest('.accordion').removeClass('active');
         }
         else{
-          $(this).addClass('active');
+          $(this).closest('.accordion').addClass('active');
         }
       });
     });
   }
 
+  var _two_column_side_tabs_accordion = function() {
+    var $accordionHeaders = $('.accordion-header');
+  
+    $accordionHeaders.first().addClass('active-header').next('.accordion-content').show();
+    $accordionHeaders.on('click', function() {
+      var $this = $(this);
+      var $content = $this.next('.accordion-content');
+      if ($content.is(':visible')) return;
+  
+      $content.toggle();
+      $('.accordion-content').not($content).hide();
+      $this.addClass('active-header');
+      $accordionHeaders.not($this).removeClass('active-header');
+  
+      if ($content.hasClass('active-option-absolute')) {
+        $('.accordion-container').css('height', $content.outerHeight());
+      }
+    });
+  
+    $accordionHeaders.first().click();
+  
+    $(window).on('resize', function() {
+      if ($(this).width() >= 982) {
+        $('.accordion-content').addClass('active-option-absolute');
+        $('.accordion-container').css('height', $('.active-header').next('.accordion-content').outerHeight());
+      } else {
+        $('.accordion-content').removeClass('active-option-absolute');
+        $('.accordion-container').css('height', 'auto');
+      }
+    }).resize();
+  
+    if ($(window).width() >= 982) {
+      $('.accordion-content').addClass('active-option-absolute');
+      $('.accordion-container').css('height', $('.active-header').next('.accordion-content').outerHeight());
+    } else {
+      $('.accordion-content').removeClass('active-option-absolute');
+    }
+  };
+  
   /////////////////////
   // Public Methods //
   ///////////////////
   const init = function () {
     _privateMethod();
+    _two_column_side_tabs_accordion();
     _collapsing_text();
     _latestJobs();
     _logocarousel();
