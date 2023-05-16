@@ -40,6 +40,21 @@
                     .content-wrapper{
                         padding: 30px;
                         /* padding-top: 150px; */
+                        h5{
+                            font-family: $font-raleway-semibold;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                        p{
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
                     }
                 }
                 &.recent-post-list{
@@ -53,8 +68,15 @@
                         &:not(:last-child){
                             border-bottom: 1px solid #DADADA;
                         }
-                        h5{
-                            font-family: $font-raleway-semibold;
+                        a{
+                            color: $text-color;
+                            text-decoration: none;
+                            &:hover{
+                                color: $light-orange;
+                            }
+                            h5{
+                                font-family: $font-raleway-semibold;
+                            }
                         }
                     }
                 }

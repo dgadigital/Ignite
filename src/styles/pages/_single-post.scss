@@ -1,6 +1,14 @@
 .single-post-banner{
     position: relative;
     padding: 90px 0;
+    svg{
+        animation-play-state: paused;
+        &:hover{
+            animate{
+                animation-play-state: running;
+            }
+        }
+    }
     .container{
         text-align: center;
         .breadcrumbs{
@@ -74,14 +82,47 @@
                 >div{
                     &.image-wrapper{
                         flex-basis: 50%;
+                        position: relative;
+                        padding-top: 39%;
+                        z-index: 0;
+                        img{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            -o-object-fit: cover;
+                            object-fit: cover;
+                        }
+                        @media(max-width: 991px){
+                            display: none;
+                        }
                     }
                     &.content-wrapper{
+                        .image-wrapper{
+                            flex-basis: 50%;
+                            position: relative;
+                            padding-top: 79%;
+                            z-index: 0;
+                            img{
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                -o-object-fit: cover;
+                                object-fit: cover;
+                            }
+                            @media(min-width: 992px){
+                                display: none;
+                            }
+                        }
                         flex-basis: 46%;
                         .post-title{
                             font-weight: 800;
                         }
                     }
-                    @media(max-width: 480px){
+                    @media(max-width: 991px){
                         flex-basis: 100% !important;
                     }
                 }

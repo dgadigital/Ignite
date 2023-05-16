@@ -191,7 +191,23 @@ AppName.Modules.ThemeModule = (function () {
   };
 
   var _search_filter = function(){
-        
+       
+    $("#filter-dropdown-category").select2({
+			closeOnSelect : false,
+			placeholder : "  Filter By Category",
+			allowHtml: true,
+			allowClear: true,
+			tags: true 
+		});
+
+    $("#filter-dropdown-tags").select2({
+			closeOnSelect : false,
+			placeholder : "  Filter By Tags",
+			allowHtml: true,
+			allowClear: true,
+			tags: true 
+		});
+
 		$("#filter-dropdown-category").select2({
 			closeOnSelect : false,
 			placeholder : "  Filter By Category",
@@ -222,12 +238,12 @@ AppName.Modules.ThemeModule = (function () {
   var _side_bar_filter = function(){
     $('.side-bar-accordion .accordion').each(function(e){
       ++e;
-      $(this).click(function(){
-        if($(this).hasClass('active')){
-          $(this).removeClass('active');
+      $(this).find('.accordion-title').click(function(){
+        if($(this).closest('.accordion').hasClass('active')){
+          $(this).closest('.accordion').removeClass('active');
         }
         else{
-          $(this).addClass('active');
+          $(this).closest('.accordion').addClass('active');
         }
       });
     });
