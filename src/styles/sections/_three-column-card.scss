@@ -5,15 +5,20 @@
         gap: 30px;
         &>div{
             flex-basis: 30.9%;
-            flex-grow: 1;
             @media(max-width: 991px){
-                flex-basis: 46%;
+                flex-basis: 46.6%;
             }
-            @media(max-width: 680px){
+            @media(max-width: 767px){
                 flex-basis: 100%;
             }
             .content-wrapper{
                 padding: 20px;
+                h4 {
+                    font-family: $font-raleway-semibold;
+                    @media(max-width: 991px){
+                        font-size: 20px;
+                    }
+                }
             }
             .image-wrapper{
                 position: relative;

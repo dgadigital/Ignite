@@ -31,7 +31,9 @@
         text-align: center;
         letter-spacing: 0.817857px;
         color: #353535;
-        
+        @media (max-width:768px) {
+            margin-bottom:20px;                  
+        }
 
 
     }

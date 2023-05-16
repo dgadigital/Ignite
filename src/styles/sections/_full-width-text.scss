@@ -5,7 +5,8 @@
     .container{
         h2{
             margin: auto auto 30px auto;
-            width: 60%;
+            width: 600px;
+            max-width: 100%;
         }
         h3{
             font-size: 23px;
@@ -18,10 +19,6 @@
         p{
             line-height: 30px;
             color: #000;  
-
-            @media(max-width: 575px){
-                font-size: 15px;
-            }
         }
         @media(max-width: 575px){
             padding: 0px 20px;

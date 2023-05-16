@@ -37,7 +37,7 @@ AppName.Modules.ThemeModule = (function () {
       },
       responsive: [
           {
-              breakpoint: 990,
+              breakpoint: 991,
               settings: {
                   slidesToShow: 2,
                   slidesToScroll: 2
@@ -54,23 +54,26 @@ AppName.Modules.ThemeModule = (function () {
     });
 
 
-  var slickDotsCount = $('.slick-dots').children().length;
+  var slickDotsCount = $('.lastest-jobs-section .slick-dots').children().length;
     var numItemsnumber = parseInt(slickDotsCount);
     var formattednumItemsnumber = (numItemsnumber < 10 ? '0' : '') + numItemsnumber;
     $('#num-items').text(formattednumItemsnumber);
     
   
   
-    var activeTabText = $('.slick-active button').text();
+    var activeTabText = $('.lastest-jobs-section .slick-active button').text();
     var activeTabTextnumber = parseInt(activeTabText);
     var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
     $('#index').text(formattedactiveTabTextnumber);
 
     $('.slick-arrow').click(function() {
-        var activeTabText = $('.slick-active button').text();
-        var activeTabTextnumber = parseInt(activeTabText);
-        var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
-        $('#index').text(formattedactiveTabTextnumber);
+      var activeTabText = $('.lastest-jobs-section .slick-active button').text();
+      var activeTabTextnumber = parseInt(activeTabText);
+      var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
+      console.log(formattedactiveTabTextnumber);
+            $('#index').text(formattedactiveTabTextnumber);
+      
+
     });
   
     
@@ -100,14 +103,7 @@ AppName.Modules.ThemeModule = (function () {
           arrows: false,
           responsive: [
               {
-                  breakpoint: 990,
-                  settings: {
-                      slidesToShow: 2,
-                      slidesToScroll: 2
-                  }
-              },
-              {
-                  breakpoint: 769,
+                  breakpoint: 768,
                   settings: {
                       slidesToShow: 1,
                       slidesToScroll: 1,
@@ -126,14 +122,14 @@ AppName.Modules.ThemeModule = (function () {
           arrows: false,
           responsive: [
               {
-                  breakpoint: 990,
+                  breakpoint: 991,
                   settings: {
                       slidesToShow: 2,
                       slidesToScroll: 2
                   }
               },
               {
-                  breakpoint: 550,
+                  breakpoint: 768,
                   settings: {
                       slidesToShow: 1,
                       slidesToScroll: 1,
@@ -146,31 +142,22 @@ AppName.Modules.ThemeModule = (function () {
     $('.logo-row').slick({
           infinite: true,
           slidesToShow: 6,
-          slidesToScroll: 6,
+          slidesToScroll: 1,
+          autoplay: true,
           dots: true,
           arrows: false,
           responsive: [
               {
-                  breakpoint: 990,
+                  breakpoint: 991,
                   settings: {
-                      slidesToShow: 3,
-                      slidesToScroll: 3
+                      slidesToShow: 3
                   }
               },
               {
                   breakpoint: 768,
                   settings: {
-                      slidesToShow: 2,
-                      slidesToScroll: 2,
-                      dots: false
-                  }
-              },
-              {
-                  breakpoint: 550,
-                  settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 1,
-                      dots: false
+                      slidesToShow: 2
+                                            
                   }
               }
           ]

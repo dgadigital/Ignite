@@ -1,77 +1,87 @@
 .collapsing-text{
-
-    .card-container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-
-        .box{
-            flex-basis: 30%;
-            padding: 21px;
-            min-height: 200px;
-            margin: 0px auto auto auto;
-            background-color: #fff;
-
-            h2{
-                font-size: 25px;
-                color: #000;
-            }
-
-            .text-wrapper{
-                margin:0;
-                max-height: 200px;
-                line-height: 25px;
-                overflow: hidden;
-                transition: max-height 1s ease-in-out;
-
-                ul {
-                    list-style: none;
-                    padding-left: 15px;
-
-                    li {
-                      &::before {
-                        content: '\2022';
-                        display: inline-block;
-                        width: 1em;
-                        margin-left: -1em;
-                        color: #000;
-                  
-                        & {
-                            color: #F5882B;
+    .container{
+        .card-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+    
+            .box{
+                flex-basis: 30%;
+                padding: 25px;
+                min-height: 250px;
+                margin: 0px auto auto auto;
+                background-color: #fff;
+    
+                h2{
+                    font-size: 25px;
+                    color: #000;
+                    @media (max-width: 991px){
+                        font-size: 22px;
+                    } 
+                }
+    
+                .text-wrapper{
+                    margin:0;
+                    max-height: 200px;
+                    line-height: 25px;
+                    overflow: hidden;
+                    transition: max-height 1s ease-in-out;
+    
+                    ul {
+                        list-style: none;
+                        padding-left: 15px;
+    
+                        li {
+                          &::before {
+                            content: '\2022';
+                            display: inline-block;
+                            width: 1em;
+                            margin-left: -1em;
+                            color: #000;
+                      
+                            & {
+                                color: #F5882B;
+                            }
+                          }
                         }
-                      }
                     }
                 }
-            }
-
-            &.showContent {
-                .text-wrapper{
-                    max-height: 1000px;
-                }
-            } 
-
-            @media (max-width: 767px){
-                flex-basis: 45%;
-            } 
+    
+                &.showContent {
+                    .text-wrapper{
+                        max-height: 1000px;
+                    }
+                } 
+                @media (max-width: 767px){
+                    flex-basis: 45%;
+                    .text-wrapper{
+                        max-height: 180px;
+                    }
+                } 
+                @media (max-width: 575px){
+                    flex-basis: 80%;
+                    .text-wrapper{
+                        max-height: 130px;
+                    }
+                } 
+            }    
+        }
+    
+        .tracer{
+            margin-bottom: 30px;
+            padding: 0px 10px;
+    
             @media (max-width: 575px){
-                flex-basis: 80%;
-                .text-wrapper{
-                    max-height: 130px;
-                }
+                padding: 0px 30px;
             } 
-        }    
-    }
+            @media (min-width: 768px){
+                margin-top: -20px;
+            } 
+        }
 
-    .tracer{
-        margin-bottom: 30px;
-        padding: 0px 10px;
-
-        @media (max-width: 575px){
-            padding: 0px 30px;
+        @media (max-width: 991px){
+            min-width: 100%;
         } 
-        @media (min-width: 768px){
-            margin-top: -20px;
-        } 
-    }
+    } 
 }

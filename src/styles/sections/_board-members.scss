@@ -17,19 +17,30 @@
 
         .image-container{
             flex-basis: 20%;
+            position: relative;
+            
+            img{
+                position: absolute;
+                padding: 0px 15px;
+                width: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                object-fit: cover;
+            }
+
             @media (max-width: 991px){
                 flex-basis: 100%;
                 margin-bottom: 10px;
             }
-            
         }
 
         .text-container{
             flex-basis: 70%;
 
             p{
-                font-size: 15px;
-                font-weight: 600;
+                font-family: $font-raleway-semibold;
             }
 
             .button-container{
