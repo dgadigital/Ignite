@@ -23,6 +23,7 @@
                 position: absolute;
                 padding: 0px 15px;
                 width: 100%;
+                height: auto;
                 top: 0;
                 left: 0;
                 right: 0;
@@ -32,7 +33,13 @@
 
             @media (max-width: 991px){
                 flex-basis: 100%;
+                min-height: 265px;
                 margin-bottom: 10px;
+                img{
+                    margin: auto;
+                    width: auto;
+                    height: 265px;
+                }
             }
         }
 
