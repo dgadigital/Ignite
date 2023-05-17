@@ -6,7 +6,6 @@
     padding-bottom: 30px;
 
     .row-wrapper{
-        max-width: 948px;
         padding-left: 0px;
         padding-right: 0px;
         
@@ -15,8 +14,11 @@
             .columns{
                     margin-bottom: 33px;
                 .column-content{
-                    max-width: 90%;
+                    
                     margin: auto;
+                    @media (min-width: 1020px) {
+                        max-width: 90%;
+                    }
                 }
 
             }

@@ -3,7 +3,6 @@
     padding: 25px 0;
     
     .profile-container{
-      max-width: 948px;
       padding: 0px;
       
       .section-title-container{
@@ -30,6 +29,7 @@
       }
 
       .profile-row{
+        
 
               /* Styling the dot container */
             .slick-dots {
@@ -71,8 +71,6 @@
           .slick-list.draggable{
 
               margin: auto;
-              margin-bottom: 42px;
-
               .profile-container{
                   display: flex;
                   align-items: center;
