@@ -1,9 +1,9 @@
 .lastest-jobs-section{
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     .jobs-container.container{
-        max-width:949px;
         margin: auto;
         .section-title-container{
             display: flex;
@@ -28,23 +28,36 @@
                   
             }
         }
-        .jobs-row{
+        .jobs-row{            
             display: flex;
             justify-content: center;
             margin-top: 43px;
+            overflow: hidden;
+            
 
         
             .slick-list {
-                margin: 0 -27px;
-        
-                .slick-slide {
-                    margin: 0 27px;
+            // width: 100%;
+            // max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+                .slick-track{
+                    .slick-slide{
+                        margin: 10px;
+
+                    }
                 }
+                
             }
         
             .job-card{
-                background-color: #ffffff;
+                // width: 100%;
+                // max-width: 298px;
+                // width: fit-content;
                 padding: 43px 23px;
+                margin: auto;
+                background-color: #ffffff;
+                
         
         
                 @media (max-width:768px) {
@@ -95,28 +108,38 @@
                 
             }
         
-            @media (max-width:991px) {
-                & > *:last-child {
-                    margin-top: 20px;
-                  }        
-            }
+            // @media (max-width:991px) {
+            //     & > *:last-child {
+            //         margin-top: 20px;
+            //       }        
+            // }
         
-            @media (max-width:768px) {
-                & > *:last-child {
-                    margin-top: 0px;
-                  }        
-            }
+            // @media (max-width:768px) {
+            //     & > *:last-child {
+            //         margin-top: 0px;
+            //       }        
+            // }
         
         }
         .pagination-wrapper{
+
             display: flex;
             justify-content: end;
             gap:24px;
-            max-width:949px;
+            // max-width:949px;
             margin: auto;
             margin-top: 21px;
+
             
             .page-location{
+
+            .dot-container{
+                .slick-dots{
+                    list-style: none;
+                    display: none;
+                }
+            }
+
                 display: flex;
                 gap: 5px;
                 align-items: center;
@@ -138,26 +161,27 @@
                 align-items: center;
                 
 
-                .custom-btn {
-                    background: none!important;
-                    border: none!important;
-                    
-                }
-                .slick-dots{
-                    list-style: none;
-                    display: none;
-                }
+
                 .slick-arrow {
-                    display: none;                
+                        text-indent: -9999px;            
+                        border: none;          
+                        background-color: transparent;
+                        height: 20px;
+                        width: 15px;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        padding: 0;
                   }
                 .slick-prev{
-                    .slick-arrow{
-                        display: none;
+                    
+                        background-image: url('../../assets/images/left.svg');
+                    
                 }
                 .slick-next{
-                    .slick-arrow{
-                        display: none;
-                    }
+                    
+                        background-image: url('../../assets/images/right.svg');
+                        
+                    
                 }
                 .slick-dots{
                     display: none;
@@ -170,4 +194,5 @@
             }
     }
 }
-}
+
+

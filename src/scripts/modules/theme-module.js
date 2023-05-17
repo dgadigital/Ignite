@@ -20,30 +20,33 @@ AppName.Modules.ThemeModule = (function () {
     $('.jobs-row').slick({
       infinite: true,
       slidesToShow: 3,
-      slidesToScroll: 3,
+      slidesToScroll: 1,
       dots: true,
       arrows: true,
       appendArrows: $('.pagination-container'),
-      appendDots: $('.pagination-container'),
+      appendDots: $('.dot-container'),
       customPaging: function(slider, i) {
           return '<button class="d-none">' + (i + 1) + '</button>';
       },
       responsive: [
+          
           {
-              breakpoint: 991,
-              settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 2
-              }
-          },
+            breakpoint: 991,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+        },
           {
-              breakpoint: 650,
+              breakpoint: 768,
               settings: {
                   slidesToShow: 1,
                   slidesToScroll: 1
               }
           }
       ]
+
+      
     });
 
 
@@ -63,32 +66,17 @@ AppName.Modules.ThemeModule = (function () {
       var activeTabText = $('.lastest-jobs-section .slick-active button').text();
       var activeTabTextnumber = parseInt(activeTabText);
       var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
-      console.log(formattedactiveTabTextnumber);
             $('#index').text(formattedactiveTabTextnumber);
       
 
     });
   
-    
-    
-    
-    
-    $('button.slick-custom-prev').on('click', function() {
-      $('button.slick-prev.slick-arrow').click();
-    });
-    $('button.slick-custom-next').on('click', function() {
-      $('button.slick-next.slick-arrow').click();
-    });
-  
-  
-    $('button.slick-prev.slick-arrow').css('display', 'none');
-    $('button.slick-next.slick-arrow').css('display', 'none');
-    $('ul.slick-dots').css('display', 'none');
+  //   $('ul.slick-dots').css('display', 'none');
   }
   
   
   const __peoplecarousel = function(){
-    $('.profile-row').slick({
+    $('.profile-row.slider').slick({
           infinite: true,
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -115,7 +103,7 @@ AppName.Modules.ThemeModule = (function () {
           arrows: false,
           responsive: [
               {
-                  breakpoint: 991,
+                  breakpoint: 800,
                   settings: {
                       slidesToShow: 2,
                       slidesToScroll: 2
@@ -131,6 +119,7 @@ AppName.Modules.ThemeModule = (function () {
           ]
         });
     }
+    
   const _logocarousel = function(){
     $('.logo-row').slick({
           infinite: true,
@@ -141,7 +130,7 @@ AppName.Modules.ThemeModule = (function () {
           arrows: false,
           responsive: [
               {
-                  breakpoint: 991,
+                  breakpoint: 800,
                   settings: {
                       slidesToShow: 3
                   }
@@ -192,7 +181,7 @@ AppName.Modules.ThemeModule = (function () {
 
   var _search_filter = function(){
         
-		$("#filter-dropdown-category").select2({
+		$("#filter-dropdown-category").select({
 			closeOnSelect : false,
 			placeholder : "  Filter By Category",
 			allowHtml: true,
