@@ -115,7 +115,6 @@
     }
 
     .column-5{
-        max-width: 948.75px;
         display: flex;
         flex-wrap: wrap;
         .item{
@@ -127,11 +126,13 @@
                 
                 margin: auto;
                 @media (max-width:768px){
-                    min-width: 0;
-                    
+                    min-width: 0;                    
                 }
             }
-
+            @media (max-width:990px){
+                max-width: 25%;
+                
+            }
             @media (max-width:768px){
                 max-width:167.87px;
                 min-width: 139px;
