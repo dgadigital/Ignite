@@ -8,19 +8,26 @@
                 flex-grow: 1;
                 &.text-wrapper{
                     flex-basis: 45%;
+                    @media(max-width: 991px){
+                        flex-basis: 42%;
+                    }
                     @media(max-width: 767px){
                         text-align: center;
+                        flex-basis: 100%;
                     }
                 }
                 &.card-wrapper{
                     flex-basis: 46%;
                     flex-grow: 1;
                     background-color: #fff;
-                    @media(max-width: 991px){
+                    @media(max-width: 767px){
                         flex-basis: 100%;
                     }
                     .card-title-wrapper {
                         padding: 40px 40px 10px 40px;
+                        @media(max-width: 767px){
+                            text-align: center;
+                        }
                     }
                     .image-wrapper{
                         position: relative;
@@ -41,6 +48,9 @@
                     }
                     .content-wrapper{
                         padding: 30px;
+                        @media(max-width: 767px){
+                            text-align: center;
+                        }
                         h5.title{
                             font-family: $font-raleway-semibold;
                             display: -webkit-box;
