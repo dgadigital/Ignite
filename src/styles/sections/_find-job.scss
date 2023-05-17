@@ -14,8 +14,11 @@
             .columns{
                     margin-bottom: 33px;
                 .column-content{
-                    max-width: 90%;
+                    
                     margin: auto;
+                    @media (min-width: 1020px) {
+                        max-width: 90%;
+                    }
                 }
 
             }

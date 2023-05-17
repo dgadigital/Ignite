@@ -20,7 +20,7 @@ AppName.Modules.ThemeModule = (function () {
     $('.jobs-row').slick({
       infinite: true,
       slidesToShow: 3,
-      slidesToScroll: 1,
+      slidesToScroll: 3,
       dots: true,
       arrows: true,
       appendArrows: $('.pagination-container'),
@@ -34,7 +34,7 @@ AppName.Modules.ThemeModule = (function () {
             breakpoint: 991,
             settings: {
                 slidesToShow: 2,
-                slidesToScroll: 1
+                slidesToScroll: 2
             }
         },
           {
@@ -130,7 +130,7 @@ AppName.Modules.ThemeModule = (function () {
           arrows: false,
           responsive: [
               {
-                  breakpoint: 800,
+                  breakpoint: 991,
                   settings: {
                       slidesToShow: 3
                   }
