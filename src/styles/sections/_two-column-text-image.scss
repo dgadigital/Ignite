@@ -42,4 +42,16 @@
             flex-direction: row-reverse;
         }
     }
+    &.equal-width{
+        .container{
+            &>div{
+                &:first-child{
+                    flex-basis: 47.5%;
+                }
+                &:last-child{
+                    flex-basis: 47.5%;
+                }
+            }
+        }
+    }
 }
