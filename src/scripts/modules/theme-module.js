@@ -282,6 +282,22 @@ AppName.Modules.ThemeModule = (function () {
       $accordionContainer.css('height', 'auto');
     }
   };
+
+  var _contact_us = function(){
+    //Top Content Tabs and Description
+    $(".tab-list li").on("click", function() {
+      var tabId = ".tab-list li#" + $(this).attr("id");
+      var tabDivId = ".tabs-content#content-" + $(this).attr("id");
+
+      if (!$(this).hasClass("active")) {
+        $(".tab-list li").removeClass("active");
+        $(this).addClass("active");
+
+        $(".tabs-content").removeClass("active");
+        $(tabDivId).addClass("active");
+      }
+    });
+  }
   
   /////////////////////
   // Public Methods //
@@ -289,6 +305,7 @@ AppName.Modules.ThemeModule = (function () {
   const init = function () {
     _privateMethod();
     _two_column_side_tabs_accordion();
+    _contact_us();
     _collapsing_text();
     _latestJobs();
     _logocarousel();
