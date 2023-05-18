@@ -123,7 +123,7 @@ AppName.Modules.ThemeModule = (function () {
   const _logocarousel = function(){
     $('.logo-row').slick({
           infinite: true,
-          slidesToShow: 6,
+          slidesToShow: 5,
           slidesToScroll: 1,
           autoplay: true,
           dots: true,

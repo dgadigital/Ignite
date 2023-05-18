@@ -1,0 +1,71 @@
+.two-column-text{
+    padding-bottom: 0;
+    .container{
+        .column-wrapper{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+
+            .left-col{
+                display: flex;
+                flex-direction: column;
+                gap: 17px;
+                max-width: 495px;
+                .text-container{
+                    max-width: 440px;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: #000000;
+
+                }
+            }
+            .right-col{
+                display: flex;
+                flex-direction: column;
+                gap: 17px;
+                max-width: 417px;
+                .column-title{
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 25px;
+                    line-height: 30px;
+                    letter-spacing: 0.817857px;
+                    color: #353535;
+                }
+                .text-container{
+                    ul{
+                        list-style: none;
+                        padding: 0px;
+                        li{
+                            display: flex;
+                            justify-content: flex-start;
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 30px;
+                            color: #353535;
+                            &:before{
+                                content: url('../../assets/images/list-check.png');
+                                // margin-left: -20px;
+                                margin-right: 11px;
+                                padding-top: 2px;
+                                
+                            }
+                        }
+                    }
+                }
+        
+            }
+        }
+        .img-wrapper{
+            padding-top: 80px;
+        }
+    }
+
+
+
+    
+}
