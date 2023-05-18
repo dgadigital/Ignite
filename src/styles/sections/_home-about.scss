@@ -13,8 +13,6 @@
         .section-description{
             max-width: 80%;
             margin: auto;
-            margin-bottom: 25px;
-
             font-style: normal;
             font-weight: 400;
             font-size: 14px;
@@ -24,52 +22,28 @@
 
 
         }
-        .home-about-image-row{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 35px;
-            width: 100%;
-            .column-container{
-                .column-image-container{
-                    img{
-                        max-width: 138px;
-                        max-height: 123px;
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-            }
-        }
+        
         .home-about-stats-row{
             display: flex;
             justify-content: space-between;
-
-            @media (max-width: 768px){
-                flex-direction: column;
-            }   
-
+            flex-wrap: wrap;
+            max-width: 624px;
+            margin: auto;
             .column-container{
-                width: 100%;
+                width: 33.333333333333%;
+                display: flex;
+                justify-content: center;
+                margin-top: 25px;
                 
-                .column-number-container{
+
+                .column-inner-container{
                     display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
                     align-items: center;
+                    gap: 15px;
                     
                     
-                    
-                    @media (max-width: 768px){
-
-                        flex-direction: row;
-                        justify-content: flex-start;
-                        flex-wrap: nowrap;
-                        font-size: 45px;
-                        
-                    }
-    
                     .column-number{
                         
                     
@@ -79,31 +53,28 @@
                     text-align: center;
                       font-feature-settings: 'pnum' on, 'lnum' on;
                       color: #0046B5;
+                      line-height: normal;
                       
                       span{
                       font-size: 28px;
                       }
-                      @media (max-width: 768px){
-                        min-width: 30%;
-                      }
-                      @media (max-width: 768px){
-                        font-size: 45px;
-                        text-align: right;
+
                     }
+
+                    .column-image{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 85px;
+                        width: auto;
+
                     }
 
                     
                     
 
                     .column-text{
-                        max-width: 120px;
-                        padding-left: 15px;
-                        @media (max-width: 768px){
-                            text-align: left;
-                        }
-                        @media (max-width: 768px){
-                            min-width: 70%;
-                        }
+                        max-width: 110px;
                         font-style: normal;
                         font-weight: 700;
                         font-size: 17px;
@@ -116,14 +87,5 @@
             
             
           }
-
-        .section-image{
-            margin-top: -60px;
-            @media (max-width: 767px){
-                margin-top: 0px;
-            }
-
-        }
-
     }
 }   
