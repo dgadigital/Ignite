@@ -1,7 +1,7 @@
 .hero-banner {
     max-height:536.1px;
     background-size: cover;
-    background-position: center center;
+    background-position: left center;
     background-repeat: no-repeat;
     
     
@@ -22,12 +22,16 @@
                 
         .hero-sub-title {
             h2{
+                margin: auto;
+                max-width: 638px;
                 font-style: normal;
                 font-weight: 700;
                 font-size: 25px;
-                line-height: 70px;
+                line-height: 30px;
                 letter-spacing: 0.8px;
                 color: #FFFFFF;
+                text-transform: uppercase;
+                text-align: center;
             }
         }
         
@@ -66,22 +70,26 @@
         @media (max-width: 1440px) {
             position: absolute;
             right: 20px;
-            top: 32%;
+            top: 175px;
             max-height: 288.37px;
             max-width: 30vw;
         }
-
+        @media (max-width: 1300px) {
+            top: 235px;
+            height: 18vw;
+        }
+        @media (max-width: 1200px) {
+            top: 300px;
+            height: 15vw;
+        }
         @media (max-width: 1020px) {
-            top: 45%;
+            top: 300px;
             height: 18vw;
         }
-        @media (max-width: 768px) {
-            top: 52%;
-            height: 18vw;
-        }
-        @media (max-width: 550px) {
+        @media (max-width: 990px) {
             display: none;
         }
+
     }
 }
     

@@ -1,5 +1,6 @@
 .two-column-round-image{
     padding-top: 30px;
+    padding-bottom: 45px;
     .column-container{
         .section-title{
 
@@ -21,26 +22,12 @@
     
     
         }
-    
-    
-        .section-description{
-            margin-bottom:28px;
-    
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 24px;
-            text-align: center;
-            color: #000000;
-            
-        }
+       
         .column-wrapper{
             display: flex;
             justify-content: center;
 
             .column-content{
-                margin-bottom: 28px;
-
                 .column-image{
                     margin: auto;
                     width: 247.54px;
@@ -60,7 +47,7 @@
                     .column-text{
                         margin: auto;
                         margin-bottom: 20px;
-                        max-width: 230px;
+                        max-width: 235px;
                         font-style: normal;
                         font-weight: 400;
                         font-size: 14px;
@@ -74,6 +61,6 @@
             }
         }
 
-    }
+        }
 }
 }
