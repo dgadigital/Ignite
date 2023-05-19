@@ -68,7 +68,6 @@
                 padding: 0px;
                 background-color: #F9F9F9;
                 .tabs-content { 
-                    opacity: 0; 
                     display: none; 
                     padding: 30px;
                     opacity: 1s ease-out;  
@@ -78,7 +77,6 @@
                     }  
                 }
                 .tabs-content.active { 
-                    opacity: 1; 
                     display: block; 
                 }
 
