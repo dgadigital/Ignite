@@ -78,6 +78,20 @@
                 
             }
 
+            &.two-rows-icon{
+              .slick-list.draggable{
+                  min-height: 200px;
+                  .logo-container{
+                    display: block;
+                    img{
+                      height: 100px;
+                      padding: 10px 30px;
+                      object-fit: contain;
+                    }
+                  }
+              }
+            }
+
         }
     }
 }
