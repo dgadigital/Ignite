@@ -20,7 +20,10 @@
           
         }
 
-
+        &:after{
+          content: '';
+          background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 16.49%, rgba(0, 0, 0, 0) 54.99%);
+        }
 
         @media (max-width:989px) {
           flex-direction: column;
@@ -34,11 +37,15 @@
         line-height: 24px;
         color: #000000;
       }
+
+
+
       .profile-row{
-        
-          margin-top: 40px;
-              /* Styling the dot container */
+              display: flex;
+              flex-wrap: wrap;
+              gap: 30px;
             .slick-dots {
+              width: 100%;
               display: flex;
               justify-content: center;
               align-items: center;
@@ -95,11 +102,11 @@
               
           }
 
-
           .profile-container{
-
-
-
+            flex-basis: 30.9%;
+            @media(max-width: 991px){
+                flex-basis: 100%;
+            }
             .profile-wrapper{
               position: relative;
               padding-top: 135%;
@@ -120,6 +127,7 @@
                 position: relative;
                 margin-top: -62px;
                 padding: 0 1.5em;
+                z-index: 2;
                 h2{
                   // min-height: 56px;
                   font-style: normal;
@@ -154,6 +162,16 @@
               }
               }
 
+              &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                height: 100%;
+                background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 16.49%, rgba(0, 0, 0, 0) 54.99%);
+                z-index: 2;
+                width: 100%;
+              }
               &:after {
                 content: '';
                 display: block;
@@ -206,6 +224,7 @@
           }
 
       }
+
     }
 }
 

@@ -76,7 +76,7 @@ AppName.Modules.ThemeModule = (function () {
   
   
   const __peoplecarousel = function(){
-    $('.profile-row.slider').slick({
+    $('.profile-row.profile-slider').slick({
           infinite: true,
           slidesToShow: 3,
           slidesToScroll: 3,
