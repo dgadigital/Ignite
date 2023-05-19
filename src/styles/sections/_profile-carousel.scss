@@ -104,6 +104,8 @@
 
           .profile-container{
             flex-basis: 30.9%;
+            // padding: 0px 20px;
+
             @media(max-width: 991px){
                 flex-basis: 100%;
             }
@@ -128,6 +130,15 @@
                 margin-top: -62px;
                 padding: 0 1.5em;
                 z-index: 2;
+
+                @media (max-width:990px) {
+                  position: absolute;
+                  bottom: 0;
+                  padding: 1.5em;
+                  color: #fff;
+                  z-index: 999;
+                }
+
                 h2{
                   // min-height: 56px;
                   font-style: normal;
@@ -137,8 +148,8 @@
                   color: #FFFFFF;
                 }
                 span {
-                  display: none;
-                  visibility: hidden;
+                  // display: none;
+                  // visibility: hidden;
                   max-height: 0;
                   font-size: 13px;
                   line-height: 25px;
@@ -148,13 +159,18 @@
                   transition: visibility .3s linear,opacity .3s linear,max-height .45s ease-in;
               }
                 a {
-                  display: none;
-                  visibility: hidden;
+                  // display: none;
+                  // visibility: hidden;
                   max-height: 0;
                   font-size: 13px;
                   line-height: 25px;
                   margin: 0;
                   opacity: 0;
+                  @media (max-width:990px) {
+                    opacity: 1;
+                    display: flex;
+                    align-items: center;
+                  }
                   -webkit-transition: visibility .3s linear,opacity .3s linear,max-height .45s ease-in;
                   transition: visibility .3s linear,opacity .3s linear,max-height .45s ease-in;
                   filter: brightness(0) invert(1);
