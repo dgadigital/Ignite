@@ -1,5 +1,5 @@
 .two-column-text-image{
-    .container{
+    .container:not(.title-wrapper){
         display: flex;
         align-items: center;
         flex-wrap: wrap;
@@ -22,13 +22,18 @@
                 padding: 0 25px;
             }
         }
-
         .text-wrapper{
             font-style: normal;
             font-weight: 400;
             font-size: 14px;
             line-height: 24px;
             color: #000000;
+        }
+        ol{
+            padding-left: 14px;
+            li{
+                line-height: 24px;
+            }
         }
     }
     &.without-title{
