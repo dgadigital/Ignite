@@ -125,7 +125,7 @@ AppName.Modules.ThemeModule = (function () {
           infinite: true,
           slidesToShow: 5,
           slidesToScroll: 1,
-          // autoplay: true,
+          autoplay: true,
           dots: true,
           arrows: false,
           responsive: [
@@ -148,7 +148,7 @@ AppName.Modules.ThemeModule = (function () {
           infinite: true,
           slidesToShow: 5,
           slidesToScroll: 1,
-          // autoplay: true,
+          autoplay: true,
           rows: 2,
           dots: true,
           arrows: false,
