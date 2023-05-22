@@ -13,10 +13,14 @@
 
                 .card-title{
                     max-width: 50%;
+
+                    @media (max-width:990px) {
+                        max-width: 100%;
+                    }
                 }
 
                 .card-text{
-                    .value-container{
+                    
                         h3{
                             font-style: normal;
                             font-weight: 500;
@@ -44,10 +48,7 @@
                                 
                             }
                         }
-                    }
-                    }
-
-                    
+                        }
 
                 }
             }
