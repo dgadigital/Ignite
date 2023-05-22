@@ -86,14 +86,14 @@
     .select2-container--default.select2-container--focus .select2-selection--multiple {
         border-color: $light-orange;
         border-radius: 15px;
-        border-width: 2px;
+        border-width: 1px;
     }
     .select2-container--default .select2-selection--multiple {
         padding-left: 2px;
         max-height: 25px;
         overflow-y: scroll;
         border-radius: 15px;
-        border-width: 2px;
+        border-width: 1px;
         margin-bottom: 0px;
         
     }
@@ -221,7 +221,7 @@
                 border-radius: 15px;
                 width: 450px;
                 padding-left: 20px;
-                border: 2px solid #aaa;
+                border: 1px solid #aaa;
                 @media (max-width: 991px){
                   width: 88%;
                 }
