@@ -19,6 +19,7 @@
         .logo-row{
 
                 /* Styling the dot container */
+                margin-bottom: 50px;
               .slick-dots {
                 display: flex;
                 justify-content: center;
@@ -55,8 +56,7 @@
               
             }
 
-            .slick-list.draggable{
-                max-height: 53.56px;
+            .slick-list.draggable{                
                 max-width: 1028.06px;
                 margin: auto;
                 margin-bottom: 42px;
@@ -92,6 +92,15 @@
               }
             }
 
+        }
+
+
+        .logo-row.two-rows{
+          .slick-slide.slick-active{
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+          }
         }
     }
 }

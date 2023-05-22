@@ -121,11 +121,11 @@ AppName.Modules.ThemeModule = (function () {
     }
     
   const _logocarousel = function(){
-    $('.logo-row').slick({
+    $('.logo-row.one-row').slick({
           infinite: true,
           slidesToShow: 5,
           slidesToScroll: 1,
-          autoplay: true,
+          // autoplay: true,
           dots: true,
           arrows: false,
           responsive: [
@@ -144,7 +144,31 @@ AppName.Modules.ThemeModule = (function () {
               }
           ]
         });
-    }
+    $('.logo-row.two-rows').slick({
+          infinite: true,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          // autoplay: true,
+          rows: 2,
+          dots: true,
+          arrows: false,
+          responsive: [
+              {
+                  breakpoint: 991,
+                  settings: {
+                      slidesToShow: 3
+                  }
+              },
+              {
+                  breakpoint: 768,
+                  settings: {
+                      slidesToShow: 2
+                                            
+                  }
+              }
+          ]
+        });
+  }
 
 
   var _faq_accordion = function(){
