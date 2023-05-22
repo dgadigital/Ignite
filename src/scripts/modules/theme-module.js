@@ -170,6 +170,31 @@ AppName.Modules.ThemeModule = (function () {
         });
   }
 
+  const _cardcarousel = function(){
+    $('.card-carousel-container').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+      
+    });
+}
+
 
   var _faq_accordion = function(){
     $('.faq-accordion-section .accordion').each(function(e){
@@ -331,6 +356,7 @@ AppName.Modules.ThemeModule = (function () {
     _two_column_side_tabs_accordion();
     _contact_us();
     _collapsing_text();
+    _cardcarousel();
     _latestJobs();
     _logocarousel();
     _faq_accordion();

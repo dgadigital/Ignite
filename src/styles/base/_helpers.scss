@@ -53,6 +53,26 @@
   background-size: 100%;
 }
 
+.white-bg-vector {
+  background-color: #FFFFFF;
+  background-image: url('../assets/images/plain-vector.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+// .white-bg-vector::before {
+//   content: "";
+//   position: absolute;
+//   top: -10px;
+//   left: 0;
+//   right: 0;
+//   height: 10%;
+//   background-image: linear-gradient(to top, transparent, #ffffff);
+//   z-index: 1;
+// }
+
+
 .load-more{
   font-weight: 800;
   font-size: 16px;
