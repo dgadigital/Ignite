@@ -2,7 +2,7 @@
   
     padding-top: 25px;
     padding-bottom: 25px;
-    background-color: #ECF4FF;
+    
     
   .testimonial-container{
       .section-title{
@@ -34,7 +34,9 @@
 
             list-style: none;
             text-align: center;
-            
+            li:only-child{
+              display: none;
+            }
 
             li {
               display: flex;

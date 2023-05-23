@@ -73,6 +73,7 @@
                         margin: auto;
                         max-width: 100%;
                         max-height: 100%;
+                        min-height: 67px;
                     }
                 }
                 
@@ -87,6 +88,7 @@
                       height: 100px;
                       padding: 10px 30px;
                       object-fit: contain;
+                      min-height: 67px;
                     }
                   }
               }
