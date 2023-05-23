@@ -108,7 +108,7 @@
                     &.lb-right{
                         justify-content: flex-end;
                         background: linear-gradient(270deg, #ECF4FF 77%, rgba(249, 249, 249, 0) 100%);
-                        @media (max-width: 990) {
+                        @media (max-width: 990px) {
                             background: #ECF4FF;
                         }
                     }
