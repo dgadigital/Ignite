@@ -1,7 +1,6 @@
 .two-column-text-image{
     .container:not(.title-wrapper){
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
         gap: 40px;
         &>div{
