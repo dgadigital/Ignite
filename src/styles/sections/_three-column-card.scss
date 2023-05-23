@@ -60,4 +60,23 @@
             padding: 20px 0;
         }
     }
+    &.big-image{
+        .card-column{
+            .image-wrapper{
+                padding-top: 100%;
+            }
+        }
+    }
+    &.one-line-title{
+        .card-container>div{
+            .content-wrapper{
+                .title-wrapper{
+                    min-height: unset;
+                    h4{
+                        -webkit-line-clamp: 1;
+                    }
+                }
+            }
+        }
+    }
 }
