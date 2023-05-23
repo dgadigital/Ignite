@@ -181,29 +181,29 @@
               }
               }
 
-              &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 0;
-                height: 100%;
-                // background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 16.49%, rgba(0, 0, 0, 0) 54.99%);
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 89.02%);
-                z-index: 2;
-                width: 100%;
-              }
-              &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 0;
-                height: 0;
-                background: linear-gradient(180deg, rgba(246, 137, 43, 0.85) 0%, rgba(221, 85, 0, 0.85) 89.02%);
-                z-index: 1;
-                -webkit-transition: height .25s ease-in;
-                transition: height .25s ease-in;
-                width: 100%;
-              }
+              // &:before {
+              //   content: '';
+              //   display: block;
+              //   position: absolute;
+              //   bottom: 0;
+              //   height: 100%;
+              //   // background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 16.49%, rgba(0, 0, 0, 0) 54.99%);
+              //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 89.02%);
+              //   z-index: 2;
+              //   width: 100%;
+              // }
+              // &:after {
+              //   content: '';
+              //   display: block;
+              //   position: absolute;
+              //   bottom: 0;
+              //   height: 0;
+              //   background: linear-gradient(180deg, rgba(246, 137, 43, 0.85) 0%, rgba(221, 85, 0, 0.85) 89.02%);
+              //   z-index: 1;
+              //   -webkit-transition: height .25s ease-in;
+              //   transition: height .25s ease-in;
+              //   width: 100%;
+              // }
             }
             &:hover {
               .content {
@@ -242,9 +242,86 @@
               
             }
           }
+          &.office-locations{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 0px;
 
+            .profile-container{
+              flex-basis: 18%;
+    
+              .profile-wrapper{
+                .content{
+                  margin-top: -50px;
+                  width: fit-content;
+                  padding: 0px 28px 0px 10px;
+
+                  @media (max-width: 991px){
+                    margin-bottom: 15px;
+                  }
+                }
+                a{
+                  all: revert;
+                  color: #fff;
+                  font-size: 25px;
+                  text-decoration: none;
+                  cursor: pointer;
+
+                  @media (max-width: 767px){
+                    font-size: 21px;
+                  }
+
+                  @media (max-width: 350px){
+                    font-size: 15px;
+                  }
+                }
+                .btn{
+                  &.btn-arrow{
+                    &:after {
+                      background-image: none !important;
+                      margin-top: -5px;
+                      content: '\f054';
+                      font-family: 'Font Awesome 5 Free';
+                      font-weight: 600;
+                      font-size: 16px;
+                      color: #fff;
+                    }
+                  }
+                }
+              }
+              &:hover {
+                .content{
+                  margin-bottom: 20px;
+                }
+              }
+            }
+            @media (max-width: 991px){
+              .profile-container{
+                flex-basis: 30%;
+              }
+            }
+
+            @media (max-width: 767px){
+              gap: 3%;
+              .profile-container{
+                flex-basis: 30%;
+              }
+            }
+
+            @media (max-width: 575px){
+              .profile-container{
+                flex-basis: 45%;
+              }
+            }
+
+            @media (max-width: 400px){
+              .profile-container{
+                flex-basis: 80%;
+              }
+            }
+          }  
       }
-
     }
 }
 

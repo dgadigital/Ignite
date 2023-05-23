@@ -33,6 +33,109 @@
   width: 1px;
 }
 
+.hover-overlay-orange{
+  position: relative;
+  margin-bottom: 5%;
+  .post-card & {
+    .content {
+      p {
+        font-size: 30px;
+        // font-family: $font-lato-regular;
+        text-transform: uppercase;
+
+        @media (max-width: 991px){
+          font-size: 25px;
+        }
+      }
+    }
+  }
+  &.w-read-more{
+    .read-more{
+      position: absolute;
+      bottom: 0;
+      margin: 0;
+      padding: 1em;
+      font-size: 30px;
+      color: #fff;
+      z-index: 999;
+      visibility: hidden;
+      max-height: 0;
+      opacity:0;
+      transition:visibility 0.3s linear,opacity 0.3s linear,max-height 0.45s ease-in;
+    }
+    &:hover{
+        .read-more{
+            visibility: visible;
+            max-height: 500px;
+            opacity:1;
+            transition:visibility 0.3s linear,opacity 0.3s linear,max-height 0.45s ease-out;
+        }
+    }
+  }
+  .content{
+    position: absolute;
+    bottom: 0;
+    padding: 1.5em;
+    color: #fff;
+    z-index: 999;
+    h2{
+      font-size: 40px;
+      @media (max-width: 1199px){
+        font-size: 30px;
+      }
+        @media (max-width: 767px){
+         font-size: 21px;
+      }
+    }
+    p{
+      visibility: hidden;
+      max-height: 0;
+      font-size: 13px;
+      line-height: 25px;
+      margin: 0;
+      opacity:0;
+      transition:visibility 0.3s linear,opacity 0.3s linear,max-height 0.45s ease-in;
+    }
+  }
+  &:hover{
+    .content{
+        p{
+            visibility: visible;
+            max-height: 500px;
+            opacity:1;
+            transition:visibility 0.3s linear,opacity 0.3s linear,max-height 0.45s ease-out;
+        }
+    }
+    &:after{
+        height: 100%;
+        transition: height 0.25s ease-out;
+    }
+  }
+  &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      height: 0;
+      width: 100%;
+      background-color: rgba(0,0,0,.2);
+      z-index: 1;
+      transition: height 0.25s ease-in;
+  }
+  &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      height: 0;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(246, 137, 43, 0.85) 0%, rgba(221, 85, 0, 0.85) 89.02%);
+      // background-color: #f68a2be7;
+      z-index: 1;
+      transition: height 0.25s ease-in;
+  }
+}
+
 .box-shadow{
   box-shadow: 0px 25px 31px 0px rgba(0,0,0,.1);
 }
