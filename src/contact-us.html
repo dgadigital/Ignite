@@ -13,6 +13,9 @@
 
   <link rel="icon" href="./assets/images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="./styles/main.min.css">
+  <link rel="stylesheet" type="text/css" href="./styles/slick.css">
+  <link rel="stylesheet" type="text/css" href="./styles/slick.css">
+
   <!--[if lte IE 9]>
     <link href="stylesheets/non-responsive.css" rel="stylesheet" />
   <![endif]-->
@@ -93,23 +96,37 @@
         </div>
     </section> 
 
-    <section class="profile-carousel pb-5 pt-5">
+    <section class="full-width-text">
+      <div class="container">
+          <h2><span>One of the best recruitment agencies in Australia</span></h2>
+          <p>Looking for a reliable recruitment agency to help you with your staffing needs? With 40 years of experience in the industry, we are a trusted talent advisor to some of Australia's most prominent public and private sector corporations. </p>
+          <p>Our specialist recruitment consultants are experts in their respective fields, with a deep understanding of the current employment market and the skills and experience needed to excel in various roles. Whether you need temporary, contract or permanent staffing solutions, we are here to help.</p>
+      </div>
+    </section>
+
+    <section class="profile-carousel pt-5 blue-bg">
       <div class="profile-container container">  
           <div class="section-title-container">
-              <div class="section-title">
+              <!-- <div class="section-title">
                   <h2 class="underline-left"><span>Ignite Board & Executive Team</span></h2>
                   <div><a href="/" class="btn btn-solid">Meet the Ignite team</a></div>
-                  
-              </div>
-              
+              </div> -->
+              <div class="section-description text-center">
+                <h2 class="px-3"><span>As a nationwide company, we have offices in the following locations: </span></h2>
+                <p>We welcome your call or email and will connect you with one of our specialist recruiters today.</p>
+              </div>  
           </div>
-
-          <div class="profile-row slider office-locations">
-
+          
+          <!-- <div class="profile-row profile-slider"> -->
+          <div class="profile-row office-locations">
+              
               <div class="profile-container column hover-overlay-orange">
                   <div class="profile-wrapper">
                       <img src="./assets/images/Sdyney.png" alt=""/>
                       <div class="content">
+                        <!-- <h2>Tim Moran1</h2>
+                        <span>Chief Executive Officer</span>
+                        <a href="/" class="link-arrow">Read more</a> -->
                         <a href="/" class="btn btn-arrow">Sydney</a>
                       </div>
                   </div>
@@ -146,19 +163,9 @@
                       </div>
                   </div>
               </div>
-                                       
+                        
           </div> 
-          </div>
       </div>
-    </section>
-
-    <section class="full-width-text blue-bg">
-        <div class="container">
-            <h2><span>One of the best recruitment agencies in Australia</span></h2>
-            <p>Looking for a reliable recruitment agency to help you with your staffing needs? With 40 years of experience in the industry, we are a trusted talent advisor to some of Australia's most prominent public and private sector corporations. </p>
-            <p>Our specialist recruitment consultants are experts in their respective fields, with a deep understanding of the current employment market and the skills and experience needed to excel in various roles. Whether you need temporary, contract or permanent staffing solutions, we are here to help.</p>
-            <p>As a nationwide company, we have offices in the following locations: <a href="#" class="underlined">Sydney</a>, <a href="#" class="underlined">Melbourne</a>, <a href="#" class="underlined">Canberra</a>, <a href="#" class="underlined">Brisbane</a> and <a href="#" class="underlined">Perth</a>. We welcome your call or email and will connect you with one of our specialist recruiters today.</p>
-        </div>
     </section>
 
     <section class="contact-us pt-0">
@@ -375,10 +382,11 @@
     
   </main>
 
-  <!-- build:js scripts/main.min.js -->
+  <!-- build:js scripts/about.min.js -->
   <script src="./scripts/vendors/jquery.min.js"></script>
   <script src="./scripts/vendors/popper.min.js"></script>
   <script src="./scripts/vendors/bootstrap.min.js"></script>
+  <script src="./scripts/vendors/slick.min.js"></script>
   <script src="./scripts/vendors/swiper.min.js"></script>
   <script src="./scripts/core/base.js"></script>
   <script src="./scripts/modules/theme-module.js"></script>

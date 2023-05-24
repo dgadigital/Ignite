@@ -156,7 +156,23 @@
   background-size: 100%;
 }
 
-.white-bg-vector {
+.white-bg-vector-absolute{
+  background-color: #FFFFFF;
+  background-image: url('../assets/images/blue-bg-vector.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: -130px;
+  padding-top: 150px;
+  padding-bottom: 195px;
+  @media (max-width: 1200px){
+    margin-top: -50px;
+    padding-top: 70px;
+    padding-bottom: 70px
+  }
+}
+
+.white-top-bg-vector {
   background-color: #FFFFFF;
   background-image: url('../assets/images/plain-vector.png');
   background-position: top center;

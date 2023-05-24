@@ -8,6 +8,8 @@
         }
         p{
             font-size: 21px;
+            font-weight: 400;
+            font-family: Raleway;
             line-height: 28px;
             color: #353535;
             font-style: italic;
@@ -30,6 +32,7 @@
             }
             h3{
                 font-size: 21px;
+                text-decoration: underline;
                 line-height: 28px;
                 color: $light-orange;
                 font-family: $font-raleway-bold;
