@@ -112,15 +112,17 @@
     }
   }
   &:before{
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 0;
-      height: 0;
-      width: 100%;
-      background-color: rgba(0,0,0,.2);
-      z-index: 1;
-      transition: height 0.25s ease-in;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.6) 8.49%, rgba(0, 0, 0, 0) 38.99%);
+    z-index: 1;
+    -webkit-transition: height .25s ease-in;
+    transition: height .25s ease-in;
+
   }
   &:after {
       content: '';
