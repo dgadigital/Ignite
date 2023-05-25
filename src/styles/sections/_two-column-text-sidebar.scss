@@ -17,11 +17,15 @@
                 }
 
                 h4{
-                    font-size: 18px;
+                    font-family: Raleway;
+                    font-weight: 400;
+                    font-size: 25px;
                     font-style: italic;
                     margin: 15px 0px;
-                    color: $light-orange;
-                    
+                    color: #353535;
+                    @media (max-width: 991px){
+                        font-size: 18px;
+                    }  
                 }
             }
         }

@@ -28,6 +28,11 @@
                 font-size: 18px;
                 background-size: contain;
             }
+
+            &.no-background-img{
+                background-image: none;
+                background-color: $light-blue;
+            }
         }
     
         .form-body {
