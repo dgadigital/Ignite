@@ -19,6 +19,12 @@
                     align-items: center;
                     margin-bottom: 10px;
                     min-height: 57px;
+                    a{
+                        color: $text-color;
+                        &:hover{
+                            text-decoration: none;
+                        }
+                    }
                     h4 {
                         font-family: $font-raleway-semibold;
                         display: -webkit-box;
@@ -72,6 +78,12 @@
             .content-wrapper{
                 .title-wrapper{
                     min-height: unset;
+                    a{
+                        color: $text-color;
+                        &:hover{
+                            text-decoration: none;
+                        }
+                    }
                     h4{
                         -webkit-line-clamp: 1;
                     }
