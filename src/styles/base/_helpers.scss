@@ -227,3 +227,12 @@ hr.blue-line{
   border-color: #9FBDEA;
 }
 
+.highlight{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  text-decoration-line: underline;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #F6892B;  
+}
