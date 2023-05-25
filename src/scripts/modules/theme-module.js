@@ -9,6 +9,26 @@ AppName.Modules.ThemeModule = (function () {
     // Global here
   };
 
+  const _fileUploadApplyNow = () => {
+    const realFileBtn = document.getElementById("real-file");
+    const customBtn = document.getElementById("custom-button");
+    const customTxt = document.getElementById("custom-text");
+
+    customBtn.addEventListener("click", function() {
+      realFileBtn.click();
+    });
+
+    realFileBtn.addEventListener("change", function() {
+      if (realFileBtn.value) {
+        customTxt.innerHTML = realFileBtn.value.match(
+          /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+      } else {
+        customTxt.innerHTML = "No file chosen, yet.";
+      }
+    });
+  }
+
   const _footerCollapse = () => {
     $('ul.menu > li.menu-item > a').each(function(){
       if ($(this).siblings('.sub-menu').length){
@@ -306,6 +326,7 @@ AppName.Modules.ThemeModule = (function () {
     _testimonialslider();
     _search_filter();
     _side_bar_filter();
+    _fileUploadApplyNow();
   };
 
   return {

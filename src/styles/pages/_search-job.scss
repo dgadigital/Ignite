@@ -1,11 +1,28 @@
 .search-job {
     padding-top: 60px;
 
-    h2 {
-        padding-bottom: 30px;
-        font-family: $font-raleway-bold;
-        text-align: center;
-        font-size: 25px;
+    .description {
+
+        h2 {
+            padding-top: 20px;
+            font-family: $font-raleway-bold;
+            font-size: 25px;
+        }
+
+        p {
+            padding-bottom: 10px;
+            line-height: 24px;
+        }
+
+        a {
+            text-decoration: underline;
+
+            &.btn {
+                margin-bottom: 30px;
+                text-decoration: none;
+            }
+        }
+        
     }
 
     &-wrapper {
@@ -16,6 +33,10 @@
     &-sidebar {
         padding-right: 15px;
         width: 30%;
+
+        @media (max-width: 991px) {
+            display: none;
+        }
     }
 
 
@@ -23,25 +44,68 @@
         padding-left: 15px;
         width: 70%;
 
+        @media (max-width: 991px) {
+            padding-left: 0;
+            width: 100%;
+        }
 
         .search-box {
-            display: flex;
-            justify-content: space-between;
-            padding: 17px 30px;
-
+            padding: 17px 25px;
             background: #FFFDFD;
             box-shadow: 0px 18px 27px rgba(0, 0, 0, 0.122132);
 
+            .initial-fields {
+                display: flex;
+                justify-content: space-between;
+    
+                @media (max-width: 767px) {
+                    flex-wrap: wrap;
+                }
+    
+            }
+
+            .post-filter {
+                display: none;
+                width: 100%;
+
+                @media (max-width: 991px) {
+                    display: flex;
+                }
+
+                .filter-container {
+                    width: 100%;
+                }
+
+                .dropdown {
+                    margin-bottom: 10px;
+                }
+
+                .select2-container {
+                    margin-top: 0;
+                }
+            }
+
             .job {
                 padding-right: 15px;
-                width: 270px;
+                width: 100%;
                 max-width: 100%;
-            }
+
+                @media (max-width: 767px) {
+                    padding-right: 0;
+                    margin-bottom: 10px;
+                }
+             }
 
             .location {
                 padding-right: 15px;
-                width: 205px;
+                width: 80%;
                 max-width: 100%;
+
+                @media (max-width: 767px) {
+                    padding-right: 0;
+                    width: calc(100% - 60px);
+                }
+                
             }
 
             .search-button {

@@ -99,8 +99,81 @@
         <div class="search-job-wrapper">
 
           <div class="search-job-sidebar">
+            <div class="side-bar-accordion">
+              <div class="tab-content">
+                <div id="categories" class="active-tab">
+                  <div class="accordion active">
+                    <div class="content-wrapper">
+                      <p class="accordion-title">Categories</p>
+                      <div class="panel select">
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">attracting and recruiting talent</span>
+                          <span class="count">17</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">diversity and inclusion</span>
+                          <span class="count">17</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">emerging workforce trends</span>
+                          <span class="count">17</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">employee engagement</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">employee retention</span>
+                          <span class="count">17</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">employee value proposition</span>
+                          <span class="count">17</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion">
+                    <div class="content-wrapper">
+                      <p class="accordion-title">Tags</p>
+                      <div class="panel select">
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">attracting and recruiting talent</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">diversity and inclusion</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">emerging workforce trends</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">employee engagement</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">employee retention</span>
+                        </label>
+                        <label>
+                          <input type="checkbox" name="position_of_interest">
+                          <span class="label">employee value proposition</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>  
             
-            <div class="side-card">
+            <!-- <div class="side-card">
               <h3>Find a job in your industry</h3>
               <p>Find a job by industry or search for jobs that match your skills and experience.</p>
               <a href="/" class="btn btn-solid">Find a Job</a>
@@ -110,41 +183,81 @@
               <p>Want to discover helpful resources and insights? Read our knowledge-filled blog to help you navigate and stay informed in your career journey.
                 Didn't see the perfect job for you? We share new jobs all the time. Why not submit your CV?</p>
               <a href="/" class="btn btn-solid">Submit CV</a>
-            </div>
+            </div> -->
 
           </div>
           <div class="search-job-content">
 
-            <h2>Find a job that is perfect for you</h2>
-
             <div class="search-box">
-              <div class="job">
-                <div class="find-job-field">
-                    <input type="text" class="form-control find-job" placeholder="Job Title, skills or keywords">
+
+              <div class="post-filter">
+               
+                  <div class="filter-container">
+                    <div class="dropdown">
+                      <select class="js-select2" id="filter-dropdown-category" multiple="multiple">
+                        <option value="O1" data-badge="">attracting and recruiting talent</option>
+                        <option value="O2" data-badge="">diversity and inclusion</option>
+                        <option value="O3" data-badge="">emerging workforce trends</option>
+                        <option value="O4" data-badge="">employee engagement</option>
+                        <option value="O5" data-badge="">employee retention</option>
+                        <option value="O6" data-badge="">employee value proposition</option>
+                      </select>
+                    </div>
+                    <div class="dropdown">
+                      <select class="js-select2" id="filter-dropdown-tags" multiple="multiple">
+                        <option value="O1" data-badge="">attracting and recruiting talent</option>
+                        <option value="O2" data-badge="">diversity and inclusion</option>
+                        <option value="O3" data-badge="">emerging workforce trends</option>
+                        <option value="O4" data-badge="">employee engagement</option>
+                        <option value="O5" data-badge="">employee retention</option>
+                        <option value="O6" data-badge="">employee value proposition</option>
+                      </select>
+                    </div>
                   </div>
+                
               </div>
-              <div class="location">
-                <div class="find-job-location">
-                  <select class="form-control find-job-location">
-                    <option value="" disabled selected hidden>Select a location</option>
-                    <option>Philippines</option>
-                    <option>Japan</option>
-                    <option>Iceland</option>
-                    <option>Antartica</option>
-                  </select>
+              
+              <div class="initial-fields">
+                <div class="job">
+                  <div class="find-job-field">
+                      <input type="text" class="form-control find-job" placeholder="Job Title, skills or keywords">
+                    </div>
+                </div>
+                <div class="location">
+                  <div class="find-job-location">
+                    <select class="form-control find-job-location">
+                      <option value="" disabled selected hidden>Select a location</option>
+                      <option>Philippines</option>
+                      <option>Japan</option>
+                      <option>Iceland</option>
+                      <option>Antartica</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="search-button">
+                  <button class="btn btn-search btn-solid"><span class="fa fa-search"></button>
                 </div>
               </div>
-              <div class="search-button">
-                <button class="btn btn-search btn-solid"><span class="fa fa-search"></button>
-              </div>
+
             </div>
 
             <div class="description">
-              <p><strong>Don't wait! Search for your next IT job</strong></p>
-              <p>Browse through our current vacant IT jobs and find the perfect opportunity for you. We have a wide range of IT roles available, including software development, project management, cyber security, infrastructure and more.</p>
-                
-              <p>Our expert IT recruiters are always on the lookout for talented professionals, whether you're a junior or senior candidate. You can trust us to help you find your next job, regardless of your experience level.
-                Browse our current IT job vacancies and take the next step in your IT career with Ignite.</p>
+              <h2>Find a job that is perfect for you</h2>
+              <!-- <p><strong>Don't wait! Search for your next IT job</strong></p> -->
+              <p>You promised yourself a new career. Well, now you can head in the direction you've always dreamed of and find a job to set you up for success.</p>
+
+              <p>As your trusted recruiters, Ignite is here to guide you every step of the way. Whether you're looking to make a fresh start in the new year or just browsing for job opportunities, our team of experts can provide you with the resources, connections and market-leading employer relationships to help you achieve your career goals.</p>
+              
+              <p>With new jobs uploaded frequently, you can explore a wide range of temporary, contract or permanent positions across various industries and professions. We understand that flexibility and freedom are essential in today's job market, which is why we showcase the best opportunities that cater to your unique work-life situation.</p>
+              
+              <h2>Find a job in your industry</h2>
+
+              <p>Find a job by industry or search for jobs that match your skills and experience.</p>
+              <a href="/" class="btn btn-solid">Find a Job</a>
+
+              <p>Want to discover helpful resources and insights? <strong><a href="/">Read our knowledge-filled blog</a></strong> to help you navigate and stay informed in your career journey.</p>
+              <p>Didn't see the perfect job for you? We share new jobs all the time.<strong><a href="/"> Why not submit your CV?</a></strong></p>
+            
             </div>
 
             <div class="result-count">
@@ -253,79 +366,132 @@
             </div>
 
           </div>
-
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br><br>
-          <br>
-
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br><br>
-          <br>
-          <br>
-
-
         </div>
 
       </div>
     </div>
 
 
-    <section class="career-move">
+    <section class="career-move background-blue">
 
       <div class="container">
-
-        <h2><span>Is your next career move missing from the list above?</span></h2>
-        <p>Many sought-after roles are never advertised, but filled by talented  professionals on our database. Register below and you’ll be contacted by a recruitment specialist within 24 hours, unlocking access to career-defining roles across our extensive network.</p>
-
-        <div class="multi-level-form">
+        <div class="content">
+          <h2><span>Is your next career move missing from the list above?</span></h2>
+          <p>Many sought-after roles are never advertised, but filled by talented  professionals on our database. Register below and you’ll be contacted by a recruitment specialist within 24 hours, unlocking access to career-defining roles across our extensive network.</p>
+        </div>
+        <div class="multi-level-form box-shadow">
 
           <div class="form-layout">
             <div class="form-header">
               Your details
             </div>
             <div class="form-body">
-              <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control no-border" placeholder="First name*">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control no-border" placeholder="Firstname*">
                 </div>
-                <div class="col">
-                  <input type="text" class="form-control no-border" placeholder="Last name*">
-                </div> 
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control no-border" placeholder="Last Name*">
+                </div>
               </div>
-              <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control no-border" placeholder="Email*">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control no-border" placeholder="Email*">
                 </div>
-                <div class="col">
+                <div class="form-group col-md-6">
                   <input type="text" class="form-control no-border" placeholder="Phone Number*">
-                </div> 
+                </div>
               </div>
-              <div class="row">
-                <div class="col-md-6">
+              <div class="form-row">
+                <div class="form-group col-md-6">
                   <select class="form-control no-border">
-                    <option value="" disabled selected hidden>State</option>
-                    <option>Philippines</option>
-                    <option>Japan</option>
-                    <option>Iceland</option>
-                    <option>Antartica</option>
+                    <option selected>State</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                </div>
+              </div>
+            </div>
+            <div class="form-header">
+              Your employment preferences
+            </div>
+            <div class="form-body">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <select class="form-control no-border">
+                    <option selected>Industry/Vertical</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <select class="form-control no-border">
+                    <option selected>Availability</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
                   </select>
                 </div>
               </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <select class="form-control no-border">
+                    <option selected>Location</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <select class="form-control no-border">
+                    <option selected>Salary/Contract Rate Expectations</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <select class="form-control no-border">
+                    <option selected>Work Type</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <select class="form-control no-border">
+                    <option selected>Work Eligibility</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="re-captcha">
+                <span>Please verify your request*</span>
+              </div>
+
+              <div class="wpcf7-form-control wpcf7-checkbox v1">
+                <span class="wpcf7-list-item">
+                  <label>
+                    <input type="checkbox" name="" value="">
+                    <span class="wpcf7-list-item-label">Please check the box to confirm that you understand and accept that by submitting information through this website you agree that it is true and correct. While we may contact you in response to the information you have submitted, we are not obliged to provide you with any particular products or services. You agree that we may handle your personal information in accordance with our <a href="/">privacy policy</a>.</span>
+                  </label>
+                </span>
+              </div>
+
+              <div class="submit-btn">
+                <button type="submit" class="btn btn-solid">Submit</button>
+              </div>
+
             </div>
           </div>
           
@@ -505,6 +671,7 @@
 <script src="./scripts/core/base.js"></script>
 <script src="./scripts/modules/theme-module.js"></script>
 <script src="./scripts/bootstrapper.js"></script>
+<script type="text/javascript" src="./scripts/vendors/select2.min.js"></script>
 <!-- endbuild -->
    
 </body>

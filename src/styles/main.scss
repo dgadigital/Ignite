@@ -32,13 +32,17 @@
   'components/tabs',
   'components/side-bar-filter',
   'components/jobs-card',
-  'components/side-card';
+  'components/side-card',
+  'components/back-links';
 
 // 6. Page-specific styles
 @import
   'pages/home',
   'pages/search-job',
-  'pages/single-post';
+  'pages/single-post',
+  'pages/request-staff',
+  'pages/submit-cv',
+  'pages/apply-now';
 
 // 7. Themes
 @import
@@ -77,4 +81,5 @@
   'sections/_search-filter',
   'sections/_select2',
   'sections/_two-column-recent-post',
-  'sections/_post-filter-side-bar.scss';
+  'sections/_post-filter-side-bar.scss',
+  'sections/_career-move-form';

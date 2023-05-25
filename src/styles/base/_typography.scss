@@ -12,7 +12,6 @@ body {
 h1 {
   font-size: 65px;
   font-family: $font-raleway-regular;
-  color: #fff;
 
   @media (max-width: 1199px) {
     font-size: 50px;
@@ -35,6 +34,7 @@ h2 {
 
   span {
     position: relative;
+    display: inline-block;
 
     &:after {
       content: url('../../assets/images/title-underline.png');
@@ -59,6 +59,6 @@ h2 {
   }
 
   @media (max-width: 767px) {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
