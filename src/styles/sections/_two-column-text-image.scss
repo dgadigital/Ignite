@@ -1,7 +1,6 @@
 .two-column-text-image{
-    .container{
+    .container:not(.title-wrapper){
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
         gap: 40px;
         &>div{
@@ -20,6 +19,38 @@
             @media (max-width: 991px){
                 flex-basis: 100% !important;
                 padding: 0 25px;
+            }
+        }
+        .text-wrapper{
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #000000;
+
+            ul {
+                list-style: none;
+                padding-left: 15px;
+                margin-bottom: 0px;
+
+                li {
+                  &::before {
+                    content: '\2022';
+                    display: inline-block;
+                    width: 1em;
+                    margin-left: -1em;
+              
+                    & {
+                        color: #F5882B;
+                    }
+                  }
+                }
+            }
+        }
+        ol{
+            padding-left: 14px;
+            li{
+                line-height: 24px;
             }
         }
     }

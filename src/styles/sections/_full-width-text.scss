@@ -2,16 +2,24 @@
     width: 100%;
     text-align: center;
 
+    &.small-padding{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
     .container{
         h2{
             margin: auto auto 30px auto;
-            width: 600px;
             max-width: 100%;
         }
         h3{
-            font-size: 23px;
+            font-size: 25px;
+            font-style: italic;
+            font-family: Raleway;
+            font-weight: 400;
+            margin-top: -15px;
             margin-bottom: 20px;
-            color: #0050CA;
+            color: #353535;
             @media(max-width: 575px){
                 font-size: 20px;
             }
@@ -19,9 +27,19 @@
         p{
             line-height: 30px;
             color: #000;  
+
+            &:last-child{
+                margin-bottom: 0px;
+            }
         }
         @media(max-width: 575px){
             padding: 0px 20px;
+        }
+        ol{
+            padding-left: 14px;
+            li{
+                font-family: $font-raleway-semibold;
+            }
         }
     }
 
@@ -30,5 +48,9 @@
         h2{
             width: 100%;
         }
+    }
+
+    &.text-align-left{
+        text-align: left;
     }
 }

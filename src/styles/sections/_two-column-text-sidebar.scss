@@ -1,0 +1,85 @@
+.two-column-text-sidebar{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        .text-container{
+            flex-basis: 60%;
+            
+            .content{
+                line-height: 24px;
+                padding: 10px;
+
+                p{
+                    margin: 20px 0px;
+                }
+
+                h4{
+                    font-size: 18px;
+                    font-style: italic;
+                    margin: 15px 0px;
+                    color: $light-orange;
+                    
+                }
+            }
+        }
+        .roles-container{
+            flex-basis: 32%;
+            line-height: 24px;
+            padding: 10px;
+            
+            .roles{
+                .desc{
+                    position: relative;
+                    font-family: $font-raleway-bold;
+                    line-height: 18px;
+                    padding: 15px 30px;
+                    margin: 0px;
+                    border-bottom: 2px solid #DADADA !important;
+                    &.plus-icon{
+                        padding: 15px 23px;
+                        &::before {
+                            content: '\f067';
+                            font-size: 12px;
+                            font-family: 'Font Awesome 5 Free';
+                            font-weight: 600;
+                            padding: 0;
+                            position: absolute;
+                            top: 35%;
+                            right: 20px;
+                            color: $light-orange;
+                        }
+                    }
+                }
+                .desc:last-child {
+                    border-bottom: none !important;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .button-container{
+                a{
+                    width: 100%;
+                }
+            }
+        }
+        @media (max-width: 1199px){
+            gap: 20px;
+            .text-container{
+                flex-basis: 65%;
+            }
+        }
+        @media (max-width: 767px){
+            gap: 0px;
+            .text-container{
+                flex-basis: 100%;
+            }
+            .roles-container{
+                flex-basis: 100%;
+            }
+        }
+        
+    }
+}

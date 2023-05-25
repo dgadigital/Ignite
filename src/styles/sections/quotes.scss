@@ -1,0 +1,46 @@
+.quotes{
+    padding-top: 0;
+    padding-bottom: 20px;
+    .container{
+        text-align: center;
+        .company-logo{
+            padding: 20px;
+        }
+        p{
+            font-size: 21px;
+            font-weight: 400;
+            font-family: Raleway;
+            line-height: 28px;
+            color: #353535;
+            font-style: italic;
+
+            @media (max-width: 767px) {
+                font-size: 18px;
+            }
+        }
+
+        .details{
+            margin: 30px 0px;
+            h2{
+                font-size: 21px;
+                line-height: 28px;
+                font-family: $font-raleway-bold;
+                margin-bottom: 0;
+                @media (max-width: 767px) {
+                    font-size: 18px;
+                }
+            }
+            h3{
+                font-size: 21px;
+                text-decoration: underline;
+                line-height: 28px;
+                color: $light-orange;
+                font-family: $font-raleway-bold;
+                @media (max-width: 767px) {
+                    font-size: 18px;
+                }
+            }
+            
+        } 
+    }
+}

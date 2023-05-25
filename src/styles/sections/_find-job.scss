@@ -8,12 +8,25 @@
     .container{
 
         .row{
-            max-width: 740px;
+         
             margin: auto;
+            
+            @media (max-width: 767px) {
+                gap: 20px;
+            }
+
             .columns{
                 .column-content{
-                    
+                    min-height: 253px;                    
                     margin: auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    @media (max-width: 768px) {
+                        height: fit-content;
+                        min-height: 0;
+                    }
                     
                 }
                 .column-text{
@@ -26,7 +39,7 @@
 
             }
             .content-wrapper{
-                padding: 31px 30px 42px 30px;
+                padding: 23px 21px;
                 background-color: #ffffff;
                 box-shadow: 0px 18px 27px rgba(0, 0, 0, 0.122132);
 
@@ -35,11 +48,10 @@
                 }
 
                 .line-container{
-                        margin-bottom: 10px;
-                        width: 100%;
-                    a{
-                        width: 100%;
-                    }
+                    margin-bottom: 10px;
+                }
+
+                    
                     @media (max-width: 768px) {
                         margin: 0px auto;
                         margin-bottom: 20px;
@@ -49,4 +61,3 @@
         }
     }
     
-}

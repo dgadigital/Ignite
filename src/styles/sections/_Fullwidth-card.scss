@@ -1,7 +1,8 @@
 .Fullwidth-card{
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: right top;
+    
     .Fullwidth-card-container{
        .Fullwidth-card-column{
             height: fit-content;
@@ -13,10 +14,15 @@
 
                 .card-title{
                     max-width: 50%;
+                    margin-bottom: 35px;
+
+                    @media (max-width:990px) {
+                        max-width: 100%;
+                    }
                 }
 
                 .card-text{
-                    .value-container{
+                    
                         h3{
                             font-style: normal;
                             font-weight: 500;
@@ -31,7 +37,7 @@
                         li{
                             display: flex;
                             justify-content: flex-start;
-                            padding-bottom: 30px;
+                            padding-bottom: 14px;
                             font-style: normal;
                             font-weight: 400;
                             font-size: 14px;
@@ -44,10 +50,7 @@
                                 
                             }
                         }
-                    }
-                    }
-
-                    
+                        }
 
                 }
             }

@@ -19,6 +19,7 @@
         .logo-row{
 
                 /* Styling the dot container */
+                margin-bottom: 50px;
               .slick-dots {
                 display: flex;
                 justify-content: center;
@@ -55,8 +56,7 @@
               
             }
 
-            .slick-list.draggable{
-                max-height: 53.56px;
+            .slick-list.draggable{                
                 max-width: 1028.06px;
                 margin: auto;
                 margin-bottom: 42px;
@@ -73,11 +73,43 @@
                         margin: auto;
                         max-width: 100%;
                         max-height: 100%;
+                        min-height: 67px;
                     }
                 }
                 
             }
 
+            &.two-rows-icon{
+              .slick-list.draggable{
+                  min-height: 200px;
+                  .logo-container{
+                    display: block;
+                    img{
+                      height: 100px;
+                      padding: 10px 30px;
+                      object-fit: contain;
+                      min-height: 67px;
+                    }
+                  }
+              }
+            }
+
+        }
+
+
+        .logo-row.two-rows{
+          margin-bottom: 10px;
+          .slick-slide{
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            .logo-container{
+              min-height: 85px;
+              img{
+                padding: 20px 30px;
+              }
+            }
+          }
         }
     }
 }

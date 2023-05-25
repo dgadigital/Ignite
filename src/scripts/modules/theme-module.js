@@ -103,7 +103,7 @@ AppName.Modules.ThemeModule = (function () {
   
   
   const __peoplecarousel = function(){
-    $('.profile-row.slider').slick({
+    $('.profile-row.profile-slider').slick({
           infinite: true,
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -148,7 +148,7 @@ AppName.Modules.ThemeModule = (function () {
     }
     
   const _logocarousel = function(){
-    $('.logo-row').slick({
+    $('.logo-row.one-row').slick({
           infinite: true,
           slidesToShow: 5,
           slidesToScroll: 1,
@@ -171,7 +171,56 @@ AppName.Modules.ThemeModule = (function () {
               }
           ]
         });
-    }
+    $('.logo-row.two-rows').slick({
+          infinite: true,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          autoplay: true,
+          rows: 2,
+          dots: true,
+          arrows: false,
+          responsive: [
+              {
+                  breakpoint: 991,
+                  settings: {
+                      slidesToShow: 3
+                  }
+              },
+              {
+                  breakpoint: 768,
+                  settings: {
+                      slidesToShow: 2
+                                            
+                  }
+              }
+          ]
+        });
+  }
+
+  const _cardcarousel = function(){
+    $('.card-carousel-container').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+      
+    });
+}
 
 
   var _faq_accordion = function(){
@@ -309,6 +358,22 @@ AppName.Modules.ThemeModule = (function () {
       $accordionContainer.css('height', 'auto');
     }
   };
+
+  var _contact_us = function(){
+    //Top Content Tabs and Description
+    $(".tab-list li").on("click", function() {
+      var tabId = ".tab-list li#" + $(this).attr("id");
+      var tabDivId = ".tabs-content#content-" + $(this).attr("id");
+
+      if (!$(this).hasClass("active")) {
+        $(".tab-list li").removeClass("active");
+        $(this).addClass("active");
+
+        $(".tabs-content").removeClass("active");
+        $(tabDivId).addClass("active");
+      }
+    });
+  }
   
   /////////////////////
   // Public Methods //
@@ -316,7 +381,9 @@ AppName.Modules.ThemeModule = (function () {
   const init = function () {
     _privateMethod();
     _two_column_side_tabs_accordion();
+    _contact_us();
     _collapsing_text();
+    _cardcarousel();
     _latestJobs();
     _logocarousel();
     _faq_accordion();
