@@ -1,5 +1,8 @@
 .offset{
     margin-top: -200px;
+    @media (max-width: 767px) {
+        margin-top: -150px;
+    }
 }
 .find-job{
 
@@ -11,7 +14,7 @@
          
             margin: auto;
             
-            @media (max-width: 767px) {
+            @media (max-width: 991px) {
                 gap: 20px;
             }
 
@@ -19,7 +22,7 @@
             .columns{
                 // padding: 0;
                 .column-content{
-                    min-height: 253px;                    
+                    // min-height: 220px;                    
                     margin: auto;
                     display: flex;
                     flex-direction: column;
@@ -40,20 +43,24 @@
                 }
 
             }
-            .content-wrapper{
-                padding: 23px 21px;
-                background-color: #ffffff;
-                box-shadow: 0px 18px 27px rgba(0, 0, 0, 0.122132);
+                .content-wrapper{
+                    padding: 23px 21px;
+                    background-color: #ffffff;
+                    box-shadow: 0px 18px 27px rgba(0, 0, 0, 0.122132);
 
-                @media (max-width: 577px) {
-                 height: fit-content;
-                }
+                    h2{
+                        line-height: 57px;
+                        margin-bottom: 0px;
+                    }
 
-                .line-container{
-                    margin-bottom: 10px;
-                }
+                    @media (max-width: 577px) {
+                    height: fit-content;
+                    }
 
-                    
+                    .line-container{
+                        margin: 34px auto;
+                    }
+                        
                     @media (max-width: 768px) {
                         margin: 0px auto;
                         margin-bottom: 20px;
