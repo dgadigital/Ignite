@@ -24,25 +24,27 @@
                 
                     &:hover,
                     &.active {
-                        background: linear-gradient(to right, #0050CA 50%, transparent 50%), url('/assets/images/vector-bg.png');
-                        background-position: right, right;
-                        background-size: auto, auto;
+                        color: #fff;
+                        font-size: 25px;
+                        font-family: $font-raleway-medium;
+                        background-color: $light-blue;
+                        background-image: url('../../assets/images/star-shine.png');
+                        background-position: right center;
                         background-repeat: no-repeat;
-                        transition: all 500ms ease;
-                
-                        @media (min-width: 577px) {
-                        transition: none !important;
+                        background-size: auto;
+            
+                        @media (max-width: 991px) {
+                            font-size: 22px;
                         }
-                
-                        @media (max-width: 576px) {
-                        background-color: #0050CA;
-                        }
-                
+            
                         @media (max-width: 767px) {
-                        background-image: url("/assets/images/vector-bg.png");
-                        background-size: cover;
-                        background-position: right;
-                        background-repeat: no-repeat;
+                            font-size: 18px;
+                            background-size: contain;
+                        }
+            
+                        &.no-background-img{
+                            background-image: none;
+                            background-color: $light-blue;
                         }
                     }
                 
@@ -103,6 +105,32 @@
             
                     @media(max-width: 767px){
                         width: 100%;
+                    }
+                }
+
+                .submit-cv{
+                    .btn-pload {
+                        padding: 15px 15px 15px 40px;
+                        font-size: 13px;
+                        color: $link-color;
+                        font-family: $font-raleway-semibold;
+                        background-color: #fff;
+                        cursor: pointer;
+            
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 15px;
+                            display: block;
+                            height: 24px;
+                            width: 24px;
+                            background-image: url('../../assets/images/file.png');
+                            background-repeat: no-repeat;
+                            background-position: left; 
+                            background-size: auto;
+                        }
                     }
                 }
             }
