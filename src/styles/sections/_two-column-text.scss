@@ -12,6 +12,9 @@
                 flex-direction: column;
                 gap: 17px;
                 max-width: 495px;
+                @media (max-width:990px) {
+                    max-width: none;
+                }
                 .text-container{
                     max-width: 440px;
                     font-style: normal;
@@ -19,6 +22,9 @@
                     font-size: 14px;
                     line-height: 24px;
                     color: #000000;
+                    @media (max-width:990px) {
+                        max-width: none;
+                    }
 
                 }
             }
@@ -27,6 +33,9 @@
                 flex-direction: column;
                 gap: 17px;
                 max-width: 417px;
+                @media (max-width:990px) {
+                    max-width: none;
+                }
                 .column-title{
                     font-style: normal;
                     font-weight: 400;
