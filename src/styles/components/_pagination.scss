@@ -1,0 +1,11 @@
+.pagination{
+    display: flex;
+    justify-content: flex-end;
+    color: $light-orange;
+    font-family: $font-raleway-semibold;
+    span {
+        padding: 0 6px;
+        color: $light-orange;
+        font-family: $font-raleway-semibold;
+    }
+}
