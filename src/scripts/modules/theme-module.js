@@ -10,23 +10,48 @@ AppName.Modules.ThemeModule = (function () {
   };
 
   const _fileUploadApplyNow = () => {
-    const realFileBtn = document.getElementById("real-file");
-    const customBtn = document.getElementById("custom-button");
-    const customTxt = document.getElementById("custom-text");
+    if ($('main').hasClass('page-apply-now')) {
+      const realFileBtn = document.getElementById("real-file");
+      const customBtn = document.getElementById("custom-button");
+      const customTxt = document.getElementById("custom-text");
+  
+      customBtn.addEventListener("click", function() {
+        realFileBtn.click();
+      });
+  
+      realFileBtn.addEventListener("change", function() {
+        if (realFileBtn.value) {
+          customTxt.innerHTML = realFileBtn.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt.innerHTML = "No file chosen, yet.";
+        }
+      });
+    }
+  }
 
-    customBtn.addEventListener("click", function() {
-      realFileBtn.click();
-    });
+  const _submitCV = () => {
+    if ($('div').hasClass('submit-cv-form')) {
+      const realFileBtn = document.getElementById('real-file');
+      const customBtn = $('#upload-dummy');
+      const customTxt = document.getElementById('upload-dummy');
 
-    realFileBtn.addEventListener("change", function() {
-      if (realFileBtn.value) {
-        customTxt.innerHTML = realFileBtn.value.match(
-          /[\/\\]([\w\d\s\.\-\(\)]+)$/
-        )[1];
-      } else {
-        customTxt.innerHTML = "No file chosen, yet.";
-      }
-    });
+      customBtn.on("click", function() {
+        realFileBtn.click();
+      });
+
+      realFileBtn.addEventListener("change", function() {
+        // console.log(realFileBtn.value)
+        if (realFileBtn.value) {
+          customTxt.innerHTML = realFileBtn.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt.innerHTML = "No file chosen, yet.";
+        }
+      });
+    }
   }
 
   const _footerCollapse = () => {
@@ -394,6 +419,7 @@ AppName.Modules.ThemeModule = (function () {
     _search_filter();
     _side_bar_filter();
     _fileUploadApplyNow();
+    _submitCV();
   };
 
   return {

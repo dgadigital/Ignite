@@ -111,25 +111,25 @@
       <div class="container">
         <div class="multi-level-form box-shadow">
 
-          <div class="form-layout">
+          <div class="submit-cv-form form-layout">
             <div class="form-header">
               Step 1: Choose file
             </div>
             <div class="form-body">
               <div class="form-row">
                 <div class="form-group col-6">
-                  <input type="text" class="form-control no-border" placeholder="Firstname*">
-                </div>
-                <div class="form-group col-md-6">
+                  <div class="upload-file">
+                    <input type="file" id="real-file" hidden="hidden" />
+                    <div id="upload-dummy" class="btn-pload">Upload Your Resume</div>
+                    <!-- <span id="custom-text">No file chosen, yet.</span> -->
+                  </div>
                 </div>
               </div>
-              <div class="form-row">
+              <!-- <div class="form-row">
                 <div class="form-group col-6">
                   <input type="text" class="form-control no-border" placeholder="Firstname*">
                 </div>
-                <div class="form-group col-md-6">
-                </div>
-              </div>
+              </div> -->
             </div>
             <div class="form-header">
               Step 2: Contact Information
@@ -137,7 +137,7 @@
             <div class="form-body">
               
               <div class="form-row">
-                <div class="form-group col-6">
+                <div class="form-group col-md-6">
                   <input type="text" class="form-control no-border" placeholder="First Name*">
                 </div>
                 <div class="form-group col-md-6">
@@ -146,7 +146,7 @@
               </div>
 
               <div class="form-row">
-                <div class="form-group col-6">
+                <div class="form-group col-md-6">
                   <input type="email" class="form-control no-border" placeholder="Email Address*">
                 </div>
                 <div class="form-group col-md-6">
@@ -155,7 +155,7 @@
               </div>
 
               <div class="form-row">
-                <div class="form-group col-6">
+                <div class="form-group col-md-6">
                   <select class="form-control no-border">
                     <option selected>Available from</option>
                     <option>1</option>
@@ -174,7 +174,7 @@
               </div>
 
               <div class="form-row">
-                <div class="form-group col-6">
+                <div class="form-group col-md-6">
                   <select class="form-control no-border">
                     <option selected>Job Type</option>
                     <option>1</option>
@@ -193,7 +193,7 @@
               </div>
 
               <div class="form-row">
-                <div class="form-group col-6">
+                <div class="form-group col-md-6">
                   <input type="text" class="form-control no-border" placeholder="Postcode">
                 </div>
                 <div class="form-group col-md-6">

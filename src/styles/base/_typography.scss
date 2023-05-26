@@ -61,4 +61,16 @@ h2 {
   @media (max-width: 767px) {
     font-size: 22px;
   }
+
+  &.center-mobile {
+    @media (max-width: 991px) {
+      text-align: center;
+    }
+    &.underline-left span:after {
+      @media (max-width: 991px) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
 }
