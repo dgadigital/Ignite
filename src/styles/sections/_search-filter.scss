@@ -39,7 +39,6 @@
       min-width: 250px;
       @media (max-width: 1199px){
         width: 100% !important;
-        margin-top: 5px;
       }
       @media(max-width: 991px){
         min-width: unset;
@@ -201,38 +200,43 @@
         flex-wrap: wrap;
         .filter-container{
             display: flex;
-            flex-wrap: wrap;
             flex-basis: 100%;
-            padding: 10px;
+            padding: 17px 25px;
             justify-content: center;
             @media (max-width: 991px){
               width: 81%;
               justify-content: flex-start;
+              flex-wrap: wrap;
+              flex-direction: column-reverse;
+            }
+            &>div{
+              &:last-child{
+                padding-left: 25px;
+                @media (max-width: 991px){
+                  margin-bottom: 10px;
+                  padding-left: 0;
+                  width: 100%;
+                }
+              }
             }
             .search-field{
               display: flex;
+              width: 100%;
               @media(max-width: 991px){
                 flex-wrap: unset !important;
-                width: 100%;
               }
 
               #search-box{
                 line-height: 45px;
                 border-radius: 15px;
-                width: 450px;
+                width: 100%;
                 padding-left: 20px;
                 border: 1px solid #aaa;
-                @media (max-width: 991px){
-                  width: 88%;
-                }
+                margin-right: 15px;
               }
               #search-btn{
-                padding: 10px;
-                width: 70px;
-                margin: 0 30px 0 10px;
-                @media (max-width: 991px){
-                  margin: 3px 5px;
-                }
+                padding: 3px 12px;
+                font-size: 26px;
               }
             }
           

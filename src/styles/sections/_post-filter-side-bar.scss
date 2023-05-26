@@ -32,12 +32,15 @@
                         }
                         .filter-container{
                             gap: 20px;
+                            @media(max-width: 991px){
+                                padding-bottom: 3px;
+                            }
                             @media(max-width: 767px){
                                 gap: 0px;
-                                padding-bottom: 0;
                             }
                             .dropdown{
                                 width: 48%;
+                                flex-grow: 1;
                                 @media(max-width: 767px){
                                     width: 100%;
                                 }
@@ -56,6 +59,9 @@
                         gap: 0 20px;
                         .post{
                             flex-basis: 48.4%;
+                            @media(max-width: 991px){
+                                flex-basis: 100%;
+                            }
                             >div{
                                 &.image-wrapper{
                                     flex-basis: 100%;
@@ -119,17 +125,6 @@
                                 }
                             }
                         }
-                    }
-                }
-                .pagination{
-                    display: flex;
-                    justify-content: flex-end;
-                    color: $light-orange;
-                    font-family: $font-raleway-semibold;
-                    span {
-                        padding: 0 6px;
-                        color: $light-orange;
-                        font-family: $font-raleway-semibold;
                     }
                 }
             }
