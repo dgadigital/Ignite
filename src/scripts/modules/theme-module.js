@@ -155,14 +155,14 @@ AppName.Modules.ThemeModule = (function () {
           arrows: false,
           responsive: [
               {
-                  breakpoint: 800,
+                  breakpoint: 991,
                   settings: {
                       slidesToShow: 2,
                       slidesToScroll: 2
                   }
               },
               {
-                  breakpoint: 768,
+                  breakpoint: 769,
                   settings: {
                       slidesToShow: 1,
                       slidesToScroll: 1,
