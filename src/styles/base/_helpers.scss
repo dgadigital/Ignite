@@ -33,6 +33,25 @@
   width: 1px;
 }
 
+.orange-ul{
+  ul {
+    list-style: none;
+    padding-left: 15px;
+    color: #000;
+
+    li {
+      &::before {
+        content: '\2022';
+        display: inline-block;
+        font-size: large;
+        width: 1em;
+        margin-left: -13px;
+        color: $light-orange;
+      }
+    }
+  }
+}
+
 .hover-overlay-orange{
   position: relative;
   margin-bottom: 5%;
