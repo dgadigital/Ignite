@@ -28,7 +28,7 @@ textarea.form-control {
 
 select.form-control {
     padding-right: 38px;
-    background-image: url('./../../assets/images/select-drop.png');
+    background-image: url('../assets/images/select-drop.png');
     background-repeat: no-repeat;
     background-position: right 13px bottom 15px;
     background-size: 12px 7.5px;
@@ -128,7 +128,7 @@ select {
 
 .find-job-field {
     &:before {
-        content: url('./../../assets/images/find-job.png');
+        content: url('../assets/images/find-job.png');
         width: 18.58px;
         height: 18.58px;
     }
@@ -136,7 +136,7 @@ select {
 
 .find-job-location {
     &:before {
-        content: url('./../../assets/images/job-location.png');
+        content: url('../assets/images/job-location.png');
         width: 18.58px;
         height: 21.58px;
     }
@@ -144,7 +144,7 @@ select {
 
 .search-job-field {    
     &:before {
-        content: url('./../../assets/images/search-footer.png');
+        content: url('../assets/images/search-footer.png');
         width: 20px;
         height: 20px;
     }

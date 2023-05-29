@@ -135,3 +135,7 @@ section {
 .no-padding {
   padding: 0 !important;
 }
+
+body.logged-in.admin-bar {
+  padding-top: 32px;
+}
