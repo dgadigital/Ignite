@@ -46,6 +46,27 @@
                 }
             }
         }
+        &.specialisation-accordion{
+            .accordion{
+                padding: 15px 40px 15px 23px;
+                .accordion-title{
+                    font-family: $font-raleway-bold;
+                }
+                &:after {
+                    top: 0;
+                }
+                &.active{
+                    &:after {
+                        content: url(../assets/images/faq-minus.png);
+                        top: -8px;
+                    }
+                }
+            }
+            :last-child{
+                border-bottom: none !important;
+            } 
+        }
+        
 }
 
 .faq-accordion-section-tabs{
