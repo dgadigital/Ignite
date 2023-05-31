@@ -1,8 +1,10 @@
 .offset{
-    margin-top: -200px;
-    @media (max-width: 767px) {
-        margin-top: -150px;
-    }
+    margin-top: -150px;
+    z-index: 1;
+
+    // @media (max-width: 767px) {
+    //     margin-top: -150px;
+    // }
 }
 .find-job{
 
@@ -10,58 +12,74 @@
 
     .container{
 
-        .row{
-         
-            margin: auto;
-            
+        .box-row{
+            display: flex;
+            justify-content: space-between;
+
             @media (max-width: 991px) {
-                gap: 20px;
+                flex-wrap: wrap;
             }
 
+                .search-box {
+                    width: 57%;
 
-            .columns{
-                // padding: 0;
-                .column-content{
-                    // min-height: 220px;                    
-                    margin: auto;
+                    @media (max-width: 991px) {
+                        margin-bottom: 20px;
+                        width: 100%;
+                    }
+                }
+
+                .request-box {
+                    width: 40%;
+
+                    @media (max-width: 991px) {
+                        width: 100%;
+                    }
+                }
+
+                .search-row {
+                    display: flex;
+                    justify-content: space-between;
+
+                    @media (max-width: 767px) {
+                        flex-wrap: wrap;
+                    }
+
+                    .find-job-field {
+                        width: 50%;
+
+                        @media (max-width: 767px) {
+                            margin-bottom: 10px;
+                            width: 100%;
+                        }
+                    }
+
+                    div.find-job-location {
+                        width: calc(47% - 52px);
+
+                        @media (max-width: 767px) {
+                            width: calc(98% - 52px);
+                        }
+                    }
+                }
+
+                .content-wrapper{
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    justify-content: space-between;
-                    @media (max-width: 768px) {
-                        height: fit-content;
-                        min-height: 0;
-                    }
-                    
-                }
-                .column-text{
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 14px;
-                    line-height: 24px;
-                    color: #353535;
-                }
-
-            }
-                .content-wrapper{
-                    padding: 23px 21px;
+                    justify-content: center;
+                    padding: 55px 30px;
                     background-color: #ffffff;
                     box-shadow: 0px 18px 27px rgba(0, 0, 0, 0.122132);
 
+                    @media (max-width: 991px) {
+                        padding: 35px 30px;
+                    }
+
                     h2{
-                        line-height: 57px;
                         margin-bottom: 0px;
                     }
-
-                    @media (max-width: 577px) {
-                    height: fit-content;
-                    }
-
-                    .line-container{
-                        margin: 34px auto;
-                    }
-                        
-                    @media (max-width: 768px) {
+               
+                    @media (max-width: 767px) {
                         margin: 0px auto;
                         margin-bottom: 20px;
                     }
