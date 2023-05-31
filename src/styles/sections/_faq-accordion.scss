@@ -16,7 +16,7 @@
                 visibility: hidden;
                 overflow: hidden;
                 transition: visibility .3s linear,opacity .3s linear,max-height .3s ease-in;
-                p{
+                p:last-child{
                     margin-bottom: 0;
                 }
             }
