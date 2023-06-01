@@ -149,8 +149,10 @@
 
               .content {
                 position: relative;
-                margin-top: -62px;
-                padding: 0 1.5em;
+                padding: 1.5em;
+                /*margin-top: -82px;
+                padding: 0 1.5em; */
+                bottom: 100px;
                 z-index: 2;
 
                 @media (max-width:990px) {
@@ -168,20 +170,10 @@
                   font-size: 25px;
                   line-height: 28px;
                   color: #FFFFFF;
+                  margin-bottom: 10px;
                 }
-                span {
-                  // display: none;
-                  // visibility: hidden;
-                  max-height: 0;
-                  font-size: 13px;
-                  line-height: 25px;
-                  margin: 0;
-                  opacity: 0;
-                  -webkit-transition: visibility .3s linear,opacity .3s linear,max-height .45s ease-in;
-                  transition: visibility .3s linear,opacity .3s linear,max-height .45s ease-in;
-              }
                 a {
-                  // display: none;
+                  display: none;
                   // visibility: hidden;
                   max-height: 0;
                   font-size: 13px;
@@ -235,20 +227,9 @@
                 padding: 1.5em;
                 color: #fff;
                 z-index: 999;
-
-                span {
-                  display: block;
-                  visibility: visible;
-                  max-height: 500px;
-                  opacity: 1;
-                  -webkit-transition: visibility .3s linear,opacity .3s linear,max-height .45s ease-out;
-                  transition: visibility .3s linear,opacity .3s linear,max-height .45s ease-out;
-
-
-
-                }
+                width: 100%;
                 a {
-                  display: block;
+                  display: none;
                   visibility: visible;
                   max-height: 500px;
                   opacity: 1;
