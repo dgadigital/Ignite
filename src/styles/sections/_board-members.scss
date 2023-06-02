@@ -6,8 +6,13 @@
         padding-top: 30px;
         padding-bottom: 30px; 
 
-        h3, h6{
-            font-weight: 600;
+        h3{
+            font-size: 25px;
+            font-family: $font-raleway-medium;
+        }
+        h6{
+            font-size: 14px;
+            font-family: $font-raleway-semibold;
         }
 
         div{
