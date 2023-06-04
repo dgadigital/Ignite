@@ -1,0 +1,115 @@
+.consultants {
+
+    h3 {
+        font-family: $font-raleway-medium;
+        font-size: 25px;
+    }
+
+    .consultants-row  {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 40px;
+        padding-top: 40px;
+
+        @media (max-width: 991px) {
+            flex-wrap: wrap;
+        }
+        
+        // &:first-child {
+        //     padding-top: 0;
+        // }
+    }
+
+    .image-container {
+        width: 23%;
+
+        @media (max-width: 991px) {
+            width: 25%;
+        }
+
+        @media (max-width: 767px) {
+            width: 100%;
+            padding-bottom: 20px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            padding-top: 132%;
+
+            img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .text-container {
+        width: 47%;
+
+        @media (max-width: 991px) {
+            width: 70%;
+        }
+
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+
+        h6 {
+            margin: 0;
+            font-size: 14px;
+            font-family: $font-raleway-semibold;
+        }
+
+        .button-container {
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            svg {
+                fill: $link-color;
+                transition: all 0.3s;
+                &:hover {
+                    fill: #0046B5 !important;
+                    transition: all 0.3s;
+                }
+            }
+        }
+
+        a.btn-arrow {
+            padding: 0;
+            font-size: 14px;
+            font-family: $font-raleway-semibold;
+
+            &:after {
+                right: -15px;
+            }
+        }
+    }
+
+    .specialisation-container {
+        width: 23%;
+
+        @media (max-width: 991px) {
+            padding-top: 30px;
+            width: 100%;
+        }
+
+
+        @media (max-width: 767px) {
+            padding-top: 20px;
+        }
+
+        h3 {
+            padding-bottom: 10px;
+        }
+
+        a {
+            padding: 5px 20px 5px 20px;
+            margin-right: 5px;
+            margin-bottom: 8px;
+        }
+    }
+}

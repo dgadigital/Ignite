@@ -34,7 +34,7 @@ header {
         .navbar-collapse {
             transition: all 1s;
 
-            @media (max-width: 767px) {
+            @media (max-width: 991px) {
                 position: fixed;
                 right: -100%;
                 top: 0;
@@ -51,13 +51,13 @@ header {
                 }
             }
             .navbar-nav {
-                @media (max-width: 767px) {
+                @media (max-width: 991px) {
                     padding-top: 80px;
                 }
             }
 
             .nav-link {
-                @media (max-width: 767px) {
+                @media (max-width: 991px) {
                     padding-bottom: 20px;
                     padding-left: 1.5rem !important;
                 }
@@ -100,7 +100,7 @@ header {
                 background: #fff;
                 box-shadow: 0px 13.5px 20.25px rgba(0, 0, 0, 0.122132);
 
-                @media (max-width: 767px) {
+                @media (max-width: 991px) {
                     padding-bottom: 20px;
                     min-width: 100%;
                     max-width: 100%;
@@ -143,7 +143,7 @@ header {
             .navbar-toggler {
                 padding: 0;
 
-                // @media (max-width: 767px) {
+                // @media (max-width: 991px) {
                 //     z-index: 999;
                 // }
 
@@ -175,7 +175,7 @@ header {
                         margin-right: 6px;
                         fill: $link-color;
             
-                        @media (max-width: 767px) {
+                        @media (max-width: 991px) {
                             width: 15px;
                         }
             
@@ -206,7 +206,7 @@ header {
         .navbar-collapse {
             transition: all 1s;
 
-            @media (max-width: 767px) {
+            @media (max-width: 991px) {
                 position: fixed;
                 right: -100%;
                 top: 0;
@@ -223,13 +223,13 @@ header {
                 }
             }
             .navbar-nav {
-                @media (max-width: 767px) {
+                @media (max-width: 991px) {
                     padding-top: 80px;
                 }
             }
 
             .nav-link {
-                @media (max-width: 767px) {
+                @media (max-width: 991px) {
                     padding-bottom: 20px;
                     padding-left: 1.5rem !important;
                 }
