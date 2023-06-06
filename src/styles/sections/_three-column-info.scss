@@ -44,23 +44,32 @@
                     align-items: center;
                     gap: 15px;
                     
-                    
-                    .column-number{
+                    .column-top-row{
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-end;
+                        .column-number{
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 72px;
+                            text-align: center;
+                            font-feature-settings: 'pnum' on, 'lnum' on;
+                            color: #0046B5;
+                            line-height: 65px;
+                        }
+                        .column-sub-title{
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 28px;
+                            text-align: center;
+                            font-feature-settings: 'pnum' on, 'lnum' on;
+                            color: #0046B5;
+                            line-height: normal;
                         
-                    
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 72px;
-                    text-align: center;
-                      font-feature-settings: 'pnum' on, 'lnum' on;
-                      color: #0046B5;
-                      line-height: normal;
-                      
-                      span{
-                      font-size: 28px;
-                      }
+                        }
 
                     }
+
 
                     img{
                         width: 100%;
