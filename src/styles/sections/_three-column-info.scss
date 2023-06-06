@@ -36,7 +36,10 @@
             
             .column-container{
                 width: 191px;
-                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            
                 .column-inner-container{
                     display: flex;
                     flex-direction: column;
