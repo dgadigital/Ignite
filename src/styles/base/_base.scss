@@ -10,6 +10,8 @@
 a {
   color: $link-color;
   text-decoration: none;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
 
   @include on-event {
     color: $link-hover;
@@ -133,7 +135,7 @@ section {
 
 @media (min-width: 1200px){
   .container {
-    max-width: 949px;
+    max-width: 979px;
   }
 }
 
