@@ -8,31 +8,33 @@
         padding-top: 0;
     }
 
-    .upload-file {
+    
+}
+
+.upload-file {
         
 
-        .btn-pload {
-            padding: 15px 15px 15px 40px;
-            font-size: 13px;
-            color: $link-color;
-            font-family: $font-raleway-semibold;
-            background-color: #fff;
-            cursor: pointer;
+    .btn-pload {
+        padding: 15px 15px 15px 40px;
+        font-size: 13px;
+        color: $link-color;
+        font-family: $font-raleway-semibold;
+        background-color: #fff;
+        cursor: pointer;
 
-            &:before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                left: 15px;
-                display: block;
-                height: 24px;
-                width: 24px;
-                background-image: url('../assets/images/file.png');
-                background-repeat: no-repeat;
-                background-position: left; 
-                background-size: auto;
-            }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 15px;
+            display: block;
+            height: 24px;
+            width: 24px;
+            background-image: url('../assets/images/file.png');
+            background-repeat: no-repeat;
+            background-position: left; 
+            background-size: auto;
         }
     }
 }
