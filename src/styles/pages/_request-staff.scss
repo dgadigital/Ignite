@@ -1,6 +1,11 @@
-.page-request-staff {
+.request-staff {
     background-image: url('../assets/images/request-staff-bg.png');
     background-position: bottom;
     background-size: contain;
     background-repeat: no-repeat;
+
+    .blue-banner {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
 }
