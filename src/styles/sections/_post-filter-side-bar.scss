@@ -93,6 +93,9 @@
                                     -o-object-fit: cover;
                                     object-fit: cover;
                                     max-height: 242px;
+                                    @media (max-width: 991px){
+                                        max-height: 550px;
+                                    } 
                                 }
                             }
                             &.content-wrapper{
