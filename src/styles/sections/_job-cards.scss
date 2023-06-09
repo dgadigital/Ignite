@@ -175,12 +175,16 @@
                         padding: 0;
                   }
                 .slick-prev{
-                    
+                    &:focus{
+                        outline:none;
+                    }
                         background-image: url('../assets/images/left.svg');
                     
                 }
                 .slick-next{
-                    
+                        &:focus{
+                            outline:none;
+                        }
                         background-image: url('../assets/images/right.svg');
                         
                     
