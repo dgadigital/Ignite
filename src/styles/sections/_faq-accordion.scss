@@ -71,9 +71,12 @@
                 }
                 &:after {
                     top: 0;
+                    background-image: none;
+                    content: url(../assets/images/faq-plus.png);
                 }
                 &.active{
                     &:after {
+                        background-image: none;
                         content: url(../assets/images/faq-minus.png);
                         top: -8px;
                     }
