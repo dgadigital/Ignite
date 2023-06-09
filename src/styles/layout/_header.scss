@@ -107,12 +107,25 @@ header {
                     box-shadow: none;
                 }
 
+                .nav-item {
+                    border-bottom: 1px solid #DADADA;
+
+                    &:hover {
+                        border-bottom: 1px solid #F6892B;
+
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+                    }
+
+                }
+
                 .dropdown-item {
                     padding-top: 10px;
                     padding-bottom: 10px;
                     font-size: 12px;
                     white-space: initial;
-                    border-bottom: 1px solid #DADADA;
+                    
                     
                     &:last-child {
                         border-bottom: 0;
@@ -128,8 +141,15 @@ header {
                         }
                     }
 
-                    .title {
+                    span {
                         font-family: $font-raleway-bold;
+                        font-size: 12px;
+
+                        .menu-item-description {
+                            margin: 0;
+                            font-family: $font-raleway-regular;
+                            font-size: 12px;
+                        }      
                     }
                 }
             }
@@ -449,6 +469,17 @@ header {
                                 .description {
                                     font-family: $font-raleway-regular;
                                     font-size: 12px;
+                                }
+
+                                span {
+                                    font-family: $font-raleway-bold;
+                                    font-size: 12px;
+
+                                    .menu-item-description {
+                                        margin: 0;
+                                        font-family: $font-raleway-regular;
+                                        font-size: 12px;
+                                    }      
                                 }
 
                                 .nav-link {
