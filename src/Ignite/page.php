@@ -1034,7 +1034,7 @@
 											<h2>Hire exceptional talent</h2>
 									</div>
 									<div class="line-container text-center" >
-											<a href="/" class="btn btn-solid">Request Staff</a>
+										<a href="<?php echo isset(get_sub_field('column_link')['url']) ? get_sub_field('column_link')['url'] : ''; ?>" class="btn btn-solid">Request Staff</a>
 									</div>
 							</div>
 					</div>
@@ -1207,19 +1207,13 @@
 
 			<div class="icons-container container">
 					<?php if( get_sub_field('title') ): ?>
-						<div class="section-title">
 								<div class="section-title">
 										<h2><span><?php the_sub_field('title');?></span></h2>
 										<!-- <h2><span>Our Specialisation</span></h2> -->
 								</div>
-						</div>
 					<?php endif;?>
 					<?php if( get_sub_field('description') ): ?>
-						<div class="section-title">
-								<div class="section-title">
-										<div class="section-description"><?php the_sub_field('description');?></div>
-								</div>
-						</div>
+							<div class="section-description"><?php the_sub_field('description');?></div>
 					<?php endif;?>
 
 					<?php $col_count = get_sub_field('column_count');
