@@ -27,20 +27,29 @@
             display: flex;
             justify-content: center;
 
-            .column-content{
+            .column-content{               
+
+                    &:hover{
+                        .column-text-wrapper{
+                            .column-title{
+                                color: #d50;
+                            }
+                            .column-text{
+                                p{
+                                    text-decoration: none!important;
+                                }
+                                color: #d50;                                
+                            }                            
+                        }
+                    }
+                }
                 .column-image{
                     margin: auto;
                     width: 247.54px;
                     height: 247.54px;
                 }
                 .column-text-wrapper{
-                    &:hover{
-                        a{
-                            .column-title{
-                                color: #d50;
-                            }
-                        }
-                    }
+                    
                     .column-title{
                         font-style: normal;
                         font-weight: 500;
@@ -69,5 +78,4 @@
         }
 
         }
-}
 }

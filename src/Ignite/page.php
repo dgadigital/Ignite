@@ -1060,23 +1060,25 @@
 											$page_link_left_target = esc_html($page_link_left['target'] ? $page_link_left['target'] : '_self');
 										}?>
 
-
-
-
-						<a href="<?php echo esc_url($page_link_left_url) ?>" target="<?php echo esc_attr($page_link_left_target) ?>" class="column-content col-lg-4 col-md-6 col-12">
+						<div class="column-content col-lg-4 col-md-6 col-12">
 								<div class="column-image">
 									<?php
 										$image_left = get_sub_field('image_left');
 										$image_url = isset($image_left['url']) ? esc_url($image_left['url']) : '';
 										$image_alt = isset($image_left['alt']) ? esc_attr($image_left['alt']) : '';
 									?>
-									<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+									<a href="<?php echo esc_url($page_link_left_url) ?>" target="<?php echo esc_attr($page_link_left_target) ?>">
+										<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+									</a>
+
 								</div>
 								<div class="column-text-wrapper">
 										<?php if( get_sub_field('left_column_title') ): ?>
-											<div class="column-title">
-												<?php the_sub_field('left_column_title'); ?>
-											</div>
+											<a href="<?php echo esc_url($page_link_left_url) ?>" target="<?php echo esc_attr($page_link_left_target) ?>">
+												<div class="column-title">
+													<?php the_sub_field('left_column_title'); ?>
+												</div>
+											</a>
 										<?php endif;?>
 										<?php if( get_sub_field('left_column_text') ): ?>
 											<div class="column-text">
@@ -1084,7 +1086,7 @@
 											</div>
 										<?php endif;?>
 								</div>
-						</a>
+						</div>
 						<?php
 							$page_link_right = get_sub_field('page_link_left');
 							if( $page_link_right ){
@@ -1092,20 +1094,26 @@
 								$page_link_right_title = esc_attr($page_link_left['title']);
 								$page_link_right_target = esc_html($page_link_left['target'] ? $page_link_left['target'] : '_self');
 						}?>
-						<a href="<?php echo esc_url($page_link_right_url) ?>" target="<?php echo esc_attr($page_link_right_target) ?>" class="column-content col-lg-4 col-md-6 col-12">
+						<div class="column-content col-lg-4 col-md-6 col-12">
 									<div class="column-image">
 										<?php
 											$image_right = get_sub_field('image_right');
 											$image_url = isset($image_right['url']) ? esc_url($image_right['url']) : '';
 											$image_alt = isset($image_right['alt']) ? esc_attr($image_right['alt']) : '';
 										?>
-										<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+										<a href="<?php echo esc_url($page_link_right_url) ?>" target="<?php echo esc_attr($page_link_right_target) ?>">
+											<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+										</a>
+
 									</div>
 									<div class="column-text-wrapper">
 											<?php if( get_sub_field('right_column_title') ): ?>
-												<div class="column-title">
-													<?php the_sub_field('right_column_title'); ?>
-												</div>
+												<a href="<?php echo esc_url($page_link_right_url) ?>" target="<?php echo esc_attr($page_link_right_target) ?>">
+													<div class="column-title">
+														<?php the_sub_field('right_column_title'); ?>
+													</div>
+												</a>
+
 											<?php endif;?>
 											<?php if( get_sub_field('right_column_text') ): ?>
 												<div class="column-text">
@@ -1113,7 +1121,7 @@
 												</div>
 											<?php endif;?>
 									</div>
-						</a>
+						</div>
 				</div>
 		</div>
 		</section>
@@ -1374,9 +1382,9 @@
 				<?php endif; ?>
 		    </div>
 		<?php } ?>
-
+		<div class="multi-level-form box-shadow">
 		<?php echo do_shortcode(get_sub_field('embed_form')); ?>
-
+		</div>
       </div>
 
 	<?php if(get_sub_field('add_banner')) : ?>
