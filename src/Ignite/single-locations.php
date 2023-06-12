@@ -5,7 +5,7 @@
 
 	<!-- START BANNER -->
 	<?php if (get_row_layout() == 'banner'): ?>
-	<section class="hero-banner d-flex justify-content-center align-items-center" style="background-image:url(<?php echo get_sub_field('image')['url']; ?>);">
+	<section class="hero-banner d-flex justify-content-center align-items-center" style="background:url(<?php echo get_sub_field('image')['url']; ?>);">
 		<?php
 			$padding_bottom = get_sub_field('padding_bottom');
 
@@ -140,9 +140,9 @@
 
 	<!-- START HR/SEPARATOR -->
 	<?php if (get_row_layout() == 'separator'): ?>
-		<section class="separator p-0">
+		<section class="separator <?php echo (get_sub_field('padding_top') == '0' ? 'pt-0' : ''); ?> <?php echo (get_sub_field('padding_top') == '1' ? 'pt-1' : ''); ?> <?php echo (get_sub_field('padding_top') == '2' ? 'pt-2' : ''); ?> <?php echo (get_sub_field('padding_top') == '3' ? 'pt-3' : ''); ?> <?php echo (get_sub_field('padding_top') == '4' ? 'pt-4' : ''); ?> <?php echo (get_sub_field('padding_top') == '5' ? 'pt-5' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '0' ? 'pb-0' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '1' ? 'pb-1' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '2' ? 'pb-2' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '3' ? 'pb-3' : ''); ?><?php echo (get_sub_field('padding_bottom') == '4' ? 'pb-4' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '5' ? 'pb-5' : ''); ?><?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
 		  <div class="container">
-			<hr style="position: relative; height: 2px; border: none; background: #DADADA;">
+			<hr style="position: relative; height: 2px; margin: 0;" class="<?php if( get_sub_field('blue_line') ): ?> blue-line <?php endif; ?>">
 		  </div>
 		</section>
 	<?php endif; ?>
@@ -184,11 +184,121 @@
 	<!-- START TWO COLUMN TEXT -->
 	<?php if (get_row_layout() == 'two_column_text'): ?>
 
-	<section class="two-column-text">
+		<?php
+			$paddingTop = get_sub_field('padding_top');
+			switch ($paddingTop) {
+			 case '0':
+					 $paddingTop = 'pt-0';
+					 break;
+			 case '1':
+					 $paddingTop = 'pt-1';
+					 break;
+			 case '2':
+					 $paddingTop = 'pt-2';
+					 break;
+			 case '3':
+					 $paddingTop = 'pt-3';
+					 break;
+			 case '4':
+					 $paddingTop = 'pt-4';
+					 break;
+			 case '5':
+					 $paddingTop = 'pt-5';
+					 break;
+			 default:
+					 $paddingTop = '';
+					 break;
+			}
+
+			$paddingBottom = get_sub_field('padding_bottom');
+
+			switch ($paddingBottom) {
+			 case '0':
+					 $paddingBottom= 'pb-0';
+					 break;
+			 case '1':
+					 $paddingBottom= 'pb-1';
+					 break;
+			 case '2':
+					 $paddingBottom= 'pb-2';
+					 break;
+			 case '3':
+					 $paddingBottom= 'pb-3';
+					 break;
+			 case '4':
+					 $paddingBottom= 'pb-4';
+					 break;
+			 case '5':
+					 $paddingBottom= 'pb-5';
+					 break;
+			 default:
+					 $paddingBottom= '';
+					 break;
+			}
+
+
+			$title_position = get_sub_field('title_position');
+
+			switch ($title_position) {
+				case 'Top Center':
+ 					 $background_color = 'blue-bg';
+ 					 break;
+					 case 'Top Center':
+	  					 $background_color = 'blue-bg';
+	  					 break;
+
+			}
+
+
+
+			$background_color = get_sub_field('background_color');
+
+
+			switch ($background_color) {
+			 case 'Blue':
+					 $background_color = 'blue-bg';
+					 break;
+			 case 'Grey':
+					 $background_color = 'grey-bg';
+					 break;
+			 case 'Blue Vector':
+					 $background_color = 'blue-bg-vector';
+					 break;
+			 default:
+					 $background_color = '';
+					 break;
+			}
+
+
+
+
+			switch ($title_position) {
+				case 'Top Center':
+ 					 $title_position = 'center';
+ 					 break;
+				 case 'Left Column':
+					 $title_position = 'column';
+					 break;
+				 default:
+					 $title_position = 'center';
+					 break;
+			}
+			?>
+
+	<section class="two-column-text <?php echo $paddingTop; ?> <?php echo $paddingBottom;?> <?php echo $background_color; ?>">
         <div class="container">
-            <h2 class="text-center pb-5"><span><?php the_sub_field('title'); ?></span></h2>
+					<?php
+
+					if ($title_position == "center") : ?>
+						<h2 class="text-center"><span><?php the_sub_field('title'); ?></span></h2>
+					<?php endif; ?>
+
             <div class="column-wrapper">
                 <div class="left-col">
+									<?php if ($title_position == "column") : ?>
+										<h2 class="underline-left"><span><?php the_sub_field('title'); ?></span></h2>
+									<?php endif; ?>
+
                     <div class="text-container text-content">
                         <?php the_sub_field('left_column_content'); ?>
                     </div>
@@ -199,11 +309,42 @@
                     </div>
                 </div>
             </div>
+			<?php if( get_sub_field('button_link') ): ?><div class="btn-wrapper">
+				<a href="<?php echo esc_url(get_sub_field('button_link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('button_link')['target']); ?>" class="btn btn-solid"><?php echo esc_html(get_sub_field('button_link')['title']); ?></a>
+			</div><?php endif;?>
         </div>
     </section>
 
 	<?php endif; ?>
 	<!-- END TWO COLUMN TEXT -->
+	<!-- START LOCATION CONTENT -->
+<?php if (get_row_layout() == 'location_content'): ?>
+
+	<section class="two-column-text">
+			<div class="container">
+					<div class="column-wrapper">
+							<div class="left-col">
+									<h2 class="underline-left">
+											<span><?php the_sub_field('left_column_title'); ?></span>
+									</h2>
+									<div class="text-container text-content">
+											<?php the_sub_field('left_column_content'); ?>
+									</div>
+							</div>
+							<div class="right-col">
+									<div class="column-title">
+											<?php the_sub_field('right_column_title'); ?>
+									</div>
+									<div class="text-container text-content">
+											<?php the_sub_field('right_column_content'); ?>
+									</div>
+							</div>
+					</div>
+			</div>
+	</section>
+
+<?php endif; ?>
+<!-- END LOCATION CONTENT -->
 
 	<!-- START PROFILE CAROUSEL -->
 	<?php if (get_row_layout() == 'profile_carousel'): ?>
@@ -211,85 +352,119 @@
 		  <div class="profile-container container">
 			  <div class="section-title-container">
 				  <?php
-					$style = get_sub_field('select_style');
-					if ($style == 'Office Locations') {
-						echo '
-						  <div class="section-description text-center">
-							<h2 class="px-3"><span>' . get_sub_field('heading') . '</span></h2>
-							<p>' . get_sub_field('sub_heading') . '</p>
-						  </div>
-						';
-					} else {
-
-
 						$link = get_sub_field('button');
 						if( $link ){
 							$link_url = esc_url($link['url']);
 							$link_title = esc_attr($link['title']);
 							$link_target = esc_html($link['target'] ? $link['target'] : '_self');
-						}
-						echo '
-							<div class="section-title">
-								<h2 class="underline-left"><span>' . get_sub_field('heading') . '</span></h2>
-								<div><a href="' . $link_url . '" target="' . $link_target . '" class="btn btn-solid">' . $link_title . '</a></div>
-							</div>
-							<div class="section-description px-2">' . get_sub_field('sub_heading') . '</div>
-						';
-					}
-				  ?>
+						}?>
 
+							<div class="section-title">
+								<h2 class="underline-left"><span><?php echo  get_sub_field('heading')?></span></h2>
+								<div><a href="<?php echo $link_url?>" target="<?php echo $link_target ?>" class="btn btn-solid"><?php echo $link_title?></a></div>
+							</div>
+							<div class="section-description px-2"><?php echo get_sub_field('sub_heading')?></div>
 			  </div>
 
-			  <div class="profile-row <?php echo (get_sub_field('select_style') == 'Profile Slider' ? 'profile-slider' : ''); ?> <?php echo (get_sub_field('select_style') == 'Profile Not Slider' ? '' : ''); ?> <?php echo (get_sub_field('select_style') == 'Office Locations' ? 'office-locations' : ''); ?>">
+			  <div class="profile-row profile-slider">
 
 				  <?php
-					$style = get_sub_field('select_style');
-					if ($style == 'Office Locations') {
-						if (have_rows('office_locations_repeater')) {
-							while (have_rows('office_locations_repeater')) {
-								the_row();
-								echo '
-									<div class="profile-container column">
-										<div class="profile-wrapper">
-											<a href="' . esc_url(get_sub_field('name_and_link')['url']) . '" target="' . esc_attr(get_sub_field('name_and_link')['target']) . '" class="hover-overlay-orange"><img src="' . esc_url(get_sub_field('image')['url']) . '" alt="' . esc_attr(get_sub_field('image')['alt']) . '"/></a>
-											<div class="content">
-												<a href="' . esc_url(get_sub_field('name_and_link')['url']) . '" target="' . esc_attr(get_sub_field('name_and_link')['target']) . '" class="btn btn-arrow">' . esc_html(get_sub_field('name_and_link')['title']) . '</a>
-											</div>
-										</div>
-									</div>
-								';
-							}
-						}
-					} else {
+
+
 						if (have_rows('profile_repeater')) {
 							while (have_rows('profile_repeater')) {
 								the_row();
-								echo '
-									<div class="profile-container column hover-overlay-orange">
+								?>
+								<?php
+								$profilelink = get_sub_field('link');
+								if( $profilelink ){
+									$profilelink_url = esc_url($profilelink['url']);
+									$profilelink_title = esc_attr($profilelink['title']);
+									$profilelink_target = esc_html($profilelink['target'] ? $profilelink['target'] : '_self');
+								}?>
+
+									<a href="<?php echo esc_url(get_sub_field('link')['url']) ?>" target="<?php echo esc_attr(get_sub_field('link')['target']) ?>" class="profile-container column hover-overlay-orange">
 										<div class="profile-wrapper">
-											<img src="' . esc_url(get_sub_field('profile_image')['url']) . '" alt="' . esc_attr(get_sub_field('profile_image')['alt']) . '"/>
+											<img src="<?php echo esc_url(get_sub_field('profile_image')['url'])?>" alt="<?php echo esc_attr(get_sub_field('profile_image')['alt'])?>"/>
 											<div class="content">
-												<h2>' . get_sub_field('name') . '</h2>
-												<span>' . get_sub_field('position') . '</span>';
-
-									if (get_sub_field('link')) {
-										echo '<a href="' . esc_url(get_sub_field('link')['url']) . '" target="' . esc_attr(get_sub_field('link')['target']) . '" class="link-arrow">' . esc_html(get_sub_field('link')['title']) . '</a>';
-									}
-
-									echo '
+												<h2><?php echo get_sub_field('name')?></h2>
+												<span><?php echo get_sub_field('position') ?></span>
 											</div>
 										</div>
-									</div>
-									';
+									</a>
+									<?php
 							}
 						}
-					}
+
 				  ?>
 			  </div>
 		  </div>
 		</section>
 	<?php endif; ?>
 	<!-- END PROFILE CAROUSEL -->
+
+
+	<!-- END TWO COLUMN WYSIWYG -->
+	<?php if (get_row_layout() == 'two_column_wysiwyg'): ?>
+		<?php
+			$padding_bottom = get_sub_field('section_padding_bottom');
+
+			switch ($padding_bottom) {
+			    case '0':
+		        $padding_bottom = 'pb-0';
+		        break;
+					case '1':
+		        $padding_bottom = 'pb-1';
+		        break;
+					case '2':
+		        $padding_bottom = 'pb-2';
+		        break;
+					case '3':
+		        $padding_bottom = 'pb-3';
+		        break;
+					case '4':
+		        $padding_bottom = 'pb-4';
+		        break;
+					case '5':
+		        $padding_bottom = 'pb-5';
+		        break;
+					case 'Default':
+						$padding_bottom = '';
+						break;
+			}
+		?>
+
+<section class="two-column-text <?php echo $padding_bottom; ?>">
+    <div class="container">
+        <div class="column-wrapper">
+            <div class="left-col">
+                <h2 class="underline-left">
+                    <span><?php the_sub_field('left_column_title'); ?></span>
+                </h2>
+                <div class="text-container text-content">
+                    <?php the_sub_field('left_column_content'); ?>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="column-title">
+                    <?php the_sub_field('right_column_title'); ?>
+                </div>
+                <div class="text-container text-content">
+                    <?php the_sub_field('right_column_content'); ?>
+                </div>
+            </div>
+        </div>
+				<?php if( get_sub_field('bottom_image') ): ?>
+					<div class="img-wrapper">
+							<img src="<?php echo esc_url(get_sub_field('bottom_image')['url']); ?>" alt="<?php echo esc_attr(get_sub_field('bottom_image')['alt']); ?>"/>
+					</div>
+				<?php endif;?>
+		</div>
+</section>
+
+<?php endif; ?>
+<!-- END TWO COLUMN WYSIWYG -->
+
 
 <!-- START LATEST JOBS -->
 <?php if (get_row_layout() == 'latest_jobs'): ?>
@@ -306,181 +481,15 @@
 
 							<div><a href="<?php echo esc_url(get_sub_field('button_link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('button_link')['target']); ?>" class="btn btn-solid"><?php echo esc_html(get_sub_field('button_link')['title']); ?></a></div>
 						<?php endif;?>
-
-
-
-
 					</div>
-					<div class="jobs-row">
-							<div class="">
-									<div class="job-card">
-									<div class="job-category">IT General1</div>
-									<div class="job-title">IT Service Desk Analyst</div>
 
-									<div class="job-details">
-											<div class="d-flex justify-content-between  mb-4">
-													<div class="location">
-															<div class="label">LOCATION</div>
-															<div class="value">Western Australia</div>
-													</div>
-													<div class="jobtype">
-															<div class="label">JOB TYPE</div>
-															<div class="value">Contract</div>
-													</div>
 
-											</div>
-
-											<div class="salary">
-													<div class="label">SALARAY</div>
-													<div class="value">Negotiable</div>
-											</div>
-									</div>
-
-											<a href="/" class="btn btn-solid">Apply Now</a>
-
-									</div>
-							</div>
-							<div class="">
-									<div class="job-card">
-									<div class="job-category">IT General2</div>
-									<div class="job-title">IT Service Desk Analyst</div>
-
-									<div class="job-details">
-											<div class="d-flex justify-content-between  mb-4">
-													<div class="location">
-															<div class="label">LOCATION</div>
-															<div class="value">Western Australia</div>
-													</div>
-													<div class="jobtype">
-															<div class="label">JOB TYPE</div>
-															<div class="value">Contract</div>
-													</div>
-
-											</div>
-
-											<div class="salary">
-													<div class="label">SALARAY</div>
-													<div class="value">Negotiable</div>
-											</div>
-									</div>
-
-											<a href="/" class="btn btn-solid">Apply Now</a>
-
-									</div>
-							</div>
-							<div class="">
-									<div class="job-card">
-									<div class="job-category">IT General3</div>
-									<div class="job-title">IT Service Desk Analyst</div>
-
-									<div class="job-details">
-											<div class="d-flex justify-content-between  mb-4">
-													<div class="location">
-															<div class="label">LOCATION</div>
-															<div class="value">Western Australia</div>
-													</div>
-													<div class="jobtype">
-															<div class="label">JOB TYPE</div>
-															<div class="value">Contract</div>
-													</div>
-
-											</div>
-
-											<div class="salary">
-													<div class="label">SALARAY</div>
-													<div class="value">Negotiable</div>
-											</div>
-									</div>
-
-											<a href="/" class="btn btn-solid">Apply Now</a>
-
-									</div>
-							</div>
-							<div class="">
-									<div class="job-card">
-									<div class="job-category">IT General4</div>
-									<div class="job-title">IT Service Desk Analyst</div>
-
-									<div class="job-details">
-											<div class="d-flex justify-content-between  mb-4">
-													<div class="location">
-															<div class="label">LOCATION</div>
-															<div class="value">Western Australia</div>
-													</div>
-													<div class="jobtype">
-															<div class="label">JOB TYPE</div>
-															<div class="value">Contract</div>
-													</div>
-
-											</div>
-
-											<div class="salary">
-													<div class="label">SALARAY</div>
-													<div class="value">Negotiable</div>
-											</div>
-									</div>
-
-											<a href="/" class="btn btn-solid">Apply Now</a>
-
-									</div>
-							</div>
-							<div class="">
-									<div class="job-card">
-									<div class="job-category">IT General5</div>
-									<div class="job-title">IT Service Desk Analyst</div>
-
-									<div class="job-details">
-											<div class="d-flex justify-content-between  mb-4">
-													<div class="location">
-															<div class="label">LOCATION</div>
-															<div class="value">Western Australia</div>
-													</div>
-													<div class="jobtype">
-															<div class="label">JOB TYPE</div>
-															<div class="value">Contract</div>
-													</div>
-
-											</div>
-
-											<div class="salary">
-													<div class="label">SALARAY</div>
-													<div class="value">Negotiable</div>
-											</div>
-									</div>
-
-											<a href="/" class="btn btn-solid">Apply Now</a>
-
-									</div>
-							</div>
-							<div class="">
-									<div class="job-card">
-									<div class="job-category">IT General6</div>
-									<div class="job-title">IT Service Desk Analyst</div>
-
-									<div class="job-details">
-											<div class="d-flex justify-content-between  mb-4">
-													<div class="location">
-															<div class="label">LOCATION</div>
-															<div class="value">Western Australia</div>
-													</div>
-													<div class="jobtype">
-															<div class="label">JOB TYPE</div>
-															<div class="value">Contract</div>
-													</div>
-
-											</div>
-
-											<div class="salary">
-													<div class="label">SALARAY</div>
-													<div class="value">Negotiable</div>
-											</div>
-									</div>
-
-											<a href="/" class="btn btn-solid">Apply Now</a>
-
-									</div>
-							</div>
-
+					<div id="latest-jobs-section" class="jobs-row">
+						<div class="loading">
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
 					</div>
 					<div class="pagination-wrapper">
 							<div class="page-location">
@@ -496,6 +505,47 @@
 	</section>
 <?php endif; ?>
 <!-- END LATEST JOBS -->
+<!-- START Fullwidth-card -->
+<?php if (get_row_layout() == 'fullwidth_card'): ?>
+	<section class="Fullwidth-card" style=" background-image: url('<?php echo esc_url(get_sub_field('background_image')['url']); ?>');">
+		<div class="Fullwidth-card-container container">
+				<div class="row">
+						<div class="Fullwidth-card-column col-lg-6 col-12 ">
+								<div class="Fullwidth-card-body">
+									<?php if( get_sub_field('card_title') ): ?>
+										<div class="card-title">
+												<h2 class="underline-left"><span><?php the_sub_field('card_title');?></span></h2>
+										</div>
+									<?php endif;?>
+
+										<div class="card-text">
+											<?php
+
+											if( have_rows('text_repeater') ):
+													// Loop through rows.
+													while( have_rows('text_repeater') ) : the_row();
+															// Load sub field value.
+															?>
+															<div class="value-container">
+																	<h3><?php echo get_sub_field('title') ? get_sub_field('title') : ''; ?></h3>
+																	<p><?php echo get_sub_field('text') ? get_sub_field('text') : ''; ?></p>
+															</div>
+															<?php
+													// End loop.
+													endwhile;
+											endif;?>
+
+										</div>
+
+								</div>
+						</div>
+
+				</div>
+		</div>
+</section>
+<?php endif; ?>
+<!-- END Fullwidth-card -->
+
 
 	<!-- START CONTACT US -->
 	<?php if (get_row_layout() == 'contact_us'): ?>
@@ -662,8 +712,12 @@
 	<?php if (get_row_layout() == 'collapsing_text'): ?>
 		<section class="collapsing-text <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
 		  <div class="container">
-			<h2 class="text-center"><span><?php the_sub_field('heading'); ?></span></h2>
-			<img class="tracer" src="<?php echo esc_url(get_sub_field('heading_image')['url']); ?>" alt="<?php echo esc_attr(get_sub_field('heading_image')['alt']); ?>" />
+				<?php if(get_sub_field("heading")):?>
+						<h2 class="text-center"><span><?php the_sub_field('heading'); ?></span></h2>
+				<?php endif; ?>
+				<?php if(get_sub_field('heading_image')['url']):?>
+					<img class="tracer" src="<?php echo esc_url(get_sub_field('heading_image')['url']); ?>" alt="<?php echo esc_attr(get_sub_field('heading_image')['alt']); ?>" />
+				<?php endif; ?>
 			<div class="card-container">
 				<?php if( have_rows('collapsing_repeater') ): ?>
 					<?php while( have_rows('collapsing_repeater') ): the_row(); ?>
@@ -703,7 +757,7 @@
 							</div>
 							<div class="card-body">
 								<a href="<?php echo esc_url(get_sub_field('card_link')['url']); ?>"><h2><?php the_sub_field('card_title'); ?></h2></a>
-								<a href="<?php echo esc_url(get_sub_field('card_link')['url']); ?>" class="btn btn-arrow pl-0 py-0"><?php echo esc_html(get_sub_field('card_link')['title']); ?></a>
+								<?php if( get_sub_field('card_link') ): ?><a href="<?php echo esc_url(get_sub_field('card_link')['url']); ?>" class="btn btn-arrow pl-0 py-0">Learn More</a><?php endif;?>
 							</div>
 						</div>
 						<?php endwhile; ?>
@@ -725,7 +779,7 @@
 			<div class="container">
 				<?php if( get_sub_field('image') ): ?>
 				<div class="image-wrapper">
-					<img src="<?php echo esc_url(get_sub_field('image')['url']); ?>" alt="<?php echo esc_url(get_sub_field('image')['alt']); ?>">
+					<img src="<?php echo esc_url(get_sub_field('image')['url']); ?>" alt="<?php echo esc_url(get_sub_field('image')['alt']); ?>" <?php if( get_sub_field('contain_image') ): ?>style="object-fit: contain; width: auto;"<?php endif;?>>
 				</div>
 				<?php endif;?>
 				<div class="text-wrapper">
@@ -917,6 +971,38 @@
 	<?php endif;?>
 	<!-- END THREE COLUMN CARD w/ SEARCH FILTER -->
 
+	<!-- START OFFICE LOCATIONS -->
+	<?php if (get_row_layout() == 'office_locations_section'): ?>
+		<section class="office-locations-section <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
+		  <div class="profile-container container">
+			  <div class="section-title-container">
+				  <div class="section-description text-center">
+					<h2 class="px-3"><span><?php the_sub_field('heading'); ?></span></h2>
+					<p><?php the_sub_field('sub_heading'); ?></p>
+				  </div>
+
+			  </div>
+
+			  <div class="profile-row office-locations">
+					<?php if( have_rows('office_locations_repeater') ): ?>
+						<?php while( have_rows('office_locations_repeater') ): the_row(); ?>
+						  <div class="profile-container column ">
+							  <div class="profile-wrapper">
+								  <a href="<?php echo esc_url(get_sub_field('name_and_link')['url']); ?>" class="hover-overlay-orange"><img src="<?php echo esc_url(get_sub_field('image')['url']); ?>" alt="<?php echo esc_attr(get_sub_field('image')['alt']); ?>" /></a>
+								  <div class="content">
+									<?php if( get_sub_field('name_and_link') ): ?><a href="<?php echo esc_url(get_sub_field('name_and_link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('name_and_link')['target']); ?>" class="btn btn-arrow"><?php echo esc_html(get_sub_field('name_and_link')['title']); ?></a><?php endif;?>
+								  </div>
+							  </div>
+						  </div>
+				  		<?php endwhile; ?>
+					<?php endif; ?>
+
+			  </div>
+		  </div>
+		</section>
+	<?php endif; ?>
+	<!-- END OFFICE LOCATIONS -->
+
 	<!-- find-job -->
 	<?php if (get_row_layout() == 'find_job'): ?>
 			<section class="find-job <?php echo (get_sub_field('offset')) ? 'offset' : ''; ?> pt-0">
@@ -966,7 +1052,18 @@
 						</div>
 					<?php endif;?>
 				<div class="column-wrapper row">
-						<div class="column-content col-lg-4 col-md-6 col-12">
+					<?php
+										$page_link_left = get_sub_field('page_link_left');
+										if( $page_link_left ){
+											$page_link_left_url = esc_url($page_link_left['url']);
+											$page_link_left_title = esc_attr($page_link_left['title']);
+											$page_link_left_target = esc_html($page_link_left['target'] ? $page_link_left['target'] : '_self');
+										}?>
+
+
+
+
+						<a href="<?php echo esc_url($page_link_left_url) ?>" target="<?php echo esc_attr($page_link_left_target) ?>" class="column-content col-lg-4 col-md-6 col-12">
 								<div class="column-image">
 									<?php
 										$image_left = get_sub_field('image_left');
@@ -987,8 +1084,15 @@
 											</div>
 										<?php endif;?>
 								</div>
-						</div>
-						<div class="column-content col-lg-4 col-md-6 col-12">
+						</a>
+						<?php
+							$page_link_right = get_sub_field('page_link_left');
+							if( $page_link_right ){
+								$page_link_right_url = esc_url($page_link_left['url']);
+								$page_link_right_title = esc_attr($page_link_left['title']);
+								$page_link_right_target = esc_html($page_link_left['target'] ? $page_link_left['target'] : '_self');
+						}?>
+						<a href="<?php echo esc_url($page_link_right_url) ?>" target="<?php echo esc_attr($page_link_right_target) ?>" class="column-content col-lg-4 col-md-6 col-12">
 									<div class="column-image">
 										<?php
 											$image_right = get_sub_field('image_right');
@@ -1009,13 +1113,13 @@
 												</div>
 											<?php endif;?>
 									</div>
-						</div>
+						</a>
 				</div>
 		</div>
 		</section>
 	<?php endif; ?>
 	<!--End two_column_round_image -->
-	<!-- logo_carousel -->
+	<!-- START LOGO CAROUSE -->
 	<?php if (get_row_layout() == 'logo_carousel'): ?>
 		<section class="logo-carousel">
 			<div class="carousel-container container">
@@ -1047,7 +1151,56 @@
 				</div>
 		</section>
 	<?php endif; ?>
-	<!--End logo_carousel -->
+	<!-- END LOGO CAROUSE -->
+
+
+	<!-- START TESTIMONIAL SLIDER -->
+	<?php if (get_row_layout() == 'testimonial_slider'): ?>
+
+		<section class="testimonial-slider">
+        <div class="testimonial-container container">
+					<?php if( get_sub_field('section_title') ): ?>
+						<div class="section-title">
+								<h2><?php the_sub_field('section_title');?></h2>
+						</div>
+					<?php endif;?>
+
+            <div class="testimonial-row">
+							<?php
+							if( have_rows('testimonial_cards') ):
+									// Loop through rows.
+									while( have_rows('testimonial_cards') ) : the_row();
+											// Load sub field value.
+											?>
+											<div class="testimonial-cards">
+			                    <div class="testimonial-card-inner">
+
+			                        <div class="testimony-wrapper">
+			                            <div class="testimonial-text"><?php echo get_sub_field('testimonial_text') ? get_sub_field('testimonial_text') : ''; ?></div>
+			                            <div class="reviewer-details">
+			                                <div class="reviewer-name"></div>
+			                                <div class="reviewer-position">Senior Recruitment Consultant IT & Digital (VIC)</div>
+			                            </div>
+			                        </div>
+			                    </div>
+
+			                </div>
+
+											<?php
+									// End loop.
+									endwhile;
+							endif;?>
+
+            </div>
+        </div>
+    </section>
+
+	<?php endif; ?>
+	<!-- END TESTIMONIAL SLIDER -->
+
+
+
+
 	<!-- icons_section -->
 	<?php if (get_row_layout() == 'icons_section'): ?>
 		<section class="icons-section" style=" background-image: url('<?php echo esc_url(get_sub_field('background_image')['url']); ?>');">
@@ -1088,13 +1241,22 @@
 						if( have_rows('items') ):
 								// Loop through rows.
 								while( have_rows('items') ) : the_row();
-										?>
-											<div class="item">
-												<a href="<?php echo get_sub_field('icon-link')?>" class="icon-box-wrapper">
-														<img src="<?php echo get_sub_field('icon-image')['url']?>" alt="<?php echo get_sub_field('icon-image')['alt']?>"/>
-														<div class="icon-title"><?php echo get_sub_field('icon_title')?></div>
-												</a>
-											</div>
+									$icon_link = get_sub_field('icon-link');
+									if( $icon_link ){
+										$icon_link_url = esc_url($icon_link['url']);
+										$icon_link_title = esc_attr($icon_link['title']);
+										$icon_link_target = esc_html($icon_link['target'] ? $icon_link['target'] : '_self');
+									} else {
+										$icon_link_url = '';
+										$icon_link_title = '';
+										$icon_link_target = '_self';
+									}?>
+									<a href="<?php echo $icon_link_url ? $icon_link_url:'';?>" class="item">
+										<div  class="icon-box-wrapper">
+												<img src="<?php echo get_sub_field('icon-image')['url']?>" alt="<?php echo get_sub_field('icon-image')['alt']?>"/>
+												<div class="icon-title"><?php echo get_sub_field('icon_title')?></div>
+										</div>
+									</a>
 										<?php
 								endwhile;
 						endif;
@@ -1104,9 +1266,9 @@
 		</section>
 	<?php endif; ?>
 	<!--End icons_section -->
-	<!-- three_column_info -->
+	<!-- START THREE COLUMN INFO-->
 	<?php if (get_row_layout() == 'three_column_info'): ?>
-		<section class="three-column-info blue-bg">
+		<section class="three-column-info">
 				<div class="three-column-info-container container">
 					<?php if( get_sub_field('title') ): ?>
 						<div class="section-title">
@@ -1118,7 +1280,7 @@
 					<?php if( get_sub_field('description') ): ?>
 						<div class="section-title">
 								<div class="section-description">
-										<div class="section-description"><?php the_sub_field('description');?></div>
+										<?php the_sub_field('description');?>
 								</div>
 						</div>
 					<?php endif;?>
@@ -1147,11 +1309,9 @@
 																			</div>
 																		<?php }?>
 
-
 																		<?php if ($column_number == '' && $column_number_sub == '') {?>
 																						<img src="<?php echo get_sub_field('column-image')['url']?>" alt="<?php echo get_sub_field('column-image')['alt']?>"/>
 																		<?php }?>
-
 																	</div>
 
 																	<div class="column-text">
@@ -1174,36 +1334,78 @@
 
 		</section>
 	<?php endif; ?>
-	<!--End three_column_info -->
+	<!--END THREE COLUMN INFO -->
 
-	<!-- START LOCATION CONTENT -->
-	<?php if (get_row_layout() == 'location_content'): ?>
-
-<section class="two-column-text">
-    <div class="container">
-        <div class="column-wrapper">
-            <div class="left-col">
-                <h2 class="underline-left">
-                    <span><?php the_sub_field('left_column_title'); ?></span>
-                </h2>
-                <div class="text-container text-content">
-                    <?php the_sub_field('left_column_content'); ?>
-                </div>
+	<!-- START FOUR COLUMN CARD-->
+	<?php if (get_row_layout() == 'four_column_card'): ?>
+	  <section class="four-column-card title-description-center <?php echo (get_sub_field('section_padding_top') == '0' ? 'pt-0' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '1' ? 'pt-1' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '2' ? 'pt-2' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '3' ? 'pt-3' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '4' ? 'pt-4' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '5' ? 'pt-5' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '0' ? 'pb-0' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '1' ? 'pb-1' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '2' ? 'pb-2' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '3' ? 'pb-3' : ''); ?><?php echo (get_sub_field('section_padding_bottom') == '4' ? 'pb-4' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '5' ? 'pb-5' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
+        <div class="container">
+            <div class="title-wrapper">
+                <h2><span><?php echo get_sub_field('title')?></span></h2>
+                <?php echo get_sub_field('description')?>
             </div>
-            <div class="right-col">
-                <div class="column-title">
-                    <?php the_sub_field('right_column_title'); ?>
+            <div class="flex-box">
+				<?php if(have_rows('card_list')):
+          		while(have_rows('card_list')): the_row(); ?>
+                <div class="column">
+                    <h6><?php echo get_sub_field('title')?></h6>
+                    <?php echo get_sub_field('content')?>
                 </div>
-                <div class="text-container text-content">
-                    <?php the_sub_field('right_column_content'); ?>
-                </div>
+				<?php endwhile; ?>
+				<?php endif; ?>
+            <div class="content-wrapper">
+                <p><?php echo get_sub_field('bottom_description')?></p>
             </div>
+		  </div>
         </div>
-    </div>
-</section>
+      </section>
+	<?php endif; ?>
+	<!-- END FOUR COLUMN CARD-->
 
-<?php endif; ?>
-<!-- END LOCATION CONTENT -->
+
+	<!-- START FORM EMBED-->
+	<?php if (get_row_layout() == 'form_embed'): ?>
+
+
+	<section class="request-staff <?php if(get_sub_field('add_banner')) : ?>pb-0<?php endif; ?> blue-bg" <?php if(!get_sub_field('add_background_image')) : ?>style="background-image: none;"<?php endif; ?>>
+      <div class="container">
+
+		<?php if( get_sub_field('title') ) { ?>
+ 			<div class="title-wrapper pb-4">
+			  <h2 class="text-center underline-center"><span><?php echo get_sub_field('title')?></span></h2>
+				<?php if(get_sub_field('description')) : ?>
+				  <div class="pt-4 pb-2 text-center">
+					  <p><?php echo get_sub_field('description')?></p>
+				  </div>
+				<?php endif; ?>
+		    </div>
+		<?php } ?>
+
+		<?php echo do_shortcode(get_sub_field('embed_form')); ?>
+
+      </div>
+
+	<?php if(get_sub_field('add_banner')) : ?>
+      <div class="blue-banner"><!-- no-padding class is an option for acf -->
+        <div class="content-container container">
+
+            <div class="section-title">
+                <h2><?php the_sub_field('banner_text');?></h2>
+            </div>
+            <div class="btn-wrapper">
+                <a href="<?php echo esc_url(get_sub_field('banner_button')['url']); ?>" target="<?php echo esc_attr(get_sub_field('banner_button')['target']); ?>" class="btn btn-solid"><?php echo esc_html(get_sub_field('banner_button')['title']); ?></a>
+            </div>
+
+        </div>
+      </div>
+	<?php endif;?>
+
+    </section>
+
+
+
+	<?php endif; ?>
+	<!-- END FORM EMBED-->
 
 	<?php endwhile;?>
 <?php endif;?>

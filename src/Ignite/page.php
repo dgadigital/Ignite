@@ -184,11 +184,121 @@
 	<!-- START TWO COLUMN TEXT -->
 	<?php if (get_row_layout() == 'two_column_text'): ?>
 
-	<section class="two-column-text <?php echo (get_sub_field('padding_top') == '0' ? 'pt-0' : ''); ?> <?php echo (get_sub_field('padding_top') == '1' ? 'pt-1' : ''); ?> <?php echo (get_sub_field('padding_top') == '2' ? 'pt-2' : ''); ?> <?php echo (get_sub_field('padding_top') == '3' ? 'pt-3' : ''); ?> <?php echo (get_sub_field('padding_top') == '4' ? 'pt-4' : ''); ?> <?php echo (get_sub_field('padding_top') == '5' ? 'pt-5' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '0' ? 'pb-0' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '1' ? 'pb-1' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '2' ? 'pb-2' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '3' ? 'pb-3' : ''); ?><?php echo (get_sub_field('padding_bottom') == '4' ? 'pb-4' : ''); ?> <?php echo (get_sub_field('padding_bottom') == '5' ? 'pb-5' : ''); ?><?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
+		<?php
+			$paddingTop = get_sub_field('padding_top');
+			switch ($paddingTop) {
+			 case '0':
+					 $paddingTop = 'pt-0';
+					 break;
+			 case '1':
+					 $paddingTop = 'pt-1';
+					 break;
+			 case '2':
+					 $paddingTop = 'pt-2';
+					 break;
+			 case '3':
+					 $paddingTop = 'pt-3';
+					 break;
+			 case '4':
+					 $paddingTop = 'pt-4';
+					 break;
+			 case '5':
+					 $paddingTop = 'pt-5';
+					 break;
+			 default:
+					 $paddingTop = '';
+					 break;
+			}
+
+			$paddingBottom = get_sub_field('padding_bottom');
+
+			switch ($paddingBottom) {
+			 case '0':
+					 $paddingBottom= 'pb-0';
+					 break;
+			 case '1':
+					 $paddingBottom= 'pb-1';
+					 break;
+			 case '2':
+					 $paddingBottom= 'pb-2';
+					 break;
+			 case '3':
+					 $paddingBottom= 'pb-3';
+					 break;
+			 case '4':
+					 $paddingBottom= 'pb-4';
+					 break;
+			 case '5':
+					 $paddingBottom= 'pb-5';
+					 break;
+			 default:
+					 $paddingBottom= '';
+					 break;
+			}
+
+
+			$title_position = get_sub_field('title_position');
+
+			switch ($title_position) {
+				case 'Top Center':
+ 					 $background_color = 'blue-bg';
+ 					 break;
+					 case 'Top Center':
+	  					 $background_color = 'blue-bg';
+	  					 break;
+
+			}
+
+
+
+			$background_color = get_sub_field('background_color');
+
+
+			switch ($background_color) {
+			 case 'Blue':
+					 $background_color = 'blue-bg';
+					 break;
+			 case 'Grey':
+					 $background_color = 'grey-bg';
+					 break;
+			 case 'Blue Vector':
+					 $background_color = 'blue-bg-vector';
+					 break;
+			 default:
+					 $background_color = '';
+					 break;
+			}
+
+
+
+
+			switch ($title_position) {
+				case 'Top Center':
+ 					 $title_position = 'center';
+ 					 break;
+				 case 'Left Column':
+					 $title_position = 'column';
+					 break;
+				 default:
+					 $title_position = 'center';
+					 break;
+			}
+			?>
+
+	<section class="two-column-text <?php echo $paddingTop; ?> <?php echo $paddingBottom;?> <?php echo $background_color; ?>">
         <div class="container">
-			<h2 class="underline-left"><span><?php the_sub_field('title'); ?></span></h2>
+					<?php
+
+					if ($title_position == "center") : ?>
+						<h2 class="text-center"><span><?php the_sub_field('title'); ?></span></h2>
+					<?php endif; ?>
+
             <div class="column-wrapper">
                 <div class="left-col">
+									<?php if ($title_position == "column") : ?>
+										<h2 class="underline-left"><span><?php the_sub_field('title'); ?></span></h2>
+									<?php endif; ?>
+
                     <div class="text-container text-content">
                         <?php the_sub_field('left_column_content'); ?>
                     </div>
@@ -207,6 +317,34 @@
 
 	<?php endif; ?>
 	<!-- END TWO COLUMN TEXT -->
+	<!-- START LOCATION CONTENT -->
+<?php if (get_row_layout() == 'location_content'): ?>
+
+	<section class="two-column-text">
+			<div class="container">
+					<div class="column-wrapper">
+							<div class="left-col">
+									<h2 class="underline-left">
+											<span><?php the_sub_field('left_column_title'); ?></span>
+									</h2>
+									<div class="text-container text-content">
+											<?php the_sub_field('left_column_content'); ?>
+									</div>
+							</div>
+							<div class="right-col">
+									<div class="column-title">
+											<?php the_sub_field('right_column_title'); ?>
+									</div>
+									<div class="text-container text-content">
+											<?php the_sub_field('right_column_content'); ?>
+									</div>
+							</div>
+					</div>
+			</div>
+	</section>
+
+<?php endif; ?>
+<!-- END LOCATION CONTENT -->
 
 	<!-- START PROFILE CAROUSEL -->
 	<?php if (get_row_layout() == 'profile_carousel'): ?>
