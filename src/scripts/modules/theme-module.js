@@ -6,7 +6,7 @@ AppName.Modules.ThemeModule = (function () {
   // Private Methods //
   ////////////////////
   const _privateMethod = () => {
-    // Global here
+
   };
 
   var _stickynav = function () {
@@ -153,61 +153,73 @@ AppName.Modules.ThemeModule = (function () {
 
 
   const _latestJobs = function(){
-    $('.jobs-row').slick({
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 3,
-      dots: true,
-      arrows: true,
-      appendArrows: $('.pagination-container'),
-      appendDots: $('.dot-container'),
-      customPaging: function(slider, i) {
-          return '<button class="d-none">' + (i + 1) + '</button>';
-      },
-      responsive: [
-          
-          {
-            breakpoint: 991,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        },
-          {
-              breakpoint: 768,
-              settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1
-              }
-          }
-      ]
-
-      
-    });
-
-
-  var slickDotsCount = $('.lastest-jobs-section .slick-dots').children().length;
-    var numItemsnumber = parseInt(slickDotsCount);
-    var formattednumItemsnumber = (numItemsnumber < 10 ? '0' : '') + numItemsnumber;
-    $('#num-items').text(formattednumItemsnumber);
     
-  
-  
-    var activeTabText = $('.lastest-jobs-section .slick-active button').text();
-    var activeTabTextnumber = parseInt(activeTabText);
-    var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
-    $('#index').text(formattedactiveTabTextnumber);
 
-    $('.slick-arrow').click(function() {
-      var activeTabText = $('.lastest-jobs-section .slick-active button').text();
-      var activeTabTextnumber = parseInt(activeTabText);
-      var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
-            $('#index').text(formattedactiveTabTextnumber);
-      
+  // AJAX JOBS LIST REQUEST
+	  $.ajax({
+        url: ajaxurl,
+        type: 'GET',
+        data: {
+            'action': 'get_jobs_section'
+        },
+		complete: function(){
+			  $('.ajax-loading').hide();
+		},
+        success: function(response) {
+            $('#latest-jobs-section').html(response);
+			
+			$('.jobs-row').slick({
+			  infinite: true,
+			  slidesToShow: 3,
+			  slidesToScroll: 3,
+			  dots: true,
+			  arrows: true,
+			  appendArrows: $('.pagination-container'),
+			  appendDots: $('.dot-container'),
+			  customPaging: function(slider, i) {
+				  return '<button class="d-none">' + (i + 1) + '</button>';
+			  },
+			  responsive: [
 
+				  {
+					breakpoint: 991,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2
+					}
+				},
+				  {
+					  breakpoint: 768,
+					  settings: {
+						  slidesToShow: 1,
+						  slidesToScroll: 1
+					  }
+				  }
+			  ]
+			});
+			
+			var slickDotsCount = $('.lastest-jobs-section .slick-dots').children().length;
+			var numItemsnumber = parseInt(slickDotsCount);
+			var formattednumItemsnumber = (numItemsnumber < 10 ? '0' : '') + numItemsnumber;
+			$('#num-items').text(formattednumItemsnumber);
+
+			var activeTabText = $('.lastest-jobs-section .slick-active button').text();
+			var activeTabTextnumber = parseInt(activeTabText);
+			var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
+			$('#index').text(formattedactiveTabTextnumber);
+			
+			$('.slick-arrow').click(function() {
+			  var activeTabText = $('.lastest-jobs-section .slick-active button').text();
+			  var activeTabTextnumber = parseInt(activeTabText);
+			  var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
+					$('#index').text(formattedactiveTabTextnumber);
+			});
+        },
+        error: function(xhr, status, error) {
+            console.log('Error:', error);
+        }
     });
-  
-  //   $('ul.slick-dots').css('display', 'none');
+	  
   }
   
   
@@ -382,7 +394,7 @@ AppName.Modules.ThemeModule = (function () {
 			tags: true 
 		});
 
-		$("#filter-dropdown-category").select2({
+	$("#filter-dropdown-category").select2({
 			closeOnSelect : false,
 			placeholder : "  Filter By Category",
 			allowHtml: true,
@@ -390,14 +402,14 @@ AppName.Modules.ThemeModule = (function () {
 			tags: true 
 		});
 
-        $('#filter-dropdown-category').on('select2:select', function (e) {
+    $('#filter-dropdown-category').on('select2:select', function (e) {
             var selectedCategory  = $('#filter-dropdown-category').val();
             console.log(selectedCategory)
         });
-        $('#filter-dropdown-category').on('select2:unselect', function (e) {
+    $('#filter-dropdown-category').on('select2:unselect', function (e) {
             var selectedCategory  = $('#filter-dropdown-category').val();
             console.log(selectedCategory)
-        });
+        }); 
   }
 
   var _collapsing_text = function(){
@@ -467,7 +479,35 @@ AppName.Modules.ThemeModule = (function () {
       $accordionContainer.css('height', 'auto');
     }
   };
+	
+	var _search_function_all = function() {
+    $("#search-all").on("click", function(event) {
+		  event.preventDefault();
+		  $("#search-all").hide();
 
+		  var searchQuery = $('#search-box-all').val();
+		  console.log(searchQuery);
+		  
+		  $.ajax({
+		  url: ajaxurl,
+		  type: 'POST',
+		  data: {
+			action: 'load_more_posts',
+			search_query: searchQuery,
+		  },
+		  success: function(response) {
+			// your success code here
+			jQuery('.card-container').html(response);
+		  },
+		  error: function(xhr, status, error) {
+			// your error code here
+		  }
+		});
+		  
+	  });
+	}
+	
+	
   var _contact_us = function(){
     //Top Content Tabs and Description
     $(".tab-list li").on("click", function() {
@@ -484,12 +524,350 @@ AppName.Modules.ThemeModule = (function () {
     });
   }
   
+  var _search_function = function(){
+	  $(".post-filter .pagination").hide();
+	  $('.post-filter:not(.insights) #search-btn').on('click', function(event) {
+		event.preventDefault();
+
+		var searchQuery = $('#search-box').val();
+		  
+		var val = [];
+		$(".post-filter-side-bar #categories input[type=checkbox]:checked").each(function(i){
+			val[i] = $(this).val();
+		});
+		$.ajax({
+		  url: ajaxurl,
+		  type: 'POST',
+		  data: {
+			action: 'post_search',
+			search_query: searchQuery,
+			blogs_category: val
+		  },
+		  success: function(response) {
+			// your success code here
+			jQuery('.post-filter .post-list').html(response);
+			var total_page = $("#total_pages").attr("data-pages");
+			var current_page = $("#current_page").attr("data-pages");
+			var found_article = $("#found_article").attr("data-pages");
+	  		$(".post-filter .total-page").text(total_page);
+			$(".post-filter .current-page").text(current_page);
+			$(".post-filter .found-article").text("Found "+found_article+" Articles");
+			if(total_page == 0){
+				$(".post-filter .pagination").hide();
+			}
+			else{
+				$(".post-filter .pagination").show();
+			}
+		  },
+		  error: function(xhr, status, error) {
+			// your error code here
+		  }
+		});
+	  });
+	  
+	  $('.post-filter-side-bar #categories input[type=checkbox]').click(function(){
+		  var val = [];
+		  $(".post-filter-side-bar #categories input[type=checkbox]:checked").each(function(i){
+			val[i] = $(this).val();
+			$.ajax({
+			  url: ajaxurl,
+			  type: 'POST',
+			  data: {
+				action: 'post_search',
+				blogs_category: val
+			  },
+			  success: function(response) {
+				// your success code here
+				jQuery('.post-filter .post-list').html(response);
+				var total_page = $("#total_pages").attr("data-pages");
+				var current_page = $("#current_page").attr("data-pages");
+				var found_article = $("#found_article").attr("data-pages");
+				$(".post-filter .total-page").text(total_page);
+				$(".post-filter .current-page").text(current_page);
+				$(".post-filter .found-article").text("Found "+found_article+" Articles");
+				if(total_page == 0){
+					$(".post-filter .pagination").hide();
+				}
+				else{
+					$(".post-filter .pagination").show();
+				}
+			  },
+			  error: function(xhr, status, error) {
+				// your error code here
+			  }
+			});
+		  });
+	  });
+	  
+	  $('.post-filter .next-page').on('click', function(event) {
+		  event.preventDefault();
+
+		  var searchQuery = $('#search-box').val();
+
+		  var val = [];
+		  $(".post-filter-side-bar #categories input[type=checkbox]:checked").each(function(i){
+			val[i] = $(this).val();
+		  });
+		  var paged =  parseInt($("#current_page").attr("data-pages")) + 1;
+		  var total_page = $("#total_pages").attr("data-pages");
+		  if(total_page != 1){
+			  $.ajax({
+				  url: ajaxurl,
+				  type: 'POST',
+				  data: {
+					action: 'post_search',
+					search_query: searchQuery,
+					blogs_category: val,
+					paged: paged
+				  },
+				  success: function(response) {
+					// your success code here
+					jQuery('.post-filter .post-list').html(response);
+					var total_page = $("#total_pages").attr("data-pages");
+					var current_page = $("#current_page").attr("data-pages");
+					$(".post-filter .total-page").text(total_page);
+					$(".post-filter .current-page").text(current_page);
+					if(total_page == 0){
+						$(".post-filter .pagination").hide();
+					}
+					else{
+						$(".post-filter .pagination").show();
+					}
+				  },
+				  error: function(xhr, status, error) {
+					// your error code here
+				  }
+			 });
+		 }
+	  });
+	  
+	  $('.post-filter .prev-page').on('click', function(event) {
+		  event.preventDefault();
+
+		  var searchQuery = $('#search-box').val();
+
+		  var val = [];
+		  $(".post-filter-side-bar #categories input[type=checkbox]:checked").each(function(i){
+			val[i] = $(this).val();
+		  });
+		  var paged =  parseInt($("#current_page").attr("data-pages")) - 1;
+		  if(paged != 0){
+			  $.ajax({
+			  url: ajaxurl,
+			  type: 'POST',
+			  data: {
+				action: 'post_search',
+				search_query: searchQuery,
+				blogs_category: val,
+				paged: paged
+			  },
+			  success: function(response) {
+				// your success code here
+				jQuery('.post-filter .post-list').html(response);
+				var total_page = $("#total_pages").attr("data-pages");
+				var current_page = $("#current_page").attr("data-pages");
+				$(".post-filter .total-page").text(total_page);
+				$(".post-filter .current-page").text(current_page);
+				if(total_page == 0){
+					$(".post-filter .pagination").hide();
+				}
+				else{
+					$(".post-filter .pagination").show();
+				}
+			  },
+			  error: function(xhr, status, error) {
+				// your error code here
+			  }
+		 	});
+		 }
+		 else{
+			 event.preventDefault();
+		 }
+	  });
+	  
+	  $('.post-filter.insights #search-btn').on('click', function(event) {
+		event.preventDefault();
+		$(".post-filter.insights .load-more").show();
+		var searchQuery = $('#search-box').val();
+		var tag = $('.tag_search').val();
+		
+		$.ajax({
+		  url: ajaxurl,
+		  type: 'POST',
+		  data: {
+			action: 'insights_search',
+			search_query: searchQuery,
+			tag: tag,
+		  },
+		  success: function(response) {
+			// your success code here
+			jQuery('.post-filter .card-container').html(response);
+		  },
+		  error: function(xhr, status, error) {
+			// your error code here
+		  }
+		});
+	  });
+	  
+	  $(".post-filter.insights .load-more").on("click", function(event) {
+		  event.preventDefault();
+		  $(".post-filter.insights .load-more").hide();
+
+		  var searchQuery = $('#search-box').val();
+		  var tag = $('.tag_search').val();
+		  console.log(searchQuery+tag);
+		  
+		  $.ajax({
+		  url: ajaxurl,
+		  type: 'POST',
+		  data: {
+			action: 'insights_load_more',
+			search_query: searchQuery,
+			tag: tag,
+		  },
+		  success: function(response) {
+			// your success code here
+			jQuery('.post-filter .card-container').html(response);
+		  },
+		  error: function(xhr, status, error) {
+			// your error code here
+		  }
+		});
+		  
+	  });
+  }
+  
+   const _search_job = function(){
+///////////////////// wroking 1
+	
+//     jQuery.ajax({
+//         url: ajaxurl,
+//         type: 'GET',
+//         data: {
+//             action: 'job_search',
+//             page: page
+//         },
+//         success: function(response) {
+//             // Handle the response
+//             if (response.success) {
+//                 var html = response.data.html;
+//                 var totalPages = response.data.total_pages;
+                
+//                 // Update the job listings on the page
+//                 jQuery('#job-results-container').html(html);
+                
+//                 // Update the pagination
+//                 generatePagination(totalPages);
+//             } else {
+//                 // Display an error message
+//                 console.log('Error:', response.data);
+//             }
+//         },
+//         error: function(xhr, status, error) {
+//             // Display an error message
+//             console.log('AJAX Error:', error);
+//         }
+//     });
+// }
+
+// function generatePagination(totalPages) {
+//     // Generate the pagination links based on the total number of pages
+//     var paginationHtml = '';
+//     for (var i = 1; i <= totalPages; i++) {
+//         paginationHtml += '<a href="#" class="page-link" data-page="' + i + '">' + i + '</a>';
+//     }
+    
+//     // Update the pagination container
+//     jQuery('#pagination-container').html(paginationHtml);
+// }
+
+// // Handle pagination link click
+// jQuery(document).on('click', '.page-link', function(e) {
+//     e.preventDefault();
+    
+//     var page = jQuery(this).data('page');
+    
+//     // Call the get_jobs_section function with the selected page
+//     get_jobs_section(page);
+// });
+
+//     // Call the get_jobs_section function with the initial page (default to 1)
+//     get_jobs_section(1);
+
+	   
+//////////////////////////// working 2
+
+  // Initial variables
+  var currentPage = 1;
+  var totalPages = 1;
+
+  // Function to update the job results
+  function updateJobResults(page) {
+    $.ajax({
+      url: ajaxurl,
+      method: 'GET',
+      data: {
+        action: 'job_search',
+        page: page
+      },
+      beforeSend: function() {
+        // Show loading spinner or any other visual indication
+        // that the content is being loaded
+        $('#jobs-container').html('Loading...');
+      },
+      success: function(response) {
+        // Update the job results container with the received HTML
+        $('#jobs-container').html(response.data.html);
+
+        // Update the current page indicator
+        $('.current-page').text(response.data.current_page);
+        $('.total-pages').text(response.data.total_pages);
+
+        // Enable/disable previous and next buttons based on the current page
+        $('.pagination-button').prop('disabled', false);
+        if (response.data.current_page === 1) {
+          $('.pagination-button.prev').prop('disabled', true);
+        }
+        if (response.data.current_page === response.data.total_pages) {
+          $('.pagination-button.next').prop('disabled', true);
+        }
+
+        // Update the current page variable
+        currentPage = response.data.current_page;
+        totalPages = response.data.total_pages;
+      },
+      error: function() {
+        // Handle error case if needed
+        $('#jobs-container').html('Error loading job results.');
+      }
+    });
+  }
+
+  // Initial job results update
+  updateJobResults(currentPage);
+
+  // Pagination button click event handlers
+  $('.pagination-button.prev').on('click', function() {
+    if (currentPage > 1) {
+      updateJobResults(currentPage - 1);
+    }
+  });
+
+  $('.pagination-button.next').on('click', function() {
+    if (currentPage < totalPages) {
+      updateJobResults(currentPage + 1);
+    }
+  });
+	   
+	   
+}
   /////////////////////
   // Public Methods //
   ///////////////////
   const init = function () {
     _privateMethod();
     _two_column_side_tabs_accordion();
+	_search_function_all();
     _contact_us();
     _collapsing_text();
     _cardcarousel();
@@ -507,6 +885,8 @@ AppName.Modules.ThemeModule = (function () {
     _topNavToggler();
     _stickynav();
     _mainNavToggler();
+	_search_function();
+	_search_job();
   };
 
   return {
