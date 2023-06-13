@@ -9,9 +9,10 @@
 			<?php endif; ?>
         </div>
         <div class="footer-search">
-          <div class="search-job-field">
-            <input type="text" class="form-control search-jobs" placeholder="Search Jobs">
-          </div>
+          <form class="search-job-field" action="job-search" method="GET">
+            <input type="text" class="form-control search-jobs" placeholder="Search Jobs" name="keyword" value="<?php echo isset($_GET['keyword'])?$_GET['keyword']:''; ?>" />
+            <input type="submit" name="" class="d-none">
+          </form>
         </div>
       </div>
     </div>
