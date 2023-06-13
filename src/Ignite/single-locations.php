@@ -569,7 +569,7 @@
 
 				<!-- Tabs Content Start -->
 				<div class="container body-content">
-				  <div class="tabs-content active" id="content-select-1">
+				  <div class="tabs-content no-spacing active" id="content-select-1">
 					<div class="form-container">
 					  <?php the_sub_field('left_form_shortcode'); ?>
 					</div>
@@ -1019,7 +1019,7 @@
 											<div class="find-job-location">
 													<select class="form-control find-job-location" id="location" name="location">
 
-															<option disabled="" hidden="">Select a location</option>
+															<option selected disabled="" hidden="">Select a location</option>
 															<option <?php echo (get_the_title()=='Sydney'?'selected':''); ?>>Sydney</option>
 															<option <?php echo (get_the_title()=='Brisbane'?'selected':''); ?>>Brisbane</option>
 															<option <?php echo (get_the_title()=='Canberra'?'selected':''); ?>>Canberra</option>

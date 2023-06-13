@@ -569,7 +569,7 @@
 
 				<!-- Tabs Content Start -->
 				<div class="container body-content">
-				  <div class="tabs-content active" id="content-select-1">
+				  <div class="tabs-content no-spacing active" id="content-select-1">
 					<div class="form-container">
 					  <?php the_sub_field('left_form_shortcode'); ?>
 					</div>
