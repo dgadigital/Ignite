@@ -1186,8 +1186,8 @@
 			                        <div class="testimony-wrapper">
 			                            <div class="testimonial-text"><?php echo get_sub_field('testimonial_text') ? get_sub_field('testimonial_text') : ''; ?></div>
 			                            <div class="reviewer-details">
-			                                <div class="reviewer-name"></div>
-			                                <div class="reviewer-position">Senior Recruitment Consultant IT & Digital (VIC)</div>
+			                                <div class="reviewer-name"><?php echo get_sub_field('reviewer-name') ? get_sub_field('reviewer-name') : ''; ?></div>
+			                                <div class="reviewer-position"><?php echo get_sub_field('reviewer-position') ? get_sub_field('reviewer-position') : ''; ?></div>
 			                            </div>
 			                        </div>
 			                    </div>
