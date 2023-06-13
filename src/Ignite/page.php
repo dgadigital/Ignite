@@ -1011,23 +1011,24 @@
 							<div class="box-columns content-wrapper search-box">
 									<h2 class="pb-4 text-center">Find your next job</h2>
 
-									<div class="search-row">
+									<form class="search-row" action="job-search" method="GET">
 											<div class="find-job-field">
-													<input type="text" class="form-control find-job" placeholder="Job Title, skills or keywords">
+													<input type="text" class="form-control find-job" name="keyword" id="keyword" placeholder="Job Title, skills or keywords">
 											</div>
 
 											<div class="find-job-location">
-													<select class="form-control find-job-location">
-															<option value="" disabled="" selected="" hidden="">Select a location</option>
-															<option>Sydney</option>
-															<option>Brisbane</option>
-															<option>Canberra</option>
-															<option>Perth</option>
-															<option>Melbourne</option>
+													<select class="form-control find-job-location" id="location" name="location">
+
+															<option selected disabled="" hidden="">Select a location</option>
+															<option <?php echo (get_the_title()=='Sydney'?'selected':''); ?>>Sydney</option>
+															<option <?php echo (get_the_title()=='Brisbane'?'selected':''); ?>>Brisbane</option>
+															<option <?php echo (get_the_title()=='Canberra'?'selected':''); ?>>Canberra</option>
+															<option <?php echo (get_the_title()=='Perth'?'selected':''); ?>>Perth</option>
+															<option <?php echo (get_the_title()=='Melbourne'?'selected':''); ?>>Melbourne</option>
 													</select>
 											</div>
-											<button class="btn btn-search btn-solid"><span class="fa fa-search"></span></button>
-									 </div>
+											<button type="submit" class="btn btn-search btn-solid"><span class="fa fa-search"></span></button>
+									 </form>
 
 							</div>
 							<div class="box-columns content-wrapper request-box">
