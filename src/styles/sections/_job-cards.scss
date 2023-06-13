@@ -59,8 +59,14 @@
                 padding: 43px 23px;
                 margin: auto;
                 background-color: #ffffff;
+                min-height: 426px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 
-        
+                a{
+                    max-width: 148.46px;
+                }
         
                 @media (max-width:768px) {
                  
