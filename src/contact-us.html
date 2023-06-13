@@ -184,6 +184,8 @@
                 </li>
               </ul>
             </div>
+
+            
             <!-- Tabs End -->
 
             <!-- Tabs Content Start -->
@@ -527,3 +529,116 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-cv-form form-layout">
+  <div class="form-header">
+      <p class="mb-0">About your open position</p>
+  </div>
+  <div class="form-body">
+     <div class="form-row">
+        <div class="form-group col-6 mb-0">
+           <div class="upload-file">
+           [file* resume-file id:real-file class:hidden class:d-none]
+           <div for="real-file" id="upload-dummy" class="btn-pload">Upload your resume</div>
+           </div>
+        </div>
+        <div class="form-group col-6 mb-0">
+        </div>
+     </div>
+  </div>
+  <div class="form-header">
+      <p class="mb-0">Step 2: Contact Information</p>
+  </div>
+  <div class="form-body">
+     <div class="form-row">
+        <div class="form-group col-6 mb-0">
+           [text* FirstName class:form-control class:no-border placeholder "First Name*"]
+        </div>
+        <div class="form-group col-6 mb-0">
+           [text* LastName class:form-control class:no-border placeholder "Last Name*"]
+        </div>
+     </div>
+
+     <div class="form-row">
+        <div class="form-group col-6 mb-0">
+           [email* your-email class:form-control class:no-border placeholder "Email Address*"]
+        </div>
+        <div class="form-group col-6 mb-0">
+           [tel* PhoneNumber class:form-control class:no-border placeholder "Phone Number*"]
+        </div>
+     </div>
+
+     <div class="form-row">
+        <div class="form-group col-6 mb-0">
+           [select availability class:form-control class:no-border "Available from" "1" "2" "3"]
+        </div>
+        <div class="form-group col-6 mb-0">
+           [select Specialisation class:form-control class:no-border "Specialisation" "1" "2" "3"]
+        </div>
+     </div>
+
+     <div class="form-row">
+        <div class="form-group col-6 mb-0">
+           [select JobType class:form-control class:no-border "Job Type" "Permanent" "Temporary" "Contract"]
+        </div>
+        <div class="form-group col-6 mb-0">
+           [select Office class:form-control class:no-border "Office near you" "Sydney" "Melbourne" "Canberra" "Brisbane" "Perth"]
+        </div>
+     </div>
+
+     <div class="form-row">
+        <div class="form-group col-6 mb-0">
+           [select Postcode class:form-control class:no-border "Postcode" "1" "2" "3"]
+        </div>
+        <div class="form-group col-6 mb-0">
+        </div>
+     </div>
+
+     <div class="wpcf7-form-control wpcf7-checkbox v2">
+     [acceptance term_and_conditions]I have read and accept the <strong><a href="#">terms of use</a></strong> and the processing of my personal information in accordance with the Ignite <strong><a href="/wp-content/uploads/2023/06/IL-0007_Detailed-Privacy-Policy_v1.0.pdf" class="underlined">privacy notice.</a></strong> This privacy notice also contains details about how you can contact us about our use of your personal information, including how to access or correct it.[/acceptance]
+     </div>
+     <div class="wpcf7-form-control wpcf7-checkbox v2">
+     [acceptance keep_me_informed]Sign up to receive AI matched job recommendation emails, career advice and the latest salary data.[/acceptance]
+     </div>
+     <div class="submit-btn pt-2">
+       [submit class:btn class:btn-solid "Submit your resume"]
+     </div>
+  </div>
+</div>

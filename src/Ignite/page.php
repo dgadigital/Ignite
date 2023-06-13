@@ -1019,10 +1019,11 @@
 											<div class="find-job-location">
 													<select class="form-control find-job-location">
 															<option value="" disabled="" selected="" hidden="">Select a location</option>
-															<option>Philippines</option>
-															<option>Japan</option>
-															<option>Iceland</option>
-															<option>Antartica</option>
+															<option>Sydney</option>
+															<option>Brisbane</option>
+															<option>Canberra</option>
+															<option>Perth</option>
+															<option>Melbourne</option>
 													</select>
 											</div>
 											<button class="btn btn-search btn-solid"><span class="fa fa-search"></span></button>
