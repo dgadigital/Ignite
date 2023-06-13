@@ -50,6 +50,13 @@
       }
     }
   }
+  &.black-font{
+    ul{
+      li{
+        a{color: #000;}
+      }
+    }
+  }
 }
 
 .hover-overlay-orange{
