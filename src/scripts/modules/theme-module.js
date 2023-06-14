@@ -54,19 +54,19 @@ AppName.Modules.ThemeModule = (function () {
 
     });
 
-    $('.navbar-main .nav-link.parent').each(function(){
-      $(this).click((e) => {
-        if (!$(this).siblings().hasClass('show')){
-          $('.dropdown-menu').removeClass('show');
-          $(this).siblings().addClass('show');
-        } else {
-          $('.dropdown-menu').removeClass('show');
-        }
+//     $('.navbar-main .nav-link.parent').each(function(){
+//       $(this).click((e) => {
+//         if (!$(this).siblings().hasClass('show')){
+//           $('.dropdown-menu').removeClass('show');
+//           $(this).siblings().addClass('show');
+//         } else {
+//           $('.dropdown-menu').removeClass('show');
+//         }
 
-        $('.nav-button').removeAttr('style')
-        e.preventDefault();
-      });
-    });
+//         $('.nav-button').removeAttr('style')
+//         e.preventDefault();
+//       });
+//     });
 
     $('.second-level-list .dropdown-toggle').each(function(){
       $(this).click((e) => {
@@ -737,130 +737,332 @@ AppName.Modules.ThemeModule = (function () {
 	  });
   }
   
-   const _search_job = function(){
-///////////////////// wroking 1
-	
-//     jQuery.ajax({
-//         url: ajaxurl,
-//         type: 'GET',
-//         data: {
-//             action: 'job_search',
-//             page: page
-//         },
-//         success: function(response) {
-//             // Handle the response
-//             if (response.success) {
-//                 var html = response.data.html;
-//                 var totalPages = response.data.total_pages;
-                
-//                 // Update the job listings on the page
-//                 jQuery('#job-results-container').html(html);
-                
-//                 // Update the pagination
-//                 generatePagination(totalPages);
-//             } else {
-//                 // Display an error message
-//                 console.log('Error:', response.data);
-//             }
-//         },
-//         error: function(xhr, status, error) {
-//             // Display an error message
-//             console.log('AJAX Error:', error);
-//         }
-//     });
-// }
+   const _search_job = function(){	   
+	   
+// WORKING CHECKBOX
+// function updateJobResults(page) {
+//   // Get the filter values from the main form
+//   var keyword = $('#keyword-input').val();
+//   var location = $('#location-input').val();
+//   var industry = $('#industry-input').val();
+//   var sub_location = $('#sub-location-input').val();
 
-// function generatePagination(totalPages) {
-//     // Generate the pagination links based on the total number of pages
-//     var paginationHtml = '';
-//     for (var i = 1; i <= totalPages; i++) {
-//         paginationHtml += '<a href="#" class="page-link" data-page="' + i + '">' + i + '</a>';
+//   // Get the selected job types from the job type form
+//   var jobTypes = [];
+//   $('#job-type-form input[name="job_type"]:checked').each(function() {
+//     jobTypes.push($(this).val());
+//   });
+//   var job_type = jobTypes.join(',');
+
+//   // Update the URL parameters
+//   var urlParams = new URLSearchParams();
+//   if (keyword.trim() !== '') {
+//     urlParams.set('keyword', keyword);
+//   }
+//   if (location.trim() !== '') {
+//     urlParams.set('location', location);
+//   }
+//   if (industry.trim() !== '') {
+//     urlParams.set('industry', industry);
+//   }
+//   if (job_type.trim() !== '') {
+//     urlParams.set('job_type', job_type);
+//   }
+//   if (sub_location.trim() !== '') {
+//     urlParams.set('sub_location', sub_location);
+//   }
+//   urlParams.set('page', page);
+
+//   // Update the browser URL
+//   var newUrl = '?' + urlParams.toString();
+//   history.pushState(null, '', newUrl);
+
+//   // Perform the AJAX request
+//   $.ajax({
+//     url: ajaxurl,
+//     method: 'GET',
+//     data: {
+//       action: 'job_search',
+//       page: page,
+//       keyword: keyword,
+//       location: location,
+//       industry: industry,
+//       job_type: job_type,
+//       sub_location: sub_location
+//     },
+//     beforeSend: function() {
+//       // Show loading spinner or any other visual indication
+//       // that the content is being loaded
+//       $('#jobs-container').html('Loading...');
+//     },
+//     success: function(response) {
+//       // Update the job results container with the received HTML
+//       $('#jobs-container').html(response.data.html);
+
+//       // Update the current page indicator
+//       $('.current-page').text(response.data.current_page);
+//       $('.total-pages').text(response.data.total_pages);
+
+//       // Enable/disable previous and next buttons based on the current page
+//       $('.pagination-button').prop('disabled', false);
+//       if (response.data.current_page === 1) {
+//         $('.pagination-button.prev').prop('disabled', true);
+//       }
+//       if (response.data.current_page === response.data.total_pages) {
+//         $('.pagination-button.next').prop('disabled', true);
+//       }
+//     },
+//     error: function() {
+//       // Handle error case if needed
+//       $('#jobs-container').html('Error loading job results.');
 //     }
-    
-//     // Update the pagination container
-//     jQuery('#pagination-container').html(paginationHtml);
+//   });
 // }
 
-// // Handle pagination link click
-// jQuery(document).on('click', '.page-link', function(e) {
-//     e.preventDefault();
-    
-//     var page = jQuery(this).data('page');
-    
-//     // Call the get_jobs_section function with the selected page
-//     get_jobs_section(page);
+// // Function to retrieve URL parameter value
+// function getURLParameter(name) {
+//   var urlParams = new URLSearchParams(window.location.search);
+//   return urlParams.get(name);
+// }
+
+// // Get the initial page number from the URL parameter
+// var initialPage = getURLParameter('page');
+// initialPage = initialPage ? parseInt(initialPage) : 1;
+
+// // Get the filter values from URL parameters
+// var keyword = getURLParameter('keyword');
+// var location = getURLParameter('location');
+// var industry = getURLParameter('industry');
+// var job_type = getURLParameter('job_type');
+// var sub_location = getURLParameter('sub_location');
+
+// // Set the filter values in the input fields
+// $('#keyword-input').val(keyword || '');
+// $('#location-input').val(location || '');
+// $('#industry-input').val(industry || '');
+// $('#sub-location-input').val(sub_location || '');
+
+// // Set the job type checkboxes based on the URL parameter
+// if (job_type) {
+//   var jobTypesArray = job_type.split(',');
+//   $.each(jobTypesArray, function(index, value) {
+//     $('#job-type-form input[name="job_type"][value="' + value + '"]').prop('checked', true);
+//   });
+// }
+
+// // Initial job results update
+// updateJobResults(initialPage);
+
+// // Pagination button click event handlers
+// $('.pagination-button.prev').on('click', function() {
+//   var currentPage = parseInt($('.current-page').text());
+//   if (currentPage > 1) {
+//     updateJobResults(currentPage - 1);
+//   }
 // });
 
-//     // Call the get_jobs_section function with the initial page (default to 1)
-//     get_jobs_section(1);
+// $('.pagination-button.next').on('click', function() {
+//   var currentPage = parseInt($('.current-page').text());
+//   var totalPages = parseInt($('.total-pages').text());
+//   if (currentPage < totalPages) {
+//     updateJobResults(currentPage + 1);
+//   }
+// });
+
+// // Job type checkbox change event handler
+// $('#job-type-form input[name="job_type"]').on('change', function() {
+//   updateJobResults(1);
+// });
+
+// // Filter form submit event handler
+// $('#filter-form').on('submit', function(e) {
+//   e.preventDefault();
+//   updateJobResults(1);
+// });
+
 
 	   
-//////////////////////////// working 2
+	   
 
-  // Initial variables
-  var currentPage = 1;
-  var totalPages = 1;
 
-  // Function to update the job results
-  function updateJobResults(page) {
-    $.ajax({
-      url: ajaxurl,
-      method: 'GET',
-      data: {
-        action: 'job_search',
-        page: page
-      },
-      beforeSend: function() {
-        // Show loading spinner or any other visual indication
-        // that the content is being loaded
-        $('#jobs-container').html('Loading...');
-      },
-      success: function(response) {
-        // Update the job results container with the received HTML
-        $('#jobs-container').html(response.data.html);
+function updateJobResults(page) {
+  // Get the filter values from the main form
+  var keyword = $('#keyword-input').val();
+  var location = $('#location-input').val();
+  var industry = $('#industry-form input[name="industry"]:checked').map(function() {
+    return $(this).val();
+  }).get().join(',');
+  var sub_location = $('#sub-location-form input[name="sub_location"]:checked').map(function() {
+    return $(this).val();
+  }).get().join(',');
 
-        // Update the current page indicator
-        $('.current-page').text(response.data.current_page);
-        $('.total-pages').text(response.data.total_pages);
+  // Get the selected job types from the job type form
+  var jobTypes = $('#job-type-form input[name="job_type"]:checked').map(function() {
+    return $(this).val();
+  }).get().join(',');
 
-        // Enable/disable previous and next buttons based on the current page
-        $('.pagination-button').prop('disabled', false);
-        if (response.data.current_page === 1) {
-          $('.pagination-button.prev').prop('disabled', true);
-        }
-        if (response.data.current_page === response.data.total_pages) {
-          $('.pagination-button.next').prop('disabled', true);
-        }
-
-        // Update the current page variable
-        currentPage = response.data.current_page;
-        totalPages = response.data.total_pages;
-      },
-      error: function() {
-        // Handle error case if needed
-        $('#jobs-container').html('Error loading job results.');
-      }
-    });
+  // Update the URL parameters
+  var urlParams = new URLSearchParams();
+  if (keyword.trim() !== '') {
+    urlParams.set('keyword', keyword);
   }
+  if (location.trim() !== '') {
+    urlParams.set('location', location);
+  }
+  if (industry.trim() !== '') {
+    urlParams.set('industry', industry);
+  }
+  if (jobTypes.trim() !== '') {
+    urlParams.set('job_type', jobTypes);
+  }
+  if (sub_location.trim() !== '') {
+    urlParams.set('sub_location', sub_location);
+  }
+  urlParams.set('page', page);
 
-  // Initial job results update
-  updateJobResults(currentPage);
+  // Update the browser URL
+  var newUrl = '?' + urlParams.toString();
+  history.pushState(null, '', newUrl);
 
-  // Pagination button click event handlers
-  $('.pagination-button.prev').on('click', function() {
-    if (currentPage > 1) {
-      updateJobResults(currentPage - 1);
+  // Perform the AJAX request
+  $.ajax({
+    url: ajaxurl,
+    method: 'GET',
+    data: {
+      action: 'job_search',
+      page: page,
+      keyword: keyword,
+      location: location,
+      industry: industry,
+      job_type: jobTypes,
+      sub_location: sub_location
+    },
+    beforeSend: function() {
+      // Show loading spinner or any other visual indication
+      // that the content is being loaded
+      $('#jobs-container').html('Loading...');
+    },
+    success: function(response) {
+      // Update the job results container with the received HTML
+      $('#jobs-container').html(response.data.html);
+
+      // Update the current page indicator
+      $('.current-page').text(response.data.current_page);
+      $('.total-pages').text(response.data.total_pages);
+
+      // Enable/disable previous and next buttons based on the current page
+      $('.pagination-button').prop('disabled', false);
+      if (response.data.current_page === 1) {
+        $('.pagination-button.prev').prop('disabled', true);
+      }
+      if (response.data.current_page === response.data.total_pages) {
+        $('.pagination-button.next').prop('disabled', true);
+      }
+    },
+    error: function() {
+      // Handle error case if needed
+      $('#jobs-container').html('Error loading job results.');
     }
   });
-
-  $('.pagination-button.next').on('click', function() {
-    if (currentPage < totalPages) {
-      updateJobResults(currentPage + 1);
-    }
-  });
-	   
-	   
 }
+
+// ... Rest of the code
+
+
+// Function to retrieve URL parameter value
+function getURLParameter(name) {
+  var urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+// Get the initial page number from the URL parameter
+var initialPage = getURLParameter('page');
+initialPage = initialPage ? parseInt(initialPage) : 1;
+
+// Get the filter values from URL parameters
+var keyword = getURLParameter('keyword');
+var location = getURLParameter('location');
+var industry = getURLParameter('industry');
+var job_type = getURLParameter('job_type');
+var sub_location = getURLParameter('sub_location');
+
+// Set the filter values in the input fields
+$('#keyword-input').val(keyword || '');
+$('#location-input').val(location || '');
+
+// Set the industry checkboxes based on the URL parameter
+if (industry) {
+  var industryArray = industry.split(',');
+  $.each(industryArray, function(index, value) {
+    $('#industry-form input[name="industry"][value="' + value + '"]').prop('checked', true);
+  });
+}
+
+// Set the sub-location checkboxes based on the URL parameter
+if (sub_location) {
+  var subLocationArray = sub_location.split(',');
+  $.each(subLocationArray, function(index, value) {
+    $('#sub-location-form input[name="sub_location"][value="' + value + '"]').prop('checked', true);
+  });
+}
+
+// Set the job type checkboxes based on the URL parameter
+if (job_type) {
+  var jobTypesArray = job_type.split(',');
+  $.each(jobTypesArray, function(index, value) {
+    $('#job-type-form input[name="job_type"][value="' + value + '"]').prop('checked', true);
+  });
+}
+
+// Initial job results update
+updateJobResults(initialPage);
+
+// Pagination button click event handlers
+$('.pagination-button.prev').on('click', function() {
+  var currentPage = parseInt($('.current-page').text());
+  if (currentPage > 1) {
+    updateJobResults(currentPage - 1);
+  }
+});
+
+$('.pagination-button.next').on('click', function() {
+  var currentPage = parseInt($('.current-page').text());
+  var totalPages = parseInt($('.total-pages').text());
+  if (currentPage < totalPages) {
+    updateJobResults(currentPage + 1);
+  }
+});
+
+// Industry and sub-location checkbox change event handlers
+$('#industry-form input[name="industry"]').on('change', function() {
+  updateJobResults(1);
+});
+
+$('#sub-location-form input[name="sub_location"]').on('change', function() {
+  updateJobResults(1);
+});
+
+// Job type checkbox change event handler
+$('#job-type-form input[name="job_type"]').on('change', function() {
+  updateJobResults(1);
+});
+
+// Filter form submit event handler
+$('#filter-form').on('submit', function(e) {
+  e.preventDefault();
+  updateJobResults(1);
+});
+
+	   
+	   
+	   
+	   
+	   
+	   
+
+
+	   
+   }
   /////////////////////
   // Public Methods //
   ///////////////////

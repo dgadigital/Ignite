@@ -351,19 +351,47 @@
 		<section class="profile-carousel <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
 		  <div class="profile-container container">
 			  <div class="section-title-container">
-				  <?php
-						$link = get_sub_field('button');
-						if( $link ){
-							$link_url = esc_url($link['url']);
-							$link_title = esc_attr($link['title']);
-							$link_target = esc_html($link['target'] ? $link['target'] : '_self');
-						}?>
+					<?php $title_position = get_sub_field('title_position');
 
-							<div class="section-title">
-								<h2 class="underline-left"><span><?php echo  get_sub_field('heading')?></span></h2>
-								<div><a href="<?php echo $link_url?>" target="<?php echo $link_target ?>" class="btn btn-solid"><?php echo $link_title?></a></div>
+					switch ($title_position) {
+									case 'Center':
+					 					 $position = 'center';
+					 					 break;
+									 case 'Left(default)':
+				  					 $position = 'Left';
+				  				 break;
+									 default:
+									 		$position = 'Left';
+
+								}
+
+					?>
+
+
+							<div class="section-title <?php echo ($position == 'center'? 'justify-content-center':'') ?>">
+								<h2 class="<?php echo ($position == 'center'?'' :'underline-left'); ?>"><span><?php echo  get_sub_field('heading')?></span></h2>
+								<?php
+									$link = get_sub_field('button');
+									if( $link ){
+										$link_url = esc_url($link['url']);
+										$link_title = esc_attr($link['title']);
+										$link_target = esc_html($link['target'] ? $link['target'] : '_self');?>
+
+										<div class="<?php echo ($position == 'center'? "d-none":"") ?>"><a href="<?php echo $link_url?>" target="<?php echo $link_target ?>" class="btn btn-solid"><?php echo $link_title?></a></div>
+										<?php
+									}?>
+
+
 							</div>
-							<div class="section-description px-2"><?php echo get_sub_field('sub_heading')?></div>
+							<?php
+								$sub_heading = get_sub_field('sub_heading');
+								if ($sub_heading): ?>
+									<div class="section-description px-2"><?php echo get_sub_field('sub_heading')?></div>
+							<?php endif; ?>
+
+
+
+
 			  </div>
 
 			  <div class="profile-row profile-slider">
@@ -570,134 +598,14 @@
 				<!-- Tabs Content Start -->
 				<div class="container body-content">
 				  <div class="tabs-content no-spacing active" id="content-select-1">
-					<div class="form-container">
-					  <?php the_sub_field('left_form_shortcode'); ?>
-					</div>
-				  </div>
-
-				  <div class="tabs-content no-spacing" id="content-select-2">
-					<div class="submit-cv">
-
-					  <div class="container p-0">
-						<div class="multi-level-form w-100">
-
-						  <div class="form-layout">
-							<div class="form-header no-background-img">
-							  Step 1: Choose file
-							</div>
-							<div class="form-body">
-							  <div class="form-row">
-								<div class="form-group col-6">
-								  <div class="upload-file">
-									<input type="file" id="real-file" hidden="hidden" />
-									<div id="upload-dummy" class="btn-pload">Upload Your Resume</div>
-									<!-- <span id="custom-text">No file chosen, yet.</span> -->
-								  </div>
-								</div>
-								<div class="form-group col-md-6">
-								</div>
-							  </div>
-							</div>
-							<div class="form-header no-background-img">
-							  Step 2: Contact Information
-							</div>
-							<div class="form-body">
-
-							  <div class="form-row">
-								<div class="form-group col-6">
-								  <input type="text" class="form-control no-border" placeholder="First Name*">
-								</div>
-								<div class="form-group col-md-6">
-								  <input type="text" class="form-control no-border" placeholder="Last Name*">
-								</div>
-							  </div>
-
-							  <div class="form-row">
-								<div class="form-group col-6">
-								  <input type="email" class="form-control no-border" placeholder="Email Address*">
-								</div>
-								<div class="form-group col-md-6">
-								  <input type="text" class="form-control no-border" placeholder="Phone Number*">
-								</div>
-							  </div>
-
-							  <div class="form-row">
-								<div class="form-group col-6">
-								  <select class="form-control no-border">
-									<option selected>Available from</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-								  </select>
-								</div>
-								<div class="form-group col-md-6">
-								  <select class="form-control no-border">
-									<option selected>Specialisation</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-								  </select>
-								</div>
-							  </div>
-
-							  <div class="form-row">
-								<div class="form-group col-6">
-								  <select class="form-control no-border">
-									<option selected>Job Type</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-								  </select>
-								</div>
-								<div class="form-group col-md-6">
-								  <select class="form-control no-border">
-									<option selected>Office near you</option>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-								  </select>
-								</div>
-							  </div>
-
-							  <div class="form-row">
-								<div class="form-group col-6">
-								  <input type="text" class="form-control no-border" placeholder="Postcode">
-								</div>
-								<div class="form-group col-md-6">
-								</div>
-							  </div>
-
-							  <div class="wpcf7-form-control wpcf7-checkbox v2">
-								<span class="wpcf7-list-item">
-								  <label>
-									<input type="checkbox" name="" value="">
-									<span class="wpcf7-list-item-label">I have read and accept the <strong><a href="/" class="underlined">terms of use</a></strong> and the processing of my personal information in accordance with the <strong><a href="/" class="underlined">Ignite privacy notice</a></strong>. This privacy notice also contains details about how you can contact us about our use of your personal information, including how to access or correct it.</span>
-								  </label>
-								</span>
-							  </div>
-
-							  <div class="wpcf7-form-control wpcf7-checkbox v2">
-								<span class="wpcf7-list-item">
-								  <label>
-									<input type="checkbox" name="" value="">
-									<span class="wpcf7-list-item-label">Sign up to receive AI matched job recommendation emails, career advice and the latest salary data.</span>
-								  </label>
-								</span>
-							  </div>
-
-							  <div class="submit-btn">
-								<button type="submit" class="btn btn-solid">Submit your resume</button>
-							  </div>
-
-							</div>
-						  </div>
-
-
+						<div class="form-container">
+						  <?php the_sub_field('left_form_shortcode'); ?>
 						</div>
-
-					  </div>
-
-					</div>
+				  </div>
+				  <div class="tabs-content no-spacing" id="content-select-2">
+						<div class="form-container">
+							<?php the_sub_field('right_form_shortcode'); ?>
+						</div>
 				  </div>
 				</div>
 				<!-- Tabs Content End -->
