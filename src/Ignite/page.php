@@ -936,6 +936,8 @@
 													</select>
 											</div>
 											<button type="submit" class="btn btn-search btn-solid"><span class="fa fa-search"></span></button>
+											<!-- <button type="submit" class="btn btn-search btn-solid" aria-label="Search">Search</button> -->
+
 									 </form>
 
 							</div>
@@ -978,7 +980,7 @@
 										$image_alt = isset($image_left['alt']) ? esc_attr($image_left['alt']) : '';
 									?>
 									<a href="<?php echo esc_url($page_link_left_url) ?>" target="<?php echo esc_attr($page_link_left_target) ?>">
-										<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+										<img width="247" height="247" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt?$image_alt:the_sub_field('left_column_title'); ?> ">
 									</a>
 
 								</div>
@@ -1012,7 +1014,7 @@
 											$image_alt = isset($image_right['alt']) ? esc_attr($image_right['alt']) : '';
 										?>
 										<a href="<?php echo esc_url($page_link_right_url) ?>" target="<?php echo esc_attr($page_link_right_target) ?>">
-											<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+											<img width="247" height="247" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt?$image_alt:the_sub_field('right_column_title'); ?> ">
 										</a>
 
 									</div>
@@ -1058,7 +1060,7 @@
 											?>
 												<div class="logo-container">
 														<?php echo get_sub_field('logo_link') ? "<a href='". get_sub_field('logo_link')."'>" : ''; ?>
-																	<img src="<?php echo get_sub_field('logo')['url']?>" alt="<?php echo get_sub_field('logo')['alt']?>"/>
+																	<img width="166" height="67" src="<?php echo get_sub_field('logo')['url']?>" alt="<?php echo get_sub_field('logo')['alt']?>"/>
 														<?php echo get_sub_field('logo_link') ? "</a>" : ''; ?>
 													</div>
 											<?php

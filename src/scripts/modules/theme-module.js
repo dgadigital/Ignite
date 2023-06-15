@@ -54,19 +54,19 @@ AppName.Modules.ThemeModule = (function () {
 
     });
 
-//     $('.navbar-main .nav-link.parent').each(function(){
-//       $(this).click((e) => {
-//         if (!$(this).siblings().hasClass('show')){
-//           $('.dropdown-menu').removeClass('show');
-//           $(this).siblings().addClass('show');
-//         } else {
-//           $('.dropdown-menu').removeClass('show');
-//         }
+    $('.navbar-main .nav-link.parent').each(function(){
+      $(this).click((e) => {
+        if (!$(this).siblings().hasClass('show')){
+          $('.dropdown-menu').removeClass('show');
+          $(this).siblings().addClass('show');
+        } else {
+          $('.dropdown-menu').removeClass('show');
+        }
 
-//         $('.nav-button').removeAttr('style')
-//         e.preventDefault();
-//       });
-//     });
+        $('.nav-button').removeAttr('style')
+        e.preventDefault();
+      });
+    });
 
     $('.second-level-list .dropdown-toggle').each(function(){
       $(this).click((e) => {
@@ -98,11 +98,11 @@ AppName.Modules.ThemeModule = (function () {
       const realFileBtn = document.getElementById("real-file");
       const customBtn = document.getElementById("custom-button");
       const customTxt = document.getElementById("custom-text");
-  
+
       customBtn.addEventListener("click", function() {
         realFileBtn.click();
       });
-  
+
       realFileBtn.addEventListener("change", function() {
         if (realFileBtn.value) {
           customTxt.innerHTML = realFileBtn.value.match(
@@ -153,7 +153,7 @@ AppName.Modules.ThemeModule = (function () {
 
 
   const _latestJobs = function(){
-    
+
 
   // AJAX JOBS LIST REQUEST
 	  $.ajax({
@@ -167,7 +167,7 @@ AppName.Modules.ThemeModule = (function () {
 		},
         success: function(response) {
             $('#latest-jobs-section').html(response);
-			
+
 			$('.jobs-row').slick({
 			  infinite: true,
 			  slidesToShow: 3,
@@ -197,7 +197,7 @@ AppName.Modules.ThemeModule = (function () {
 				  }
 			  ]
 			});
-			
+
 			var slickDotsCount = $('.lastest-jobs-section .slick-dots').children().length;
 			var numItemsnumber = parseInt(slickDotsCount);
 			var formattednumItemsnumber = (numItemsnumber < 10 ? '0' : '') + numItemsnumber;
@@ -207,7 +207,7 @@ AppName.Modules.ThemeModule = (function () {
 			var activeTabTextnumber = parseInt(activeTabText);
 			var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
 			$('#index').text(formattedactiveTabTextnumber);
-			
+
 			$('.slick-arrow').click(function() {
 			  var activeTabText = $('.lastest-jobs-section .slick-active button').text();
 			  var activeTabTextnumber = parseInt(activeTabText);
@@ -219,10 +219,10 @@ AppName.Modules.ThemeModule = (function () {
             console.log('Error:', error);
         }
     });
-	  
+
   }
-  
-  
+
+
   const __peoplecarousel = function(){
     $('.profile-row.profile-slider').slick({
           infinite: true,
@@ -267,31 +267,43 @@ AppName.Modules.ThemeModule = (function () {
           ]
         });
     }
-    
+
   const _logocarousel = function(){
     $('.logo-row.one-row').slick({
-          infinite: true,
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          autoplay: true,
-          dots: true,
-          arrows: false,
-          responsive: [
-              {
-                  breakpoint: 991,
-                  settings: {
-                      slidesToShow: 3
-                  }
-              },
-              {
-                  breakpoint: 768,
-                  settings: {
-                      slidesToShow: 2
-                                            
-                  }
-              }
-          ]
-        });
+  infinite: true,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  autoplay: true,
+  dots: true,
+  arrows: false,
+  responsive: [
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2
+      }
+    }
+  ]
+}).on('init', function(event, slick) {
+    var dots = $(slick.$dots).find('li');
+
+    dots.each(function(index) {
+      var slideId = 'slick-slide' + index;
+      $(this).attr('role', 'presentation').find('button').attr({
+        'role': 'tab',
+        'aria-controls': slideId,
+        'aria-label': (index + 1) + ' of ' + slick.slideCount,
+        'tabindex': index === 0 ? '0' : '-1'
+      });
+    });
+});
+
     $('.logo-row.two-rows').slick({
           infinite: true,
           slidesToShow: 5,
@@ -311,7 +323,7 @@ AppName.Modules.ThemeModule = (function () {
                   breakpoint: 768,
                   settings: {
                       slidesToShow: 2
-                                            
+
                   }
               }
           ]
@@ -339,7 +351,7 @@ AppName.Modules.ThemeModule = (function () {
           }
         }
       ]
-      
+
     });
 }
 
@@ -377,13 +389,13 @@ AppName.Modules.ThemeModule = (function () {
   };
 
   var _search_filter = function(){
-       
+
     $("#filter-dropdown-category").select2({
 			closeOnSelect : false,
 			placeholder : "  Filter By Category",
 			allowHtml: true,
 			allowClear: true,
-			tags: true 
+			tags: true
 		});
 
     $("#filter-dropdown-tags").select2({
@@ -391,7 +403,7 @@ AppName.Modules.ThemeModule = (function () {
 			placeholder : "  Filter By Tags",
 			allowHtml: true,
 			allowClear: true,
-			tags: true 
+			tags: true
 		});
 
 	$("#filter-dropdown-category").select2({
@@ -399,7 +411,7 @@ AppName.Modules.ThemeModule = (function () {
 			placeholder : "  Filter By Category",
 			allowHtml: true,
 			allowClear: true,
-			tags: true 
+			tags: true
 		});
 
     $('#filter-dropdown-category').on('select2:select', function (e) {
@@ -409,11 +421,11 @@ AppName.Modules.ThemeModule = (function () {
     $('#filter-dropdown-category').on('select2:unselect', function (e) {
             var selectedCategory  = $('#filter-dropdown-category').val();
             console.log(selectedCategory)
-        }); 
+        });
   }
 
   var _collapsing_text = function(){
-        
+
 		$(".readmore-btn").on('click', function(){
       $(this).parent().toggleClass("showContent");
       var replaceText = $(this).parent().hasClass("showContent") ? "Read Less -" : "Read More +";
@@ -439,28 +451,28 @@ AppName.Modules.ThemeModule = (function () {
     var $accordionHeaders = $('.accordion-header');
     var $accordionContent = $('.accordion-content');
     var $accordionContainer = $('.accordion-container');
-  
+
     $accordionHeaders.first().addClass('active-header').next('.accordion-content').show();
     $accordionHeaders.on('click', function() {
       var $this = $(this);
       var $content = $this.next('.accordion-content');
       if ($content.is(':visible')) return;
-  
+
       $content.toggle();
       $accordionContent.not($content).hide();
       $this.addClass('active-header');
       $accordionHeaders.not($this).removeClass('active-header');
-  
+
       if ($content.hasClass('active-option-absolute')) {
         $accordionContainer.css('height', $content.outerHeight());
       }
     });
-  
+
     $accordionHeaders.first().click();
-  
+
     $(window).on('resize', function() {
       var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth);
-  
+
       if (windowWidth >= 992) {
         $accordionContent.addClass('active-option-absolute');
         $accordionContainer.css('height', $('.active-header').next('.accordion-content').outerHeight());
@@ -469,7 +481,7 @@ AppName.Modules.ThemeModule = (function () {
         $accordionContainer.css('height', 'auto');
       }
     }).resize();
-  
+
     var windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth);
     if (windowWidth >= 992) {
       $accordionContent.addClass('active-option-absolute');
@@ -479,7 +491,7 @@ AppName.Modules.ThemeModule = (function () {
       $accordionContainer.css('height', 'auto');
     }
   };
-	
+
 	var _search_function_all = function() {
     $("#search-all").on("click", function(event) {
 		  event.preventDefault();
@@ -487,7 +499,7 @@ AppName.Modules.ThemeModule = (function () {
 
 		  var searchQuery = $('#search-box-all').val();
 		  console.log(searchQuery);
-		  
+
 		  $.ajax({
 		  url: ajaxurl,
 		  type: 'POST',
@@ -503,11 +515,11 @@ AppName.Modules.ThemeModule = (function () {
 			// your error code here
 		  }
 		});
-		  
+
 	  });
 	}
-	
-	
+
+
   var _contact_us = function(){
     //Top Content Tabs and Description
     $(".tab-list li").on("click", function() {
@@ -523,14 +535,14 @@ AppName.Modules.ThemeModule = (function () {
       }
     });
   }
-  
+
   var _search_function = function(){
 	  $(".post-filter .pagination").hide();
 	  $('.post-filter:not(.insights) #search-btn').on('click', function(event) {
 		event.preventDefault();
 
 		var searchQuery = $('#search-box').val();
-		  
+
 		var val = [];
 		$(".post-filter-side-bar #categories input[type=checkbox]:checked").each(function(i){
 			val[i] = $(this).val();
@@ -564,7 +576,7 @@ AppName.Modules.ThemeModule = (function () {
 		  }
 		});
 	  });
-	  
+
 	  $('.post-filter-side-bar #categories input[type=checkbox]').click(function(){
 		  var val = [];
 		  $(".post-filter-side-bar #categories input[type=checkbox]:checked").each(function(i){
@@ -598,7 +610,7 @@ AppName.Modules.ThemeModule = (function () {
 			});
 		  });
 	  });
-	  
+
 	  $('.post-filter .next-page').on('click', function(event) {
 		  event.preventDefault();
 
@@ -640,7 +652,7 @@ AppName.Modules.ThemeModule = (function () {
 			 });
 		 }
 	  });
-	  
+
 	  $('.post-filter .prev-page').on('click', function(event) {
 		  event.preventDefault();
 
@@ -684,13 +696,13 @@ AppName.Modules.ThemeModule = (function () {
 			 event.preventDefault();
 		 }
 	  });
-	  
+
 	  $('.post-filter.insights #search-btn').on('click', function(event) {
 		event.preventDefault();
 		$(".post-filter.insights .load-more").show();
 		var searchQuery = $('#search-box').val();
 		var tag = $('.tag_search').val();
-		
+
 		$.ajax({
 		  url: ajaxurl,
 		  type: 'POST',
@@ -708,7 +720,7 @@ AppName.Modules.ThemeModule = (function () {
 		  }
 		});
 	  });
-	  
+
 	  $(".post-filter.insights .load-more").on("click", function(event) {
 		  event.preventDefault();
 		  $(".post-filter.insights .load-more").hide();
@@ -716,7 +728,7 @@ AppName.Modules.ThemeModule = (function () {
 		  var searchQuery = $('#search-box').val();
 		  var tag = $('.tag_search').val();
 		  console.log(searchQuery+tag);
-		  
+
 		  $.ajax({
 		  url: ajaxurl,
 		  type: 'POST',
@@ -733,26 +745,28 @@ AppName.Modules.ThemeModule = (function () {
 			// your error code here
 		  }
 		});
-		  
+
 	  });
   }
-  
-   const _search_job = function(){	   
-	   
-// WORKING CHECKBOX
+
+   const _search_job = function(){
+
+
 // function updateJobResults(page) {
 //   // Get the filter values from the main form
 //   var keyword = $('#keyword-input').val();
 //   var location = $('#location-input').val();
-//   var industry = $('#industry-input').val();
-//   var sub_location = $('#sub-location-input').val();
+//   var industry = $('#industry-form input[name="industry"]:checked').map(function() {
+//     return $(this).val();
+//   }).get().join(',');
+//   var sub_location = $('#sub-location-form input[name="sub_location"]:checked').map(function() {
+//     return $(this).val();
+//   }).get().join(',');
 
 //   // Get the selected job types from the job type form
-//   var jobTypes = [];
-//   $('#job-type-form input[name="job_type"]:checked').each(function() {
-//     jobTypes.push($(this).val());
-//   });
-//   var job_type = jobTypes.join(',');
+//   var jobTypes = $('#job-type-form input[name="job_type"]:checked').map(function() {
+//     return $(this).val();
+//   }).get().join(',');
 
 //   // Update the URL parameters
 //   var urlParams = new URLSearchParams();
@@ -765,8 +779,8 @@ AppName.Modules.ThemeModule = (function () {
 //   if (industry.trim() !== '') {
 //     urlParams.set('industry', industry);
 //   }
-//   if (job_type.trim() !== '') {
-//     urlParams.set('job_type', job_type);
+//   if (jobTypes.trim() !== '') {
+//     urlParams.set('job_type', jobTypes);
 //   }
 //   if (sub_location.trim() !== '') {
 //     urlParams.set('sub_location', sub_location);
@@ -787,7 +801,7 @@ AppName.Modules.ThemeModule = (function () {
 //       keyword: keyword,
 //       location: location,
 //       industry: industry,
-//       job_type: job_type,
+//       job_type: jobTypes,
 //       sub_location: sub_location
 //     },
 //     beforeSend: function() {
@@ -819,6 +833,9 @@ AppName.Modules.ThemeModule = (function () {
 //   });
 // }
 
+// // ... Rest of the code
+
+
 // // Function to retrieve URL parameter value
 // function getURLParameter(name) {
 //   var urlParams = new URLSearchParams(window.location.search);
@@ -839,8 +856,22 @@ AppName.Modules.ThemeModule = (function () {
 // // Set the filter values in the input fields
 // $('#keyword-input').val(keyword || '');
 // $('#location-input').val(location || '');
-// $('#industry-input').val(industry || '');
-// $('#sub-location-input').val(sub_location || '');
+
+// // Set the industry checkboxes based on the URL parameter
+// if (industry) {
+//   var industryArray = industry.split(',');
+//   $.each(industryArray, function(index, value) {
+//     $('#industry-form input[name="industry"][value="' + value + '"]').prop('checked', true);
+//   });
+// }
+
+// // Set the sub-location checkboxes based on the URL parameter
+// if (sub_location) {
+//   var subLocationArray = sub_location.split(',');
+//   $.each(subLocationArray, function(index, value) {
+//     $('#sub-location-form input[name="sub_location"][value="' + value + '"]').prop('checked', true);
+//   });
+// }
 
 // // Set the job type checkboxes based on the URL parameter
 // if (job_type) {
@@ -869,6 +900,15 @@ AppName.Modules.ThemeModule = (function () {
 //   }
 // });
 
+// // Industry and sub-location checkbox change event handlers
+// $('#industry-form input[name="industry"]').on('change', function() {
+//   updateJobResults(1);
+// });
+
+// $('#sub-location-form input[name="sub_location"]').on('change', function() {
+//   updateJobResults(1);
+// });
+
 // // Job type checkbox change event handler
 // $('#job-type-form input[name="job_type"]').on('change', function() {
 //   updateJobResults(1);
@@ -879,10 +919,6 @@ AppName.Modules.ThemeModule = (function () {
 //   e.preventDefault();
 //   updateJobResults(1);
 // });
-
-
-	   
-	   
 
 
 function updateJobResults(page) {
@@ -943,8 +979,11 @@ function updateJobResults(page) {
       $('#jobs-container').html('Loading...');
     },
     success: function(response) {
+
       // Update the job results container with the received HTML
       $('#jobs-container').html(response.data.html);
+
+	  $('.result-count span').html(response.data.count_result);
 
       // Update the current page indicator
       $('.current-page').text(response.data.current_page);
@@ -1053,15 +1092,15 @@ $('#filter-form').on('submit', function(e) {
   updateJobResults(1);
 });
 
-	   
-	   
-	   
-	   
-	   
-	   
 
 
-	   
+
+
+
+
+
+
+
    }
   /////////////////////
   // Public Methods //
@@ -1096,6 +1135,3 @@ $('#filter-form').on('submit', function(e) {
   };
 
 })();
-
-
-

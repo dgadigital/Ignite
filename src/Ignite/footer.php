@@ -2,7 +2,7 @@
     <div class="footer-upper">
       <div class="container footer-upper-wrapper">
         <div class="footer-logo">
-          <?php 
+          <?php
 			$image = get_field('footer_logo', 'option');
 			if( !empty( $image ) ): ?>
 				<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
@@ -58,7 +58,7 @@
           <div class="links">
             <div class="item">
               <a href="/search">
-                <img src="<?php echo get_template_directory_uri();?>/assets/images/search-icon.png">
+                <img src="<?php echo get_template_directory_uri();?>/assets/images/search-icon.png" alt="search icon">
                 <span>Search</span>
               </a>
             </div>

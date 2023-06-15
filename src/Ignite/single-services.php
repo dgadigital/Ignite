@@ -1094,7 +1094,7 @@
 								while( have_rows('items') ) : the_row();
 										?>
 											<div class="item">
-												<a href="<?php echo get_sub_field('icon-link')?>" class="icon-box-wrapper">
+												<a href="<?php echo get_sub_field('icon-link')['url']?>" class="icon-box-wrapper">
 														<img src="<?php echo get_sub_field('icon-image')['url']?>" alt="<?php echo get_sub_field('icon-image')['alt']?>"/>
 														<div class="icon-title"><?php echo get_sub_field('icon_title')?></div>
 												</a>
@@ -1211,7 +1211,7 @@
 	<?php if (get_row_layout() == 'form_embed'): ?>
 			
 			
-	<section class="request-staff <?php if(get_sub_field('add_banner')) : ?>pb-0<?php endif; ?> blue-bg" <?php if(!get_sub_field('add_background_image')) : ?>style="background-image: none;"<?php endif; ?>>
+	<section class="request-staff <?php if(get_sub_field('add_banner')) : ?>pb-0<?php endif; ?> blue-bg" <?php if(!get_sub_field('add_background_image')) : ?>style="background-image: none;"<?php endif; ?> id="request-staff">
       <div class="container">
 		  
 		<?php if( get_sub_field('title') ) { ?>
@@ -1224,9 +1224,10 @@
 				<?php endif; ?>
 		    </div>
 		<?php } ?>
-		 
-		<?php echo do_shortcode(get_sub_field('embed_form')); ?>
-       
+		
+		<div class="multi-level-form box-shadow">
+			<?php echo do_shortcode(get_sub_field('embed_form')); ?>
+		</div>
       </div>
 	
 	<?php if(get_sub_field('add_banner')) : ?>

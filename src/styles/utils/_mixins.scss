@@ -40,6 +40,7 @@
     src: url('#{$path + $fileName}.eot?#iefix') format('embedded-opentype'), url('#{$path + $fileName}.woff') format('woff'), url('#{$path + $fileName}.ttf') format('truetype'), url('#{$path + $fileName}.svg##{$svgLabel}') format('svg');
     font-weight: $fontWeight;
     font-style: $fontStyle;
+    font-display: swap;
   }
 }
 @mixin respond-to($breakpoint) {

@@ -745,61 +745,6 @@ function prefix_nav_description( $item_output, $item, $depth, $args ) {
 }
 add_filter( 'walker_nav_menu_start_el', 'prefix_nav_description', 10, 4 );
 
-// function make_async_request() {
-// 	set_time_limit(30); 
-//     $headers = array(
-//         'Accept' => 'application/xml',
-//         'Content-Type' => 'application/xml',
-//     );
-	
-// 	$hash = 'b94253bec084d37217eab789d5b79fc4';
-// 	$baseurl = 'https://idibu.com/clients/board_scripts/ignite/igniteservices.xml';
-//     $url = $baseurl.'/live?hash='.$hash;
-
-//     $response = wp_remote_get($baseurl, array(
-//         'headers' => $headers,
-// 		'timeout' => 30, 
-//     ));
-
-//     if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
-//         $body = wp_remote_retrieve_body($response);
-		
-// 		$array_data = json_decode(json_encode(simplexml_load_string($body)), true);
-// 		$jobs = $array_data['response']['jobs']['job'];
-		
-// 		print_r('<pre>');
-// 			print_r($array_data);
-// 			print_r('</pre>');
-		
-// 		foreach ($jobs as $job) {
-// 			$id = $job['id'];
-
-// 			$detailurl = $baseurl.'/'.$id.'?hash='.$hash;
- 			
-// 			$detaildata = wp_remote_get($detailurl, array(
-// 				'headers' => $headers,
-// 			));
-			
-// 			$detail_data_body = wp_remote_retrieve_body($detaildata);
-
-// 			$individual_array = json_decode(json_encode(simplexml_load_string($detail_data_body)), true);
-// 			echo '<Br/>Detailed URL:'.$detailurl;
-// 			print_r('<pre>');
-// 			print_r($individual_array['response']['job']['title']);
-// 			print_r('</pre>');
-// 		}
-		
-//     } else {
-//         $error_message = is_wp_error($response) ? $response->get_error_message() : 'Unknown error occurred.';
-//         echo 'Error: ' . $error_message;
-//     }
-//     exit();
-
-// }
-// add_action('wp_ajax_make_async_request', 'make_async_request');
-// add_action('wp_ajax_nopriv_make_async_request', 'make_async_request');
-// 
-
 
 //DOWNLOAD XML
 function download_igniteservices_xml() {
@@ -877,6 +822,9 @@ function get_jobs_section() {
 		$i = 0;
 		foreach ($jobs as $job) {
 			
+			$salary_from = number_format($job['salary_from'], 2, '.', ',');
+			$salary_to = number_format($job['salary_to'], 2, '.', ',');
+			
 			echo '<div class="">
 									<div class="job-card">
 									<div class="job-category">'.$job['job_industry'].'</div>
@@ -896,10 +844,10 @@ function get_jobs_section() {
 											</div>
 
 											<div class="salary">
-													<div class="label">SALARAY</div>
+													<div class="label">SALARAY</div>'.($salary_from != 0 && $salary_to != 0 ?'
 													<div class="value">Term: '.$job['salary_per'].'</div>
-													<div class="value">Min: '.$job['salary_currency'] .' '.number_format($job['salary_from'], 2, '.', ',').'</div>
-													<div class="value">Max: '.$job['salary_currency'] .' '.number_format($job['salary_to'], 2, '.', ',').'</div>
+													<div class="value">Min: '.$job['salary_currency'] .' '.$salary_from.'</div>
+													<div class="value">Max: '.$job['salary_currency'] .' '.$salary_to.'</div>':'<div class="value">Negotiable</div>').'
 											</div>
 									</div>
 
@@ -929,61 +877,248 @@ add_action('wp_ajax_nopriv_get_jobs_section', 'get_jobs_section');
 // JOB RESULTS PAGE
 /////////////////////////////////
 
-// function job_results() {
-//     $xml_path = get_stylesheet_directory() . '/igniteservices.xml';
-//     $xml_data = '';
-
-//     if (file_exists($xml_path)) {
-//         $xml_data = file_get_contents($xml_path);
-//         $xml = simplexml_load_string($xml_data, 'SimpleXMLElement', LIBXML_NOCDATA);
-//         $json_data = json_encode($xml);
-//         $res = json_decode($json_data, true);
-        
-//         $jobs = $res['job'];
-
-//         // Number of jobs per page
-//         $jobs_per_page = 10;
-
-//         // Get the current page number from the AJAX request
-//         $current_page = isset($_POST['page']) ? intval($_POST['page']) : 1;
-
-//         // Calculate the starting and ending indices for the current page
-//         $start_index = ($current_page - 1) * $jobs_per_page;
-//         $end_index = $start_index + $jobs_per_page - 1;
-//         $end_index = min($end_index, count($jobs) - 1);
-
-//         // Loop through the jobs and display the results for the current page
-//         for ($i = $start_index; $i <= $end_index; $i++) {
-//             $job = $jobs[$i];
-
-//             echo '<div class="">
-//                     <div class="job-title">' . $job['job_title'] . '</div>
-//                 </div>';
-//         }
-
-//         // Calculate the total number of pages
-//         $total_pages = ceil(count($jobs) / $jobs_per_page);
-
-//         // Output the pagination links
-//         echo '<div class="pagination">';
-//         for ($page = 1; $page <= $total_pages; $page++) {
-//             $class = ($page == $current_page) ? 'active' : '';
-//             echo '<a href="#" class="' . $class . '" data-page="' . $page . '">' . $page . '</a>';
-//         }
-//         echo '</div>';
-//     } else {
-//         wp_send_json_error('XML file not found.');
-//     }
-    
-//     wp_die();
+// function jobsTotalCount($jobs) {
+// 	return $jobs;
 // }
 
-// add_action('wp_ajax_job_results', 'job_results');
-// add_action('wp_ajax_nopriv_job_results', 'job_results');
 
 function job_search() {
 	
-	/////////////////////// WORKING 2 WITH NEXT AND PREV PAGINATION
+	
+// Get the XML data
+// $xml_path = get_stylesheet_directory() . '/igniteservices.xml';
+// $xml_data = '';
+
+// if (file_exists($xml_path)) {
+//   $xml_data = file_get_contents($xml_path);
+//   $xml = simplexml_load_string($xml_data, 'SimpleXMLElement', LIBXML_NOCDATA);
+//   $jobs = $xml->job;
+
+//   // Number of jobs per page
+//   $jobs_per_page = 10;
+
+//   // Get the current page number from the URL parameter
+//   $current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+//   // Get the query parameters from the URL
+//   $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+//   $location = isset($_GET['location']) ? $_GET['location'] : '';
+//   $industry = isset($_GET['industry']) ? $_GET['industry'] : '';
+//   $job_type = isset($_GET['job_type']) ? $_GET['job_type'] : '';
+//   $sub_location = isset($_GET['sub_location']) ? $_GET['sub_location'] : '';
+
+	
+	
+// $filteredJobs = array();
+// foreach ($jobs as $job) {
+//   $job_title = strtolower((string) $job->job_title);
+//   $job_location = strtolower((string) $job->job_location);
+//   $job_job_type = strtolower((string) $job->job_type);
+//   $job_industry = strtolower((string) $job->job_industry);
+//   $job_sub_location = strtolower((string) $job->job_sub_loaction);
+
+//   if (($keyword === '' || strpos($job_title, strtolower($keyword)) !== false) &&
+//       ($location === '' || strtolower($location) === $job_location) &&
+//       (empty($industry) || in_array(strtolower($job_industry), explode(',', strtolower($industry)))) &&
+//       (empty($sub_location) || in_array(strtolower($job_sub_location), explode(',', strtolower($sub_location)))) &&
+//       (empty($job_type) || in_array($job_job_type, explode(',', strtolower($job_type))))) {
+//     $filteredJobs[] = $job;
+//   }
+// }
+
+//   // Calculate the starting and ending indices for the current page
+//   $start_index = ($current_page - 1) * $jobs_per_page;
+//   $end_index = $start_index + $jobs_per_page - 1;
+//   $end_index = min($end_index, count($filteredJobs) - 1);
+
+//   // Store the job HTML content in a variable
+//   $job_html = '';
+
+//   for ($i = $start_index; $i <= $end_index; $i++) {
+//     $job = $filteredJobs[$i];
+
+//     $job_html .= '<div class="job">' .
+//       '<div class="job-title">' . $job->job_title . '</div>' .
+//       '</div>';
+//   }
+
+//   // Calculate the total number of pages
+//   $total_pages = ceil(count($filteredJobs) / $jobs_per_page);
+
+//   // Output the job HTML content and total pages
+//   $response = array(
+//     'html' => $job_html,
+//     'current_page' => $current_page,
+//     'total_pages' => $total_pages
+//   );
+
+//   wp_send_json_success($response);
+// } else {
+//   wp_send_json_error('XML file not found.');
+// }
+
+
+	
+$xml_path = get_stylesheet_directory() . '/igniteservices.xml';
+$xml_data = '';
+
+if (file_exists($xml_path)) {
+  $xml_data = file_get_contents($xml_path);
+  $xml = simplexml_load_string($xml_data, 'SimpleXMLElement', LIBXML_NOCDATA);
+  $jobs = $xml->job;
+  
+  global $all_jobs;
+  $all_jobs = '1';
+	
+  // Convert the XML jobs into an array for sorting
+	$jobsArray = [];
+	foreach ($jobs as $job) {
+		$jobsArray[] = $job;
+	}
+
+	// Sort the jobs based on DateAdded in descending order
+	usort($jobsArray, function ($job1, $job2) {
+		$date1 = strtotime((string) $job1->DateAdded);
+		$date2 = strtotime((string) $job2->DateAdded);
+		return $date2 - $date1;
+	});
+
+  // Number of jobs per page
+  $jobs_per_page = 10;
+
+  // Get the current page number from the URL parameter
+  $current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+  // Get the query parameters from the URL
+  $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+  $location = isset($_GET['location']) ? $_GET['location'] : '';
+  $industry = isset($_GET['industry']) ? $_GET['industry'] : '';
+  $job_type = isset($_GET['job_type']) ? $_GET['job_type'] : '';
+  $sub_location = isset($_GET['sub_location']) ? $_GET['sub_location'] : '';
+ 
+	
+$filteredJobs = array();
+foreach ($jobsArray as $job) {
+  $job_title = strtolower((string) $job->job_title);
+  $job_location = strtolower((string) $job->job_location);
+  $job_job_type = strtolower((string) $job->job_type);
+  $job_industry = strtolower((string) $job->job_sub_industry);
+  $job_sub_location = strtolower((string) $job->job_sub_loaction);
+
+  if (($keyword === '' || strpos($job_title, strtolower($keyword)) !== false) &&
+      ($location === '' || strtolower($location) === $job_location) &&
+      (empty($industry) || in_array(strtolower($job_industry), explode(',', strtolower($industry)))) &&
+      (empty($sub_location) || in_array(strtolower($job_sub_location), explode(',', strtolower($sub_location)))) &&
+      (empty($job_type) || in_array($job_job_type, explode(',', strtolower($job_type))))) {
+    $filteredJobs[] = $job;
+  }
+}
+
+  // Calculate the starting and ending indices for the current page
+  $start_index = ($current_page - 1) * $jobs_per_page;
+  $end_index = $start_index + $jobs_per_page - 1;
+  $end_index = min($end_index, count($filteredJobs) - 1);
+
+  // Store the job HTML content in a variable
+  $job_html = '';
+
+  for ($i = $start_index; $i <= $end_index; $i++) {
+    $job = $filteredJobs[$i];
+	
+	$text = '<p>'. $job->job_description . '</p>';
+	// Create a new DOMDocument instance
+	$dom = new DOMDocument();
+	libxml_use_internal_errors(true); // Disable error reporting for malformed HTML
+	$dom->loadHTML('<?xml encoding="UTF-8">' . $text, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+	// Get the <p> element
+	$pElement = $dom->getElementsByTagName('p')->item(0);
+
+	// Create a new DOMDocument instance for the truncated content
+	$truncatedDom = new DOMDocument();
+	$truncatedDom->appendChild($truncatedDom->importNode($pElement, true));
+
+	// Serialize the truncated content
+	$truncatedText = $truncatedDom->saveHTML();
+	 
+	//////////// TIME //////////////////
+	  
+	$timeString = $job->DateAdded;
+
+	// Create a DateTime object with the provided time string and set the timezone to UTC
+	$dateTime = new DateTime($timeString, new DateTimeZone('UTC'));
+
+	// Set the timezone to Australia/Sydney
+	$timezone = new DateTimeZone('Australia/Sydney');
+	$dateTime->setTimezone($timezone);
+
+	// Convert the DateTime object to the desired format
+	$formattedTime = $dateTime->format('M d, Y');
+
+	// Get the current DateTime object with the timezone set to Australia/Sydney
+	$currentDateTime = new DateTime('now', $timezone);
+
+	// Calculate the difference between the current time and the posted time
+	$interval = $currentDateTime->diff($dateTime);
+
+	if ($interval->d > 0 && $interval->d <= 1) {
+		$elapsedTimeText = "Posted about 1 day ago";
+	} elseif ($interval->d > 1) {
+		$elapsedTimeText = "Posted on " . $formattedTime;
+	} else {
+		$elapsedTime = $interval->h;
+		$elapsedTimeText = "Posted about $elapsedTime hour" . ($elapsedTime > 1 ? 's' : '') . " ago";
+	}
+
+
+    $job_html .= '<div class="job-card" id="'.$job->job_id.'">
+                <div class="upper">
+                  <div class="status">new</div>
+                  <p>'. $elapsedTimeText .'</p>
+                </div>
+                <div class="content">
+                  <h3><a href="/">'. $job->job_title .'</a></h3>
+                  <div class="details">
+                    <span>'. $job->job_location .'</span>
+                    <span>Negotiable</span>
+                  </div>
+                  <div class="body">
+                    '. $truncatedText . ' 
+                  </div>
+                </div>
+                <div class="actions">
+                  <div class="action-cta">
+                    <a href="" class="btn btn-border">Apply Now</a>
+                    <a href="" class="btn btn-solid">Read More</a>
+                  </div>
+                </div>
+              </div>';
+  }
+
+  // Calculate the total number of pages
+  $total_pages = ceil(count($filteredJobs) / $jobs_per_page);
+  $countResult = count($filteredJobs);
+	
+  // Output the job HTML content and total pages
+  $response = array(
+    'html' => $job_html,
+    'current_page' => $current_page,
+    'total_pages' => $total_pages,
+	'count_result' => $countResult
+  );
+
+  wp_send_json_success($response);
+} else {
+  wp_send_json_error('XML file not found.');
+}
+
+}
+
+add_action('wp_ajax_job_search', 'job_search');
+add_action('wp_ajax_nopriv_job_search', 'job_search');
+
+function get_all_jobs() {
+  
 	$xml_path = get_stylesheet_directory() . '/igniteservices.xml';
 	$xml_data = '';
 
@@ -992,47 +1127,9 @@ function job_search() {
 		$xml = simplexml_load_string($xml_data, 'SimpleXMLElement', LIBXML_NOCDATA);
 		$jobs = $xml->job;
 
-		// Number of jobs per page
-		$jobs_per_page = 10;
-
-		// Get the current page number from the URL parameter
-		$current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-
-		// Calculate the starting and ending indices for the current page
-		$start_index = ($current_page - 1) * $jobs_per_page;
-		$end_index = $start_index + $jobs_per_page - 1;
-		$end_index = min($end_index, count($jobs) - 1);
-
-		// Store the job HTML content in a variable
-		$job_html = '';
-		
-		for ($i = $start_index; $i <= $end_index; $i++) {
-			$job = $jobs[$i];
-
-			$job_html .= '<div class="job">' .
-				'<div class="job-title">' . $job->job_title . '</div>' .
-				'</div>';
-		}
-
-		// Calculate the total number of pages
-		$total_pages = ceil(count($jobs) / $jobs_per_page);
-
-		// Output the job HTML content and total pages
-		$response = array(
-			'html' => $job_html,
-			'current_page' => $current_page,
-			'total_pages' => $total_pages
-		);
-
-		wp_send_json_success($response);
-	} else {
-		wp_send_json_error('XML file not found.');
+		return $jobs;
 	}
-
-
-	
 }
 
-add_action('wp_ajax_job_search', 'job_search');
-add_action('wp_ajax_nopriv_job_search', 'job_search');
+
 

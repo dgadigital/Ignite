@@ -63,7 +63,7 @@
 											  <div class="accordion">
 												<div class="content-wrapper">
 												  <p class="accordion-title"><?php the_sub_field('accordion_title'); ?></p>
-												  <div class="panel orange-ul">
+												  <div class="panel orange-ul black-font">
 													<p><?php the_sub_field('panel'); ?></p>
 												  </div>
 												</div>
@@ -172,7 +172,7 @@
 		<?php if (get_row_layout() == 'logo_carousel'): ?>
 		<section class="logo-carousel">
 			<div class="carousel-container container">
-				<div class="section-title">
+				<div class="section-title text-center">
 					<h2><?php the_sub_field('title'); ?></h2>
 				</div>
 				<div class="logo-row <?php echo (get_sub_field('two_rows') ? 'two-rows' : 'one-row'); ?>">

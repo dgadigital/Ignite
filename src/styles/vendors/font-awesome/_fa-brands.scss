@@ -15,6 +15,8 @@
   url('#{$fa-font-path}/fa-brands-400.woff') format('woff'),
   url('#{$fa-font-path}/fa-brands-400.ttf') format('truetype'),
   url('#{$fa-font-path}/fa-brands-400.svg#fontawesome') format('svg');
+  font-display: swap;
+  
 }
 
 .fab {
