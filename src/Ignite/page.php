@@ -1000,11 +1000,11 @@
 								</div>
 						</div>
 						<?php
-							$page_link_right = get_sub_field('page_link_left');
+							$page_link_right = get_sub_field('page_link_right');
 							if( $page_link_right ){
-								$page_link_right_url = esc_url($page_link_left['url']);
-								$page_link_right_title = esc_attr($page_link_left['title']);
-								$page_link_right_target = esc_html($page_link_left['target'] ? $page_link_left['target'] : '_self');
+								$page_link_right_url = esc_url($page_link_right['url']);
+								$page_link_right_title = esc_attr($page_link_right['title']);
+								$page_link_right_target = esc_html($page_link_right['target'] ? $page_link_right['target'] : '_self');
 						}?>
 						<div class="column-content col-lg-4 col-md-6 col-12">
 									<div class="column-image">
