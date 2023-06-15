@@ -1,5 +1,6 @@
 .search-job {
     padding-top: 60px;
+    padding-bottom: 60px;
 
     .description {
 
@@ -47,6 +48,11 @@
         @media (max-width: 991px) {
             padding-left: 0;
             width: 100%;
+        }
+
+        .results-card {
+            padding-bottom: 60px;
+            min-height: 400px;
         }
 
         .search-box {
@@ -120,7 +126,7 @@
         }
 
         .result-count {
-            padding-top: 10px;
+            padding-top: 50px;
             padding-bottom: 22px;
 
             p {
@@ -128,5 +134,44 @@
                 font-size: 25px;
             }
         }
+    }
+
+    #pagination-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .page-indicator {
+            color: $link-color;
+            font-family: $font-raleway-bold;
+            font-size: 16px;
+
+            span {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+        .pagination-button {
+            border: 0;
+            background-color: #fff;
+            width: 7px;
+            height: 12px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            
+            &.prev {
+                margin-left: 5px;
+                margin-right: 5px;
+                background-image: url(../assets/images/left.svg);
+            }
+
+            &.next {
+                background-image: url(../assets/images/right.svg);
+            }
+        }
+
+
     }
 }
