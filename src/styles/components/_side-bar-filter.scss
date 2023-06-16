@@ -22,6 +22,40 @@
             }
         }
     }
+    .more-topics{
+        margin-bottom: 30px;
+        .title{
+            font-family: $font-raleway-semibold;
+            padding: 20px;
+            position: relative;
+            transition: .3s all;
+            margin-bottom: 0;
+            background-color: $light-orange;
+            color: #fff;
+        }
+        .post-wrapper{
+            padding: 20px 20px 10px 20px;
+            .links{
+                color: $text-color !important;
+                transition: .3s all;
+                position: relative;
+                &:hover{
+                    color: $light-orange !important;
+                }
+            }
+            p{
+                padding-bottom: 20px;
+                font-weight: 800;
+            }
+            .fa-chevron-right{
+                position: absolute;
+                right: 6px;
+                top: 0px;
+                font-size: 18px;
+                color: $light-orange;
+            }
+        }
+    }
     .accordion{
         border-bottom: 1px solid #DADADA;
         .accordion-title{

@@ -1,4 +1,11 @@
 .post-filter-side-bar{
+    &:not(.single-post){
+        .side-bar-accordion:not(.single-post){
+            @media(max-width: 991px){
+                display: none;
+            }
+        }
+    }
     .container{
         display: flex;
         flex-wrap: wrap;
@@ -13,11 +20,6 @@
             }
             @media(max-width: 991px){
                 flex-basis: 100% !important;
-            }
-            &.side-bar-accordion{
-                @media(max-width: 991px){
-                    display: none;
-                }
             }
             &.post-filter{
                 .row-container{
@@ -41,7 +43,7 @@
                             .dropdown{
                                 width: 48%;
                                 flex-grow: 1;
-                                @media(max-width: 767px){
+                                @media(max-width: 981px){
                                     width: 100%;
                                 }
                                 .select2-container{
