@@ -5,7 +5,6 @@
     .description {
 
         h2 {
-            padding-top: 20px;
             font-family: $font-raleway-bold;
             font-size: 25px;
         }
@@ -121,10 +120,6 @@
         }
 
 
-        .description {
-            margin-top: 30px;
-        }
-
         .result-count {
             padding-top: 50px;
             padding-bottom: 22px;
@@ -160,6 +155,11 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
             
             &.prev {
                 margin-left: 5px;
