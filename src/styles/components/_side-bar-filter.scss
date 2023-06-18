@@ -79,6 +79,26 @@
                 align-items: center;
                 transition: .3s all;
             }
+
+            span {
+                position: relative;
+                // display: none;
+                padding-left: 18px;
+                font-family: $font-raleway-regular !important;
+                font-size: 11px;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 3px;
+                    left: 8px;
+                    display: block;
+                    height: 7px;
+                    width: 7px;
+                    background-color: red;
+                    border-radius: 50%;
+                }
+            }
         }
         .panel{
             height: 0;
@@ -152,6 +172,12 @@
                 &:after{
                     content: url(../assets/images/up-arrow-white.png);
                     top: -18px;
+                }
+
+                span {
+                    &:after { 
+                        background-color: #fff;
+                    }
                 }
             }
             .panel{
