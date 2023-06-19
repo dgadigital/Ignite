@@ -919,7 +919,7 @@
 							<div class="box-columns content-wrapper search-box">
 									<h2 class="pb-4 text-center">Find your next job</h2>
 
-									<form class="search-row" action="job-search" method="GET">
+									<form class="search-row" action="find-a-job" method="GET">
 											<div class="find-job-field">
 													<input type="text" class="form-control find-job" name="keyword" id="keyword" placeholder="Job Title, skills or keywords">
 											</div>
@@ -978,7 +978,7 @@
 										$image_alt = isset($image_left['alt']) ? esc_attr($image_left['alt']) : '';
 									?>
 									<a href="<?php echo esc_url($page_link_left_url) ?>" target="<?php echo esc_attr($page_link_left_target) ?>">
-										<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+										<img width="247" height="247" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt?$image_alt:the_sub_field('left_column_title'); ?> ">
 									</a>
 
 								</div>
@@ -998,11 +998,11 @@
 								</div>
 						</div>
 						<?php
-							$page_link_right = get_sub_field('page_link_left');
+							$page_link_right = get_sub_field('page_link_right');
 							if( $page_link_right ){
-								$page_link_right_url = esc_url($page_link_left['url']);
-								$page_link_right_title = esc_attr($page_link_left['title']);
-								$page_link_right_target = esc_html($page_link_left['target'] ? $page_link_left['target'] : '_self');
+								$page_link_right_url = esc_url($page_link_right['url']);
+								$page_link_right_title = esc_attr($page_link_right['title']);
+								$page_link_right_target = esc_html($page_link_right['target'] ? $page_link_right['target'] : '_self');
 						}?>
 						<div class="column-content col-lg-4 col-md-6 col-12">
 									<div class="column-image">
@@ -1012,7 +1012,7 @@
 											$image_alt = isset($image_right['alt']) ? esc_attr($image_right['alt']) : '';
 										?>
 										<a href="<?php echo esc_url($page_link_right_url) ?>" target="<?php echo esc_attr($page_link_right_target) ?>">
-											<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>">
+											<img width="247" height="247" src="<?php echo $image_url; ?>" alt="<?php echo $image_alt?$image_alt:the_sub_field('right_column_title'); ?> ">
 										</a>
 
 									</div>
@@ -1058,7 +1058,7 @@
 											?>
 												<div class="logo-container">
 														<?php echo get_sub_field('logo_link') ? "<a href='". get_sub_field('logo_link')."'>" : ''; ?>
-																	<img src="<?php echo get_sub_field('logo')['url']?>" alt="<?php echo get_sub_field('logo')['alt']?>"/>
+																	<img width="166" height="67" src="<?php echo get_sub_field('logo')['url']?>" alt="<?php echo get_sub_field('logo')['alt']?>"/>
 														<?php echo get_sub_field('logo_link') ? "</a>" : ''; ?>
 													</div>
 											<?php

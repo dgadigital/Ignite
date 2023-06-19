@@ -77,12 +77,10 @@ if ($flexible_content) {
             <div class="filter-container">
               <div class="dropdown">
                 <select class="js-select2" id="filter-dropdown-category" multiple="multiple">
-                  <option value="O1" data-badge="">attracting and recruiting talent</option>
-                  <option value="O2" data-badge="">diversity and inclusion</option>
-                  <option value="O3" data-badge="">emerging workforce trends</option>
-                  <option value="O4" data-badge="">employee engagement</option>
-                  <option value="O5" data-badge="">employee retention</option>
-                  <option value="O6" data-badge="">employee value proposition</option>
+				  <?php $categories = get_categories($args);
+				  if( $categories ): foreach( $categories as $category ):?>
+                  <option value="<?php echo $category->name; ?>" data-badge=""><?php echo $category->name; ?></option>
+				  <?php endforeach; ?> <?php endif; ?>  
                 </select>
               </div>
             </div>
@@ -129,6 +127,11 @@ if ($flexible_content) {
           <div class="pagination mt-3">
             <span class="current-page">01</span> | <span class="total-page">03</span> <span class="prev-page cursor-pointer"><i class="fa fa-chevron-left" aria-hidden="true"></i></span><span class="next-page cursor-pointer"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
           </div>
+		  <div class="container pb-5 pt-5">
+			 <div class="load-more-wrapper text-center">
+				<a href="/" class="load-more link-arrow-down" id="blog-load-more">View All</a>
+			 </div>
+		  </div>
         </div>
       </div>
     </section>

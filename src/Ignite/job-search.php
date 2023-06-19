@@ -44,20 +44,46 @@ foreach ($data as $job) {
 	}
 }
 
-get_header(); ?>
+$jobLocations = array();
 
-	
+foreach ($data as $job) {
+	$job_location = (string) $job->job_location;
+
+	if (isset($jobLocations[$job_location])) {
+		$jobLocations[$job_location]++;
+	} else {
+		$jobLocations[$job_location] = 1;
+	}
+}
+
+get_header(); ?>
+	<main>
+	 <section class="hero-banner d-flex justify-content-center align-items-center" style=" background-image: url('/wp-content/uploads/2023/06/find-job-banner.png');">  
+        <div class="container">
+            <div class="text-center bottom-padding"><!-- if values for hero-desc and link for the button doesnt have value  add class "bottom-padding"-->
+                <div class="hero-sub-title">
+                    <h2 class="job-banner-top-title" ><?php echo get_field('initial_sub_title', 'option'); ?></h2>
+                </div>
+                <div class="hero-title">
+                    <h1 class="job-banner-title"><?php echo get_field('initial_title', 'option'); ?></h1>
+                </div>
+            </div>           
+        </div>
+    </section>
 
     <div class="search-job">
       <div class="container">
         <div class="search-job-wrapper">
           <div class="search-job-sidebar">
+			  <div class="close-filter">
+				  <button class="btn btn-solid"> Close Filter</button>
+			  </div>
             <div class="side-bar-accordion">
               <div class="tab-content">
                 <div id="categories" class="active-tab">
                   <div class="accordion active">
-                    <div class="content-wrapper">
-                      <p class="accordion-title">Job Industry</p>
+                    <div class="content-wrapper industry">
+                      <p class="accordion-title">Job Industry <span><i>filtered</i></span></p>
                       <div class="panel select">
 						  <form id="industry-form">
 							  <?php foreach ($jobIndustry as $singleJobIndustry => $count) { ?>
@@ -72,8 +98,8 @@ get_header(); ?>
                     </div>
                   </div>
 				  <div class="accordion">
-                    <div class="content-wrapper">
-                      <p class="accordion-title">Job Type</p>
+                    <div class="content-wrapper job-type">
+                      <p class="accordion-title">Job Type <span><i>filtered</i></span></p>
                       <div class="panel select">
 						 <form id="job-type-form">
 							 <?php foreach ($jobTypes as $jobType => $count) { ?>
@@ -88,8 +114,8 @@ get_header(); ?>
                     </div>
                   </div>
 				  <div class="accordion">
-                    <div class="content-wrapper">
-                      <p class="accordion-title">Sub Location</p>
+                    <div class="content-wrapper sub-location">
+                      <p class="accordion-title">Sub Location <span><i>filtered</i></span></p>
 						<div class="panel select">
 							<form id="sub-location-form">
 							  <?php foreach ($jobSubLocations as $jobSubLocation => $count) { ?>
@@ -108,6 +134,10 @@ get_header(); ?>
             </div>  
           </div>
           <div class="search-job-content">
+			  
+			<div class="description">
+              <?php echo get_field('initial_description', 'option'); ?>
+            </div>
 
             <div class="search-box">
 				<form id="filter-form">
@@ -121,11 +151,9 @@ get_header(); ?>
 						  <div class="find-job-location">
 							  <select id="location-input" name="location" class="form-control find-job-location">
 								<option value="">Select Location</option>
-								<option value="Sydney">Sydney</option>
-								<option value="Canberra">Canberra</option>
-								<option value="Melbourne">Melbourne</option>
-								<option value="Adelaide">Adelaide</option>
-								<option value="Regional NSW">Regional NSW</option>
+								  <?php foreach ($jobLocations as $jobLocation => $count) { ?>
+									  <option value="<?php echo $jobLocation; ?>"><?php echo $jobLocation; ?></option>
+								  <?php } ?>
 							  </select>
 						  </div>
 					  </div>
@@ -134,19 +162,30 @@ get_header(); ?>
 					  </div>
 				  </div>
 				</form>
+				<div class="mobile-filter-triggers">
+                  <button class="btn btn-solid industry">Industry</button>
+                  <button class="btn btn-solid job-type">Job Type</button>
+                  <button class="btn btn-solid sub-location">Sub-location</button>
+              	</div>
             </div>
 
 			<div class="result-count">
-				<p>Found <span>0</span> Jobs</p>
+				<p style="display: none;">Found <span>0</span> Jobs</p>
 			</div>
 
-			<div id="jobs-container"></div>
-
-			<div id="pagination-container">
-			  <button class="pagination-button prev" disabled>Previous</button>
-			  <span class="page-indicator">Page <span class="current-page">1</span> of <span class="total-pages">1</span></span>
-			  <button class="pagination-button next" disabled>Next</button>
+			<div id="jobs-container" class="results-card">
+			  <div class="loading">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
 			</div>
+
+			<div id="pagination-container" style="display: none;">
+              <span class="page-indicator"><span class="current-page">1</span> | <span class="total-pages">9</span></span>
+              <button class="pagination-button prev" disabled></button>
+              <button class="pagination-button next" disabled></button>
+            </div>
 				
 			
 
@@ -156,89 +195,22 @@ get_header(); ?>
       </div>
     </div>
 
+ 	 <section class="career-move background-blue" style="display: none;">
 
+      <div class="container">
+        <div class="content">
+          <h2><span>Is your next career move missing from the list above?</span></h2>
+          <p>Many sought-after roles are never advertised, but filled by talented  professionals on our database. Register below and you’ll be contacted by a recruitment specialist within 24 hours, unlocking access to career-defining roles across our extensive network.</p>
+        </div>
+        <div class="multi-level-form box-shadow">
 
+          <?php echo do_shortcode('[contact-form-7 id="9135" title="Submit a Position"]');?>
 
+        </div>
 
+      </div>
 
+    </section>
 
-
-
-		
-<!-- 		
-		<form id="filter-form">
-  <label for="keyword-input">Keyword:</label>
-  <input type="text" id="keyword-input" name="keyword">
-  <label for="location-input">Location:</label>
-  <select id="location-input" name="location">
-    <option value="">-- Select Location --</option>
-    <option value="Sydney">Sydney</option>
-    <option value="Canberra">Canberra</option>
-    <option value="Melbourne">Melbourne</option>
-    <option value="Adelaide">Adelaide</option>
-    <option value="Regional NSW">Regional NSW</option>
-  </select>
-  <button type="submit">Filter</button>
-</form>
-
-<form id="industry-form">
-  <label>Industry:</label>
-  <label for="industry-administration">
-    <input type="checkbox" id="industry-administration" name="industry" value="Administration"> Administration
-  </label>
-  <label for="industry-construction">
-    <input type="checkbox" id="industry-construction" name="industry" value="Construction & Architecture"> Construction & Architecture
-  </label>
-  <label for="industry-engineering">
-    <input type="checkbox" id="industry-engineering" name="industry" value="Engineering"> Engineering
-  </label>
-  <label for="industry-call-center">
-    <input type="checkbox" id="industry-call-center" name="industry" value="Call Centre & Customer Service"> Call Centre & Customer Service
-  </label>
-</form>
-
-<form id="sub-location-form">
-  <label>Sub-location:</label>
-  <label for="sub-location-blacktown">
-    <input type="checkbox" id="sub-location-blacktown" name="sub_location" value="Blacktown"> Blacktown
-  </label>
-  <label for="sub-location-murray-bridge">
-    <input type="checkbox" id="sub-location-murray-bridge" name="sub_location" value="Murray Bridge"> Murray Bridge
-  </label>
-  <label for="sub-location-south-australia">
-    <input type="checkbox" id="sub-location-south-australia" name="sub_location" value="South Australia"> South Australia
-  </label>
-  <label for="sub-location-sydney">
-    <input type="checkbox" id="sub-location-sydney" name="sub_location" value="Sydney"> Sydney
-  </label>
-</form>
-
-<form id="job-type-form">
-  <label for="job-type-contract">
-    <input type="checkbox" id="job-type-contract" name="job_type" value="Contract"> Contract
-  </label>
-  <label for="job-type-permanent">
-    <input type="checkbox" id="job-type-permanent" name="job_type" value="Permanent"> Permanent
-  </label>
-</form>
-
-<div id="jobs-container"></div>
-
-<div id="pagination-container">
-  <button class="pagination-button prev" disabled>Previous</button>
-  <span class="page-indicator">Page <span class="current-page">1</span> of <span class="total-pages">1</span></span>
-  <button class="pagination-button next" disabled>Next</button>
-</div>
- -->
-
-
-				
-	
-				
-				
-				
-				
-
-
-
+</main>
 <?php get_footer(); ?>

@@ -65,6 +65,23 @@
 			  <?php endif; ?>
 			  <?php wp_reset_postdata(); ?>
           </div>
+		  <div class="more-topics">
+            <p class="title">More on these topics</p>
+			<?php 
+				$post = get_tags(array(
+					'taxonomy'   => array( 'tags_blogs' ),
+					'hide_empty' => false,
+					'order'      => 'asc'
+				)); ?>
+			  
+            <div class="post-wrapper">
+			  <?php 
+			  if( $post ): foreach( $post as $pos ): setup_postdata( $pos );?>
+              <a href="<?php echo get_tag_link($pos->term_id); ?>" class="links"><p><?php echo $pos->name ?><i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></p></a>
+			  <?php endforeach; ?> <?php endif; ?> 
+            </div>
+			  <?php wp_reset_postdata(); ?>
+          </div>
         </div>
         <div class="content-wrapper">
           <?php

@@ -6,6 +6,7 @@ AppName.Modules.ThemeModule = (function () {
   // Private Methods //
   ////////////////////
   const _privateMethod = () => {
+<<<<<<< HEAD
     $('.mobile-filter-triggers').on('click', ()=> {
       $('.search-job-sidebar').toggleClass('active');
       $('body').toggleClass('no-scroll')
@@ -24,6 +25,39 @@ AppName.Modules.ThemeModule = (function () {
         $('body').removeClass('no-scroll');
       }
     });
+=======
+	   
+	  $('.mobile-filter-triggers').on('click', ()=> {
+		  $('.search-job-sidebar').toggleClass('active');
+		  $('body').toggleClass('no-scroll')
+	  })
+
+	  $('.close-filter').on('click', ()=> {
+		  $('.search-job-sidebar').toggleClass('active');
+		  $('body').toggleClass('no-scroll')
+	  })
+	  
+	  $(window).resize(function() {
+		  var viewportWidth = $(window).width();
+
+		  if (viewportWidth >= 992) {
+			  $('.search-job-sidebar').removeClass('active');
+			  $('body').removeClass('no-scroll');
+		  }
+	  });
+	  
+	  
+	  //JOB DETAIL PAGE
+	  var referrer =  document.referrer;
+	  
+	  if(referrer) {
+		  console.log(referrer)
+		  $('.back-link a').attr('href', referrer);
+	  } else {
+		  console.log(referrer)
+		  $('.back-link a').attr('href', '/find-a-job');
+	  }
+>>>>>>> dev-arlon
   };
 
   var _stickynav = function () {
@@ -555,10 +589,13 @@ AppName.Modules.ThemeModule = (function () {
 
   var _search_function = function(){
 	  $(".post-filter .pagination").hide();
+	  $(".post-filter .found-article").hide();
 	  $('.post-filter:not(.insights) #search-btn').on('click', function(event) {
 		event.preventDefault();
-
+		$('.post-filter:not(.insights) #blog-load-more').hide();
 		var searchQuery = $('#search-box').val();
+		var category = $('.post-filter:not(.insights) #filter-dropdown-category').val();
+		console.log(category);
 
 		var val = [];
 		$(".post-filter-side-bar #categories input[type=checkbox]:checked").each(function(i){
@@ -575,6 +612,7 @@ AppName.Modules.ThemeModule = (function () {
 		  success: function(response) {
 			// your success code here
 			jQuery('.post-filter .post-list').html(response);
+			$(".post-filter .found-article").show();
 			var total_page = $("#total_pages").attr("data-pages");
 			var current_page = $("#current_page").attr("data-pages");
 			var found_article = $("#found_article").attr("data-pages");
@@ -593,9 +631,29 @@ AppName.Modules.ThemeModule = (function () {
 		  }
 		});
 	  });
+	  
+	  $('.post-filter:not(.insights) #blog-load-more').on('click', function(event) {
+		  event.preventDefault();
+		  $('.post-filter:not(.insights) #blog-load-more').hide();
+		  $.ajax({
+		  url: ajaxurl,
+		  type: 'POST',
+		  data: {
+			action: 'blog_load_more'
+		  },
+		  success: function(response) {
+			// your success code here
+			jQuery('.post-filter .post-list').html(response);
+		  },
+		  error: function(xhr, status, error) {
+			// your error code here
+		  }
+		});
+	  });
 
 	  $('.post-filter-side-bar #categories input[type=checkbox]').click(function(){
 		  var val = [];
+		  $('.post-filter:not(.insights) #blog-load-more').hide();
 		  $(".post-filter-side-bar #categories input[type=checkbox]:checked").each(function(i){
 			val[i] = $(this).val();
 			$.ajax({
@@ -608,6 +666,7 @@ AppName.Modules.ThemeModule = (function () {
 			  success: function(response) {
 				// your success code here
 				jQuery('.post-filter .post-list').html(response);
+				$(".post-filter .found-article").show();
 				var total_page = $("#total_pages").attr("data-pages");
 				var current_page = $("#current_page").attr("data-pages");
 				var found_article = $("#found_article").attr("data-pages");
@@ -630,7 +689,7 @@ AppName.Modules.ThemeModule = (function () {
 
 	  $('.post-filter .next-page').on('click', function(event) {
 		  event.preventDefault();
-
+		  $('.post-filter:not(.insights) #blog-load-more').hide();
 		  var searchQuery = $('#search-box').val();
 
 		  var val = [];
@@ -652,6 +711,7 @@ AppName.Modules.ThemeModule = (function () {
 				  success: function(response) {
 					// your success code here
 					jQuery('.post-filter .post-list').html(response);
+					$(".post-filter .found-article").show();
 					var total_page = $("#total_pages").attr("data-pages");
 					var current_page = $("#current_page").attr("data-pages");
 					$(".post-filter .total-page").text(total_page);
@@ -672,7 +732,7 @@ AppName.Modules.ThemeModule = (function () {
 
 	  $('.post-filter .prev-page').on('click', function(event) {
 		  event.preventDefault();
-
+		  $('.post-filter:not(.insights) #blog-load-more').hide();
 		  var searchQuery = $('#search-box').val();
 
 		  var val = [];
@@ -693,6 +753,7 @@ AppName.Modules.ThemeModule = (function () {
 			  success: function(response) {
 				// your success code here
 				jQuery('.post-filter .post-list').html(response);
+				$(".post-filter .found-article").show();
 				var total_page = $("#total_pages").attr("data-pages");
 				var current_page = $("#current_page").attr("data-pages");
 				$(".post-filter .total-page").text(total_page);
@@ -937,7 +998,6 @@ AppName.Modules.ThemeModule = (function () {
 //   updateJobResults(1);
 // });
 
-
 function updateJobResults(page) {
   // Get the filter values from the main form
   var keyword = $('#keyword-input').val();
@@ -956,26 +1016,30 @@ function updateJobResults(page) {
 
   // Update the URL parameters
   var urlParams = new URLSearchParams();
-  if (keyword.trim() !== '') {
+  if (keyword && keyword.trim() !== '') {
     urlParams.set('keyword', keyword);
   }
-  if (location.trim() !== '') {
+  if (location && location.trim() !== '') {
     urlParams.set('location', location);
   }
-  if (industry.trim() !== '') {
+  if (industry && industry.trim() !== '') {
     urlParams.set('industry', industry);
   }
-  if (jobTypes.trim() !== '') {
+  if (jobTypes && jobTypes.trim() !== '') {
     urlParams.set('job_type', jobTypes);
   }
-  if (sub_location.trim() !== '') {
-    urlParams.set('sub_location', sub_location);
-  }
-  urlParams.set('page', page);
+	if (sub_location && sub_location.trim() !== '') {
+		urlParams.set('sub_location', sub_location);
+	}
+	
+	if ($('div.search-job')[0]) {
+		urlParams.set('page', page);
+		// Update the browser URL
+		var newUrl = '?' + urlParams.toString();
+		history.pushState(null, '', newUrl);
+	}
 
-  // Update the browser URL
-  var newUrl = '?' + urlParams.toString();
-  history.pushState(null, '', newUrl);
+ 
 
   // Perform the AJAX request
   $.ajax({
@@ -993,14 +1057,68 @@ function updateJobResults(page) {
     beforeSend: function() {
       // Show loading spinner or any other visual indication
       // that the content is being loaded
-      $('#jobs-container').html('Loading...');
+      $('.result-count p').hide();
+      $('#jobs-container').html('<div class="loading"><div></div><div></div><div></div></div>');
     },
     success: function(response) {
-
       // Update the job results container with the received HTML
       $('#jobs-container').html(response.data.html);
-
+		
+	  $('.job-banner-top-title').html(response.data.sub_title);
+	  $('.job-banner-title').html(response.data.header_title);
+	  $('.search-job-content .description').html(response.data.industry_description);
+      $('#pagination-container').show();
+		
+	  if (response.data.query_industry) {
+		  $('.career-move').show();
+	  }
+		
+	  if (response.data.isIndustryFiltered) {
+		  $('.industry .accordion-title span').show();
+		  $('.mobile-filter-triggers .btn.industry').addClass('active');
+	  } else {
+		  $('.industry .accordion-title span').hide();
+		  $('.mobile-filter-triggers .btn.industry').removeClass('active');
+	  }
+		
+	  if (response.data.isJobtypeFiltered) {
+		  $('.job-type .accordion-title span').show();
+		   $('.mobile-filter-triggers .btn.job-type').addClass('active');
+	  } else {
+		  $('.job-type .accordion-title span').hide();
+		  $('.mobile-filter-triggers .btn.job-type').removeClass('active');
+	  }
+		
+	  if (response.data.isSubLocationFiltered) {
+		  $('.sub-location .accordion-title span').show();
+		  $('.mobile-filter-triggers .btn.sub-location').addClass('active');
+	  } else {
+		  $('.sub-location .accordion-title span').hide();
+		  $('.mobile-filter-triggers .btn.sub-location').removeClass('active');
+	  }
+		
+      $('.result-count p').show();
 	  $('.result-count span').html(response.data.count_result);
+		
+	  $('.job-card .read-more').click(function(event) {
+		  event.preventDefault();
+
+		  var link = $(this).attr('href');
+		  var jobID = $(this).attr('data-id');
+		  var jobTitle = $(this).attr('data-title');
+		  
+		  // Set item in local storage
+		  localStorage.setItem('job-id', jobID);
+		  localStorage.setItem('job-title', jobTitle);
+		  
+		  myItemValue = encodeURIComponent(jobTitle).replace(/%20/g, '_');
+
+		  // Add the parameter to the link URL
+		  link += '?' + myItemValue + '&id=' + jobID;
+
+		  // Redirect to the link
+		  window.location.href = link;
+	  })
 
       // Update the current page indicator
       $('.current-page').text(response.data.current_page);
@@ -1017,7 +1135,9 @@ function updateJobResults(page) {
     },
     error: function() {
       // Handle error case if needed
-      $('#jobs-container').html('Error loading job results.');
+      $('#pagination-container').hide();
+      $('.result-count p').hide();
+      $('#jobs-container').html('<div class="text-center pt-5 pb-5">Error loading job results.</div>');
     }
   });
 }
@@ -1032,6 +1152,7 @@ function getURLParameter(name) {
 }
 
 // Get the initial page number from the URL parameter
+// var initialPage = getURLParameter('page');
 var initialPage = getURLParameter('page');
 initialPage = initialPage ? parseInt(initialPage) : 1;
 
@@ -1052,6 +1173,7 @@ if (industry) {
   $.each(industryArray, function(index, value) {
     $('#industry-form input[name="industry"][value="' + value + '"]').prop('checked', true);
   });
+//  updateBannerText(industry);
 }
 
 // Set the sub-location checkboxes based on the URL parameter
@@ -1091,7 +1213,9 @@ $('.pagination-button.next').on('click', function() {
 
 // Industry and sub-location checkbox change event handlers
 $('#industry-form input[name="industry"]').on('change', function() {
+  industryClicked = true;
   updateJobResults(1);
+//   updateBannerText(industry);
 });
 
 $('#sub-location-form input[name="sub_location"]').on('change', function() {
@@ -1116,8 +1240,6 @@ $('#filter-form').on('submit', function(e) {
 
 
 
-
-
    }
   /////////////////////
   // Public Methods //
@@ -1125,6 +1247,7 @@ $('#filter-form').on('submit', function(e) {
   const init = function () {
     _privateMethod();
     _two_column_side_tabs_accordion();
+	_submitCV();
 	_search_function_all();
     _contact_us();
     _collapsing_text();
@@ -1139,7 +1262,6 @@ $('#filter-form').on('submit', function(e) {
     _search_filter();
     _side_bar_filter();
     _fileUploadApplyNow();
-    _submitCV();
     _topNavToggler();
     _stickynav();
     _mainNavToggler();

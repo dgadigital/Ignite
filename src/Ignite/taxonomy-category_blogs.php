@@ -48,7 +48,7 @@ $posts = get_posts(array(
 
 <section class="single-post-banner blue-bg">
   <div class="container">
-    <div class="breadcrumbs"><a href="/blogs"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to Blogs</a></div>
+    <div class="breadcrumbs"><a href="/jobs-in-australia-blog/"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to Blogs</a></div>
     <div class="title">
       <h1>Category: <?php echo get_queried_object()->name; ?></h1>
     </div>
