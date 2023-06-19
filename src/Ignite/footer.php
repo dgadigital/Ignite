@@ -65,7 +65,7 @@
           </div>
           <div class="buttons">
             <a href="/" class="btn btn-solid btn-linkedin">Follow us on</a>
-            <a href="/contact" class="btn btn-solid">Contact Us</a>
+            <a href="/recruitment-agencies-contact" class="btn btn-solid">Contact Us</a>
           </div>
         </div>
       </div>

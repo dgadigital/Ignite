@@ -4,8 +4,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="">
-	<meta name="author" content="">
 	<meta name="format-detection" content="telephone=no">
 <title>
 	<?php bloginfo('name'); ?> |
@@ -157,7 +155,7 @@
             </div>
 
             <div class="nav-button">
-              <a href="/contact" class="btn btn-solid">Contact Us</a>
+              <a href="/recruitment-agencies-contact" class="btn btn-solid">Contact Us</a>
               <!-- <span>Upload your CV or resume here, and we will consider you for any matching job opportunities</span> -->
             </div>
           </div>
@@ -170,7 +168,7 @@
         <div class="dropdown-menu">
           <div class="dropdown-menu-wrapper">
 
-            <a class="dropdown-item dropdown-item-head" href="/job-search/">
+            <a class="dropdown-item dropdown-item-head" href="/find-a-job">
               <div class="title">Job Seekers</div>
               <span class="description">Find a job that's perfect for you</span>
             </a>
@@ -187,7 +185,7 @@
             </div>
 
             <div class="nav-button">
-              <a href="/submit-cv" class="btn btn-solid">Submit your CV</a>
+              <a href="/australia-jobs-submit-cv" class="btn btn-solid">Submit your CV</a>
               <span>Upload your CV or resume here, and we will consider you for any matching job opportunities</span>
             </div>
           </div>
@@ -309,7 +307,7 @@
             </div>
 
             <div class="nav-button">
-              <a href="/request-staff" class="btn btn-solid">Request Staff</a>
+              <a href="/find-staff" class="btn btn-solid">Request Staff</a>
               <span>Find staff quickly across Australia in all Metro, Non - metro, and remote areas.</span>
             </div>
           </div>
@@ -322,7 +320,7 @@
         <div class="dropdown-menu">
           <div class="dropdown-menu-wrapper">
 
-            <a class="dropdown-item dropdown-item-head" href="/contact">
+            <a class="dropdown-item dropdown-item-head" href="/recruitment-agencies-contact">
               <div class="title">Contact Us</div>
               <span class="description">Ignite specialists are ready to support you with all your  needs.</span>
             </a>
@@ -341,7 +339,7 @@
             </div>
 
             <div class="nav-button">
-              <a href="/contact" class="btn btn-solid">Contact Us</a>
+              <a href="/recruitment-agencies-contact" class="btn btn-solid">Contact Us</a>
               <!-- <span>Upload your CV or resume here, and we will consider you for any matching job opportunities</span> -->
             </div>
           </div>

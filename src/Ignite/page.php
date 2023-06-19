@@ -919,7 +919,7 @@
 							<div class="box-columns content-wrapper search-box">
 									<h2 class="pb-4 text-center">Find your next job</h2>
 
-									<form class="search-row" action="job-search" method="GET">
+									<form class="search-row" action="find-a-job" method="GET">
 											<div class="find-job-field">
 													<input type="text" class="form-control find-job" name="keyword" id="keyword" placeholder="Job Title, skills or keywords">
 											</div>
@@ -936,8 +936,6 @@
 													</select>
 											</div>
 											<button type="submit" class="btn btn-search btn-solid"><span class="fa fa-search"></span></button>
-											<!-- <button type="submit" class="btn btn-search btn-solid" aria-label="Search">Search</button> -->
-
 									 </form>
 
 							</div>

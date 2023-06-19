@@ -49,7 +49,7 @@
 							<?php if(get_sub_field("link_roles")):?>
 								<?php if( have_rows('link_roles_repeater') ): ?>
 				  					<?php while( have_rows('link_roles_repeater') ): the_row(); ?>
-										<p class="desc"><a href="<?php echo esc_url(get_sub_field('role')['url']); ?>" target="<?php echo esc_attr(get_sub_field('role')['target']); ?>" ><?php echo esc_html(get_sub_field('role')['title']); ?></a></p>
+										<p class="desc"><a href="/find-a-job/?keyword=<?php echo esc_html(get_sub_field('role')['title']); ?>" target="<?php echo esc_attr(get_sub_field('role')['target']); ?>" ><?php echo esc_html(get_sub_field('role')['title']); ?></a></p>
 									<?php endwhile; ?>
 								<?php endif; ?>
 							<?php endif; ?>
