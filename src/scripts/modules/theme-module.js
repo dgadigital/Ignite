@@ -6,7 +6,24 @@ AppName.Modules.ThemeModule = (function () {
   // Private Methods //
   ////////////////////
   const _privateMethod = () => {
+    $('.mobile-filter-triggers').on('click', ()=> {
+      $('.search-job-sidebar').toggleClass('active');
+      $('body').toggleClass('no-scroll')
+    })
 
+    $('.close-filter').on('click', ()=> {
+      $('.search-job-sidebar').toggleClass('active');
+      $('body').toggleClass('no-scroll')
+    })
+
+    $(window).resize(function() {
+      var viewportWidth = $(window).width();
+
+      if (viewportWidth >= 992) {
+        $('.search-job-sidebar').removeClass('active');
+        $('body').removeClass('no-scroll');
+      }
+    });
   };
 
   var _stickynav = function () {

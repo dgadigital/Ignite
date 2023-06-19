@@ -55,8 +55,9 @@
                 line-height: 70px;
                 color: #FFFFFF;
 
-                @media (max-width: 990px) {
-                    font-size: 50px;
+                @media (max-width: 991px) {
+                    font-size: 38px;
+                    line-height: initial;
                 }
             }
         }
