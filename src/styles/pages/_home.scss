@@ -12,8 +12,18 @@
 
     text-align: center;
   }
-}
+  // hide breadcrumbs on home page
+  .page-breadcrumbs{
+    display: none;
+  }
 
+}
+.single-locations{
+  // hide breadcrumbs on location pages
+  .page-breadcrumbs{
+    display: none;
+  }
+}
 
 .swiper-container {
   margin-top: 40px;

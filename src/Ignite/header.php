@@ -42,59 +42,23 @@
 		<?php endif;?>
 	</div>
 
-	<!--[if lt IE 9]>
-    <div id="browser-notification" class="alert alert-danger">
-      <div class="container">
-        We are sorry but it looks like your <a href="http://www.whatbrowser.org/intl/en_us/" target=_blank>browser</a> doesn't support our website features. In order to get the full experience please download a new version of <a title="Download Chrome" href="http://www.google.com/chrome/" target=_blank>Chrome</a>, <a title="Download Safari" href="http://www.apple.com/safari/download/" target=_blank>Safari</a>, <a title="Download Firefox" href="http://www.mozilla.com/firefox/" target=_blank>Firefox</a>, or <a title="Download Internet Explorer" href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target=_blank>Internet Explorer</a>.
-      </div>
-    </div>
-  <![endif]-->
-
 
 <header>
-<nav class="navbar navbar-top navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+<nav class="navbar navbar-top navbar-expand-lg navbar-light bg-light d-none d-lg-block">
+
+  <div class="container">
     <div class="collapse navbar-collapse ml-auto">
       <div class="close-drawer">
         <span class="fa fa-arrow-right"></span>
       </div>
-		<?php wp_nav_menu( array(
-			'theme_location'  => 'header-top-nav',
-			'depth'           => 2,
-			'container'       => false,
-			'menu_class'      => 'navbar-nav ml-auto',
-			'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-			'walker'          => new WP_Bootstrap_Navwalker(),
-		) ); ?>
-
-<!--       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="https://google.com" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Advise & Insights
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">
-              <div class="title">Career Advice</div>
-              <span class="description">Find a wealth of information and resources to help you navigate your career journey</span>
-            </a>
-            <a class="dropdown-item" href="#">
-              <div class="title">Employer Insights</div>
-              <div class="description">Valuable employer insights on how to attract and retain top talent in your industry</div>
-            </a>
-            <a class="dropdown-item" href="#">
-              <div class="title">Blogs</div>
-              <div class="description">Looking for resources, info or tips? You can find guidance through our blog.</div>
-            </a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/investors">Investor Information</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contractors">Contractors</a>
-        </li>
-      </ul> -->
+      <?php wp_nav_menu( array(
+        'theme_location'  => 'header-top-nav',
+        'depth'           => 2,
+        'container'       => false,
+        'menu_class'      => 'navbar-nav ml-auto',
+        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+        'walker'          => new WP_Bootstrap_Navwalker(),
+      ) ); ?>
     </div>
     <div class="search-wrapper ml-auto">
       <div class="nav-item nav-search">
@@ -105,12 +69,9 @@
           Search
         </a>
       </div>
-			<button class="navbar-toggler" aria-label="Toggle navigation menu">
-
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <button class="navbar-toggler" aria-label="Toggle navigation menu"><span class="navbar-toggler-icon"></span></button>
     </div>
-    </div>
+  </div>
 </nav>
 
 <nav class="navbar navbar-main navbar-expand-lg">
@@ -152,11 +113,12 @@
 					'walker'          => new WP_Bootstrap_Navwalker(),
 				) ); ?>
 
+
             </div>
 
             <div class="nav-button">
               <a href="/recruitment-agencies-contact" class="btn btn-solid">Contact Us</a>
-              <!-- <span>Upload your CV or resume here, and we will consider you for any matching job opportunities</span> -->
+
             </div>
           </div>
         </div>
@@ -182,6 +144,7 @@
 					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 					'walker'          => new WP_Bootstrap_Navwalker(),
 				) ); ?>
+
             </div>
 
             <div class="nav-button">
@@ -205,105 +168,15 @@
 
             <div class="second-level-list">
 
-				<?php wp_nav_menu( array(
-					'theme_location'  => 'header-employer',
-					'depth'           => 2,
-					'container'       => false,
-					'menu_class'      => 'navbar-nav',
-					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-					'walker'          => new WP_Bootstrap_Navwalker(),
-				) ); ?>
+              <?php wp_nav_menu( array(
+                'theme_location'  => 'header-employer',
+                'depth'           => 2,
+                'container'       => false,
+                'menu_class'      => 'navbar-nav',
+                'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                'walker'          => new WP_Bootstrap_Navwalker(),
+              ) ); ?>
 
-<!--               <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="https://google.com" id="innerNavbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                    <div class="title">Services</div>
-                    <div class="description">Search by Work Type</div>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="innerNavbarDropdown">
-                    <a class="dropdown-item" href="/services/contract-temporary-recruitment/">
-                      <div class="title">Contract & Temporary Recruitment</div>
-                      <span class="description">Contract recruitment services across different sectors and industry specialisations.</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Permanent Recruitment</div>
-                      <div class="description">Permanent recruitment solutions for your organisation, from engineering to information management.</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Temporary Recruitment</div>
-                      <div class="description">Temporary recruitment solutions that are responsive and agile to meet the ever-changing workplace</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Technology Solutions</div>
-                      <div class="description">We offer cost-effective technology solutions that streamline business success.</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">On-Demand IT Recruitment</div>
-                      <div class="description">On-demand IT services across metro and regional Australia, providing placement of experienced IT professionals</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Government Recruitment</div>
-                      <div class="description">A top 10 recruitment supplier to the federal government</div>
-                    </a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="https://google.com" id="innerNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="title">Specialisation/Expertise</div>
-                    <div class="description"> Search By Industry</div>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="innerNavbarDropdown">
-                    <a class="dropdown-item" href="/specialisations/it-recruitment/">
-                      <div class="title">IT & Digital Recruitment</div>
-                      <span class="description">A trusted partner to provide you with the best IT professionals for your needs.</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Engineering Recruitment</div>
-                      <div class="description">Contract, temporary and permanent engineering recruitment solutions at all levels of seniority.</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Construction Recruitment</div>
-                      <div class="description">We specialises in construction recruitment, providing contract, temporary and permanent recruitment solutions.</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Cybersecurity Recruitment</div>
-                      <div class="description">Providing cyber security recruitment services for private and government environment.</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Business Support Recruitment</div>
-                      <div class="description">Business support talent in your organisation at precisely the right time, across Australia.</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Defence Recruitment</div>
-                      <div class="description">We confidently recruit for Australian Defence Force to fill a range of critical roles.</div>
-                    </a>
-
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Project Management Recruitment</div>
-                      <div class="description">We have provided leading organisations with expert project management recruitment solutions.</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Professional Service Recruitment</div>
-                      <div class="description">Your next reliable partner in professional service recruitment, offering you 40 years of experience.</div>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <div class="title">Information Management Recruitment</div>
-                      <div class="description">Exceptional contract, temporary and permanent information management recruitment solutions.</div>
-                    </a>
-                  </div>
-                </li>
-              </ul> -->
-
-
-
-              <!-- <a class="dropdown-item" href="#">
-                <div class="title">Services</div>
-                <span class="description">Search by Work Type</span>
-              </a>
-              <a class="dropdown-item" href="#">
-                <div class="title">Specialisation/Expertise</div>
-                <div class="description">Search By Industry</div>
-              </a> -->
             </div>
 
             <div class="nav-button">
@@ -328,28 +201,40 @@
             <div class="second-level-list">
 
               <?php wp_nav_menu( array(
-					'theme_location'  => 'header-contact',
-					'depth'           => 2,
-					'container'       => false,
-					'menu_class'      => 'navbar-nav split',
-					'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-					'walker'          => new WP_Bootstrap_Navwalker(),
-				) ); ?>
+								'theme_location'  => 'header-contact',
+								'depth'           => 2,
+								'container'       => false,
+								'menu_class'      => 'navbar-nav split',
+								'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+								'walker'          => new WP_Bootstrap_Navwalker(),
+							) ); ?>
 
             </div>
 
             <div class="nav-button">
               <a href="/recruitment-agencies-contact" class="btn btn-solid">Contact Us</a>
-              <!-- <span>Upload your CV or resume here, and we will consider you for any matching job opportunities</span> -->
             </div>
           </div>
         </div>
       </li>
     </ul>
-    <!-- <button class="navbar-toggler">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
+		<?php wp_nav_menu( array(
+			'theme_location'  => 'header-top-nav',
+			'depth'           => 2,
+			'container'       => false,
+			'menu_class'      => 'navbar-nav ml-auto d-lg-none',
+			'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+			'walker'          => new WP_Bootstrap_Navwalker(),
+		) ); ?>
   </div>
+
+
+
+
+
+
+
   </div>
+
 </nav>
 </header>
