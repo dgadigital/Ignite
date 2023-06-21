@@ -55,6 +55,8 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 						</div><!-- Meta -->
 						
 					</article>
+			
+			<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
 
 				<?php endwhile; // OK, let's stop the posts loop once we've exhausted our query/number of posts ?>
 				

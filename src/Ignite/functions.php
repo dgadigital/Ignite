@@ -1216,9 +1216,6 @@ function get_all_jobs() {
 	}
 }
 
-
-// Add the following code to functions.php
-
 // AJAX callback for adding CV
 function add_cv() {
     $hash = 'b94253bec084d37217eab789d5b79fc4';
@@ -1257,7 +1254,7 @@ function add_cv() {
     }
 
     // Create the XML data
-    $file = '<idibu><job><id>'.$id.'</id></job><cv><name>'.$fileName.'</name><contents>'.$convert.'</contents></cv><email><from>'.$email.'</from><subject>'.$firstname.' '.$lastname.' from Website</subject><body>'.$firstname.' '.$lastname.' from Website</body></email></idibu>';
+    $file = '<idibu><job><id>33495940</id></job><cv><name>'.$fileName.'</name><contents>'.$convert.'</contents></cv><email><from>'.$email.'</from><subject>'.$firstname.' '.$lastname.' from Website</subject><body>'.$firstname.' '.$lastname.' from Website</body></email></idibu>';
 
     // Send the request
     $url = $baseurl.'?hash='.$hash;

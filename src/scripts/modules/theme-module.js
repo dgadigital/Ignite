@@ -6,26 +6,6 @@ AppName.Modules.ThemeModule = (function () {
   // Private Methods //
   ////////////////////
   const _privateMethod = () => {
-<<<<<<< HEAD
-    $('.mobile-filter-triggers').on('click', ()=> {
-      $('.search-job-sidebar').toggleClass('active');
-      $('body').toggleClass('no-scroll')
-    })
-
-    $('.close-filter').on('click', ()=> {
-      $('.search-job-sidebar').toggleClass('active');
-      $('body').toggleClass('no-scroll')
-    })
-
-    $(window).resize(function() {
-      var viewportWidth = $(window).width();
-
-      if (viewportWidth >= 992) {
-        $('.search-job-sidebar').removeClass('active');
-        $('body').removeClass('no-scroll');
-      }
-    });
-=======
 	   
 	  $('.mobile-filter-triggers').on('click', ()=> {
 		  $('.search-job-sidebar').toggleClass('active');
@@ -51,13 +31,10 @@ AppName.Modules.ThemeModule = (function () {
 	  var referrer =  document.referrer;
 	  
 	  if(referrer) {
-		  console.log(referrer)
 		  $('.back-link a').attr('href', referrer);
 	  } else {
-		  console.log(referrer)
-		  $('.back-link a').attr('href', '/find-a-job');
+		$('.back-link a').attr('href', '/find-a-job');
 	  }
->>>>>>> dev-arlon
   };
 
   var _stickynav = function () {
@@ -1100,26 +1077,38 @@ function updateJobResults(page) {
       $('.result-count p').show();
 	  $('.result-count span').html(response.data.count_result);
 		
-	  $('.job-card .read-more').click(function(event) {
-		  event.preventDefault();
+		$('.job-card .read-more').click(function(event) {
+			event.preventDefault();
 
-		  var link = $(this).attr('href');
-		  var jobID = $(this).attr('data-id');
-		  var jobTitle = $(this).attr('data-title');
-		  
-		  // Set item in local storage
-		  localStorage.setItem('job-id', jobID);
-		  localStorage.setItem('job-title', jobTitle);
-		  
-		  myItemValue = encodeURIComponent(jobTitle).replace(/%20/g, '_');
+			var link = $(this).attr('href');
+			var jobID = $(this).attr('data-id');
+			var jobTitle = $(this).attr('data-title');
 
-		  // Add the parameter to the link URL
-		  link += '?' + myItemValue + '&id=' + jobID;
+			// Set item in local storage
+			localStorage.setItem('job-id', jobID);
+			localStorage.setItem('job-title', jobTitle);
 
-		  // Redirect to the link
-		  window.location.href = link;
-	  })
+			myItemValue = encodeURIComponent(jobTitle).replace(/%20/g, '_');
 
+			// Add the parameter to the link URL
+			link += '?' + myItemValue + '&id=' + jobID;
+
+			// Redirect to the link
+			window.location.href = link;
+		});
+
+// 		$('.apply-btn a').click(function(event) {
+// 			event.preventDefault();
+// 			console.log('asd');
+// 			var link = $(this).attr('href');
+// 			var jobID = $(this).attr('data-id');
+// 			var jobTitle = $(this).attr('data-title');
+			
+// 			myItemValue = encodeURIComponent(jobTitle).replace(/%20/g, '_');
+// 			link += '?' + myItemValue + '&id=' + jobID;
+// 			window.location.href = link;
+// 		});
+		
       // Update the current page indicator
       $('.current-page').text(response.data.current_page);
       $('.total-pages').text(response.data.total_pages);
@@ -1141,11 +1130,6 @@ function updateJobResults(page) {
     }
   });
 }
-
-// ... Rest of the code
-
-
-// Function to retrieve URL parameter value
 function getURLParameter(name) {
   var urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(name);

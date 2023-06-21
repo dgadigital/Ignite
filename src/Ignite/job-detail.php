@@ -12,9 +12,9 @@ $job_id_param = isset($_GET['id']) ? $_GET['id'] : '';
 $hasParam = $job_id_param ? true : false;
 
 foreach ($data as $job) {
-	$job_id = (string) $job->job_id;
 	
-	if ($job_id == $job_id_param) {
+	if ($job->job_id == $job_id_param) {
+		$job_id = (string) $job->job_id;
 		$hasIdMatch = true;
 		$job_reference = (string) $job->job_reference;
 		$job_title = (string) $job->job_title;
@@ -53,7 +53,6 @@ get_header(); ?>
   <main class="page-job-details">
 
     <section class="container">
-		
       <div class="back-link">
         <a href="/">Back to Jobs</a>
       </div>
@@ -86,7 +85,7 @@ get_header(); ?>
           </div>
 
           <div class="apply-btn">
-            <a href="/apply" class="btn btn-solid">Apply</a>
+            <a href="/apply/?<?php echo str_replace('+', '_', urlencode($job_title));?>&id=<?php echo $job_id ?>" class="btn btn-solid">Apply</a>
           </div>
 
           <div class="share-job">
