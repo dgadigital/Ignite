@@ -135,5 +135,22 @@
                 }
             }
         }
+
+        .content-wrapper{
+            .contact-location{
+                display: flex;
+                gap: 77px;
+                align-items: center;
+                
+                .location-text{
+                    color: #353535;
+                    font-size: 21px;
+                    font-weight: 500;
+                    line-height: 28px;
+                    width: 56%;
+                }
+            }
+
+        }
     }
 }
