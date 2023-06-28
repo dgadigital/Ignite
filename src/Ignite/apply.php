@@ -118,43 +118,5 @@ get_header();?>
     </section>
   </main>
 
-<script>
-jQuery(document).ready(function($) {
-    $('#apply-form').submit(function(e) {
-        e.preventDefault();
-        
-        var form = $(this);
-        var formData = new FormData(form[0]);
-        
-        $.ajax({
-            url: form.attr('action'),
-            type: 'POST',
-            data: formData,
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-			beforeSend: function() {
-				$('.form-response').html('Sending your cv...')
-			},
-            success: function(response) {
-                if (response.status === 'success') {
-//                     alert('Application was successfully uploaded');
-					$('.form-response').html('Application was successfully uploaded')
-                } else {
-//                     alert('An error occurred during form submission. Please try again.');
-//                     $('.form-response').html('Application was successfully uploaded')
-                	$('.form-response').html('Application was successfully uploade')
-				}
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-//                 alert('An error occurred during form submission. Please try again.');
-            	$('.form-response').html('An error occurred during form submission. Please try again.')
-			}
-        });
-    });
-});
-</script>
-
 <?php get_footer();
 ?>

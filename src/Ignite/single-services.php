@@ -52,6 +52,12 @@
             </div>
         </div>
     </section>
+		<section class="page-breadcrumbs p-4">
+			<div class="container">
+				<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
+			</div>
+		</section>
+
 	<?php endif;?>
 	<!-- END BANNNER -->
 
@@ -326,7 +332,7 @@
 							<div><a href="<?php echo esc_url(get_sub_field('button_link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('button_link')['target']); ?>" class="btn btn-solid"><?php echo esc_html(get_sub_field('button_link')['title']); ?></a></div>
 						<?php endif;?>
 					</div>
-				
+
 
 					<div id="latest-jobs-section" class="jobs-row">
 						<div class="loading">
@@ -1179,7 +1185,7 @@
 		</section>
 	<?php endif; ?>
 	<!--END THREE COLUMN INFO -->
-			
+
 	<!-- START FOUR COLUMN CARD-->
 	<?php if (get_row_layout() == 'four_column_card'): ?>
 	  <section class="four-column-card title-description-center <?php echo (get_sub_field('section_padding_top') == '0' ? 'pt-0' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '1' ? 'pt-1' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '2' ? 'pt-2' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '3' ? 'pt-3' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '4' ? 'pt-4' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '5' ? 'pt-5' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '0' ? 'pb-0' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '1' ? 'pb-1' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '2' ? 'pb-2' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '3' ? 'pb-3' : ''); ?><?php echo (get_sub_field('section_padding_bottom') == '4' ? 'pb-4' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '5' ? 'pb-5' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
@@ -1205,15 +1211,15 @@
       </section>
 	<?php endif; ?>
 	<!-- END FOUR COLUMN CARD-->
-			
-			
+
+
 	<!-- START FORM EMBED-->
 	<?php if (get_row_layout() == 'form_embed'): ?>
-			
-			
+
+
 	<section class="request-staff <?php if(get_sub_field('add_banner')) : ?>pb-0<?php endif; ?> blue-bg" <?php if(!get_sub_field('add_background_image')) : ?>style="background-image: none;"<?php endif; ?> id="request-staff">
       <div class="container">
-		  
+
 		<?php if( get_sub_field('title') ) { ?>
  			<div class="title-wrapper pb-4">
 			  <h2 class="text-center underline-center"><span><?php echo get_sub_field('title')?></span></h2>
@@ -1224,31 +1230,31 @@
 				<?php endif; ?>
 		    </div>
 		<?php } ?>
-		
+
 		<div class="multi-level-form box-shadow">
 			<?php echo do_shortcode(get_sub_field('embed_form')); ?>
 		</div>
       </div>
-	
+
 	<?php if(get_sub_field('add_banner')) : ?>
       <div class="blue-banner"><!-- no-padding class is an option for acf -->
         <div class="content-container container">
-            
+
             <div class="section-title">
                 <h2><?php the_sub_field('banner_text');?></h2>
             </div>
             <div class="btn-wrapper">
                 <a href="<?php echo esc_url(get_sub_field('banner_button')['url']); ?>" target="<?php echo esc_attr(get_sub_field('banner_button')['target']); ?>" class="btn btn-solid"><?php echo esc_html(get_sub_field('banner_button')['title']); ?></a>
             </div>
-            
+
         </div>
       </div>
 	<?php endif;?>
-		
+
     </section>
-			
-			
-			
+
+
+
 	<?php endif; ?>
 	<!-- END FORM EMBED-->
 

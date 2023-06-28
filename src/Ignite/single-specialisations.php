@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 <main>
-	
+
 <?php if( have_rows('flex_content') ):?>
 	<?php while (have_rows('flex_content') ): the_row();?>
 		<!-- Start Banner -->
 		<?php if (get_row_layout() == 'banner'): ?>
-		<section class="hero-banner d-flex justify-content-center align-items-center" style="background-image: url('<?php echo esc_url(get_sub_field('image')['url']); ?>');">  
+		<section class="hero-banner d-flex justify-content-center align-items-center" style="background-image: url('<?php echo esc_url(get_sub_field('image')['url']); ?>');">
 			<div class="container">
 				<div class="text-center <?php if( get_sub_field('add_content') && get_sub_field('add_button') ): ?>bottom-padding<?php endif;?>"><!-- if values for hero-desc and link for the button doesnt have value  add class "bottom-padding"-->
 					<div class="hero-sub-title">
@@ -23,9 +23,14 @@
 				</div>
 			</div>
 		</section>
+		<section class="page-breadcrumbs p-4">
+			<div class="container">
+				<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
+			</div>
+		</section>
 		<?php endif;?>
 		<!-- End Banner -->
-	
+
 		<!-- Start Two Column Text and Roles -->
 		<?php if (get_row_layout() == 'two_column_text_and_roles'): ?>
 			<section class="two-column-text-sidebar pb-5 grey-bg">
@@ -53,7 +58,7 @@
 									<?php endwhile; ?>
 								<?php endif; ?>
 							<?php endif; ?>
-							
+
 							<?php if(get_sub_field("accordion_roles")):?>
 								<div class="faq-accordion-section specialisation-accordion pb-3">
 								  <div class="container px-0">
@@ -84,7 +89,7 @@
 			</section>
 		<?php endif; ?>
 		<!-- End of Two Column Text and Role -->
-	
+
 		<!-- Start Fullwidth -->
 		<?php if (get_row_layout() == 'full_width_text'): ?>
 			<section class="full-width-text <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?> <?php echo (get_sub_field('text_center') ? 'text-center' : 'text-left'); ?> <?php echo (get_sub_field('padding_top') == 'Default' ? '' : 'pt-'); ?><?php echo (get_sub_field('padding_top') ? ''.get_sub_field('padding_top') : '0'); ?> <?php echo (get_sub_field('padding_bottom') == 'Default' ? '' : 'pb-'); ?><?php echo (get_sub_field('padding_bottom')); ?>" style="background-image: url('<?php the_sub_field('background_image'); ?>')">
@@ -113,7 +118,7 @@
 			</section>
 		<?php endif; ?>
 		<!-- End of Fullwidth -->
-		
+
 		<!-- Start Card Carousel -->
 		<?php if (get_row_layout() == 'card_carousel'): ?>
 			<section class="card-carousel <?php echo (get_sub_field('padding_top') == 'Default' ? '' : 'pt-'); ?><?php echo (get_sub_field('padding_top') ? ''.get_sub_field('padding_top') : '0'); ?> <?php echo (get_sub_field('padding_bottom') == 'Default' ? '' : 'pb-'); ?><?php echo (get_sub_field('padding_bottom')); ?> <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'White Vector' ? 'white-top-bg-vector' : ''); ?>">
@@ -151,7 +156,7 @@
 			</section>
 		<?php endif; ?>
 		<!-- End Card Carousel -->
-	
+
 		<!-- Start Blue Banner -->
 		<?php if (get_row_layout() == 'blue_banner'): ?>
 		<section class="blue-banner <?php echo (get_sub_field('padding_top') == 'Default' ? '' : 'pt-'); ?><?php echo (get_sub_field('padding_top') ? ''.get_sub_field('padding_top') : '0'); ?> <?php echo (get_sub_field('padding_bottom') == 'Default' ? '' : 'pb-'); ?><?php echo (get_sub_field('padding_bottom')); ?> <?php echo (get_sub_field('add_absolute_vector_background') ? 'white-bg-vector-absolute' : ''); ?>">
@@ -159,7 +164,7 @@
 				<div class="section-title">
 					<h2><?php the_sub_field('title'); ?></h2>
 				</div>
-				<div class="btn-wrapper"> 
+				<div class="btn-wrapper">
 					<?php if( get_sub_field('button_left') ): ?><a href="<?php echo esc_url(get_sub_field('button_left')['url']); ?>" target="<?php echo esc_attr(get_sub_field('button_left')['target']); ?>" class="btn btn-solid py-2"><?php echo esc_html(get_sub_field('button_left')['title']); ?></a><?php endif;?>
 					<?php if( get_sub_field('button_right') ): ?><a href="<?php echo esc_url(get_sub_field('button_right')['url']); ?>" target="<?php echo esc_attr(get_sub_field('button_right')['target']); ?>" class="btn btn-border py-2"><?php echo esc_html(get_sub_field('button_right')['title']); ?></a> --><!-- if blank it will not appear --><?php endif;?>
 				</div>
@@ -167,7 +172,7 @@
 		</section>
 		<?php endif;?>
 		<!-- End Blue Banner -->
-	
+
 		<!-- Start Logo Carousel -->
 		<?php if (get_row_layout() == 'logo_carousel'): ?>
 		<section class="logo-carousel">
@@ -190,7 +195,7 @@
 		</section>
 		<?php endif;?>
 		<!-- End Logo Carousel -->
-	
+
 		<!-- Start Forms -->
 		<?php if (get_row_layout() == 'section_form'): ?>
 		<section class="blue-bg">
@@ -203,14 +208,14 @@
 		</section>
 		<?php endif;?>
 		<!-- End Forms -->
-	
-	
+
+
 	<?php endwhile;?>
 <?php endif;?>
-	
-	
-	
 
-	
+
+
+
+
 </main>
 <?php get_footer();  ?>

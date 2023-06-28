@@ -52,7 +52,7 @@
             </div>
         </div>
     </section>
-		<section class="page-breadcrumbs pt-4 pb-0">
+		<section class="page-breadcrumbs p-4">
 			<div class="container">
 				<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
 	    </div>
@@ -515,9 +515,10 @@
 							<div><a href="<?php echo esc_url(get_sub_field('button_link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('button_link')['target']); ?>" class="btn btn-solid"><?php echo esc_html(get_sub_field('button_link')['title']); ?></a></div>
 						<?php endif;?>
 					</div>
-
-
-					<div id="latest-jobs-section" class="jobs-row">
+					
+					<?php $page_title = strtolower(get_the_title()); ?>
+				
+					<div id="latest-jobs-section" class="jobs-row" data-location="<?php echo $page_title;?>">
 						<div class="loading">
 							<div></div>
 							<div></div>
@@ -1183,10 +1184,10 @@
 		</section>
 	<?php endif; ?>
 	<!--End icons_section -->
-	<!-- START THREE COLUMN INFO-->
+	<!-- START COLUMN INFO-->
 	<?php if (get_row_layout() == 'three_column_info'): ?>
-		<section class="three-column-info">
-				<div class="three-column-info-container container">
+		<section class="column-info">
+				<div class="column-info-container container">
 					<?php if( get_sub_field('title') ): ?>
 						<div class="section-title">
 								<div class="section-title">
@@ -1202,7 +1203,7 @@
 						</div>
 					<?php endif;?>
 
-						<div class="three-column-info-stats-row">
+						<div class="column-info-stats-row">
 							<?php
 								if( have_rows('column-container') ):
 										// Loop through rows.

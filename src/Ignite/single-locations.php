@@ -52,7 +52,7 @@
             </div>
         </div>
     </section>
-		<section class="page-breadcrumbs pt-4 pb-0">
+		<section class="page-breadcrumbs p-4">
 			<div class="container">
 				<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
 	    </div>

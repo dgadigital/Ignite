@@ -241,7 +241,7 @@ function custom_post_locations() {
 		'description'			=> 'Holds our Locations specific data',
 		'labels'                => $labels,
 		'supports'              => array( 'title','editor','thumbnail'),
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => true,
 		'has_archive'			=> false,
 		'show_ui'               => true,
@@ -260,11 +260,11 @@ function custom_post_locations() {
 		'show_in_rest' => true,
 		'capability_type'       => 'post',
 	);
-	register_post_type( 'locations', $args );
-	register_taxonomy('category_locations','services',array('heirarchical'=>true,'show_admin_column'=> true,'label'=>'Categories','query_var'=>true,'rewrite'=>true));
-	register_taxonomy('tags_locations','locations',array('heirarchical'=>false,'show_admin_column'=> true,'label'=>'Tags','query_var'=>true,'rewrite'=>true));
+// 	register_post_type( 'locations', $args );
+// 	register_taxonomy('category_locations','locations',array('heirarchical'=>true,'show_admin_column'=> true,'label'=>'Categories','query_var'=>true,'rewrite'=>true));
+// 	register_taxonomy('tags_locations','locations',array('heirarchical'=>false,'show_admin_column'=> true,'label'=>'Tags','query_var'=>true,'rewrite'=>true));
 }
-add_action( 'init', 'custom_post_locations' );
+// add_action( 'init', 'custom_post_locations' );
 
 
 function custom_post_consultants() {
@@ -839,6 +839,8 @@ add_action('update_xml_cron', 'update_xml_file');
 /////////////////////////////////
 
 function get_jobs_section() {
+    
+				
     $xml_path = get_stylesheet_directory() . '/igniteservices.xml';
     $xml_data = '';
 
@@ -850,24 +852,20 @@ function get_jobs_section() {
 
         $res = json_decode($json_data, true);
 
-//      $title = $res['job'][1]['job_title'];
-
 		$jobs = $res['job'];
 
-// 		echo '<pre>';
-// 		print_r ($res);
-// 		echo '</pre>';
+// 		$i = 0;
 
-		$i = 0;
 		foreach ($jobs as $job) {
-
 			$salary_from = number_format($job['salary_from'], 2, '.', ',');
 			$salary_to = number_format($job['salary_to'], 2, '.', ',');
 
-			echo '<div class="">
+         
+
+			echo '<div class="item '.strtolower($job['job_location']).'">
 									<div class="job-card">
 									<div class="job-category">'.$job['job_industry'].'</div>
-									<div class="job-title">'.$job['job_title'].'</div>
+									<div class="job-title">'.$job['job_title'].''.$page_id.'</div>
 
 									<div class="job-details">
 											<div class="d-flex justify-content-between  mb-4">
@@ -890,14 +888,15 @@ function get_jobs_section() {
 											</div>
 									</div>
 
-											<a href="/apply/" class="btn btn-solid">Apply Now</a>
+											<a href="/apply/?'.str_replace('+', '_', urlencode($job['job_title'])).'&id='.$job['job_id'].'" class="btn btn-solid">Apply Now</a>
 
 									</div>
 							</div>';
 
 
 
-			if (++$i == 9) break;
+// 			if (++$i == 9) break;
+                
 		}
 
 
@@ -907,9 +906,9 @@ function get_jobs_section() {
 
 	wp_die();
 }
-
 add_action('wp_ajax_get_jobs_section', 'get_jobs_section');
 add_action('wp_ajax_nopriv_get_jobs_section', 'get_jobs_section');
+
 
 
 //////////////////////////////////
@@ -1142,7 +1141,7 @@ foreach ($jobsArray as $job) {
                 </div>
                 <div class="actions">
                   <div class="action-cta">
-                    <a href="/apply/" data-id="'.$job->job_id.'" data-title="'.$job->job_title.'" class="btn btn-border apply">Apply Now</a>
+                    <a href="/apply/?'.str_replace('+', '_', urlencode($job->job_title)).'&id='.$job->job_id.'" data-id="'.$job->job_id.'" data-title="'.$job->job_title.'" class="btn btn-border apply">Apply Now</a>
                     <a href="/job-detail/" data-id="'.$job->job_id.'" data-title="'.$job->job_title.'" class="btn btn-solid read-more">Read More</a>
                   </div>
                 </div>
@@ -1172,7 +1171,7 @@ foreach ($jobsArray as $job) {
 
   	 	endwhile;
  	endif;
-	
+
   $isIndustryFiltered = $industry ? true : false;
   $isJobtypeFiltered = $job_type ? true : false;
   $isSubLocationFiltered = $sub_location ? true : false;
@@ -1224,12 +1223,7 @@ function add_cv() {
     // Get the job ID from the query parameters
     $id = isset($_GET['id']) ? $_GET['id'] : '';
 
-    // Check if the job ID is numeric or base64-encoded
-    if (is_numeric($id)) {
-        $jobId = $id; // Numeric job ID
-    } else {
-        $jobId = base64_decode($id); // URL-safe base64-encoded job ID
-    }
+	$real_job_id = substr($id, 7);
 
     // Set the headers
     $headers = array(
@@ -1254,7 +1248,7 @@ function add_cv() {
     }
 
     // Create the XML data
-    $file = '<idibu><job><id>33495940</id></job><cv><name>'.$fileName.'</name><contents>'.$convert.'</contents></cv><email><from>'.$email.'</from><subject>'.$firstname.' '.$lastname.' from Website</subject><body>'.$firstname.' '.$lastname.' from Website</body></email></idibu>';
+    $file = '<idibu><job><id>'.$real_job_id.'</id></job><cv><name>'.$fileName.'</name><contents>'.$convert.'</contents></cv><email><from>'.$email.'</from><subject>'.$firstname.' '.$lastname.' from Website</subject><body>'.$firstname.' '.$lastname.' from Website</body></email></idibu>';
 
     // Send the request
     $url = $baseurl.'?hash='.$hash;
@@ -1263,7 +1257,7 @@ function add_cv() {
         'data' => $file
     );
     $datasend = http_build_query($info);
-	
+
 	//Request
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
