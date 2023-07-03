@@ -16,11 +16,11 @@
         
         #custom-text {
             margin-left: 10px;
-            
-            span {
+
+            &.error {
                 color: red;
             }
-        }          
+        }     
     }
 
     .btn {
