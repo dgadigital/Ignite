@@ -88,7 +88,7 @@
 <nav class="navbar navbar-main navbar-expand-lg">
   <div class="container">
   <a class="navbar-brand" href="/">
-    <img src="./assets/images/nav-logo.png">
+    <img src="./assets/images/Ignite-Logo-Optimised.png">
   </a>
   <button class="navbar-toggler" type="button">
     <span class="top-icon"></span>
@@ -574,9 +574,10 @@
             <img src="./assets/images/footer-logo.png">
           </div>
           <div class="footer-search">
-            <div class="search-job-field">
-              <input type="text" class="form-control search-jobs" placeholder="Search Jobs">
-            </div>
+            <form class="row flex-nowrap pl-2 pr-2" action="job-search" method="GET">
+              <input type="text" class="form-control search-jobs mr-2" placeholder="Search Jobs" name="keyword" />
+              <button type="submit" class="btn btn-search btn-solid"><span class="fa fa-search"></span></button>
+            </form>
           </div>
         </div>
       </div>
