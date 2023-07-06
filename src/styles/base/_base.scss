@@ -179,3 +179,12 @@ body.logged-in.admin-bar {
     transform: translate3d(0, -1rem, 0);
   }
 }
+
+.thankyou {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
