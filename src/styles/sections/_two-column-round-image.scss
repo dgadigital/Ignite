@@ -34,12 +34,7 @@
                             .column-title{
                                 color: #d50;
                             }
-                            // .column-text{
-                            //     p{
-                            //         text-decoration: none!important;
-                            //     }
-                            //     color: #d50;                                
-                            // }                            
+
                         }
                     }
                 }
@@ -51,6 +46,10 @@
                 .column-text-wrapper{
                     
                     .column-title{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;                    
                         font-style: normal;
                         font-weight: 500;
                         font-size: 25px;
