@@ -76,6 +76,10 @@
             transform: translateY(-50%);
         }
     }
+
+    &.disabled {
+        pointer-events: none;
+    }
 }
 
 .btn-search {
