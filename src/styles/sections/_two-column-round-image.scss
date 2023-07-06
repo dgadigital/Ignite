@@ -58,19 +58,12 @@
                         text-align: center;
                         letter-spacing: 0.5px;
                         color: #353535;
-                        &:after {
-                            content: '';
-                            position: absolute;
-                            right: -5px;
-                            top: 22%;
-                            display: block;
+                        
+                        img{
                             height: 19px;
                             width: 13px;
-                            background-image: url(https://ignitecostg.wpengine.com/wp-content/themes/Ignite/assets/images/left.svg);
-                            background-repeat: no-repeat;
-                            background-position: center;
-                            background-size: cover;
                             transform: rotate(180deg);
+                            margin-left: 10px;
                         }
 
                     }
