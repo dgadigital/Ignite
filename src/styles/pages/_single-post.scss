@@ -1,6 +1,9 @@
 .single-post-banner{
     position: relative;
     padding: 90px 0;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: left top !important;
     svg{
         animation-play-state: paused;
         &:hover{
