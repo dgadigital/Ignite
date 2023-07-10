@@ -56,7 +56,7 @@ get_header(); ?>
     </section>
 
     <section id="post-filter-side-bar" class="post-filter-side-bar single-post">
-      <div class="container">
+      <div class="container flex-row-reverse">
         <div class="side-bar-accordion">
           <div class="recent-post box-shadow">
             <p class="title">Recent Posts</p>
@@ -95,17 +95,7 @@ get_header(); ?>
         </div>
         <div class="content-wrapper">
 						<?php the_content(); ?>
-						<hr />
-						<div class="contact-location d-flex">
-							<div class="location-text">
-								Contact our <?php echo $parent_id? $parent->post_title:"";?> recruitment team today to chat about your needs.
-							</div>
-							<div class="">
-								<a href="https://ignitecodev.wpengine.com/recruitment-agencies-contact/" target="" class="btn btn-solid py-2">Let’s chat now</a>
-							</div>
-						</div>
-
-						<hr />
+						
         </div>
 	  </div>
 

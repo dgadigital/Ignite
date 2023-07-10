@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * 	Template Name: Job Search
 */
@@ -58,7 +58,7 @@ foreach ($data as $job) {
 
 get_header(); ?>
 	<main>
-	 <section class="hero-banner d-flex justify-content-center align-items-center" style=" background-image: url('/wp-content/uploads/2023/06/find-job-banner.png');">  
+	 <section class="hero-banner d-flex justify-content-center align-items-center" style=" background-image: url('/wp-content/uploads/2023/06/find-job-banner.png');">
         <div class="container">
             <div class="text-center bottom-padding"><!-- if values for hero-desc and link for the button doesnt have value  add class "bottom-padding"-->
                 <div class="hero-sub-title">
@@ -67,7 +67,7 @@ get_header(); ?>
                 <div class="hero-title">
                     <h1 class="job-banner-title"><?php echo get_field('initial_title', 'option'); ?></h1>
                 </div>
-            </div>           
+            </div>
         </div>
     </section>
 
@@ -104,11 +104,11 @@ get_header(); ?>
 						 <form id="job-type-form">
 							 <?php foreach ($jobTypes as $jobType => $count) { ?>
 								 <label>
-									 <input type="checkbox" name="job_type" value="<?php echo $jobType; ?>"> 
+									 <input type="checkbox" name="job_type" value="<?php echo $jobType; ?>">
 									 <span class="label"><?php echo $jobType; ?></span>
 									 <span class="count"><?php echo $count; ?></span>
 								 </label>
-							 <?php } ?> 
+							 <?php } ?>
 						  </form>
                       </div>
                     </div>
@@ -131,10 +131,10 @@ get_header(); ?>
 				  </div>
                 </div>
               </div>
-            </div>  
+            </div>
           </div>
           <div class="search-job-content">
-			  
+
 			<div class="description">
               <?php echo get_field('initial_description', 'option'); ?>
             </div>
@@ -186,8 +186,8 @@ get_header(); ?>
               <button class="pagination-button prev" disabled></button>
               <button class="pagination-button next" disabled></button>
             </div>
-				
-			
+
+
 
           </div>
         </div>
@@ -200,11 +200,11 @@ get_header(); ?>
       <div class="container">
         <div class="content">
           <h2><span>Is your next career move missing from the list above?</span></h2>
-          <p>Many sought-after roles are never advertised, but filled by talented  professionals on our database. Register below and you’ll be contacted by a recruitment specialist within 24 hours, unlocking access to career-defining roles across our extensive network.</p>
+          <p>Many sought-after roles are never advertised, but filled by talented  professionals on our database. Register below and you’ll be contacted by a recruitment specialist, unlocking access to career-defining roles across our extensive network.</p>
         </div>
         <div class="multi-level-form box-shadow">
 
-          <?php echo do_shortcode('[contact-form-7 id="9135" title="Submit a Position"]');?>
+          <?php echo do_shortcode('[contact-form-7 id="8643" title="Submit your CV"]');?>
 
         </div>
 

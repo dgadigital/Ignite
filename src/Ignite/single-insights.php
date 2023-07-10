@@ -42,11 +42,11 @@
     </section>
 
     <section id="post-filter-side-bar" class="post-filter-side-bar single-post">
-      <div class="container">
+      <div class="container flex-row-reverse">
         <div class="side-bar-accordion">
           <div class="recent-post box-shadow">
             <p class="title">Recent Posts</p>
-			<?php 
+			<?php
 				$posts = get_posts(array(
 					'post_type' => 'insights',
 					'post_status' => 'publish',
@@ -57,7 +57,7 @@
 
 				if($posts): ?>
             <div class="post-wrapper">
-			  <?php foreach($posts as $post): 
+			  <?php foreach($posts as $post):
 			  setup_postdata( $post ); ?>
               <a href="<?php the_permalink(); ?>" class="links"><p><?php the_title(); ?></p></a>
 			  <?php endforeach; ?>
@@ -85,13 +85,13 @@
 		  <img src="<?php echo esc_html($image_url)?>" alt="<?php echo esc_html($alt_text)?>">
           <?php the_content(); ?>
           <div class="next-article">
-			<?php foreach($posts as $post): 
+			<?php foreach($posts as $post):
 			  setup_postdata( $post ); ?>
             <div class="post">
               <div class="image-wrapper">
                 <a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a>
               </div>
-			  
+
               <div class="content-wrapper">
                 <p class="title">NEXT ARTICLE</p>
                 <div class="image-wrapper mb-3">

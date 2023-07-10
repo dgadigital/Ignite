@@ -120,7 +120,7 @@ function custom_post_specialisations() {
 		'description'			=> 'Holds our Specialisations specific data',
 		'labels'                => $labels,
 		'supports'              => array( 'title','editor','thumbnail'),
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => true,
 		'has_archive'			=> false,
 		'show_ui'               => true,
@@ -530,10 +530,36 @@ function post_search() {
 		),
 	  );
   }
-  elseif($searchQuery != '' && $blogs_category == ''){
+ if($searchQuery != '' && $blogs_category == ''){
 	  $args = array(
 		's' => $searchQuery,
 		'post_type' => array( 'blogs', 'insights' ),
+		'posts_per_page' => 6,
+		'paged' => $paged,
+	  );
+  } 
+	
+ if($searchQuery == '' && $blogs_category != ''){
+	  $args = array(
+		's' => $searchQuery,
+		'post_type' => array( 'blogs' ),
+		'posts_per_page' => 6,
+		'tax_query' => array(
+		'relation' => 'AND',
+		'paged' => $paged,
+		array(
+			'taxonomy' => 'category_blogs',
+			'field'    => 'slug',
+			'terms'    => $blogs_category,
+		),
+		),
+	  );
+  }
+	
+   if($searchQuery == '' && $blogs_category == ''){
+	  $args = array(
+		's' => $searchQuery,
+		'post_type' => array( 'blogs' ),
 		'posts_per_page' => 6,
 		'paged' => $paged,
 	  );
@@ -839,8 +865,8 @@ add_action('update_xml_cron', 'update_xml_file');
 /////////////////////////////////
 
 function get_jobs_section() {
-    
-				
+
+
     $xml_path = get_stylesheet_directory() . '/igniteservices.xml';
     $xml_data = '';
 
@@ -860,9 +886,9 @@ function get_jobs_section() {
 			$salary_from = number_format($job['salary_from'], 2, '.', ',');
 			$salary_to = number_format($job['salary_to'], 2, '.', ',');
 
-         
 
-			echo '<div class="item '.strtolower($job['job_location']).'">
+
+			echo '<div class="item '.strtolower($job['job_location']).' '.$job['job_type'].'">
 									<div class="job-card">
 									<div class="job-category">'.$job['job_industry'].'</div>
 									<div class="job-title">'.$job['job_title'].''.$page_id.'</div>
@@ -896,7 +922,7 @@ function get_jobs_section() {
 
 
 // 			if (++$i == 9) break;
-                
+
 		}
 
 
@@ -1130,7 +1156,7 @@ foreach ($jobsArray as $job) {
                   <p>'. $elapsedTimeText .'</p>
                 </div>
                 <div class="content">
-                  <h3><a href="/job-detail/" data-id="'.$job->job_id.'" data-title="'.$job->job_title.'" class="title-link">'. $job->job_title .'</a></h3>
+                  <h3><a href="/job-detail/?'.str_replace('+', '_', urlencode($job->job_title)).'&id='.$job->job_id.'" data-id="'.$job->job_id.'" data-title="'.$job->job_title.'" class="title-link">'. $job->job_title .'</a></h3>
                   <div class="details">
                     <span>'. $job->job_location .'</span>
                     '. $detailsHtml .'
@@ -1220,11 +1246,6 @@ function add_cv() {
     $hash = 'b94253bec084d37217eab789d5b79fc4';
     $baseurl = 'https://ws.idibu.com/ws/rest/v1/applicants/add-cv';
 
-    // Get the job ID from the query parameters
-    $id = isset($_GET['id']) ? $_GET['id'] : '';
-
-	$real_job_id = substr($id, 7);
-
     // Set the headers
     $headers = array(
         'Accept: application/xml',
@@ -1232,6 +1253,7 @@ function add_cv() {
     );
 
     // Get the form data
+    $job_id = isset($_POST['job_id']) ? $_POST['job_id'] : '';
     $firstname = isset($_POST['firstName']) ? $_POST['firstName'] : '';
     $lastname = isset($_POST['lastName']) ? $_POST['lastName'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
@@ -1247,8 +1269,10 @@ function add_cv() {
         $convert = base64_encode(file_get_contents($tmpName));
     }
 
-    // Create the XML data
-    $file = '<idibu><job><id>'.$real_job_id.'</id></job><cv><name>'.$fileName.'</name><contents>'.$convert.'</contents></cv><email><from>'.$email.'</from><subject>'.$firstname.' '.$lastname.' from Website</subject><body>'.$firstname.' '.$lastname.' from Website</body></email></idibu>';
+    // Get the job ID from the query parameters
+//    $id = isset($_GET['id']) ? $_GET['id'] : '';
+
+    $file = '<idibu><job><id>'.$job_id.'</id><portal>362</portal></job><cv><name>'.$fileName.'</name><contents>'.$convert.'</contents></cv><email><from>'.$email.'</from><subject>'.$firstname.' '.$lastname.' from Website</subject><body>'.$firstname.' '.$lastname.' from Website</body></email></idibu>';
 
     // Send the request
     $url = $baseurl.'?hash='.$hash;

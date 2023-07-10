@@ -127,7 +127,7 @@
 								<div class="button-container pb-2">
 									<?php if( have_rows('socials_repeater') ): ?>
 										 <?php while( have_rows('socials_repeater') ): the_row(); ?>
-										 <a href="<?php echo esc_url(get_sub_field('image_url')['url']); ?>">
+										 <a href="<?php echo esc_url(get_sub_field('image_url')['url']); ?>" target="_blank">
 											 <img src="<?php echo esc_url(get_sub_field('social_icon')['url']); ?>" target="<?php echo esc_attr(get_sub_field('social_icon')['target']); ?>" alt="<?php echo esc_attr(get_sub_field('social_icon')['alt']); ?>" />
 										 </a>
 										<?php endwhile; ?>
@@ -515,9 +515,9 @@
 							<div><a href="<?php echo esc_url(get_sub_field('button_link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('button_link')['target']); ?>" class="btn btn-solid"><?php echo esc_html(get_sub_field('button_link')['title']); ?></a></div>
 						<?php endif;?>
 					</div>
-					
+
 					<?php $page_title = strtolower(get_the_title()); ?>
-				
+
 					<div id="latest-jobs-section" class="jobs-row" data-location="<?php echo $page_title;?>">
 						<div class="loading">
 							<div></div>
@@ -976,7 +976,7 @@
 											$page_link_left_target = esc_html($page_link_left['target'] ? $page_link_left['target'] : '_self');
 										}?>
 
-						<div class="column-content col-lg-4 col-md-6 col-12">
+						<div class="column-content col-lg-5 col-md-6 col-12">
 								<div class="column-image">
 									<?php
 										$image_left = get_sub_field('image_left');
@@ -990,10 +990,8 @@
 								</div>
 								<div class="column-text-wrapper">
 										<?php if( get_sub_field('left_column_title') ): ?>
-											<a href="<?php echo esc_url($page_link_left_url) ?>" target="<?php echo esc_attr($page_link_left_target) ?>">
-												<div class="column-title">
-													<?php the_sub_field('left_column_title'); ?>
-												</div>
+											<a class="column-title" href="<?php echo esc_url($page_link_left_url) ?>" target="<?php echo esc_attr($page_link_left_target) ?>">
+													<?php the_sub_field('left_column_title'); ?><img src="<?php echo get_template_directory_uri(); ?>/assets/images/left.svg" alt="">
 											</a>
 										<?php endif;?>
 										<?php if( get_sub_field('left_column_text') ): ?>
@@ -1010,7 +1008,7 @@
 								$page_link_right_title = esc_attr($page_link_right['title']);
 								$page_link_right_target = esc_html($page_link_right['target'] ? $page_link_right['target'] : '_self');
 						}?>
-						<div class="column-content col-lg-4 col-md-6 col-12">
+						<div class="column-content col-lg-5 col-md-6 col-12">
 									<div class="column-image">
 										<?php
 											$image_right = get_sub_field('image_right');
@@ -1024,10 +1022,10 @@
 									</div>
 									<div class="column-text-wrapper">
 											<?php if( get_sub_field('right_column_title') ): ?>
-												<a href="<?php echo esc_url($page_link_right_url) ?>" target="<?php echo esc_attr($page_link_right_target) ?>">
-													<div class="column-title">
-														<?php the_sub_field('right_column_title'); ?>
-													</div>
+												<a class="column-title" href="<?php echo esc_url($page_link_right_url) ?>" target="<?php echo esc_attr($page_link_right_target) ?>">
+
+														<?php the_sub_field('right_column_title'); ?><img src="<?php echo get_template_directory_uri(); ?>/assets/images/left.svg" alt="">
+
 												</a>
 
 											<?php endif;?>

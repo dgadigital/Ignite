@@ -332,9 +332,18 @@
 							<div><a href="<?php echo esc_url(get_sub_field('button_link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('button_link')['target']); ?>" class="btn btn-solid"><?php echo esc_html(get_sub_field('button_link')['title']); ?></a></div>
 						<?php endif;?>
 					</div>
+                        
+                    <?php
+                        $array = get_sub_field('job_type');
 
+                        $string = '';
+                        foreach ($array as $item) {
+                            $string .= $item . ' ';
+                        }
+                        $string = trim($string);
+                    ?>
 
-					<div id="latest-jobs-section" class="jobs-row">
+					<div id="latest-jobs-section" class="jobs-row" data-job-type="<?php echo $string; ?>">
 						<div class="loading">
 							<div></div>
 							<div></div>

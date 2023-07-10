@@ -9,10 +9,10 @@
 			<?php endif; ?>
         </div>
         <div class="footer-search">
-          <form class="search-job-field" action="job-search" method="GET">
-            <input type="text" class="form-control search-jobs" placeholder="Search Jobs" name="keyword" value="<?php echo isset($_GET['keyword'])?$_GET['keyword']:''; ?>" />
-            <input type="submit" name="" class="d-none">
-          </form>
+            <form class="row flex-nowrap pl-2 pr-2" action="find-a-job" method="GET">
+              <input type="text" class="form-control search-jobs mr-2 pl-3" placeholder="Search Jobs" name="keyword" value="<?php echo isset($_GET['keyword'])?$_GET['keyword']:''; ?>"/>
+              <button type="submit" class="btn btn-search btn-solid"><span class="fa fa-search"></span></button>
+            </form>
         </div>
       </div>
     </div>
@@ -57,14 +57,14 @@
         <div class="footer-misc-wrapper">
           <div class="links">
             <div class="item">
-              <a href="/search">
+<!--               <a href="/search">
                 <img src="<?php echo get_template_directory_uri();?>/assets/images/search-icon.png" alt="search icon">
                 <span>Search</span>
-              </a>
+              </a> -->
             </div>
           </div>
           <div class="buttons">
-            <a href="/" class="btn btn-solid btn-linkedin">Follow us on</a>
+            <a href="https://www.linkedin.com/company/igniteco/" class="btn btn-solid btn-linkedin" target="_blank">Follow us on</a>
             <a href="/recruitment-agencies-contact" class="btn btn-solid">Contact Us</a>
           </div>
         </div>

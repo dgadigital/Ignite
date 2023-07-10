@@ -8,6 +8,7 @@ $data = get_all_jobs();
 
 
 $job_id_param = isset($_GET['id']) ? $_GET['id'] : '';
+$real_job_id = substr($job_id_param, 7);
 
 $hasParam = $job_id_param ? true : false;
 
@@ -50,10 +51,10 @@ get_header();?>
 	
 	<?php if($hasIdMatch) { ?>
       <h1><?php echo $job_title;?></h1>
-
+       
       <div class="row">
         <div class="col-lg-5">
-
+            
           <div class="job-table row">
             <div class="col-4 title">Contract Type</div>
             <div class="col-7 description"><?php echo $job_type;?></div>
@@ -74,13 +75,20 @@ get_header();?>
 	<form id="apply-form" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" method="post" enctype="multipart/form-data">
           <div class="form-row">
             <div class="form-group col-lg-8">
-              <input type="text" class="form-control grey-field no-border" name="firstName" placeholder="Firstname*">
+              <input type="hidden" class="form-control grey-field no-border" name="job_id" value="<?php echo $real_job_id;?>">
+			 
             </div>
             <div class="form-group col-lg-8">
-              <input type="text" class="form-control grey-field no-border" name="lastName" placeholder="Lastname*">
+              <input type="text" class="form-control grey-field no-border firstnamefield" name="firstName" placeholder="Firstname*" >
+				 <span class="error text-danger firstnamefield-error d-none">Firstname Required</span>
+            </div>
+            <div class="form-group col-lg-8">
+              <input type="text" class="form-control grey-field no-border lastnamefield" name="lastName" placeholder="Lastname*" >
+				<span class="error text-danger lastnamefield-error d-none">Lastname Required</span>
             </div>
             <div class="form-group col-lg-8 pb-2">
-              <input type="email" class="form-control grey-field no-border" name="email" placeholder="Email*">
+              <input type="email" class="form-control grey-field no-border emailfield" name="email" placeholder="Email*">
+				 <span class="error text-danger emailfield-error d-none">Email Required</span>
             </div>
             <div class="form-group col-lg-8 pb-2">
               <span>Attach CVS*</span>

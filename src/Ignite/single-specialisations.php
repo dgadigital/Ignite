@@ -198,7 +198,7 @@
 
 		<!-- Start Forms -->
 		<?php if (get_row_layout() == 'section_form'): ?>
-		<section class="blue-bg">
+		<section class="blue-bg" id="contact_form">
 		  <div class="container px-lg-5">
 			<h2 class="text-center mb-5 px-lg-5"><span><?php the_sub_field('title'); ?></span></h2>
 			<div class="multi-level-form box-shadow">

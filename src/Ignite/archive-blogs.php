@@ -1,15 +1,15 @@
 <?php get_header(); ?>
 
 <main>
-	
+
 <?php $flexible_content = get_field('flex_content_blogs', 'option', 'blogs-post-type-options');
 
 if ($flexible_content) {
     foreach ($flexible_content as $field) { ?>
-	
+
 	<!-- START BANNER -->
 	<?php if ($field['acf_fc_layout'] == 'banner') : ?>
-	<section class="hero-banner d-flex justify-content-center align-items-center" style="background: linear-gradient(0deg, rgba(0, 40, 144, 0.54), rgba(0, 40, 144, 0.54)), linear-gradient(90.09deg, #FFFFFF -5.41%, rgba(255, 255, 255, 0) 2.91%, rgba(255, 255, 255, 0) 11.41%, #FFFFFF 50vw), url('<?php echo esc_url($field['image']['url']); ?>');">  
+	<section class="hero-banner d-flex justify-content-center align-items-center" style="background: linear-gradient(0deg, rgba(0, 40, 144, 0.54), rgba(0, 40, 144, 0.54)), linear-gradient(90.09deg, #FFFFFF -5.41%, rgba(255, 255, 255, 0) 2.91%, rgba(255, 255, 255, 0) 11.41%, #FFFFFF 50vw), url('<?php echo esc_url($field['image']['url']); ?>');">
         <div class="container">
             <div class="text-center <?php if( $field['add_content'] && $field['add_button'] ): ?>bottom-padding<?php endif;?>"><!-- if values for hero-desc and link for the button doesnt have value  add class "bottom-padding"-->
                 <div class="hero-sub-title">
@@ -52,9 +52,9 @@ if ($flexible_content) {
                 <div class="content-wrapper">
                   <p class="accordion-title">Categories</p>
                   <div class="panel select">
-					<?php 
+					<?php
 					$args = array(
-						'taxonomy'   => array( 'category_blogs', 'category_insights' ),
+						'taxonomy'   => array( 'category_blogs'),
 						'hide_empty' => false,
 						'order'      => 'asc'
 					);
@@ -64,13 +64,17 @@ if ($flexible_content) {
                     <label>
                       <input type="checkbox" name="position_of_interest" value="<?php echo $category->name; ?>">
                       <span class="label"><?php echo $category->name; ?></span>
+
                     </label>
-					<?php endforeach; ?> <?php endif; ?>  
+					<?php endforeach; ?> <?php endif; ?>
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+
         </div>
         <div class="post-filter">
           <div class="row-container">
@@ -80,7 +84,7 @@ if ($flexible_content) {
 				  <?php $categories = get_categories($args);
 				  if( $categories ): foreach( $categories as $category ):?>
                   <option value="<?php echo $category->name; ?>" data-badge=""><?php echo $category->name; ?></option>
-				  <?php endforeach; ?> <?php endif; ?>  
+				  <?php endforeach; ?> <?php endif; ?>
                 </select>
               </div>
             </div>
@@ -93,7 +97,7 @@ if ($flexible_content) {
               </div>
             </div>
           </div>
-			<?php 
+			<?php
 				$posts = get_posts(array(
 					'post_type' => array( 'blogs', 'insights' ),
 					'post_status' => 'publish',
@@ -105,7 +109,7 @@ if ($flexible_content) {
 			<?php $i=0; foreach($posts as $post): $i++;?> <?php endforeach; ?>
           <h3 class="found-article">Found <?php echo $i; ?> Articles</h3>
           <div class="post-list column-2">
-			  <?php foreach($posts as $post): 
+			  <?php foreach($posts as $post):
 			  setup_postdata( $post ); $i++;?>
 			<div class="post">
               <div class="image-wrapper">
@@ -146,11 +150,11 @@ if ($flexible_content) {
           </div>
       </div>
     </section>
-		
+
 <?php }
 }
 ?>
-	
+
 </main>
 
 <?php get_footer(); ?>

@@ -40,95 +40,103 @@
         </a>
       </div>
     </section>
+		<section id="post-filter-side-bar" class="post-filter-side-bar single-post">
+		  <div class="container flex-row-reverse">
+		    <div class="side-bar-accordion">
+		      <div class="recent-post box-shadow">
+		        <p class="title">Recent Posts</p>
+				<?php
+					$posts = get_posts(array(
+						'post_type' => 'blogs',
+						'post_status' => 'publish',
+						'posts_per_page' => 3,
+						'orderby' => 'date',
+						'order' => 'DESC'
+					));
 
-    <section id="post-filter-side-bar" class="post-filter-side-bar single-post">
-      <div class="container">
-        <div class="side-bar-accordion">
-          <div class="recent-post box-shadow">
-            <p class="title">Recent Posts</p>
-			<?php 
+					if($posts): ?>
+		        <div class="post-wrapper">
+				  <?php foreach($posts as $post):
+				  setup_postdata( $post ); ?>
+		          <a href="<?php the_permalink(); ?>" class="links"><p><?php the_title(); ?></p></a>
+				  <?php endforeach; ?>
+		        </div>
+				  <?php endif; ?>
+				  <?php wp_reset_postdata(); ?>
+		      </div>
+			  <div class="more-topics">
+		        <p class="title">More on these topics</p>
+				<?php
+					$post = get_tags(array(
+						'taxonomy'   => array( 'tags_blogs' ),
+						'hide_empty' => false,
+						'order'      => 'asc'
+					)); ?>
+
+		        <div class="post-wrapper">
+				  <?php
+				  if( $post ): foreach( $post as $pos ): setup_postdata( $pos );?>
+		          <a href="<?php echo get_tag_link($pos->term_id); ?>" class="links"><p><?php echo $pos->name ?><i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></p></a>
+				  <?php endforeach; ?> <?php endif; ?>
+		        </div>
+				  <?php wp_reset_postdata(); ?>
+		      </div>
+		    </div>
+		    <div class="content-wrapper">
+		      <?php
 				$posts = get_posts(array(
-					'post_type' => 'blogs',
-					'post_status' => 'publish',
-					'posts_per_page' => 3,
-					'orderby' => 'date',
-					'order' => 'DESC'
-				));
+						'post_type' => 'blogs',
+						'post_status' => 'publish',
+						'posts_per_page' => 1,
+						'orderby' => 'rand',
+						'order' => 'DESC',
+						'post__not_in' => array($current_id)
+					));
 
-				if($posts): ?>
-            <div class="post-wrapper">
-			  <?php foreach($posts as $post): 
-			  setup_postdata( $post ); ?>
-              <a href="<?php the_permalink(); ?>" class="links"><p><?php the_title(); ?></p></a>
-			  <?php endforeach; ?>
-            </div>
+				if($posts):
+				$featured_image_id = get_post_thumbnail_id(get_the_ID());
+				$alt_text = get_post_meta($featured_image_id, '_wp_attachment_image_alt', true);
+				$image_url = wp_get_attachment_image_src($featured_image_id, 'full')[0];
+			  ?>
+			  <img src="<?php echo esc_html($image_url)?>" alt="<?php echo esc_html($alt_text)?>">
+		      <?php the_content(); ?>
+		      <div class="next-article">
+				<?php
+				$next_post = get_adjacent_post(false, '', false);
+				if ($next_post) : setup_postdata($next_post);
+					$featured_image_id = get_post_thumbnail_id(get_the_ID());
+					$alt_text = get_post_meta($featured_image_id, '_wp_attachment_image_alt', true);
+					$image_url = wp_get_attachment_image_src($featured_image_id, 'full')[0];
+				?>
+				<div class="post">
+					<div class="image-wrapper">
+						<a href="<?php echo get_permalink($next_post); ?>"><?php echo get_the_post_thumbnail($next_post); ?></a>
+					</div>
+
+					<div class="content-wrapper">
+						<p class="title">NEXT ARTICLE</p>
+						<div class="image-wrapper mb-3">
+							<a href="<?php echo get_permalink($next_post); ?>"><?php echo get_the_post_thumbnail($next_post); ?></a>
+						</div>
+						<h4 class="post-title"><?php echo get_the_title($next_post); ?></h4>
+						<p><?php echo wp_strip_all_tags(substr(get_the_content($next_post), 0, 250) . "..."); ?></p>
+						<a href="<?php echo get_permalink($next_post); ?>" class="link-arrow">Read More</a>
+					</div>
+				</div>
+				<?php
+					wp_reset_postdata();
+				endif;
+				?>
+		      </div>
 			  <?php endif; ?>
-			  <?php wp_reset_postdata(); ?>
-          </div>
-		  <div class="more-topics">
-            <p class="title">More on these topics</p>
-			<?php 
-				$post = get_tags(array(
-					'taxonomy'   => array( 'tags_blogs' ),
-					'hide_empty' => false,
-					'order'      => 'asc'
-				)); ?>
-			  
-            <div class="post-wrapper">
-			  <?php 
-			  if( $post ): foreach( $post as $pos ): setup_postdata( $pos );?>
-              <a href="<?php echo get_tag_link($pos->term_id); ?>" class="links"><p><?php echo $pos->name ?><i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></p></a>
-			  <?php endforeach; ?> <?php endif; ?> 
-            </div>
-			  <?php wp_reset_postdata(); ?>
-          </div>
-        </div>
-        <div class="content-wrapper">
-          <?php
-			$posts = get_posts(array(
-					'post_type' => 'blogs',
-					'post_status' => 'publish',
-					'posts_per_page' => 1,
-					'orderby' => 'rand',
-					'order' => 'DESC',
-					'post__not_in' => array($current_id)
-				));
+			  <div class="buttons-article mt-3">
+				<?php echo previous_post_link('%link','<span class="btn-prev float-left"><i class="fa fa-chevron-left mr-2" aria-hidden="true"></i>Previous Article</span>',false); ?>
+				<?php echo next_post_link('%link','<span class="btn-next float-right">Next Article<i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></span>',false); ?>
+		      </div>
+		    </div>
+		  </div>
+		</section>
 
-			if($posts):
-			$featured_image_id = get_post_thumbnail_id(get_the_ID());
-			$alt_text = get_post_meta($featured_image_id, '_wp_attachment_image_alt', true);
-			$image_url = wp_get_attachment_image_src($featured_image_id, 'full')[0];
-		  ?>
-		  <img src="<?php echo esc_html($image_url)?>" alt="<?php echo esc_html($alt_text)?>">
-          <?php the_content(); ?>
-          <div class="next-article">
-			<?php foreach($posts as $post): 
-			  setup_postdata( $post ); ?>
-            <div class="post">
-              <div class="image-wrapper">
-                <a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a>
-              </div>
-			  
-              <div class="content-wrapper">
-                <p class="title">NEXT ARTICLE</p>
-                <div class="image-wrapper mb-3">
-                  <a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a>
-                </div>
-                <h4 class="post-title"><?php the_title(); ?></h4>
-                <p><?php echo wp_strip_all_tags(substr(get_the_content(), 0, 250)."..."); ?></p>
-                <a href="<?php echo get_permalink() ?>" class="link-arrow">Read More</a>
-              </div>
-            </div>
-			<?php endforeach; ?>
-          </div>
-		  <?php endif; ?>
-		  <div class="buttons-article mt-3">
-			<?php echo previous_post_link('%link','<span class="btn-prev float-left"><i class="fa fa-chevron-left mr-2" aria-hidden="true"></i>Previous Article</span>',false); ?>
-			<?php echo next_post_link('%link','<span class="btn-next float-right">Next Article<i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></span>',false); ?>
-          </div>
-        </div>
-	  </div>
-    </section>
 
 </main>
 <?php get_footer();  ?>

@@ -28,10 +28,42 @@
 	<script type="text/javascript">var ajaxurl = "<?php echo admin_url('admin-ajax.php');?>";</script>
 	<script type="text/javascript">var $ = jQuery;</script>
 	<script>if (window.location.pathname === '/services/' || window.location.pathname === '/specialisations/' || window.location.pathname === '/locations/') {window.location.replace('/');}</script>
+	
+	<script type="text/javascript">
+    window.hfAccountId = "619a33f7-ff07-4dfd-b895-b738151fa041";
+    window.hfDomain = "https://api.herefish.com";
+    (function() {
+        var hf = document.createElement('script'); hf.type = 'text/javascript'; hf.async = true;
+        hf.src = window.hfDomain + '/scripts/hf.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hf, s);
+    })();
+</script>
+	
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHLBLXH');</script>
+<!-- End Google Tag Manager -->
+
 
 </head>
 
 <body <?php body_class(); ?>>
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHLBLXH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-87099201-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-87099201-1');
+</script>
 
 	<div class="sticky-side-widgets">
 		<?php if( get_field('show_widget1', 'option') ): ?>
@@ -61,14 +93,14 @@
       ) ); ?>
     </div>
     <div class="search-wrapper ml-auto">
-      <div class="nav-item nav-search">
+<!--       <div class="nav-item nav-search">
         <a class="nav-link" href="/search">
           <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0292 12.8286L13.709 12.5199C14.8296 11.2163 15.5043 9.52387 15.5043 7.68282C15.5043 3.57762 12.1767 0.25 8.07149 0.25C3.96629 0.25 0.638672 3.57762 0.638672 7.68282C0.638672 11.788 3.96629 15.1156 8.07149 15.1156C9.91254 15.1156 11.6049 14.441 12.9085 13.3203L13.2173 13.6405V14.5439L18.9348 20.25L20.6387 18.5462L14.9326 12.8286H14.0292ZM2.92713 7.68269C2.92713 4.83535 5.22559 2.5369 8.07293 2.5369C10.9203 2.5369 13.2187 4.83535 13.2187 7.68269C13.2187 10.53 10.9203 12.8285 8.07293 12.8285C5.22559 12.8285 2.92713 10.53 2.92713 7.68269Z"/>
           </svg>
           Search
         </a>
-      </div>
+      </div> -->
       <button class="navbar-toggler" aria-label="Toggle navigation menu"><span class="navbar-toggler-icon"></span></button>
     </div>
   </div>
@@ -77,7 +109,7 @@
 <nav class="navbar navbar-main navbar-expand-lg">
   <div class="container">
   <a class="navbar-brand" href="/">
-    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/nav-logo.png" alt="ignite logo">
+    <img src="/wp-content/uploads/2023/07/177x78.webp" alt="ignite logo">
   </a>
 	<button class="navbar-toggler" type="button" aria-label="Toggle navigation">
 	    <span class="top-icon"></span>
