@@ -36,6 +36,9 @@
                   justify-content: center;
                   align-items: center;
                   margin: 5px 11.5px;
+                  @media (max-width: 768px) {
+                    margin: 5px 7px;
+                  }  
 
                   button {
                     background-color: #ffffff;

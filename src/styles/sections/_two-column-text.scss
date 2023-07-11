@@ -28,8 +28,9 @@
                     }
                 }
                 .normal-ul{
+                    
                     ul{
-
+                        list-style: disc;
                         li{
                             display: list-item;
                             &::marker{
