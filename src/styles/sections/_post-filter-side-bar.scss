@@ -138,6 +138,13 @@
         }
 
         .content-wrapper{
+            .article-body{
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 24px;
+                color: #000;
+            }
             .contact-location{
                 display: flex;
                 gap: 77px;

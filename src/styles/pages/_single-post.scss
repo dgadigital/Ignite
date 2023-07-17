@@ -4,6 +4,9 @@
     background-repeat: no-repeat!important;
     background-size: cover!important;
     background-position: left top !important;
+    @media (min-width: 1441px) {
+        max-height: 504.59px;
+    }
     svg{
         animation-play-state: paused;
         &:hover{
@@ -39,12 +42,15 @@
             }
         }
         .title{
-            h1{
+            
                 font-style: normal;
                 font-weight: 400;
-                font-size: 65px;
+                /*font-size: 65px;*/
                 line-height: 70px;
                 color: $text-color;
+                @media (min-width: 1441px) {
+                    font-size: calc(5.5vh + 2px);
+                }
                 @media(max-width: 991px){
                     font-size: 50px;
                     font-family: $font-raleway-medium;
@@ -54,7 +60,7 @@
                     font-family: $font-raleway-semibold;
                     line-height: 50px;
                 }
-            }
+            
         }
     }
 }
