@@ -138,7 +138,7 @@
         }
 
         .content-wrapper{
-            .article-body{
+            &.article-body{
                 p{
                     font-style: normal;
                     font-weight: 400;
@@ -146,8 +146,12 @@
                     line-height: 24px;
                     color: #000;
                 }
+                li{
+                    line-height: 24px;
+                }
                 
             }
+
             .contact-location{
                 display: flex;
                 gap: 77px;
