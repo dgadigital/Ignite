@@ -157,6 +157,9 @@
                 display: flex;
                 gap: 77px;
                 align-items: center;
+                @media(max-width: 767px){
+                    flex-direction: column;
+                }
                 
                 .location-text{
                     color: #353535;
@@ -164,6 +167,11 @@
                     font-weight: 500;
                     line-height: 28px;
                     width: 84%;
+
+                    @media(max-width: 767px){
+                        text-align: center;
+                    }
+                    
                 }
             }
 
