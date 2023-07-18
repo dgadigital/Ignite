@@ -143,11 +143,12 @@
                     font-style: normal;
                     font-weight: 400;
                     font-size: 14px;
-                    line-height: 24px;
+                    line-height: 30px;/*changed to lineheight 30 as per client*/
                     color: #000;
                 }
                 li{
-                    line-height: 24px;
+                    line-height: 30px;/*changed to lineheight 30 as per client*/
+                    margin-bottom: 1rem; 
                 }
                 
             }

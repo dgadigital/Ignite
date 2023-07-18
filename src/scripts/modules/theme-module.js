@@ -6,7 +6,99 @@ AppName.Modules.ThemeModule = (function () {
   // Private Methods //
   ////////////////////
   const _privateMethod = () => {
-	   
+
+
+// 	  const $phoneInput = $(".au-phone-format");
+// 	  $phoneInput.on("input", formatPhoneInput);
+// 	  function formatPhoneInput() {
+// 		let phoneNumber = $phoneInput.val().replace(/\D/g, ""); // Remove non-digit characters
+// 		phoneNumber = phoneNumber.slice(0, 10); // Limit to 10 digits
+
+// 		const formattedNumber = phoneNumber.replace(/^(\d{2})(\d{0,8})$/, "$1 $2"); // Insert space after first two digits
+
+// 		$phoneInput.val(formattedNumber);
+// 	  }
+//
+//
+
+
+	  $(".au-phone-format").each(function() {
+		const $phoneInput = $(this);
+		const $phoneError = $phoneInput.closest(".wpcf7-form-control-wrap").siblings(".phone-error");
+		const $submitButton = $phoneInput.closest('form').find('.wpcf7-submit');
+		const $eligibility = $('select[name=WorkEligibility]')
+
+		$phoneInput.on("input", formatPhoneInput);
+
+		function formatPhoneInput() {
+		  const $parentForm = $phoneInput.closest('form');
+		  const $workEligibilitySelect = $parentForm.find('select[name="WorkEligibility"]');
+		  const hasWorkEligibility = $workEligibilitySelect.length > 0;
+
+		  let phoneNumber = $phoneInput.val().replace(/\D/g, "");
+		  phoneNumber = phoneNumber.slice(0, 10);
+		  const isValidLength = phoneNumber.length === 10;
+		  const isValidPrefix = /^(02|03|04|07|08)/.test(phoneNumber);
+
+		  if (!hasWorkEligibility) {
+			  if (isValidLength && isValidPrefix) {
+				  $phoneError.addClass('d-none');
+				  $submitButton.removeClass('disabled');
+			  } else {
+				  $phoneError.removeClass('d-none');
+				  $submitButton.addClass('disabled');
+			  }
+		  } else {
+// 			  console.log($workEligibilitySelect.val())
+			  if (isValidLength && isValidPrefix) {
+				  $phoneError.addClass('d-none');
+			  } else {
+				  $phoneError.removeClass('d-none');
+			  }
+
+			  if (isValidLength && isValidPrefix && $workEligibilitySelect.val() != 'Work Visa Required (work not currently permitted)') {
+				  $submitButton.removeClass('disabled');
+			  }
+
+			  if(isValidLength && isValidPrefix && $workEligibilitySelect.val() === 'Work Visa Required (work not currently permitted)') {
+				  $submitButton.addClass('disabled');
+			  }
+
+			  if(!isValidLength && !isValidPrefix && $workEligibilitySelect.val() != 'Work Visa Required (work not currently permitted)') {
+				  $submitButton.addClass('disabled');
+			  }
+
+		  }
+
+		  const formattedNumber = phoneNumber.replace(/^(\d{2})(\d{0,8})$/, "$1 $2");
+		  $phoneInput.val(formattedNumber);
+		}
+	  });
+
+
+	  $('select[name=WorkEligibility]').change(function() {
+		  var fieldValue = $(this).val();
+		  let phoneNumberValue = $(this).closest('form').find('.au-phone-format').val();
+		  let phoneNumberDigits = phoneNumberValue.replace(/\D/g, "");
+    	  let isValidLength = phoneNumberDigits.length === 10;
+
+		  let isValidPrefix = /^(02|03|04|07|08)/.test(phoneNumberValue);
+
+		  if(fieldValue === 'Work Visa Required (work not currently permitted)') {
+			 $('.submit-cv-form .wpcf7-submit').addClass('disabled');
+			 $('span[data-name=WorkEligibility]').append('<span class="workEligibilityError" aria-hidden="true">Australian working rights required</span>')
+		  }
+
+		  if (fieldValue != 'Work Visa Required (work not currently permitted)' && isValidLength && isValidPrefix) {
+			  $('.submit-cv-form .wpcf7-submit').removeClass('disabled');
+			  $('.workEligibilityError').remove();
+		  }
+
+		  if (fieldValue != 'Work Visa Required (work not currently permitted)' && !isValidLength && !isValidPrefix) {
+			  $('.workEligibilityError').remove();
+		  }
+	  });
+
 	  $('.mobile-filter-triggers').on('click', ()=> {
 		  $('.search-job-sidebar').toggleClass('active');
 		  $('body').toggleClass('no-scroll')
@@ -16,7 +108,7 @@ AppName.Modules.ThemeModule = (function () {
 		  $('.search-job-sidebar').toggleClass('active');
 		  $('body').toggleClass('no-scroll')
 	  })
-	  
+
 	  $(window).resize(function() {
 		  var viewportWidth = $(window).width();
 
@@ -25,16 +117,24 @@ AppName.Modules.ThemeModule = (function () {
 			  $('body').removeClass('no-scroll');
 		  }
 	  });
-	  
-	  
+
+
 	  //JOB DETAIL PAGE
 	  var referrer =  document.referrer;
-	  
-	  if(referrer) {
+
+	  var findJob = "find-a-job";
+	  var jobDetail = "job-detail";
+	  var apply = "apply";
+
+
+	  if (referrer.includes(findJob) && referrer && $('.page-job-details')[0]) {
+		  $('.back-link a').attr('href', referrer);
+	  } else if (referrer.includes(jobDetail) && referrer && $('.page-apply-now')[0]) {
 		  $('.back-link a').attr('href', referrer);
 	  } else {
-		$('.back-link a').attr('href', '/find-a-job');
-	  }
+		  $('.back-link a').attr('href', '/find-a-job');
+  	  }
+
   };
 
   var _stickynav = function () {
@@ -81,6 +181,13 @@ AppName.Modules.ThemeModule = (function () {
       }
 
     });
+	  $(document).click(function(event) {
+		  var targetElement = $(".navbar-main .nav-link.parent");
+
+		  if (!targetElement.is(event.target) && targetElement.has(event.target).length === 0) {
+			  $('.dropdown-menu').removeClass('show');
+		  }
+	  });
 
     $('.navbar-main .nav-link.parent').each(function(){
       $(this).click((e) => {
@@ -136,6 +243,8 @@ AppName.Modules.ThemeModule = (function () {
           customTxt.innerHTML = realFileBtn.value.match(
             /[\/\\]([\w\d\s\.\-\(\)]+)$/
           )[1];
+
+		  $("#custom-text").removeClass('error');
         } else {
           customTxt.innerHTML = "No file chosen, yet.";
         }
@@ -182,51 +291,59 @@ AppName.Modules.ThemeModule = (function () {
 
   const _latestJobs = function(){
 
+    // AJAX JOBS LIST REQUEST
+  $.ajax({
+    url: ajaxurl,
+    type: 'GET',
+    data: {
+      'action': 'get_jobs_section'
+    },
+    complete: function() {
+      $('.ajax-loading').hide();
+    },
+    success: function(response) {
 
-  // AJAX JOBS LIST REQUEST
-	  $.ajax({
-        url: ajaxurl,
-        type: 'GET',
-        data: {
-            'action': 'get_jobs_section'
+          $('#latest-jobs-section').html(response);
+
+	  var locationValue = $('#latest-jobs-section').data('location');
+	  var $totalItems = $('#latest-jobs-section .item').length;
+	  var $items = $('#latest-jobs-section .item').not('.' + locationValue);
+	  if ($totalItems != $items.length) {
+		$items.remove();
+	  }
+
+
+
+      $('.jobs-row').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        dots: true,
+        arrows: true,
+        appendArrows: $('.pagination-container'),
+        appendDots: $('.dot-container'),
+        customPaging: function(slider, i) {
+          return '<button class="d-none">' + (i + 1) + '</button>';
         },
-		complete: function(){
-			  $('.ajax-loading').hide();
-		},
-        success: function(response) {
-            $('#latest-jobs-section').html(response);
+        responsive: [
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
 
-			$('.jobs-row').slick({
-			  infinite: true,
-			  slidesToShow: 3,
-			  slidesToScroll: 3,
-			  dots: true,
-			  arrows: true,
-			  appendArrows: $('.pagination-container'),
-			  appendDots: $('.dot-container'),
-			  customPaging: function(slider, i) {
-				  return '<button class="d-none">' + (i + 1) + '</button>';
-			  },
-			  responsive: [
-
-				  {
-					breakpoint: 991,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2
-					}
-				},
-				  {
-					  breakpoint: 768,
-					  settings: {
-						  slidesToShow: 1,
-						  slidesToScroll: 1
-					  }
-				  }
-			  ]
-			});
-
-			var slickDotsCount = $('.lastest-jobs-section .slick-dots').children().length;
+      var slickDotsCount = $('.lastest-jobs-section .slick-dots').children().length;
 			var numItemsnumber = parseInt(slickDotsCount);
 			var formattednumItemsnumber = (numItemsnumber < 10 ? '0' : '') + numItemsnumber;
 			$('#num-items').text(formattednumItemsnumber);
@@ -242,11 +359,12 @@ AppName.Modules.ThemeModule = (function () {
 			  var formattedactiveTabTextnumber = (activeTabTextnumber < 10 ? '0' : '') + activeTabTextnumber;
 					$('#index').text(formattedactiveTabTextnumber);
 			});
-        },
-        error: function(xhr, status, error) {
-            console.log('Error:', error);
-        }
-    });
+
+      },
+    error: function(xhr, status, error) {
+      console.log('Error:', error);
+    }
+  });
 
   }
 
@@ -571,7 +689,7 @@ AppName.Modules.ThemeModule = (function () {
 		event.preventDefault();
 		$('.post-filter:not(.insights) #blog-load-more').hide();
 		var searchQuery = $('#search-box').val();
-		var category = $('.post-filter:not(.insights) #filter-dropdown-category').val();
+		var category = $('.post-filter #filter-dropdown-category').val();
 		console.log(category);
 
 		var val = [];
@@ -608,7 +726,7 @@ AppName.Modules.ThemeModule = (function () {
 		  }
 		});
 	  });
-	  
+
 	  $('.post-filter:not(.insights) #blog-load-more').on('click', function(event) {
 		  event.preventDefault();
 		  $('.post-filter:not(.insights) #blog-load-more').hide();
@@ -1008,7 +1126,7 @@ function updateJobResults(page) {
 	if (sub_location && sub_location.trim() !== '') {
 		urlParams.set('sub_location', sub_location);
 	}
-	
+
 	if ($('div.search-job')[0]) {
 		urlParams.set('page', page);
 		// Update the browser URL
@@ -1016,7 +1134,7 @@ function updateJobResults(page) {
 		history.pushState(null, '', newUrl);
 	}
 
- 
+
 
   // Perform the AJAX request
   $.ajax({
@@ -1040,16 +1158,16 @@ function updateJobResults(page) {
     success: function(response) {
       // Update the job results container with the received HTML
       $('#jobs-container').html(response.data.html);
-		
+
 	  $('.job-banner-top-title').html(response.data.sub_title);
 	  $('.job-banner-title').html(response.data.header_title);
 	  $('.search-job-content .description').html(response.data.industry_description);
       $('#pagination-container').show();
-		
+
 	  if (response.data.query_industry) {
 		  $('.career-move').show();
 	  }
-		
+
 	  if (response.data.isIndustryFiltered) {
 		  $('.industry .accordion-title span').show();
 		  $('.mobile-filter-triggers .btn.industry').addClass('active');
@@ -1057,7 +1175,7 @@ function updateJobResults(page) {
 		  $('.industry .accordion-title span').hide();
 		  $('.mobile-filter-triggers .btn.industry').removeClass('active');
 	  }
-		
+
 	  if (response.data.isJobtypeFiltered) {
 		  $('.job-type .accordion-title span').show();
 		   $('.mobile-filter-triggers .btn.job-type').addClass('active');
@@ -1065,7 +1183,7 @@ function updateJobResults(page) {
 		  $('.job-type .accordion-title span').hide();
 		  $('.mobile-filter-triggers .btn.job-type').removeClass('active');
 	  }
-		
+
 	  if (response.data.isSubLocationFiltered) {
 		  $('.sub-location .accordion-title span').show();
 		  $('.mobile-filter-triggers .btn.sub-location').addClass('active');
@@ -1073,10 +1191,10 @@ function updateJobResults(page) {
 		  $('.sub-location .accordion-title span').hide();
 		  $('.mobile-filter-triggers .btn.sub-location').removeClass('active');
 	  }
-		
+
       $('.result-count p').show();
 	  $('.result-count span').html(response.data.count_result);
-		
+
 		$('.job-card .read-more').click(function(event) {
 			event.preventDefault();
 
@@ -1103,12 +1221,12 @@ function updateJobResults(page) {
 // 			var link = $(this).attr('href');
 // 			var jobID = $(this).attr('data-id');
 // 			var jobTitle = $(this).attr('data-title');
-			
+
 // 			myItemValue = encodeURIComponent(jobTitle).replace(/%20/g, '_');
 // 			link += '?' + myItemValue + '&id=' + jobID;
 // 			window.location.href = link;
 // 		});
-		
+
       // Update the current page indicator
       $('.current-page').text(response.data.current_page);
       $('.total-pages').text(response.data.total_pages);
@@ -1217,14 +1335,103 @@ $('#filter-form').on('submit', function(e) {
   updateJobResults(1);
 });
 
-
-
-
-
-
-
-
    }
+
+   const _apply_form = function(){
+	   $('#apply-form').submit(function(e) {
+		   e.preventDefault();
+
+		   var form = $(this);
+		   var formData = new FormData(form[0]);
+
+		  const realFileBtn = $("#real-file");
+      	  const customTxt = $("#custom-text");
+		  const nameField = $('.firstnamefield');
+		  const lastnameField = $('.lastnamefield');
+          const emailField = $('.emailfield');
+
+		   if(!nameField.val()) {
+		   	$('.firstnamefield-error').removeClass('d-none');
+		   } else {
+			   $('.firstnamefield-error').addClass('d-none');
+		   }
+
+		   if(!lastnameField.val()) {
+		    $('.lastnamefield-error').removeClass('d-none');
+		   } else {
+			   $('.lastnamefield-error').addClass('d-none');
+		   }
+
+		   if(!emailField.val()) {
+		     $('.emailfield-error').removeClass('d-none');
+		   } else {
+			   $('.emailfield-error').addClass('d-none');
+		   }
+
+		   if(!realFileBtn.val()) {
+		   	 customTxt.addClass('error');
+		     customTxt.html('No files attached');
+		   }
+
+
+
+        if (realFileBtn.val() && nameField.val() && lastnameField.val() && emailField.val()) {
+			$.ajax({
+			   url: form.attr('action'),
+			   type: 'POST',
+			   data: formData,
+			   dataType: 'json',
+			   processData: false,
+			   contentType: false,
+			   beforeSend: function() {
+				   $('.form-response').html('Sending your cv...')
+			   },
+			   success: function(response) {
+				   if (response.status === 'success') {
+					   $('.form-response').html('Application was successfully uploaded');
+
+				   } else {
+					   $('.form-response').html('Application was successfully uploaded')
+				   }
+
+				   $('.lastnamefield-error').addClass('d-none');
+				    $('.lastnamefield-error').addClass('d-none');
+				   $('.emailfield-error').addClass('d-none');
+
+				   window.location.href = "/thankyou-jobapply";
+			   },
+			   error: function(xhr, status, error) {
+				   console.error(error);
+				   $('.form-response').html('An error occurred during form submission. Please try again.')
+			   }
+		   });
+
+        }
+
+	   });
+   }
+
+   const _scroll_section = function () {
+     window.onload = function() {
+        var sectionId = window.location.hash.substr(1); // Get the section ID from the URL hash
+        if (sectionId) {
+          if (sectionId === 'contact') {
+            var section = $('#' + sectionId);
+            var offset = 90;
+            var navHeight = 72;
+            if (section.length) {
+              $('html, body').animate({
+                scrollTop: section.offset().top - navHeight - offset
+              }, 500);
+            }
+          }
+        }
+      }
+     }
+
+
+
+
   /////////////////////
   // Public Methods //
   ///////////////////
@@ -1236,7 +1443,6 @@ $('#filter-form').on('submit', function(e) {
     _contact_us();
     _collapsing_text();
     _cardcarousel();
-    _latestJobs();
     _logocarousel();
     _faq_accordion();
     _footerCollapse();
@@ -1251,6 +1457,9 @@ $('#filter-form').on('submit', function(e) {
     _mainNavToggler();
 	_search_function();
 	_search_job();
+	_apply_form();
+  _latestJobs();
+  _scroll_section();
   };
 
   return {
