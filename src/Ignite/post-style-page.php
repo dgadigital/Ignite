@@ -56,7 +56,7 @@ get_header(); ?>
     </section>
 
     <section id="post-filter-side-bar" class="post-filter-side-bar single-post">
-      <div class="container flex-row-reverse">
+      <div class="container flex-lg-row-reverse flex-column-reverse">
         <div class="side-bar-accordion">
           <div class="recent-post box-shadow">
             <p class="title">Recent Posts</p>
@@ -71,8 +71,14 @@ get_header(); ?>
 						$child_pages = get_posts(array(
 						    'post_type' => 'page',
 						    'post_status' => 'publish',
-						    'posts_per_page' => -1,
+						    'posts_per_page' => 6,
 						    'post_parent' => $parent_id,
+								'meta_query' => array(
+										array(
+												'key' => '_wp_page_template',
+												'value' => 'post-style-page.php',
+										)
+								)
 						));?>
 						<div class="post-wrapper">
 							<?php foreach ($child_pages as $child_page) {
@@ -93,9 +99,9 @@ get_header(); ?>
 
 
         </div>
-        <div class="content-wrapper">
+        <div class="content-wrapper article-body">
 						<?php the_content(); ?>
-						
+
         </div>
 	  </div>
 

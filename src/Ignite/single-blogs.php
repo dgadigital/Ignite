@@ -1,13 +1,22 @@
 <?php get_header(); ?>
 <?php $current_id = get_the_ID(); ?>
 <main>
-	<section class="single-post-banner blue-bg pb-0">
+
+<?php
+
+$image = get_field('banner_background_image');
+if ($image && isset($image['url'])) {
+	$bg_img = $image['url'];
+}?>
+
+
+	<section <?php echo $image?"style='background:url(".$bg_img.")';":"";?> class="single-post-banner pb-0 <?php echo $image?"":"blue-bg";?>">
       <div class="container">
-        <div class="breadcrumbs"><a href="/blogs/">&lt; Back to Blogs</a></div>
+        <div class="breadcrumbs"><a href="/jobs-in-australia-blog">&lt; Back to Blogs</a></div>
         <div class="title">
-          <h1><?php the_title(); ?></h1>
+          <h1 class="<?php echo $image?"text-white":"";?>"><?php the_title(); ?></h1>
         </div>
-        <div class="sub-title">
+        <div class="sub-title <?php echo $image?"text-white":"";?>">
           <h2><?php echo date('d F Y', strtotime(get_the_date('j F Y'))); ?></h2>
         </div>
         <a href="#post-filter-side-bar" class="mouse-wrapper">
@@ -41,48 +50,48 @@
       </div>
     </section>
 		<section id="post-filter-side-bar" class="post-filter-side-bar single-post">
-		  <div class="container flex-row-reverse">
+		  <div class="container flex-lg-row-reverse flex-column-reverse">
 		    <div class="side-bar-accordion">
-		      <div class="recent-post box-shadow">
-		        <p class="title">Recent Posts</p>
-				<?php
-					$posts = get_posts(array(
-						'post_type' => 'blogs',
-						'post_status' => 'publish',
-						'posts_per_page' => 3,
-						'orderby' => 'date',
-						'order' => 'DESC'
-					));
+			      <div class="recent-post box-shadow">
+			        <p class="title">Recent Posts</p>
+					<?php
+						$posts = get_posts(array(
+							'post_type' => 'blogs',
+							'post_status' => 'publish',
+							'posts_per_page' => 3,
+							'orderby' => 'date',
+							'order' => 'DESC'
+						));
 
-					if($posts): ?>
-		        <div class="post-wrapper">
-				  <?php foreach($posts as $post):
-				  setup_postdata( $post ); ?>
-		          <a href="<?php the_permalink(); ?>" class="links"><p><?php the_title(); ?></p></a>
-				  <?php endforeach; ?>
-		        </div>
-				  <?php endif; ?>
-				  <?php wp_reset_postdata(); ?>
-		      </div>
-			  <div class="more-topics">
-		        <p class="title">More on these topics</p>
-				<?php
-					$post = get_tags(array(
-						'taxonomy'   => array( 'tags_blogs' ),
-						'hide_empty' => false,
-						'order'      => 'asc'
-					)); ?>
+						if($posts): ?>
+			        <div class="post-wrapper">
+					  <?php foreach($posts as $post):
+					  setup_postdata( $post ); ?>
+			          <a href="<?php the_permalink(); ?>" class="links"><p><?php the_title(); ?></p></a>
+					  <?php endforeach; ?>
+			        </div>
+					  <?php endif; ?>
+					  <?php wp_reset_postdata(); ?>
+			      </div>
+				  <div class="more-topics">
+			        <p class="title">More on these topics</p>
+					<?php
+						$post = get_tags(array(
+							'taxonomy'   => array( 'tags_blogs' ),
+							'hide_empty' => false,
+							'order'      => 'asc'
+						)); ?>
 
-		        <div class="post-wrapper">
-				  <?php
-				  if( $post ): foreach( $post as $pos ): setup_postdata( $pos );?>
-		          <a href="<?php echo get_tag_link($pos->term_id); ?>" class="links"><p><?php echo $pos->name ?><i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></p></a>
-				  <?php endforeach; ?> <?php endif; ?>
-		        </div>
-				  <?php wp_reset_postdata(); ?>
-		      </div>
+			        <div class="post-wrapper">
+					  <?php
+					  if( $post ): foreach( $post as $pos ): setup_postdata( $pos );?>
+			          <a href="<?php echo get_tag_link($pos->term_id); ?>" class="links"><p><?php echo $pos->name ?><i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></p></a>
+					  <?php endforeach; ?> <?php endif; ?>
+			        </div>
+					  <?php wp_reset_postdata(); ?>
+			      </div>
 		    </div>
-		    <div class="content-wrapper">
+		    <div class="content-wrapper article-body">
 		      <?php
 				$posts = get_posts(array(
 						'post_type' => 'blogs',

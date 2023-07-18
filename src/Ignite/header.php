@@ -27,8 +27,6 @@
 	<script type="text/javascript" src="<?php echo get_template_directory_uri();?>/scripts/vendors/jquery.min.js"></script>
 	<script type="text/javascript">var ajaxurl = "<?php echo admin_url('admin-ajax.php');?>";</script>
 	<script type="text/javascript">var $ = jQuery;</script>
-	<script>if (window.location.pathname === '/services/' || window.location.pathname === '/specialisations/' || window.location.pathname === '/locations/') {window.location.replace('/');}</script>
-	
 	<script type="text/javascript">
     window.hfAccountId = "619a33f7-ff07-4dfd-b895-b738151fa041";
     window.hfDomain = "https://api.herefish.com";
@@ -38,7 +36,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hf, s);
     })();
 </script>
-	
+
 	<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -55,7 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHLBLXH"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-	
+
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87099201-1"></script>
 <script>

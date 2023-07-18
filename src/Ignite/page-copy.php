@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+
+<?php
+/**
+ * 	Template Name: page copy
+*/
+
+get_header(); ?>
 <main>
 <?php if( have_rows('flex_content') ):?>
 	<?php while (have_rows('flex_content') ): the_row();?>
@@ -606,7 +612,7 @@
 	<!-- START CONTACT US -->
 	<?php if (get_row_layout() == 'contact_us'): ?>
 		<section class="contact-us pt-0">
-		  <h2 id="contact" class="text-center my-5"><?php the_sub_field('heading'); ?></h2>
+		  <h2 class="text-center my-5"><?php the_sub_field('heading'); ?></h2>
 		  <div class="container wrapper">
 			<div class="row">
 			  <div class="container tab-wrapper box-shadow">

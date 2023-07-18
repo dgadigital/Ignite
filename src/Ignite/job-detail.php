@@ -42,7 +42,8 @@ foreach ($data as $job) {
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
 $host = $_SERVER['HTTP_HOST'];
 $uri = $_SERVER['REQUEST_URI'];
-$currentUrl = $protocol . $host . $uri;
+
+$currentUrl = $protocol . $host . urlencode($uri);;
 
 $shareButtonUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=' . $currentUrl;
 
@@ -56,7 +57,7 @@ get_header(); ?>
       <div class="back-link">
         <a href="/">Back to Jobs</a>
       </div>
-	
+		
 	<?php if($hasIdMatch) { ?>
       <h1><?php echo $job_title;?></h1>
 

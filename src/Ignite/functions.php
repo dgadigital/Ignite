@@ -1,3 +1,5 @@
+
+
 <?php
 	/*-----------------------------------------------------------------------------------*/
 	/* This file will be referenced every time a template/page loads on your Wordpress site
@@ -127,7 +129,7 @@ function custom_post_specialisations() {
 		'query_var' => true,
     	'rewrite' 				=> array(
 					'with_front' => false,
-					'slug'       => 'specialisations'),
+					'slug'       => 'specialisations-post'),
 		'show_in_menu'          => true,
 		'menu_position'         => 7,
 		'show_in_admin_bar'     => true,
@@ -537,8 +539,8 @@ function post_search() {
 		'posts_per_page' => 6,
 		'paged' => $paged,
 	  );
-  } 
-	
+  }
+
  if($searchQuery == '' && $blogs_category != ''){
 	  $args = array(
 		's' => $searchQuery,
@@ -555,7 +557,7 @@ function post_search() {
 		),
 	  );
   }
-	
+
    if($searchQuery == '' && $blogs_category == ''){
 	  $args = array(
 		's' => $searchQuery,

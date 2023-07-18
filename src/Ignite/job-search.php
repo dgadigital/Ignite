@@ -86,12 +86,12 @@ get_header(); ?>
                       <p class="accordion-title">Job Industry <span><i>filtered</i></span></p>
                       <div class="panel select">
 						  <form id="industry-form">
-							  <?php foreach ($jobIndustry as $singleJobIndustry => $count) { ?>
-								<label>
-								  <input type="checkbox" name="industry" value="<?php echo $singleJobIndustry; ?>" >
-								  <span class="label"><?php echo $singleJobIndustry; ?></span>
-								  <span class="count"><?php echo $count; ?></span>
-								</label>
+								<?php foreach ($jobIndustry as $singleJobIndustry => $count) { ?>
+							    <label <?php if ($singleJobIndustry === 'Building & Construction') { echo 'class="d-none"'; } ?>>
+							      <input type="checkbox" name="industry" value="<?php echo $singleJobIndustry; ?>">
+							      <span class="label"><?php echo $singleJobIndustry; ?></span>
+							      <span class="count"><?php echo $count; ?></span>
+							    </label>
 							  <?php } ?>
 						  </form>
                       </div>
