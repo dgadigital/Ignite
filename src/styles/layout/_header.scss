@@ -350,7 +350,7 @@ header {
                 transform: translateX(-50%);
                 padding: 0;
                 margin-top: 1px;
-                width: 790px;
+                width: 808px;
                 max-width: 100%;
                 border: 0;
                 border-radius: 0;
@@ -384,8 +384,7 @@ header {
 
 
                         &.dropdown-item-head {
-                            padding-top: 15px;
-                            padding-bottom: 15px;
+                            padding: 1rem 1rem;
                             border-bottom: 0;
                             min-height: auto;
                             
@@ -393,6 +392,10 @@ header {
                                 font-family: $font-raleway-semibold;
                                 font-size: 16px;
                                 color: $link-color;
+
+                                @media (max-width: 991px) {
+                                    font-size: 14px;
+                                }
                             }
         
                             &:hover {
@@ -405,17 +408,17 @@ header {
 
                     .second-level-list {
                         position: relative;
-                        width: 75%;
+                        width: 100%;
 
                         @media (max-width: 991px) {
                            width: 100%;
                         }
 
                         .split {
-                            column-count: 2;
+                            column-count: 3;
                             column-gap: 0;
-                            orphans: 1;
-                            widows: 1;
+                            orphans: 2;
+                            widows: 2;
 
                             @media (max-width: 991px) {
                                 column-count: initial;
@@ -446,9 +449,11 @@ header {
                                     // width: 50%;
 
                                     .nav-link {
-                                        width: 50%;
+                                        width: 33.333333%;
+                                        background: #f5f9ff;
                                         @media (max-width: 991px) {
                                             width: 100%;
+                                            background: #fff;
                                          }
                                     }
 
@@ -488,7 +493,7 @@ header {
                                     flex-direction: column;
                                     justify-content: center;
                                     width: 100%;
-                                    padding: 0.25rem 2.5rem 0.25rem 1.5rem;
+                                    padding: 0.25rem 1rem 0.25rem 1rem;
                                     break-inside: avoid;
                                     border-bottom: 0.375px solid #DADADA;
                                     min-height: 88px;
@@ -518,7 +523,12 @@ header {
                             box-shadow: none;
                             right: 0;
                             top: 0;
-                            width: 50%;
+                            width: 66.67%;
+                            
+                            column-count: 2;
+                            column-gap: 0px;
+                            orphans: 2;
+                            widows: 2;
 
                             @media (max-width: 991px) {
                                 width: 100%;
