@@ -1,5 +1,10 @@
 .culture-tiles{
  .container{
+    .text-center{
+        h2{
+            margin: auto auto 30px auto;
+        }
+    }
     .tiles-wrapper{
         display: flex;
         flex-wrap: wrap;
