@@ -22,6 +22,17 @@
          .tile-img-container{
     
          }
+         &.dark-blue-bg{
+            .text-container{
+                .tile-title{
+                    color: #ffffff;
+                }
+                .tile-text{
+                    color: #ffffff;
+                }
+
+            }
+         }
          .tile-title{
             color: #353535;
             text-align: center;
