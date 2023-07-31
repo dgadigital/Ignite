@@ -1,0 +1,48 @@
+.culture-tiles{
+ .container{
+    .tiles-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .tile{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            
+            padding: 0px 22px;
+            height: 273.202px;
+            max-width: 301.016px;
+            min-width: 300px;
+            width: 33.3333vw;
+    
+         .tile-img-container{
+    
+         }
+         .tile-title{
+            color: #353535;
+            text-align: center;
+            font-variant-numeric: lining-nums proportional-nums;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px;
+         }
+         .tile-text{
+            color: #353535;
+            text-align: center;
+            font-variant-numeric: lining-nums proportional-nums;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+         }
+        }
+    }
+
+ }   
+}
+
