@@ -1445,6 +1445,38 @@ $('#filter-form').on('submit', function(e) {
       }
      }
 
+     const _imageGallery = function () {
+      $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        asNavFor: '.slider-nav'
+      });
+
+      $('.slider-nav').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        arrows: false,
+        centerMode: false,
+        focusOnSelect: true,
+        responsive: [
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 3,
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 2,
+            }
+          }
+        ]
+      });
+     }
 
 
 
@@ -1452,6 +1484,7 @@ $('#filter-form').on('submit', function(e) {
   // Public Methods //
   ///////////////////
   const init = function () {
+    
     _privateMethod();
     _two_column_side_tabs_accordion();
 	_submitCV();
@@ -1465,17 +1498,19 @@ $('#filter-form').on('submit', function(e) {
     _tabs();
     __peoplecarousel();
     _testimonialslider();
-    _search_filter();
+    // _search_filter();
     _side_bar_filter();
     _fileUploadApplyNow();
     _topNavToggler();
     _stickynav();
     _mainNavToggler();
-	_search_function();
-	_search_job();
-	_apply_form();
-  _latestJobs();
+	// _search_function();
+	// _search_job();
+	// _apply_form();
+  // _latestJobs();
   _scroll_section();
+  _imageGallery();
+
   };
 
   return {

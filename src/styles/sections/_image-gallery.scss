@@ -1,0 +1,154 @@
+.image-gallery {
+    background-color: #ecf4ff;
+
+    .title {
+        padding-bottom: 30px;
+    }
+    .image-slider {
+        padding-left: 60px;
+        padding-right: 60px;
+
+        @media (max-width: 991px) {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        @media (max-width: 767px) {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .slick-arrow {
+            position: absolute;
+            font-size: 0;
+            border: 0;
+            background-color: #fbdabd;
+            cursor: pointer;
+
+            @media (max-width: 767px) {
+                z-index: 10;
+                top: 40% !important;
+                transform: translateY(-50%);
+            }
+
+            &:focus {
+                outline: 0;
+            }
+
+            &:hover {
+                filter: gray;
+                -webkit-filter: grayscale(1);
+            }
+        }
+
+        .slick-prev {
+            top: 0;
+            left: -70px;
+            height: calc(100% - 70.2px);
+            width: 70px;
+
+            @media (max-width: 991px) {
+                left: -30px;
+                width: 30px;
+            }
+
+            @media (max-width: 767px) {
+                left: -15px;
+                height: 30px;
+                border-radius: 100%;
+            }
+
+            &:before {
+                content: url('../assets/images/left-chev.png');
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                @media (max-width: 767px) {
+                    top: 3px;
+                }
+            }
+        }
+
+        .slick-next {
+            top: 0;
+            right: -70px;
+            height: calc(100% - 70.2px);
+            width: 70px;
+
+            @media (max-width: 991px) {
+                right: -30px;
+                width: 30px;
+            }
+
+            @media (max-width: 767px) {
+                right: -15px;
+                height: 30px;
+                border-radius: 100%;
+            }
+
+            &:before {
+                content: url('../assets/images/right-chevron.png');
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+
+                @media (max-width: 767px) {
+                    top: 3px;
+                }
+            }
+        }
+    }
+
+    .slider-for {
+        display: flex;
+        padding-bottom: 30px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .slider-nav {
+        margin: 0 auto;
+
+        .slide-btn {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            padding-top: 75%;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .image-wrapper {
+        position: relative;
+        padding-top: 60%;
+        
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .text {
+        padding-top: 15px;
+        text-align: center;
+        font-size: 18px;
+        font-family: "Raleway Bold";
+    }
+}
