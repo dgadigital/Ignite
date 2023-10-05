@@ -1478,6 +1478,33 @@ $('#filter-form').on('submit', function(e) {
       });
      }
 
+     const _testimonials = function () {
+      var $slickElement = $('.testimonial-items');
+
+      $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+        var i = (currentSlide ? currentSlide : 0) + 1;
+        // $status.text(i + '/' + slick.slideCount);
+
+        $('.pagination-number .total').text(slick.slideCount - 2);
+        $('.pagination-number .current').text(i);
+      });
+
+      $slickElement.slick({
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+      });
+     }
 
 
   /////////////////////
@@ -1510,6 +1537,7 @@ $('#filter-form').on('submit', function(e) {
   // _latestJobs();
   _scroll_section();
   _imageGallery();
+  // _testimonials();
 
   };
 

@@ -1,0 +1,147 @@
+.testimonials {
+
+    .testimonial-wrapper {
+        position: relative;
+        .pagination-number {
+            position: absolute;
+            bottom: 0;
+            right: 60px;
+
+            span {
+                font-family: $font-raleway-semibold;
+                color: #f6892b;
+            }
+
+            .current {
+                position: relative;
+                padding-right: 6px;
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 2px;
+                    right: -3px;
+                    height: 100%;
+                    width: 2px;
+                    border-right: 2px solid #f6892b;
+                }
+            }
+
+            .total {
+                padding-left: 6px;
+            }
+        }
+    }
+
+    .testimonial-items {
+        position: relative;
+        display: flex;
+        padding-top: 40px;
+        padding-bottom: 50px;
+
+        .item {
+            width: 33.333%;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 25px;
+            border: 2px solid #e8e8e8;
+            border-radius: 10px;
+        }
+
+        .head {
+            display: flex;
+            padding-bottom: 30px;
+
+            .image {
+                position: relative;
+                width: 100px;
+                padding-top: 100px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;                
+                width: 65%;
+                padding-left: 10px;
+                
+                .name {
+                    font-family: $font-raleway-semibold;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .rating {
+            display: flex;
+            padding-bottom: 15px;
+
+            img {
+                margin-right: 5px;
+            }
+        }
+
+        .title {
+            font-family: $font-raleway-semibold;
+            font-size: 16px;
+        }
+
+        .date {
+            padding-bottom: 15px;
+        }
+
+
+        .slick-arrow {
+            position: absolute;
+            font-size: 0;
+            border: 0;
+            box-shadow: none;
+            background: transparent;
+            cursor: pointer;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        .slick-prev {
+            bottom: 20px;
+            right: 30px;
+
+
+            &:after {
+                content: url(../assets/images/left-chev.png);
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .slick-next {
+            bottom: 20px;
+            right: 0;
+
+            &:after {
+                content: url(../assets/images/right-chevron.png);
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
