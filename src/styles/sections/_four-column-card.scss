@@ -44,4 +44,13 @@
             }
         }
     }
+    &.add-one-more-column{
+        .container{
+            .flex-box{
+                .column{
+                    flex-basis: 18%;
+                }
+            }
+        }
+    }
 }
