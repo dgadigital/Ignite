@@ -46,9 +46,20 @@
     }
     &.add-one-more-column{
         .container{
+            @media (min-width: 1200px) {
+                max-width: 1200px;
+            }
+        
             .flex-box{
+                gap: 15px;
                 .column{
-                    flex-basis: 18%;
+                    width: 18.9%;
+                    flex-basis: 18.9%;
+
+                    @media(max-width: 1199px){
+                        width: 31.8%;
+                        flex-basis: 18.9%;
+                    }
                 }
             }
         }
