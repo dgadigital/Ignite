@@ -104,7 +104,7 @@ header {
                         padding: 10px 67px 10px 10px;
                         font-size: 12px;
                         font-family: $font-raleway-regular;
-                        border-radius: 5.6px;
+                        border-radius: 5.63px;
 
                         &:after{
                             content: "";
@@ -406,6 +406,42 @@ header {
             .nav-item {
                 padding-right: 10px;
                 
+                &.linkedin-menu{
+                    &.btn-menu{
+                        a{
+                            padding-left: 12px !important;
+                            span{
+                                position: relative;
+                                padding: 10px 67px 10px 10px;
+                                font-size: 14px;
+                                font-family: $font-raleway-regular;
+                                border-radius: 5.63px;
+
+                                &:after{
+                                    content: "";
+                                    position: absolute;
+                                    right: 10px;
+                                    top: 47%;
+                                    display: block;
+                                    background-image: url('../assets/images/btn-linkedin.png');
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                    height: 12px;
+                                    width: 54px;
+                                    transform: translateY(-50%);
+                                }
+                            }
+                        }
+                    }
+                    &.dark-blue{
+                        a{
+                            span{
+                                background-color: $dark-blue;
+                                color: #FFF;
+                            }
+                        }
+                    }
+                }
                 .nav-link {
                     display: flex;
                     align-items: center;
