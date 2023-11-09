@@ -63,22 +63,31 @@
 
     &.btn-linkedin {
         position: relative;
-        padding-right: 120px;
+        padding-right: 105px;
         padding-left: 18px;
 
         &:after {
-            content: url('../assets/images/btn-linkedin.png');
+            content: "";
             position: absolute;
-            right: 18px;
+            right: 15px;
             top: 50%;
             display: block;
-            height: 23.57px;
+            background-image: url('../assets/images/btn-linkedin.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 15px;
+            width: 85px;
             transform: translateY(-50%);
         }
     }
 
     &.disabled {
         pointer-events: none;
+    }
+
+    &.btn-dark-blue{
+        background-color: $dark-blue;
+        color: #FFF;
     }
 }
 
