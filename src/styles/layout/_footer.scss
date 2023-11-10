@@ -170,6 +170,10 @@ footer {
             .item {
                 &:first-child {
                     padding-right: 40px;
+
+                    @media(max-width: 767px) {
+                        padding-right: 0;
+                    }
                 }
 
                 a {
@@ -183,6 +187,18 @@ footer {
 
                 span {
                     padding-left: 5px;
+                }
+
+                .lp-address {
+                  color:#FFFFFF;
+                  float: left;
+                  margin-right: 20px;
+
+                  @media(max-width: 767px) {
+                    float: initial;
+                    margin: 0 auto;
+                    text-align: center;
+                  }
                 }
             }
         }

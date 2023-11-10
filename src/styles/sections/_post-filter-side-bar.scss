@@ -10,6 +10,13 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+
+        &.reverse {
+            @media(max-width: 991px){
+                flex-direction: column-reverse;
+            }
+        }
+
         >div{
             flex-grow: 1;
             &:first-child{

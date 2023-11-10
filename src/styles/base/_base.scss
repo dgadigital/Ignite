@@ -188,3 +188,27 @@ body.logged-in.admin-bar {
   justify-content: center;
   align-items: center;
 }
+
+ul.check-list {
+  padding-left: 0 !important;
+
+  li {
+    position: relative;
+    padding-left: 30px;
+    
+    &:before {
+      content: '' !important;
+      position: absolute;
+      width: 14.52px;
+      height: 9.8px;
+      display: block;
+      left: 16px;
+      top: 8px;
+      // background-color: red;
+      background-image: url('../assets/images/check-list.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+    }
+  }
+}

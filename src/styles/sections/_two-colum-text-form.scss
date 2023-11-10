@@ -1,5 +1,9 @@
 .two-column-text-form{
 
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
     .container{
         .heading{
             text-align: center;
@@ -182,5 +186,46 @@
 
     &.blue-bg{
         background-color: #ECF4FF;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 40px;
+
+        @media(max-width: 767px){
+            flex-direction: column;
+        }
+    }
+
+    .item-stats {
+        font-size: 50px;
+        font-weight: 700;
+        font-family: $font-raleway-bold;
+        color: #072D93;
+        text-align: center;
+        padding: 0 30px;
+
+        span {
+            display: block;
+            margin: auto;
+            max-width: 100px;
+            color: #000;
+            font-size: 15px;
+            font-family: $font-raleway-regular;
+            line-height: 18px;
+        }
+    }
+
+    &.v2 {
+        @media(max-width: 991px){
+            padding-top: 20px;
+        }
+        .reverse {
+            @media(max-width: 991px){
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
     }
 }

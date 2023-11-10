@@ -1,0 +1,56 @@
+.success-stories {
+
+    &.with-bg {
+        background-color: #ecf4ff;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    .testimonial-items-success {
+        position: relative;
+        display: flex;
+        padding-top: 40px;
+        padding-bottom: 50px;
+
+        @media (max-width: 991px) {
+           flex-wrap: wrap;
+           padding-top: 0;
+        }
+
+        .item {
+            width: 33.333%;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 30px;
+
+            border-radius: 5px;
+            border: 2px solid #E8E8E8;
+            background: #FFF;
+            box-shadow: 0px 18px 27px 0px rgba(0, 0, 0, 0.12);
+
+            @media (max-width: 991px) {
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+        
+
+        .rating {
+            display: flex;
+            padding-bottom: 15px;
+
+            img {
+                margin-right: 5px;
+            }
+        }
+
+        .title {
+            padding-bottom: 20px;
+            font-family: $font-raleway-semibold;
+            font-size: 16px;
+        }
+
+    }
+}

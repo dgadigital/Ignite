@@ -21,7 +21,6 @@ AppName.Modules.ThemeModule = (function () {
 //
 //
 
-
 	  $(".au-phone-format").each(function() {
 		const $phoneInput = $(this);
 		const $phoneError = $phoneInput.closest(".wpcf7-form-control-wrap").siblings(".phone-error");
@@ -180,7 +179,7 @@ AppName.Modules.ThemeModule = (function () {
   
   
       return false;
-  });
+    });
 
     $(window).on('load', 'resize', function(){
 
@@ -1506,6 +1505,47 @@ $('#filter-form').on('submit', function(e) {
       });
      }
 
+     var _rollingNumber = function() {
+
+      var roller = $( ".roller" );
+      var section = document.getElementById("counter-wrapper")
+    
+      $(window).on('load scroll', function() {
+    
+        roller.each(function(){
+          var number = $(this).attr('data-number');
+          $(this).attr('data-number', number)
+    
+        });
+    
+        if ($('#counter-wrapper').length) {
+          if (isInViewport(section)) {
+            runRolling();
+          }
+        }
+      })
+    
+      function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    
+      }
+    
+      function runRolling() {
+        roller.each(function(){ 
+         
+          var number = $(this).attr('data-number');        
+          $(this).attr('value',number);
+        });
+      }
+    }
+    
+
 
   /////////////////////
   // Public Methods //
@@ -1538,7 +1578,7 @@ $('#filter-form').on('submit', function(e) {
   _scroll_section();
   _imageGallery();
   // _testimonials();
-
+  _rollingNumber();
   };
 
   return {

@@ -1,0 +1,41 @@
+.whitepaper{
+    
+    background: url("/wp-content/uploads/2023/08/whitepaper-bg-1920px.webp");    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
+        @media (max-width: 768px) {
+            background: url("/wp-content/uploads/2023/08/whitepaper-bg-428px.webp");    
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container{
+            .column-wrapper{
+                @media (max-width: 768px) {
+                    flex-direction: column-reverse;
+                }
+            }
+        }
+
+    .form-image {
+        img{
+            width: 100%;
+        }
+    }
+
+    .right-col{    
+        .text-container{
+        background: #F9F9F9;
+        box-shadow: 0px 18px 27px 0px rgba(0, 0, 0, 0.12);
+        }
+    }
+  }
+
+  .whitepaper-landing{
+
+    
+    @media (max-width: 768px) {
+        justify-content: center;    
+    }
+  }
