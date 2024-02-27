@@ -83,7 +83,14 @@
 
 	<!-- START FULL WIDTH TEXT -->
 	<?php if (get_row_layout() == 'full_width_text'): ?>
-		<section class="full-width-text <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?> <?php echo (get_sub_field('text_center') ? 'text-center' : 'text-left'); ?> <?php echo (get_sub_field('padding_top') == 'Default' ? '' : 'pt-'); ?><?php echo (get_sub_field('padding_top') ? ''.get_sub_field('padding_top') : '0'); ?> <?php echo (get_sub_field('padding_bottom') == 'Default' ? '' : 'pb-'); ?><?php echo (get_sub_field('padding_bottom')); ?>" style="background-image: url('<?php the_sub_field('background_image'); ?>')">
+		<section class="full-width-text <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?>
+			<?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?>
+			<?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>
+			<?php echo (get_sub_field('text_center') ? 'text-center' : 'text-left'); ?>
+			<?php echo (get_sub_field('padding_top') == 'Default' ? '' : 'pt-'); ?>
+			<?php echo (get_sub_field('padding_top') ? ''.get_sub_field('padding_top') : '0'); ?>
+			<?php echo (get_sub_field('padding_bottom') == 'Default' ? '' : 'pb-'); ?>
+			<?php echo (get_sub_field('padding_bottom')); ?>" style="background-image: url('<?php the_sub_field('background_image'); ?>')">
 			<div class="container orange-ul">
 
 				<?php if(get_sub_field("text_center")):?>
@@ -713,11 +720,19 @@
 		<?php if (get_row_layout() == 'two_column_text_image'): ?>
 		<section class="two-column-text-image <?php if( get_sub_field('remove_title') ): ?>without-title<?php endif;?> <?php if( get_sub_field('remove_button') ): ?>without-button<?php endif;?> <?php if( get_sub_field('equal_columns_width') ): ?>equal-width<?php endif;?> <?php if( get_sub_field('reverse') ): ?>reverse<?php endif;?> <?php echo (get_sub_field('section_padding_top') == '0' ? 'pt-0' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '1' ? 'pt-1' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '2' ? 'pt-2' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '3' ? 'pt-3' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '4' ? 'pt-4' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '5' ? 'pt-5' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '0' ? 'pb-0' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '1' ? 'pb-1' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '2' ? 'pb-2' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '3' ? 'pb-3' : ''); ?><?php echo (get_sub_field('section_padding_bottom') == '4' ? 'pb-4' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '5' ? 'pb-5' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
 			<div class="container">
-				<?php if( get_sub_field('image') ): ?>
-				<div class="image-wrapper">
-					<img src="<?php echo esc_url(get_sub_field('image')['url']); ?>" alt="<?php echo esc_url(get_sub_field('image')['alt']); ?>" <?php if( get_sub_field('contain_image') ): ?>style="object-fit: contain; width: auto;"<?php endif;?>>
-				</div>
-				<?php endif;?>
+				<?php if (get_sub_field('image')) :
+				    $image = get_sub_field('image');
+				    $url = esc_url($image['url']);
+				    $alt = esc_attr($image['alt']);
+				    $width = $image['width']; // Add this line to get the image width
+				    $height = $image['height']; // Add this line to get the image height
+				    $contain_image = get_sub_field('contain_image');
+				?>
+				    <div class="image-wrapper">
+				        <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" <?php if ($contain_image) : ?>style="object-fit: contain; width: auto;"<?php endif; ?>>
+				    </div>
+				<?php endif; ?>
+
 				<div class="text-wrapper">
 					<h2 class="underline-left"><span><?php the_sub_field('title'); ?></span></h2>
 					<div class="text-content"><?php the_sub_field('content'); ?></div>
@@ -807,11 +822,11 @@
           while(have_rows('card_list')): the_row(); ?>
           <div class="card-column box-shadow">
             <div class="image-wrapper">
-              <a href=""><img src="<?php echo esc_url(get_sub_field('image')['url']); ?>" alt="<?php echo esc_url(get_sub_field('image')['alt']); ?>"></a>
+							<a href="<?php echo esc_url(get_sub_field('link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('link')['target']); ?>"><img src="<?php echo esc_url(get_sub_field('image')['url']); ?>" alt="<?php echo esc_url(get_sub_field('image')['alt']); ?>"></a>
             </div>
             <div class="content-wrapper">
               <div class="title-wrapper">
-                <a href=""><h4><?php the_sub_field('title'); ?></h4></a>
+                <a href="<?php echo esc_url(get_sub_field('link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('link')['target']); ?>" class=""><h4><?php the_sub_field('title'); ?></h4></a>
               </div>
 			  <?php if( get_sub_field('excerpt') ): ?><p><?php the_sub_field('excerpt'); ?></p><?php endif; ?>
               <a href="<?php echo esc_url(get_sub_field('link')['url']); ?>" target="<?php echo esc_attr(get_sub_field('link')['target']); ?>" class="link-arrow"><?php echo esc_html(get_sub_field('link')['title']); ?></a>
@@ -1075,22 +1090,29 @@
 						<?php endif;?>
 
 						<div class="logo-row one-row">
-							<?php
 
-							if( have_rows('logos') ):
-									// Loop through rows.
-									while( have_rows('logos') ) : the_row();
-											// Load sub field value.
-											?>
-												<div class="logo-container">
-														<?php echo get_sub_field('logo_link') ? "<a href='". get_sub_field('logo_link')."'>" : ''; ?>
-																	<img width="166" height="67" src="<?php echo get_sub_field('logo')['url']?>" alt="<?php echo get_sub_field('logo')['alt']?>"/>
-														<?php echo get_sub_field('logo_link') ? "</a>" : ''; ?>
-													</div>
-											<?php
-									// End loop.
-									endwhile;
-							endif;?>
+							<?php if (have_rows('logos')) :
+							    // Loop through rows.
+							    while (have_rows('logos')) : the_row();
+							        // Load sub field value.
+							        $logo_link = get_sub_field('logo_link');
+							        $logo = get_sub_field('logo');
+							        $url = esc_url($logo['url']);
+							        $alt = esc_attr($logo['alt']);
+							        $width = $logo['width']; // Add this line to get the image width
+							        $height = $logo['height']; // Add this line to get the image height
+							?>
+							        <div class="logo-container">
+							            <?php echo $logo_link ? "<a href='" . $logo_link . "'>" : ''; ?>
+							            <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?> " class="" />
+							            <?php echo $logo_link ? "</a>" : ''; ?>
+							        </div>
+							<?php
+							    // End loop.
+							    endwhile;
+							endif;
+							?>
+
 						</div>
 				</div>
 		</section>
@@ -1219,7 +1241,9 @@
 						<div class="section-title">
 								<div class="section-description">
 										<?php the_sub_field('description');?>
-								</div>
+		
+        
+        </div>
 						</div>
 					<?php endif;?>
 
@@ -1274,9 +1298,62 @@
 	<?php endif; ?>
 	<!--END THREE COLUMN INFO -->
 
+
+
+	<!-- START COLUMN INFO-->
+	<?php if (get_row_layout() == 'culture_tiles'): ?>
+		<section class="culture-tiles">
+        <div class="container">
+
+					<?php if(get_sub_field("section_title")):?>
+						<div class="text-center">
+							<h2><span><?php the_sub_field('section_title'); ?></span></h2>
+						</div>
+					<?php endif; ?>
+					<?php if(get_sub_field("tiles")):?>
+						<div class="tiles-wrapper">
+							<?php
+							if( have_rows('tiles') ):
+							    while( have_rows('tiles') ): the_row();
+
+							        $tile_icon = get_sub_field('tile_icon');
+							        $tile_title = get_sub_field('tile_title');
+											$tile_text = get_sub_field('tile_text');
+											$tile_background_color = get_sub_field('tile_background_color');
+
+
+							        ?>
+											<div class="tile <?php echo ($tile_background_color['value']);?>">
+													<div class="tile-img-container"> <img src="<?php echo ($tile_icon['url']);?>" alt="<?php echo ($tile_icon['alt']);?>"> </div>
+													<div class="text-container">
+															<div class="tile-title"><?php echo ($tile_title);?>
+
+
+															</div>
+															<div class="tile-text"><?php echo  ($tile_text);?></div>
+													</div>
+											</div>
+											<?php
+
+							    endwhile;
+							endif;
+							?>
+						</div>
+					</div>
+					<?php endif; ?>
+
+
+
+
+
+
+    </section>
+	<?php endif; ?>
+	<!--END THREE COLUMN INFO -->
+
 	<!-- START FOUR COLUMN CARD-->
 	<?php if (get_row_layout() == 'four_column_card'): ?>
-	  <section class="four-column-card title-description-center <?php echo (get_sub_field('section_padding_top') == '0' ? 'pt-0' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '1' ? 'pt-1' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '2' ? 'pt-2' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '3' ? 'pt-3' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '4' ? 'pt-4' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '5' ? 'pt-5' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '0' ? 'pb-0' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '1' ? 'pb-1' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '2' ? 'pb-2' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '3' ? 'pb-3' : ''); ?><?php echo (get_sub_field('section_padding_bottom') == '4' ? 'pb-4' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '5' ? 'pb-5' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?>">
+	  <section class="four-column-card title-description-center <?php echo (get_sub_field('section_padding_top') == '0' ? 'pt-0' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '1' ? 'pt-1' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '2' ? 'pt-2' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '3' ? 'pt-3' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '4' ? 'pt-4' : ''); ?> <?php echo (get_sub_field('section_padding_top') == '5' ? 'pt-5' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '0' ? 'pb-0' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '1' ? 'pb-1' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '2' ? 'pb-2' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '3' ? 'pb-3' : ''); ?><?php echo (get_sub_field('section_padding_bottom') == '4' ? 'pb-4' : ''); ?> <?php echo (get_sub_field('section_padding_bottom') == '5' ? 'pb-5' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue' ? 'blue-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Grey' ? 'grey-bg' : ''); ?> <?php echo (get_sub_field('background_color') == 'Blue Vector' ? 'blue-bg-vector' : ''); ?> <?php echo (get_sub_field('add_one_more_column') ? 'add-one-more-column' : ''); ?>">
         <div class="container">
             <div class="title-wrapper">
                 <h2><span><?php echo get_sub_field('title')?></span></h2>
@@ -1345,12 +1422,135 @@
 	<?php endif; ?>
 	<!-- END FORM EMBED-->
 
+
+    <!-- START IMAGE GALLERY-->
+    <?php if (get_row_layout() == 'image_gallery'): ?>
+
+        <section class="image-gallery">
+      <div class="container">
+        <div class="title text-center">
+          <h2><span><?php echo get_sub_field('title');?></span></h2>
+        </div>
+
+        <div class="image-slider">
+          <div class="slider-for">
+            <?php if(have_rows('image_slider')):
+          		while(have_rows('image_slider')): the_row(); ?>
+
+                <div class="slide-container">
+                <div class="image-wrapper">
+                    <img src="<?php echo get_sub_field('image');?>">
+                </div>
+                <div class="text">
+                <?php if(get_sub_field('description')) {
+                 		echo get_sub_field('description');
+					} else {
+                    	echo 'Lorem Ipsum';
+                    }
+                 ?>
+                </div>
+                </div>
+            <?php endwhile; ?>
+			<?php endif; ?>
+          </div>
+          <div class="slider-nav">
+          <?php if(have_rows('image_slider')):
+          		while(have_rows('image_slider')): the_row(); ?>
+            <div class="slide-btn">
+              <div class="image-wrapper">
+                <img src="<?php echo get_sub_field('image');?>">
+              </div>
+            </div>
+            <?php endwhile; ?>
+			<?php endif; ?>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <?php endif; ?>
+    <!-- END IMAGE GALLERY-->
+
+<!-- START TESTIMONIALS-->
+    <?php if (get_row_layout() == 'testimonials'): ?>
+
+	<section class="testimonials">
+      <div class="container">
+        <div class="text-center">
+          <h2><?php echo get_sub_field('title');?></h2> 
+        </div>
+
+        <div class="testimonial-wrapper">
+          <div class="testimonial-items">
+		 	 	<?php if(have_rows('testimonial_items', 'options')):
+          		while(have_rows('testimonial_items', 'options')): the_row(); ?>
+					<div class="item">
+
+						<div class="head">
+							<div class="image">
+							<img src="<?php echo get_sub_field('image', 'options');?>">
+							</div>
+							<div class="info">
+							<div>
+								<div class="name"><?php echo get_sub_field('name', 'options');?></div>
+								<div class="position"><?php echo get_sub_field('position', 'options');?></div>
+							</div>
+							</div>
+						</div>
+
+						<div class="rating">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/star.png">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/star.png">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/star.png">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/star.png">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/star.png">
+						</div>
+						<div class="title"><?php echo get_sub_field('review_type', 'options');?></div>
+						<div class="date"><?php echo get_sub_field('date', 'options');?></div>
+
+						<div class="content">
+							<?php echo get_sub_field('content', 'options');?>
+						</div>
+					</div>
+				<?php endwhile; ?>
+				<?php endif; ?>
+          </div>
+          <div class="pagination-number">
+            <span class="current">3</span>
+            <span class="total">3</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+	<?php endif; ?>
+    <!-- END IMAGE TESTIMONIALS-->
+
+	<?php if( get_row_layout() == 'simple_hero_banner' ): ?>
+			<?php get_template_part('sections/partial', 'simple-hero-banner');?>
+	<?php endif; ?>
+			
+	<?php if( get_row_layout() == 'comprehensive_solution' ): ?>
+			<?php get_template_part('sections/partial', 'comprehensie-solution');?>
+	<?php endif; ?>
+	
+	<?php if( get_row_layout() == 'success_stories' ): ?>
+			<?php get_template_part('sections/partial', 'success-stories');?>
+	<?php endif; ?>
+	
+	<?php if( get_row_layout() == 'persons_banner' ): ?>
+			<?php get_template_part('sections/partial', 'persons-banner');?>
+	<?php endif; ?>
+			
+	<?php if( get_row_layout() == 'two_column_form_stats' ): ?>
+			<?php get_template_part('sections/partial', 'two-column-form-stats');?>
+	<?php endif; ?>
+
 	<?php endwhile;?>
 <?php endif;?>
-
-
-
-
 
 
 
