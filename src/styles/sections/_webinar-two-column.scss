@@ -1,0 +1,117 @@
+.webinar-two-column {
+
+    &.grey {
+        background-color: #F8F8F8;
+    }
+
+    .webinar-two-column-row {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (max-width: 1199px) {
+            flex-direction: column-reverse;
+        }
+
+        &.reverse {
+            @media (min-width: 1200px) {
+                flex-direction: row-reverse;
+            }
+
+            .text {
+                padding-left: 100px;
+                padding-right: 0;
+            }
+        }
+    }
+
+    h2 {
+        margin-bottom: 0;
+        padding-bottom: 24px;
+        color: #002890;
+        font-size: 32px;
+        font-family: $font-raleway-semibold;
+
+        @media (max-width: 767px) {
+            font-size: 24px;
+        }
+    }
+
+    .text {
+        padding-right: 100px;
+        width: 57%;
+
+        @media (max-width: 1199px) {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+            width: 100%;
+        }
+
+        p {
+            padding-bottom: 14px;
+            font-size: 16px;
+        }
+
+        .list-title {
+            padding-top: 24px;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 35px;
+            margin-bottom: 0;
+            list-style: none;
+
+            li {
+                position: relative;
+                padding-bottom: 10px;
+                font-size: 16px;
+                line-height: 28px;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 5px;
+                    left: -28px;
+                    display: block;
+                    height: 16px;
+                    width: 16px;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+            }
+
+            &.box li:before {
+                background-image: url('../assets/images/icon-box.png');
+            }
+
+            &.chat li:before {
+                background-image: url('../assets/images/icon-chat.png');
+            }
+        }
+
+        .btn {
+            margin-top: 40px;
+        }
+
+        strong {
+            font-family: $font-raleway-semibold;
+        }
+    }
+
+    .image {
+        width: 43%;
+
+        @media (max-width: 1199px) {
+            width: 100%;
+            text-align: center;
+        }
+
+        img {
+            @media (max-width: 1199px) {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+}

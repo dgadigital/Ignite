@@ -247,3 +247,45 @@ footer {
         }
     }
 }
+
+footer.webinar-footer {
+    background-color: #fff;
+
+    .logo {
+        padding-top: 31px;
+        padding-bottom: 31px;
+
+        @media(max-width: 991px) {
+            text-align: center;
+        }
+    }
+
+    .footer-copyright {
+        text-align: center;
+        background: #F8F8F8;
+    }
+
+    .webinar-footer-row {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        border-bottom: 2px solid #DADADA;
+
+        .title {
+            font-size: 14px;
+            font-family: $font-raleway-semibold;
+            padding-bottom: 14px;
+        }
+
+        p {
+            font-size: 10px;
+        }
+
+        ul {
+            padding-left: 22px;
+            li {
+                padding-bottom: 3px;
+                font-size: 10px;
+            }
+        }
+    }
+}

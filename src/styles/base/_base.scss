@@ -212,3 +212,12 @@ ul.check-list {
     }
   }
 }
+
+.webinar,
+.webinar-footer {
+  .container {
+    @media (min-width: 1200px) {
+        max-width: 1440px;
+    }
+  }
+}

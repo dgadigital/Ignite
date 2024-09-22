@@ -1545,13 +1545,43 @@ $('#filter-form').on('submit', function(e) {
       }
     }
     
+    var _multistep_apply = function() {
+
+     
+      $('.step1 .next').on('click',function() {
+        var clearance = $('input[name="clearance"]:checked').val();
+        var statement = $('#statement').val();
+        
+        if (clearance && statement) {
+          $('fieldset.step1').removeClass('show');
+          $('fieldset.step2').addClass('show');
+          $('#progressbar li').addClass('active');
+        } else {
+          if (!clearance) {
+            $('.clearance-error').removeClass('d-none');
+          } 
+
+          if (!statement) {
+            $('.statement-error').removeClass('d-none');
+          }
+        }
+      });
+
+      $('.step2 .previous').on('click',function() {
+        $('fieldset.step2').removeClass('show');
+        $('fieldset.step1').addClass('show');
+        $('#progressbar li:last-child').removeClass('active');
+        $('.clearance-error').addClass('d-none');
+        $('.statement-error').addClass('d-none');
+      });
+    }
 
 
   /////////////////////
   // Public Methods //
   ///////////////////
   const init = function () {
-    
+    _multistep_apply();
     _privateMethod();
     _two_column_side_tabs_accordion();
 	_submitCV();

@@ -1,0 +1,34 @@
+.webinar-cta-banner {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (max-width: 991px) {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .content {
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 32px;
+        font-family: $font-raleway-semibold;
+        font-size: 32px;
+        color: #fff;
+    }
+
+    p {
+        padding: 0;
+        margin: 0;
+        color: #fff;
+        line-height: 28px;
+    }
+
+    .btn {
+        margin-top: 40px;
+    }
+}

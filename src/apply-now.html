@@ -73,65 +73,134 @@
 
     <section class="container">
 
-      <div class="back-link">
+      <!-- <div class="back-link">
         <a href="/">Back to Job Details</a>
+      </div> -->
+
+      <div class="apply-head">
+        <span>Applying for</span>
+        <h1>Infrastructure Engineer</h1>
+        <a href="" class="">View job description</a>
       </div>
 
-      <h1>Cyber Security Analyst</h1>
+      <ul id="progressbar">
+        <li class="active"><span>Answer Employer Questions</span></li>
+        <li>Application</li>
+      </ul>
 
-      <div class="row">
-        <div class="col-lg-5">
+      <fieldset class="step1 show">
 
-          <div class="job-table row">
-            <div class="col-5 title">Contract Type</div>
-            <div class="col-7 description">Contract</div>
-
-            <div class="col-5 title">Reference</div>
-            <div class="col-7 description">BBBH260527</div>
-
-            <div class="col-5 title">Industry</div>
-            <div class="col-7 description">Security + Cyber Security</div>
-
-            <div class="col-5 title">Salary</div>
-            <div class="col-7 description">Negotiable</div>
-          </div>
-
+        <div class="form-group pb-4">
+          <div class="mb-2">Which of the following statements best describes your right to work in Australia?</div>
+          <select class="form-control" id="statement" name="statement">
+            <option value="" disabled selected>Select your option</option>
+            <option value="I'm an Australian citizen">I'm an Australian citizen</option>
+            <option value="I'm a permanent resident and/or NZ citizen">I'm a permanent resident and/or NZ citizen</option>
+            <option value="I have a family/partner visa with no restrictions">I have a family/partner visa with no restrictions</option>
+            <option value="I have a graduate temporary work visa">I have a graduate temporary work visa</option>
+            <option value="I have a holiday temporary work visa">I have a holiday temporary work visa</option>
+            <option value="I have a temporary visa with restrictions on work location (e.g. skilled regional visa 491)">I have a temporary visa with restrictions on work location (e.g. skilled regional visa 491)</option>
+            <option value="I have a temporary protection or safe haven enterprise work visa">I have a temporary protection or safe haven enterprise work visa</option>
+            <option value="I have a temporary visa with no restrictions (e.g. doctoral student)">I have a temporary visa with no restrictions (e.g. doctoral student)</option>
+            <option value="I have a temporary visa with restrictions on work hours (e.g. student visa, retirement visa)">I have a temporary visa with restrictions on work hours (e.g. student visa, retirement visa)</option>
+            <option value="I have a temporary visa with restrictions on industry (e.g. temporary activity visa 408)">I have a temporary visa with restrictions on industry (e.g. temporary activity visa 408)</option>
+            <option value="I require sponsorship to work for a new employer (e.g. 482, 457)">I require sponsorship to work for a new employer (e.g. 482, 457)</option>
+          </select>
+          <span class="error text-danger clearance-error d-none">Required Field</span>
         </div>
-        <div class="col-lg-7">
-          <form>
-          <div class="form-row">
-            <div class="form-group col-lg-8">
-              <input type="text" class="form-control grey-field no-border firstnamefield" placeholder="Firstname*">
-              <span class="error firstnamefield-error d-none">Firstname Required</span>
+
+        <div class="mb-2">Do you hold Australian Security Clearance?</div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="clearance" id="option1" value="Yes, Baseline">
+          <label class="form-check-label" for="option1">
+            Yes, Baseline
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="clearance" id="option2" value="Yes, NVL1">
+          <label class="form-check-label" for="option2">
+            Yes, NVL1
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="clearance" id="option3" value="Yes, NVL2">
+          <label class="form-check-label" for="option3">
+            Yes, NVL2
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="clearance" id="option4" value="Yes, TSPV">
+          <label class="form-check-label" for="option4">
+            Yes, TSPV
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="clearance" id="option5" value="No">
+          <label class="form-check-label" for="option5">
+            No
+          </label>
+        </div>
+        <span class="error text-danger clearance-error d-none">Required Field</span>
+        <div class="mb-2 pt-4">
+          <input type="button" name="next" class="next btn btn-solid" value="Next" />
+        </div>
+       
+      </fieldset>
+      <fieldset class="step2">
+        <div class="row pt-4">
+          <div class="col-lg-5">
+  
+            <div class="job-table row">
+              <div class="col-5 title">Contract Type</div>
+              <div class="col-7 description">Contract</div>
+  
+              <div class="col-5 title">Reference</div>
+              <div class="col-7 description">BBBH260527</div>
+  
+              <div class="col-5 title">Industry</div>
+              <div class="col-7 description">Security + Cyber Security</div>
+  
+              <div class="col-5 title">Salary</div>
+              <div class="col-7 description">Negotiable</div>
             </div>
-            <div class="form-group col-lg-8">
-              <input type="text" class="form-control grey-field no-border lastnamefield" placeholder="Lastname*">
-              <span class="error lastnamefield-error d-none">Lastname Required</span>
-            </div>
-            <div class="form-group col-lg-8 pb-2">
-              <input type="email" class="form-control grey-field no-border emailfield" placeholder="Email*">
-              <span class="error emailfield-error d-none">Email Required</span>
-            </div>
-            <div class="form-group col-lg-8 pb-2">
-              <span>Attach CVS*</span>
-              <div class="upload-file">
-                <input type="file" id="real-file" hidden="hidden" required/>
-                <button type="button" id="custom-button">Choose File</button>
-                <span id="custom-text" class="error">Upload your cv</span>
+  
+          </div>
+          <div class="col-lg-7">
+            <form>
+            <div class="form-row">
+              <div class="form-group col-lg-8">
+                <input type="text" class="form-control grey-field no-border firstnamefield" placeholder="Firstname*">
+                <span class="error firstnamefield-error d-none">Firstname Required</span>
+              </div>
+              <div class="form-group col-lg-8">
+                <input type="text" class="form-control grey-field no-border lastnamefield" placeholder="Lastname*">
+                <span class="error lastnamefield-error d-none">Lastname Required</span>
+              </div>
+              <div class="form-group col-lg-8 pb-2">
+                <input type="email" class="form-control grey-field no-border emailfield" placeholder="Email*">
+                <span class="error emailfield-error d-none">Email Required</span>
+              </div>
+              <div class="form-group col-lg-8 pb-2">
+                <span>Attach CVS*</span>
+                <div class="upload-file">
+                  <input type="file" id="real-file" hidden="hidden" required/>
+                  <button type="button" id="custom-button">Choose File</button>
+                  <span id="custom-text" class="error">Upload your cv</span>
+                </div>
+              </div>
+              <div class="form-group col-lg-8 pb-2">
+                <span>By registering you agree to our <a href="/">Privacy Policy</a></span>
+              </div>
+              <div class="form-group col-lg-8">
+                <button type="submit" class="btn btn-solid">Register</button>
               </div>
             </div>
-            <div class="form-group col-lg-8 pb-2">
-              <span>By registering you agree to our <a href="/">Privacy Policy</a></span>
-            </div>
-            <div class="form-group col-lg-8">
-              <button type="submit" class="btn btn-solid">Register</button>
-            </div>
+            <form>
           </div>
-          <form>
+  
         </div>
-
-      </div>
-
+        <input type="button" name="previous" class="previous btn btn-solid" value="Previous" />
+      </fieldset>
     </section>
 
   </main>
