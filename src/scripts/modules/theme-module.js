@@ -21,6 +21,34 @@ AppName.Modules.ThemeModule = (function () {
 //
 //
 
+
+    $('.homebanner-slider').slick({
+      dots: true,
+      infinite: true,
+      speed: 2000,
+      slidesToShow: 1,
+      autoplay: true,
+      arrows: false,
+      fade: true,
+    });
+
+
+    var exitIntentShown = false;
+
+    $(document).mousemove(function(e) {
+      if (e.clientY < 10 && !exitIntentShown) {
+        $('#exitIntentModal').modal('show');
+        exitIntentShown = true;
+      }
+    });
+
+    // Reset modal after it's closed, so it can be shown again if needed
+    $('#exitIntentModal').on('hidden.bs.modal', function () {
+      exitIntentShown = false;
+    });
+
+
+
 	  $(".au-phone-format").each(function() {
 		const $phoneInput = $(this);
 		const $phoneError = $phoneInput.closest(".wpcf7-form-control-wrap").siblings(".phone-error");
