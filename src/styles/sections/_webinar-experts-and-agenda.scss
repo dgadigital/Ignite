@@ -1,0 +1,122 @@
+.webinar-experts-and-agenda {
+    padding: 0;
+    background-image: url('../assets/images/pattern-lined.png');
+    background-repeat: no-repeat;
+    background-position: left top 24px;
+    background-size: auto;
+
+    .container {
+        border-top: 2px solid #DADADA;
+    }
+
+    .experts-top {
+        @media (max-width: 991px) {
+            text-align: center;
+         }
+    }
+
+    h2 {
+        color: #002890;
+        font-size: 32px;
+        font-family: $font-raleway-semibold;
+        margin: 0;
+        padding-bottom: 24px;
+
+        @media (max-width: 991px) {
+           text-align: center;
+        }
+    }
+
+    p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .btn {
+        margin-top: 40px;
+    }
+
+    .our-experts {
+        padding-top: 80px;
+        padding-bottom: 80px;
+
+        @media (max-width: 991px) {
+            padding-bottom: 40px;
+        }
+    }
+
+    .experts {
+        @media (max-width: 991px) {
+            margin-top: 50px;
+        }
+
+        .item {
+            display: flex;
+            padding-bottom: 48px;
+        }
+
+        .image {
+            margin-right: 32px;
+        }
+
+        .name {
+            padding-top: 20px;
+            font-size: 24px;
+            font-family: $font-raleway-bold;
+
+            @media (max-width: 1199px) {
+                padding-top: 0;
+            }
+        }
+
+        .position {
+            font-size: 16px;
+            color: #353535;
+        }
+
+        .description {
+            margin-top: 34.5px;
+            font-size: 14px;
+            color: #353535;
+        }
+    }
+
+    .agenda {
+        padding-top: 80px;
+        padding-bottom: 80px;
+
+        @media (max-width: 991px) {
+            padding-top: 40px;
+        }
+    }
+
+    .agenda-content {
+        text-align: center;
+        margin-bottom: 56px;
+    }
+
+    .agenda-table {
+        width: 765px;
+        max-width: 100%;
+        margin: 0 auto;
+
+        .item {
+            padding: 20px 40px;
+            border-top: 1px solid #DADADA;
+
+            &:first-child {
+                border-top: 1px solid #292A2D;
+            }
+
+            .title {
+                font-size: 24px;
+                font-family: $font-raleway-semibold;
+            }
+
+            p {
+                padding-top: 16px;
+                font-size: 16px;
+            }
+        }
+    }
+}

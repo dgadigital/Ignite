@@ -90,7 +90,7 @@
 
         .form-box {
             padding: 42px;
-            width: 520px;
+            // width: 520px;
             max-width: 100%;
             border-radius: 6px;
             background: rgba(167, 184, 236, 0.30);
@@ -127,6 +127,10 @@
                 border: 1px solid #979797;
                 background: #FFF;
             }
+
+            p {
+                padding: 0;
+            }
         }
 
         small {
@@ -141,10 +145,7 @@
 
         .submit {
             margin-top: 56px;
-
-            @media (max-width: 767px) {
-                font-size: 12px;
-            }
+            white-space: normal;
         }
     }
 
