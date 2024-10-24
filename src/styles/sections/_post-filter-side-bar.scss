@@ -160,6 +160,15 @@
                     line-height: 30px;/*changed to lineheight 30 as per client*/
                     margin-bottom: 1rem; 
                 }
+
+                table {
+                    width: 100%;
+                    text-align: center;
+
+                    td {
+                        padding: 10px;
+                    }
+                }
                 
             }
 
