@@ -96,4 +96,27 @@
             
           }
     }
+
+    &.items-only {
+        background-color: #fffafa;
+
+        .column-info-stats-row {
+            margin-bottom: 0;
+            gap: 10px;
+            justify-content: space-between;
+
+            @media (max-width: 991px) {
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .column-container {
+                width: 170px;
+
+                .column-text {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 }   
