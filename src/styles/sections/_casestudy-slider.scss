@@ -1,0 +1,138 @@
+.three-column.casestudy-slider {
+
+    .three-column-container {
+        position: relative;
+        max-width: 1410px;
+    }
+
+    h3 {
+        color: #F6892B;
+        font-family: $font-raleway-bold;
+        font-size: 12px;
+    }
+
+    .link-arrow {
+        color: #F6892B;
+        font-family: $font-raleway-regular !important;
+    }
+
+    .three-column-row {
+        margin: 0 auto;
+        justify-content: center;
+
+        &.slider-enabled {
+            padding-bottom: 40px;
+        }
+    }
+
+    .three-column-row[data-count="3"] {
+        max-width: 100%;
+        gap: 0 40px;
+
+        .post {
+            width: 33.333%;
+        }
+    }
+
+    .three-column-row[data-count="2"] {
+        max-width: 926px;
+        gap: 0 40px;
+
+        .post {
+            width: 50%;
+        }
+    }
+
+    //slick gap
+    .three-column-row.slider-enabled[data-count="2"],
+    .three-column-row.slider-enabled[data-count="3"] {
+        .slick-list {
+            margin: 0 -15px;
+            .slick-slide {
+                margin: 0 15px;
+            }
+        }
+    }
+}
+
+
+
+.casestudy-slider {
+
+    &.bg-blue {
+        background-color: #ecf4ff;
+    }
+
+    .three-column-row.slider-enabled {
+      position: relative;
+    }
+  
+    .prev,
+    .next {
+      position: absolute;
+      z-index: 100;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background-color: rgba(80, 82, 85, 0.5);
+      height: 52px;
+      width: 52px;
+      border-radius: 50px;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }   
+    
+    .prev {
+        left: 100px;
+    }
+    
+    .next {
+        right: 100px;
+    }
+  
+    .slick-dots {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        text-align: center;
+        margin-top: 10px;
+        li:only-child{
+          display: none;
+        }
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 11.5px;
+
+          button {
+            background-color: #ffffff;
+            width: 9.62px;
+            height: 9.62px;
+            border-radius: 100%;
+            text-indent: -9999px;
+            border: none;
+            padding: 0;
+            border: 2px solid #0050CA;
+          }
+
+          &.slick-active button {
+            background-color: #0050CA; /* Customize the active dot color */
+      
+          }
+        }
+      
+    }
+}

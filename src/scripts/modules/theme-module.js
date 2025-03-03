@@ -414,9 +414,9 @@ AppName.Modules.ThemeModule = (function () {
 
   const __peoplecarousel = function(){
     $('.profile-row.profile-slider').slick({
-          infinite: true,
+          infinite: false,
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           dots: true,
           arrows: false,
           responsive: [
@@ -431,6 +431,202 @@ AppName.Modules.ThemeModule = (function () {
           ]
         });
     }
+
+
+    const _casestudySlider = function() {
+      $('.casestudy-slider .three-column-row.slider-enabled').each(function() {
+          let count = $(this).data("count") || 3; // Default slides count
+          let carousel = $(this);
+          let prevArrow = $(this).closest('.three-column-container').find('.prev');
+          let nextArrow = $(this).closest('.three-column-container').find('.next');
+  
+          carousel.slick({
+              infinite: false,
+              slidesToShow: count,
+              slidesToScroll: 1,
+              dots: true,
+              prevArrow: prevArrow,
+              nextArrow: nextArrow,
+              responsive: [
+                  {
+                      breakpoint: 768,
+                      settings: {
+                          slidesToShow: 1,
+                          slidesToScroll: 1,
+                          dots: true
+                      }
+                  }
+              ]
+          });
+      });
+  };
+  
+  const _whatWeDoSlider = function() {
+      $('.what-we-do .list.slider-enabled').each(function() {
+          let carousel = $(this);
+          let prevArrow = $(this).closest('.container').find('.prev');
+          let nextArrow = $(this).closest('.container').find('.next');
+  
+          carousel.slick({
+              infinite: false,
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              dots: true,
+              prevArrow: prevArrow,
+              nextArrow: nextArrow,
+              responsive: [
+                  {
+                      breakpoint: 991,
+                      settings: {
+                          slidesToShow: 2,
+                          slidesToScroll: 1,
+                          dots: true
+                      }
+                  },
+                  {
+                      breakpoint: 768,
+                      settings: {
+                          slidesToShow: 1,
+                          slidesToScroll: 1,
+                          dots: true
+                      }
+                  }
+              ]
+          });
+      });
+  };
+  
+  const _fullWidthCarousel = function() {
+      $('.full-width-carousel .list.slider-enabled').each(function() {
+          let carousel = $(this);
+          let prevArrow = $(this).closest('.slider-holder').find('.prev');
+          let nextArrow = $(this).closest('.slider-holder').find('.next');
+  
+          carousel.slick({
+              slidesToShow: 3,
+              centerMode: true,
+              prevArrow: prevArrow,
+              nextArrow: nextArrow,
+              dots: false,
+              responsive: [
+                  {
+                      breakpoint: 991,
+                      settings: {
+                          slidesToShow: 2,
+                          slidesToScroll: 1,
+                          dots: true
+                      }
+                  },
+                  {
+                      breakpoint: 768,
+                      settings: {
+                          slidesToShow: 1,
+                          slidesToScroll: 1,
+                          dots: true
+                      }
+                  }
+              ]
+          });
+      });
+  };
+
+
+  // const _casestudySlider = function(){
+
+  //   let count = $(".three-column-row.slider-enabled").data("count");
+  //   let carousel = $(this).find('.three-column-row.slider-enabled');
+  //   let prevArrow = $(this).find('.prev');
+  //   let nextArrow = $(this).find('.next');
+
+  //   carousel.slick({
+  //         infinite: false,
+  //         slidesToShow: count,
+  //         slidesToScroll: 1,
+  //         dots: true,
+  //         prevArrow: prevArrow,
+  //         nextArrow: nextArrow,
+  //         responsive: [
+  //             {
+  //                 breakpoint: 768,
+  //                 settings: {
+  //                     slidesToShow: 1,
+  //                     slidesToScroll: 1,
+  //                     dots: true
+  //                 }
+  //             }
+  //         ]
+  //       });
+  //   }
+
+
+  // const _whatWeDoSlider = function(){
+
+  //   let carousel = $(this).find('.what-we-do .list.slider-enabled');
+  //   let prevArrow = $(this).find('.prev');
+  //   let nextArrow = $(this).find('.next');
+
+  //   carousel.slick({
+  //         infinite: false,
+  //         slidesToShow: 3,
+  //         slidesToScroll: 1,
+  //         dots: true,
+  //         prevArrow: prevArrow,
+  //         nextArrow: nextArrow,
+  //         responsive: [
+  //             {
+  //               breakpoint: 991,
+  //               settings: {
+  //                   slidesToShow: 2,
+  //                   slidesToScroll: 1,
+  //                   dots: true
+  //               }
+  //             },
+  //             {
+  //                 breakpoint: 768,
+  //                 settings: {
+  //                     slidesToShow: 1,
+  //                     slidesToScroll: 1,
+  //                     dots: true
+  //                 }
+  //             }
+  //         ]
+  //     });
+  // }
+
+  // const _fullWidthCarousel = function(){
+
+  //   let carousel = $(this).find('.full-width-carousel .list.slider-enabled');
+  //   let prevArrow = $(this).find('.prev');
+  //   let nextArrow = $(this).find('.next');
+
+  //   carousel.slick({
+  //         slidesToShow: 3,
+  //         centerMode: true,
+  //         prevArrow: prevArrow,
+  //         nextArrow: nextArrow,
+  //         dots: false,
+  //         responsive: [
+  //             {
+  //               breakpoint: 991,
+  //               settings: {
+  //                   slidesToShow: 2,
+  //                   slidesToScroll: 1,
+  //                   dots: true
+  //               }
+  //             },
+  //             {
+  //                 breakpoint: 768,
+  //                 settings: {
+  //                     slidesToShow: 1,
+  //                     slidesToScroll: 1,
+  //                     dots: true
+  //                 }
+  //             }
+  //         ]
+  //     });
+  // }
+  
+
   const _testimonialslider = function(){
     $('.testimonial-row').slick({
           infinite: true,
@@ -493,12 +689,14 @@ AppName.Modules.ThemeModule = (function () {
     });
 });
 
+
+    let logoCarousel = $('.logo-row.two-rows').data("row");
     $('.logo-row.two-rows').slick({
           infinite: true,
           slidesToShow: 5,
           slidesToScroll: 1,
           autoplay: true,
-          rows: 2,
+          rows: logoCarousel,
           dots: true,
           arrows: false,
           responsive: [
@@ -1637,6 +1835,9 @@ $('#filter-form').on('submit', function(e) {
   _imageGallery();
   // _testimonials();
   _rollingNumber();
+  _casestudySlider();
+  _whatWeDoSlider();
+  _fullWidthCarousel();
   };
 
   return {

@@ -1,0 +1,37 @@
+.banner-list {
+
+    ul {
+        padding: 0;
+        list-style: none;
+
+        li {
+            position: relative;
+            padding-bottom: 40px;
+            padding-left: 78px;
+            font-size: 12px;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                display: block;
+                width: 50px;
+                height: 50px;
+                background-image: url('../assets/images/list-bullet.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+
+            .list-title {
+                padding-bottom: 10px;
+                font-size: 21px;
+                font-family: $font-raleway-semibold;
+            }
+        }
+    }    
+}

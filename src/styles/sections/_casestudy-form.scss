@@ -1,0 +1,22 @@
+.casestudy-form {
+    background-image: url(../assets/images/lines-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-color: #ECF4FF;
+
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 747px;
+        }
+    }
+
+    .head-image {
+        background-color: #0050ca;
+        background-image: url(../assets/images/star-shine.png);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+
+}

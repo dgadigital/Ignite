@@ -1,7 +1,16 @@
 .logo-carousel{
-
     box-shadow: 0px 5px 27px rgba(0, 0, 0, 0.122132);
     padding: 25px 0;
+
+    &.no-shadow {
+      box-shadow: none;
+    }
+
+    &.bg-blue {
+      padding-top: 70px;
+      padding-bottom: 70px;
+      background-color: #ECF4FF;
+    }
     
     .carousel-container{
         

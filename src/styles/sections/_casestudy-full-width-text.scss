@@ -1,0 +1,199 @@
+.casestudy-full-width-text {
+    &.bg-blue {
+        background-color: #ECF4FF;
+    }
+
+    &.bg-grey {
+        background-color: #F8F8F8;
+    }
+
+    &.bg-dark-blue {
+        background-color: #003aab;
+        color: #fff;
+        font-family: $font-raleway-bold;
+    }
+
+    h2 {
+        padding-bottom: 15px;
+        margin-bottom: 0px;
+        font-size: 50px;
+        font-family: $font-raleway-medium;
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+
+        li {
+            position: relative;
+            padding-left: 35px;
+            padding-bottom: 20px;
+            line-height: 30px;
+            font-family: $font-raleway-regular;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 10px;
+                left: 0;
+                width: 18px;
+                height: 20px;
+                background-image: url('../assets/images/check-list-case.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: auto;
+                object-fit: cover;
+            }
+
+            strong {
+                font-family: $font-raleway-bold;
+            }
+        }
+    }
+
+    .with-image {
+        &.content-row {
+            display: flex;
+            flex-wrap: wrap;
+
+            @media (max-width: 991px) {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .text-wrapper {
+            width: 55%;
+            padding-right: 25px;
+
+            @media (max-width: 991px) {
+                width: 100%;
+            }
+        }
+    
+        .image-wrapper {
+            width: 45%;
+
+            @media (max-width: 991px) {
+                width: 100%;
+                padding-bottom: 30px;
+                text-align: center;
+            }
+        }
+    }
+
+    
+    .two-column {
+        &.content-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .text-wrapper {
+            width: 50%;
+            padding-right: 25px;
+
+            @media (max-width: 991px) {
+                width: 100%;
+                padding-bottom: 30px;
+            }
+        }
+    
+        .right-wrapper {
+            width: 50%;
+
+            @media (max-width: 991px) {
+                width: 100%;
+            }
+
+            &.with-padding-top {
+                padding-top: 78px;
+
+
+                @media (max-width: 991px) {
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+
+    .column-list {
+        display: flex;
+        padding-top: 50px;
+        flex-wrap: wrap;
+
+        @media (max-width: 991px) {
+            padding-top: 30px;
+        }
+
+        .item {
+            width: 33.3333%;
+
+            @media (max-width: 767px) {
+                width: 100%;
+                padding-bottom: 20px;
+            }
+        }
+
+        .image {
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        .text {
+            line-height: 30px;
+            font-family: $font-raleway-regular;
+            padding-right: 10px;
+
+        }
+    }
+
+    .boxes {
+        padding-top: 50px;
+
+        .title {
+            padding-bottom: 10px;
+            font-family: $font-raleway-medium;
+            font-size: 20px;
+            color: #F6892B;
+            text-align: center;
+        }
+
+        .boxes-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 0 15px;
+
+            @media (max-width: 991px) {
+                flex-wrap: wrap;
+            }
+        }
+
+        .item {
+            margin-bottom: 15px;
+            padding: 25px;
+            text-align: center;
+            background-color: #fff;
+            width: 20%;
+            box-shadow: 0 18px 27px 0 rgba(0, 0, 0, .12);
+
+            @media (max-width: 991px) {
+                padding-top: 30px;
+                width: 25%;
+            }
+
+            @media (max-width: 767px) {
+                padding-top: 30px;
+                width: 100%;
+            }
+
+            p {
+                margin: 0;
+                padding-top: 20px;
+                line-height: 20px;
+                color: $text-color;
+                font-family: $font-raleway-regular;
+            }
+        }
+    }
+}

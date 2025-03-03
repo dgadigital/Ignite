@@ -1,0 +1,30 @@
+.full-simple-banner {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (max-width: 991px) {
+        text-align: center;    
+    }
+
+    h1 {
+        font-size: 35px;
+        color: #fff;
+
+        @media (max-width: 991px) {
+            font-size: 22px;
+        }
+    }
+
+    p {
+        padding-top: 20px;
+        padding-bottom: 10px;
+        color: #fff;
+    }
+
+    &.btn-only {
+        height: 363px;
+        display: flex;
+        align-items: center;
+    }
+}

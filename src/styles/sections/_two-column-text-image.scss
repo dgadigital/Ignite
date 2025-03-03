@@ -90,4 +90,24 @@
     &.with-bg {
         background-color: #f2f6fc;
     }
+
+    .text-wrapper-row {
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+            width: 50%;
+
+            @media (max-width: 991px) {
+                width: 100%;
+            }
+
+            .title {
+                padding-bottom: 15px;
+                font-size: 21px;
+                font-family: $font-raleway-semibold;
+            }
+        }
+    }
+    
 }

@@ -50,6 +50,10 @@
         }
     }
 
+    &.grey-bg {
+        background-color: #f7f7f7;
+    }
+
     &.text-align-left{
         text-align: left;
     }
@@ -69,6 +73,55 @@
             height: 100%;
             -o-object-fit: cover;
             object-fit: cover;
+        }
+    }
+
+    .custom-grid {
+        padding-top: 20px;
+        text-align: left;
+
+        ol {
+            li {
+                padding-bottom: 5px;
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+            li {
+                position: relative;
+                padding-bottom: 5px;
+                padding-left: 15px;
+
+                &:before {
+                    content: '•';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    color: #f6892b;
+                }
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .ratings {
+        .number {
+            font-size: 35px;
+            color: #002890;
+            font-family: $font-raleway-bold;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 20px;
         }
     }
 }
